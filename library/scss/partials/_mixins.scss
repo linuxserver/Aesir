@@ -1,0 +1,146 @@
+/******************************************************************
+Site Name:
+Author:
+
+Stylesheet: Mixins Stylesheet
+
+This is where you can take advantage of Sass' great features: Mixins.
+I won't go in-depth on how they work exactly,
+there are a few articles below that will help do that. What I will
+tell you is that this will help speed up simple changes like
+changing a color or adding CSS3 techniques gradients.
+
+A WORD OF WARNING: It's very easy to overdo it here. Be careful and
+remember less is more.
+
+Helpful:
+http://sachagreif.com/useful-sass-mixins/
+http://thesassway.com/intermediate/leveraging-sass-mixins-for-cleaner-code
+http://web-design-weekly.com/blog/2013/05/12/handy-sass-mixins/
+
+******************************************************************/
+
+
+/*********************
+TRANSITION
+*********************/
+
+/*
+I totally rewrote this to be cleaner and easier to use.
+You'll need to be using Sass 3.2+ for these to work.
+Thanks to @anthonyshort for the inspiration on these.
+USAGE: @include transition(all 0.2s ease-in-out);
+*/
+
+@mixin transition($transition...) {
+  // defining prefixes so we can use them in mixins below
+  $prefixes:      ("-webkit-", "" );
+  @each $prefix in $prefixes {
+    #{$prefix}transition: $transition;
+  }
+}
+
+/*********************
+CSS3 GRADIENTS
+Be careful with these since they can
+really slow down your CSS. Don't overdo it.
+*********************/
+
+/* @include css-gradient(#dfdfdf,#f8f8f8); */
+@mixin css-gradient($from: #dfdfdf, $to: #f8f8f8) {
+	background-color: $to;
+	background-image: -webkit-gradient(linear, left top, left bottom, from($from), to($to));
+	background-image: -webkit-linear-gradient(top, $from, $to);
+	background-image: -moz-linear-gradient(top, $from, $to);
+	background-image: -o-linear-gradient(top, $from, $to);
+	background-image: linear-gradient(to bottom, $from, $to);
+}
+
+/* @include css-gradient-h(#dfdfdf,#f8f8f8); */
+@mixin css-gradient-h($from: #dfdfdf, $to: #f8f8f8) {
+	background-color: $to;
+	background-image: -webkit-gradient(linear, left top, right top, from($from), to($to));
+	background-image: -webkit-linear-gradient(left, $from, $to);
+	background-image: -moz-linear-gradient(left, $from, $to);
+	background-image: -o-linear-gradient(left, $from, $to);
+	background-image: linear-gradient(to right, $from, $to);
+}
+
+
+
+@mixin bevel( $from: #000000, $to: #111111, $bg: $darker ) {
+
+  background: -moz-linear-gradient(top,$from 0%, $to 100%);
+  background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,$from),color-stop(100%, $to));
+  background: -webkit-linear-gradient(top,$from 0%, $to 100%);
+  background: -o-linear-gradient(top,$from 0%, $to 100%);
+  background: -ms-linear-gradient(top,$from 0%, $to 100%);
+  background: linear-gradient(to bottom,$from 0%, $to 100%);
+  -webkit-box-shadow: 0 -1px 1px rgba(0,0,0,.27),0 1px 1px rgba(255,255,255,.18);
+  box-shadow: 0 -1px 1px rgba(0,0,0,.27),0 1px 1px rgba(255,255,255,.18);
+  position: relative;
+  padding: 7px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 5px;
+    right: 5px;
+    top: 5px;
+    bottom: 5px;
+    background: $bg;
+    -webkit-box-shadow: inset 0 -1px 1px rgba(0,0,0,.27),inset 0 1px 1px rgba(255,255,255,.18);
+    box-shadow: inset 0 -1px 1px rgba(0,0,0,.27),inset 0 1px 1px rgba(255,255,255,.18);
+  }
+  &.work::after, &::after {
+    content: '';
+    position: absolute;
+    left: 28px;
+    top: 31px;
+    width: 53px;
+    height: 50px;
+  }
+}
+
+/*********************
+BOX SHADOW
+*********************/
+
+/* @include box-shadow($top, $left, $blur, $spread, $color, $inset: false); */
+
+
+@mixin box-shadow($top, $left, $blur, $spread, $color, $inset: false) {
+  @if $inset {
+    -webkit-box-shadow:inset $top $left $blur $spread $color;
+    -moz-box-shadow:inset $top $left $blur $spread $color;
+    box-shadow:inset $top $left $blur $spread $color;
+  } @else {
+    -webkit-box-shadow: $top $left $blur $spread $color;
+    -moz-box-shadow: $top $left $blur $spread $color;
+    box-shadow: $top $left $blur $spread $color;
+  }
+}
+
+
+/*********************
+BOX SIZING
+*********************/
+
+/* @include box-sizing(border-box); */
+/* NOTE: value of "padding-box" is only supported in Gecko. So
+probably best not to use it. I mean, were you going to anyway? */
+@mixin box-sizing($type: border-box) {
+	-webkit-box-sizing: $type;
+	-moz-box-sizing:    $type;
+	-ms-box-sizing:     $type;
+	box-sizing:         $type;
+}
+
+
+@mixin placeholder {
+  &::-webkit-input-placeholder {@content}
+  &:-moz-placeholder           {@content}
+  &::-moz-placeholder          {@content}
+  &:-ms-input-placeholder      {@content}  
+}
+

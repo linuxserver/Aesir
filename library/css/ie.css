@@ -1,0 +1,664 @@
+/******************************************************************
+Site Name:
+Author:
+
+Stylesheet: IE Stylesheet
+
+So instead of using the respond.js file to add media query support
+to IE, we're going to use SASS to create an easily readable css file.
+Here, we import all the styles the standard stylesheet gets, only
+without the media queries. No need to worry about editing anything!
+
+******************************************************************/
+/******************************************************************
+IMPORTS & DEPENDENCIES
+Remember, all the BASE styles are called already since IE can
+read those. Below, we need to import only the stuff IE can't
+understand (what's inside the media queries). We also need to
+import the mixins file so SASS can understand the variables.
+******************************************************************/
+/******************************************************************
+Site Name:
+Author:
+
+Stylesheet: Variables
+
+Here is where we declare all our variables like colors, fonts,
+base values, and defaults. We want to make sure this file ONLY
+contains variables that way our files don't get all messy.
+No one likes a mess.
+
+******************************************************************/
+/*********************
+COLORS
+Need help w/ choosing your colors? Try this site out:
+http://0to255.com/
+*********************/
+/* DARK COLOURS */
+/* LIGHT COLOURS */
+/*
+Here's a great tutorial on how to
+use color variables properly:
+http://sachagreif.com/sass-color-variables/
+*/
+/******************************************************************
+Site Name:
+Author:
+
+Stylesheet: Typography
+
+Need to import a font or set of icons for your site? Drop them in
+here or just use this to establish your typographical grid. Or not.
+Do whatever you want to...GOSH!
+
+Helpful Articles:
+http://trentwalton.com/2012/06/19/fluid-type/
+http://ia.net/blog/responsive-typography-the-basics/
+http://alistapart.com/column/responsive-typography-is-a-physical-discipline
+
+******************************************************************/
+/*********************
+FONT FACE (IN YOUR FACE)
+*********************/
+/*  To embed your own fonts, use this syntax
+  and place your fonts inside the
+  library/fonts folder. For more information
+  on embedding fonts, go to:
+  http://www.fontsquirrel.com/
+  Be sure to remove the comment brackets.
+*/
+@font-face {
+  font-family: 'icomoon';
+  src: url("../fonts/icomoon.eot?-zbnv95");
+  src: url("../fonts/icomoon.eot?#iefix-zbnv95") format("embedded-opentype"), url("../fonts/icomoon.woff?-zbnv95") format("woff"), url("../fonts/icomoon.ttf?-zbnv95") format("truetype"), url("../fonts/icomoon.svg?-zbnv95#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+/* line 42, ../scss/partials/_typography.scss */
+[class^="icon-"], [class*=" icon-"] {
+  font-family: 'icomoon';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* line 56, ../scss/partials/_typography.scss */
+.icon-hdd:before {
+  content: "\e600";
+}
+
+/* line 59, ../scss/partials/_typography.scss */
+.icon-warning:before {
+  content: "\ed4c";
+}
+
+/* line 62, ../scss/partials/_typography.scss */
+.icon-home:before {
+  content: "\e900";
+}
+
+/* line 65, ../scss/partials/_typography.scss */
+.icon-users:before {
+  content: "\eaf5";
+}
+
+/* line 68, ../scss/partials/_typography.scss */
+.icon-equalizer:before {
+  content: "\eb58";
+}
+
+/* line 71, ../scss/partials/_typography.scss */
+.icon-knife:before {
+  content: "\eb67";
+}
+
+/* line 74, ../scss/partials/_typography.scss */
+.icon-meter:before {
+  content: "\ebdb";
+}
+
+/* line 77, ../scss/partials/_typography.scss */
+.icon-puzzle3:before {
+  content: "\ec1e";
+}
+
+/* line 80, ../scss/partials/_typography.scss */
+.icon-brain:before {
+  content: "\ec24";
+}
+
+/* line 83, ../scss/partials/_typography.scss */
+.icon-tree6:before {
+  content: "\ec62";
+}
+
+/* line 86, ../scss/partials/_typography.scss */
+.icon-usb-stick:before {
+  content: "\ea8d";
+}
+
+/* line 89, ../scss/partials/_typography.scss */
+.icon-sleepy:before {
+  content: "\ed1d";
+}
+
+/* line 92, ../scss/partials/_typography.scss */
+.icon-loop2:before {
+  content: "\eda6";
+}
+
+/* line 95, ../scss/partials/_typography.scss */
+.icon-infinite:before {
+  content: "\eda9";
+}
+
+/* line 98, ../scss/partials/_typography.scss */
+.icon-shuffle2:before {
+  content: "\edad";
+}
+
+/* line 101, ../scss/partials/_typography.scss */
+.icon-checkbox-checked:before {
+  content: "\ee63";
+}
+
+/* line 104, ../scss/partials/_typography.scss */
+.icon-checkbox-unchecked:before {
+  content: "\ee64";
+}
+
+/*
+The following is based of Typebase:
+https://github.com/devinhunt/typebase.css
+I've edited it a bit, but it's a nice starting point.
+*/
+/*
+ i imported this one in the functions file so bones would look sweet.
+ don't forget to remove it for your site.
+*/
+/*
+some nice typographical defaults
+more here: http://www.newnet-soft.com/blog/csstypography
+*/
+/* line 133, ../scss/partials/_typography.scss */
+p {
+  -ms-word-wrap: break-word;
+  word-break: break-word;
+  word-wrap: break-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
+  -webkit-hyphenate-before: 2;
+  -webkit-hyphenate-after: 3;
+  hyphenate-lines: 3;
+  -webkit-font-feature-settings: "liga", "dlig";
+  -moz-font-feature-settings: "liga=1, dlig=1";
+  -ms-font-feature-settings: "liga", "dlig";
+  -o-font-feature-settings: "liga", "dlig";
+  font-feature-settings: "liga", "dlig";
+}
+
+/******************************************************************
+Site Name:
+Author:
+
+Stylesheet: Mixins Stylesheet
+
+This is where you can take advantage of Sass' great features: Mixins.
+I won't go in-depth on how they work exactly,
+there are a few articles below that will help do that. What I will
+tell you is that this will help speed up simple changes like
+changing a color or adding CSS3 techniques gradients.
+
+A WORD OF WARNING: It's very easy to overdo it here. Be careful and
+remember less is more.
+
+Helpful:
+http://sachagreif.com/useful-sass-mixins/
+http://thesassway.com/intermediate/leveraging-sass-mixins-for-cleaner-code
+http://web-design-weekly.com/blog/2013/05/12/handy-sass-mixins/
+
+******************************************************************/
+/*********************
+TRANSITION
+*********************/
+/*
+I totally rewrote this to be cleaner and easier to use.
+You'll need to be using Sass 3.2+ for these to work.
+Thanks to @anthonyshort for the inspiration on these.
+USAGE: @include transition(all 0.2s ease-in-out);
+*/
+/*********************
+CSS3 GRADIENTS
+Be careful with these since they can
+really slow down your CSS. Don't overdo it.
+*********************/
+/* @include css-gradient(#dfdfdf,#f8f8f8); */
+/* @include css-gradient-h(#dfdfdf,#f8f8f8); */
+/*********************
+BOX SHADOW
+*********************/
+/* @include box-shadow($top, $left, $blur, $spread, $color, $inset: false); */
+/*********************
+BOX SIZING
+*********************/
+/* @include box-sizing(border-box); */
+/* NOTE: value of "padding-box" is only supported in Gecko. So
+probably best not to use it. I mean, were you going to anyway? */
+/******************************************************************
+Site Name:
+Author:
+
+Stylesheet: IE Grid Styles
+
+Since the example grid is based on media queries, so rather than
+setup some js library that would make IE8 and below understand
+media queries, let's just add some styles that serves a fixed grid.
+
+Again, if you want to roll your own, just remove this junk and put
+whatever you use in here.
+
+******************************************************************/
+/******************************************************************
+Site Name:
+Author:
+
+Stylesheet: 481px and Up Stylesheet
+
+This stylesheet is loaded for larger devices. It's set to
+481px because at 480px it would load on a landscaped iPhone.
+This isn't ideal because then you would be loading all those
+extra styles on that same mobile connection.
+
+A word of warning. This size COULD be a larger mobile device,
+so you still want to keep it pretty light and simply expand
+upon your base.scss styles.
+
+******************************************************************/
+/*
+IMPORTANT NOTE ABOUT SASS 3.3 & UP
+You can't use @extend within media queries
+anymore, so just be aware that if you drop
+them in here, they won't work.
+*/
+/*********************
+GENERAL STYLES
+*********************/
+/*********************
+LAYOUT & GRID STYLES
+*********************/
+/*********************
+LINK STYLES
+*********************/
+/******************************************************************
+H1, H2, H3, H4, H5 STYLES
+******************************************************************/
+/*********************
+HEADER STYLES
+*********************/
+/*********************
+NAVIGATION STYLES
+*********************/
+/*********************
+PAGE SPECIFIC STYLES
+*********************/
+/******************************************************************
+PAGE NAVI STYLES
+******************************************************************/
+/*********************
+SIDEBARS & ASIDES
+*********************/
+/*********************
+FOOTER STYLES
+*********************/
+/******************************************************************
+Site Name:
+Author:
+
+Stylesheet: Tablet & Small Desktop Stylesheet
+
+Here's where you can start getting into the good stuff.
+This size will work on iPads, other tablets, and desktops.
+So you can start working with more styles, background images,
+and other resources. You'll also notice the grid starts to
+come into play. Have fun!
+
+******************************************************************/
+/*********************
+GENERAL STYLES
+*********************/
+/*********************
+LAYOUT & GRID STYLES
+*********************/
+/*********************
+LINK STYLES
+*********************/
+/******************************************************************
+H1, H2, H3, H4, H5 STYLES
+******************************************************************/
+/*********************
+HEADER STYLES
+*********************/
+/*********************
+NAVIGATION STYLES
+*********************/
+/*********************
+PAGE SPECIFIC STYLES
+*********************/
+/******************************************************************
+PAGE NAVI STYLES
+******************************************************************/
+/*********************
+SIDEBARS & ASIDES
+*********************/
+/*********************
+FOOTER STYLES
+*********************/
+/******************************************************************
+Site Name:
+Author:
+
+Stylesheet: Desktop Stylsheet
+
+This is the desktop size. It's larger than an iPad so it will only
+be seen on the Desktop.
+
+******************************************************************/
+/*********************
+GENERAL STYLES
+*********************/
+/* line 16, ../scss/breakpoints/_1030up.scss */
+#status {
+  text-align: center;
+  padding: 50px;
+}
+/* line 19, ../scss/breakpoints/_1030up.scss */
+#status .indicator {
+  display: inline-block;
+  vertical-align: top;
+  width: 33%;
+}
+
+/* line 25, ../scss/breakpoints/_1030up.scss */
+#status.mini {
+  position: absolute;
+  padding: 0;
+  right: 10px;
+  top: 15px;
+  background: none;
+}
+
+/* line 33, ../scss/breakpoints/_1030up.scss */
+.dashmodules section {
+  display: inline-block;
+  vertical-align: top;
+  width: 33%;
+}
+/* line 37, ../scss/breakpoints/_1030up.scss */
+.dashmodules section.full {
+  width: 100%;
+}
+
+/*********************
+LAYOUT & GRID STYLES
+*********************/
+/* line 55, ../scss/breakpoints/_1030up.scss */
+.table-box {
+  display: table;
+  width: 100%;
+}
+/* line 58, ../scss/breakpoints/_1030up.scss */
+.table-box .disk {
+  display: table-cell;
+}
+
+/* line 63, ../scss/breakpoints/_1030up.scss */
+.spin {
+  float: left;
+  font-size: 18px;
+  margin-right: 18px;
+  padding-top: 8px;
+}
+
+/* line 66, ../scss/breakpoints/_1030up.scss */
+.col {
+  display: table-cell;
+  vertical-align: top;
+}
+
+/* line 70, ../scss/breakpoints/_1030up.scss */
+.col1 {
+  width: 340px;
+}
+
+/* line 71, ../scss/breakpoints/_1030up.scss */
+.col-table {
+  display: table;
+  width: 100%;
+}
+
+/* line 72, ../scss/breakpoints/_1030up.scss */
+.overcol1 {
+  width: 160px;
+}
+
+/* line 73, ../scss/breakpoints/_1030up.scss */
+.col2 {
+  width: 80px;
+}
+
+/* line 74, ../scss/breakpoints/_1030up.scss */
+.col2, .col3, .col4, .col5, .col6 {
+  text-align: center;
+}
+
+/* line 75, ../scss/breakpoints/_1030up.scss */
+.col4, .col5 {
+  width: 46%;
+  padding-bottom: 0;
+}
+
+/* line 77, ../scss/breakpoints/_1030up.scss */
+.col .space-info {
+  background: #1e1e1e;
+  padding: 1px;
+  float: left;
+  width: 100%;
+}
+
+/* line 78, ../scss/breakpoints/_1030up.scss */
+.col .space {
+  background: #898989;
+  height: 8px;
+}
+
+/* line 79, ../scss/breakpoints/_1030up.scss */
+.col .used {
+  background: #636363;
+  border-right: 1px solid #1e1e1e;
+  height: 8px;
+}
+
+/* line 81, ../scss/breakpoints/_1030up.scss */
+.disk-info.failed, .disk-info.failed .temp, .disk-info.failed .temp span, .disk-info.failed .mini-disk-info span {
+  color: #c92525;
+}
+
+/* line 82, ../scss/breakpoints/_1030up.scss */
+.disk-info.failed .space {
+  background: #fb9797;
+}
+
+/* line 92, ../scss/breakpoints/_1030up.scss */
+.tabs {
+  position: relative;
+}
+/* line 94, ../scss/breakpoints/_1030up.scss */
+.tabs ul {
+  margin: 0;
+  display: table;
+  width: 100%;
+}
+/* line 99, ../scss/breakpoints/_1030up.scss */
+.tabs ul li {
+  display: table-cell;
+  list-style: none;
+  border-left: 2px solid #2c2d29;
+}
+/* line 103, ../scss/breakpoints/_1030up.scss */
+.tabs ul li a {
+  display: inline-block;
+  background: #31322F;
+  padding: 30px 15px;
+  font-size: 16px;
+  width: 100%;
+  text-align: center;
+}
+/* line 113, ../scss/breakpoints/_1030up.scss */
+.tabs ul li.active a {
+  background: none;
+  color: #abc056;
+}
+
+/*********************
+LINK STYLES
+*********************/
+/******************************************************************
+H1, H2, H3, H4, H5 STYLES
+******************************************************************/
+/*********************
+HEADER STYLES
+*********************/
+/* line 135, ../scss/breakpoints/_1030up.scss */
+#header {
+  display: table;
+  width: 100%;
+}
+/* line 138, ../scss/breakpoints/_1030up.scss */
+#header section {
+  display: table-cell;
+  vertical-align: top;
+}
+/* line 142, ../scss/breakpoints/_1030up.scss */
+#header #title {
+  display: table-cell !important;
+}
+
+/* line 147, ../scss/breakpoints/_1030up.scss */
+.left {
+  width: 320px;
+  display: table-cell;
+  vertical-align: top;
+  overflow: hidden;
+  white-space: nowrap;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+/*********************
+NAVIGATION STYLES
+*********************/
+/*********************
+PAGE SPECIFIC STYLES
+*********************/
+/* DASHBOARD */
+/* line 167, ../scss/breakpoints/_1030up.scss */
+.section1 {
+  padding: 70px 30px;
+}
+
+/* line 170, ../scss/breakpoints/_1030up.scss */
+#datadisks {
+  display: inline-block;
+  vertical-align: top;
+  width: 70%;
+  text-align: left;
+  box-sizing: border-box;
+}
+/* line 176, ../scss/breakpoints/_1030up.scss */
+#datadisks .datadisks {
+  background: -moz-linear-gradient(top, #111310 0%, #131513 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #111310), color-stop(100%, #131513));
+  background: -webkit-linear-gradient(top, #111310 0%, #131513 100%);
+  background: -o-linear-gradient(top, #111310 0%, #131513 100%);
+  background: -ms-linear-gradient(top, #111310 0%, #131513 100%);
+  background: linear-gradient(to bottom, #111310 0%, #131513 100%);
+  -webkit-box-shadow: 0 -1px 1px rgba(0, 0, 0, 0.27), 0 1px 1px rgba(255, 255, 255, 0.18);
+  box-shadow: 0 -1px 1px rgba(0, 0, 0, 0.27), 0 1px 1px rgba(255, 255, 255, 0.18);
+  position: relative;
+  padding: 7px;
+  margin: 0 5px;
+  min-height: 316px;
+}
+/* line 84, ../scss/partials/_mixins.scss */
+#datadisks .datadisks::before {
+  content: '';
+  position: absolute;
+  left: 5px;
+  right: 5px;
+  top: 5px;
+  bottom: 5px;
+  background: #2c2d29;
+  -webkit-box-shadow: inset 0 -1px 1px rgba(0, 0, 0, 0.27), inset 0 1px 1px rgba(255, 255, 255, 0.18);
+  box-shadow: inset 0 -1px 1px rgba(0, 0, 0, 0.27), inset 0 1px 1px rgba(255, 255, 255, 0.18);
+}
+/* line 95, ../scss/partials/_mixins.scss */
+#datadisks .datadisks.work::after, #datadisks .datadisks::after {
+  content: '';
+  position: absolute;
+  left: 28px;
+  top: 31px;
+  width: 53px;
+  height: 50px;
+}
+
+/* line 183, ../scss/breakpoints/_1030up.scss */
+.array_drives {
+  width: 30%;
+  display: inline-block;
+  vertical-align: top;
+  box-sizing: border-box;
+}
+/* line 188, ../scss/breakpoints/_1030up.scss */
+.array_drives .drive_list {
+  margin: 0 5px;
+}
+
+/******************************************************************
+PAGE NAVI STYLES
+******************************************************************/
+/*********************
+SIDEBARS & ASIDES
+*********************/
+/*********************
+FOOTER STYLES
+*********************/
+/*
+you can call the larger styles if you want, but there's really no need
+*/
+/******************************************************************
+ADDITIONAL IE FIXES
+These fixes are now ONLY seen by IE, so you don't have to worry
+about using prefixes, although it's best practice. For more info
+on using Modernizr classes, check out this link:
+http://www.modernizr.com/docs/
+******************************************************************/
+/*
+For example, you can use something like:
+
+.no-textshadow .class { ... }
+
+You can also target specific versions by using the classes applied to
+the html element. These can sometimes change, so take a look inside the
+header.php file to see what they are:
+
+
+.lt-ie8 .class { ... }
+
+*/

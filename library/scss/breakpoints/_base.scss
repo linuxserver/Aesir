@@ -1,0 +1,715 @@
+/******************************************************************
+Site Name:
+Author:
+
+Stylesheet: Base Mobile Stylesheet
+
+Be light and don't over style since everything here will be
+loaded by mobile devices. You want to keep it as minimal as
+possible. This is called at the top of the main stylsheet
+and will be used across all viewports.
+
+******************************************************************/
+
+/*********************
+GENERAL STYLES
+*********************/
+
+body {
+	font-family: $lato;
+	font-size: 100%;
+	line-height: 1.5;
+	color: $text-color;
+	background-color: $bg-color;
+  	-webkit-font-smoothing: antialiased;
+  	-moz-osx-font-smoothing: grayscale;
+  	text-transform: uppercase;
+}
+.dashmodules {
+	section {
+		position: relative;
+		width: 100%;
+	}
+}
+
+#status {
+	text-align: center;
+	padding: 10px 0;
+	background: $headersect;
+	.indicator {
+		position: relative;
+		width: 100%;
+		margin: 10px 0;
+		.section_title {
+			position: absolute;
+			top: 35px;
+			left: 0;
+			width: 100%;
+			text-align: center;
+			font-size: 19px;
+			font-weight: 300;
+		}
+	}
+	canvas {
+		position: relative;
+		margin: 1px;
+	}
+
+	.status_container {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		text-align: center;
+		z-index: 2;
+		opacity: 0;
+		@include transition(all 0.2s ease-in-out);
+		&.active {
+			opacity: 1;
+		}
+		&.clicked {
+			opacity: 1;
+		}
+	}
+
+	.status_button {
+		background: rgba(0,0,0,0.9);
+		width: 252px;
+		height: 252px;
+		border-radius: 50%;
+		display: inline-block;
+		padding: 50px;
+		font-size: 12px;
+		text-transform: none;
+		.title {
+			color: $white;
+			font-size: 20px;
+			text-transform: uppercase;
+			line-height: 1.2;
+			margin-bottom: 20px;
+		}
+	}
+
+	#over-free span {
+	  	text-align: center;
+	  	font-size: 20px;
+	  	display: inline-block;
+	  	text-align: left;
+	  	line-height: 21px;
+		text-transform: uppercase;
+	}
+	#capacity-details {
+		position: absolute;
+		top: 148px;
+		font-size: 20px;
+		font-weight: 300;
+		text-align: center;
+		line-height: 1;
+		width: 100%;	
+	}
+
+	.indicator_details {
+		position: absolute;
+		top: 148px;
+		width: 100%;
+		font-size: 13px;
+		font-weight: 400;
+		text-align: center;
+		line-height: 1.2;
+		text-transform: none;
+		.title {
+			font-size: 20px;
+			text-transform: uppercase;
+		}
+		span {
+			color: $white;
+		}
+	}
+	.show_status {
+		position: absolute;
+		top: 40px;
+		font-size: 80px;
+		font-weight: 300;
+		text-align: center;
+		width: 100%;	
+		color: $white;	
+		vertical-align: bottom;
+		line-height: 120px;
+		i {
+			font-size: 65px;
+			line-height: 120px;
+		}
+	}
+
+}
+
+.decor-container {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	text-align: center;
+}
+.decor {
+	display: block;
+	margin: 0 auto 25px;
+	width: 252px;
+	height: 252px;
+	background: -moz-linear-gradient(top,#000000 0%,#111111 100%);
+	background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#000000),color-stop(100%,#111111));
+	background: -webkit-linear-gradient(top,#000000 0%,#111111 100%);
+	background: -o-linear-gradient(top,#000000 0%,#111111 100%);
+	background: -ms-linear-gradient(top,#000000 0%,#111111 100%);
+	background: linear-gradient(to bottom,#000000 0%,#111111 100%);
+	border-radius: 100%;
+	-webkit-border-radius: 100%;
+	-webkit-box-shadow: 0 -1px 1px rgba(0,0,0,.27),0 1px 1px rgba(255,255,255,.18);
+	box-shadow: 0 -1px 1px rgba(0,0,0,.27),0 1px 1px rgba(255,255,255,.18);
+	position: relative;
+
+	&::before {
+	  content: '';
+	  border-radius: 100%;
+	  -webkit-border-radius: 100%;
+	  position: absolute;
+	  left: 7px;
+	  right: 7px;
+	  top: 7px;
+	  bottom: 7px;
+	  background: $darker;
+	  -webkit-box-shadow: inset 0 -1px 1px rgba(0,0,0,.27),inset 0 1px 1px rgba(255,255,255,.18);
+	  box-shadow: inset 0 -1px 1px rgba(0,0,0,.27),inset 0 1px 1px rgba(255,255,255,.18);
+	}
+	&.work::after, &::after {
+		content: '';
+		position: absolute;
+		left: 28px;
+		top: 31px;
+		width: 53px;
+		height: 50px;
+	}
+
+
+}
+
+.dashmodules {
+	section {
+		display: block;
+		background: $darker;
+	}
+	.system_info {
+		padding: 20px;
+		text-align: center;
+		font-size: 15px;
+		font-weight: 400;
+		color: $text-alt;
+		ul {
+			margin: 0;
+		}
+		li {
+			display: inline-block;
+			margin: 0 5px;
+		}
+		span.greentext {
+			color: $text-color;
+			display: inline-block;
+		}
+	}
+}
+#status.mini {
+	.decor {
+		width: 122px;
+		height: 122px;
+
+		&::before {
+		  left: 5px;
+		  right: 5px;
+		  top: 5px;
+		  bottom: 5px;
+		}
+	}
+	canvas {
+		width: 120px;
+		height: 120px;
+	}
+	.show_status {
+		top: -10px;
+		font-size: 40px;
+		i {
+			font-size: 40px;
+			position: relative;
+  			top: -4px;
+		}
+	}
+	#over-free span {
+		font-size: 12px;
+		line-height: 12px;
+	}
+	.indicator .section_title, #capacity-details {
+		font-weight: 400;
+		font-size: 12px;
+		top: 70px;
+	}
+	.indicator_details {
+		display: none;
+	}
+	.status_button {
+		width: 122px;
+		height: 122px;
+		padding: 10px 2px 0;
+		.title {
+			font-size: 12px;
+			margin-bottom: 4px;
+		}
+	}
+
+}
+
+
+/*********************
+LAYOUT & GRID STYLES
+*********************/
+
+.wrap {
+	width: 100%;
+	margin: 0 auto;
+}
+
+#content {
+	display:table;
+	table-layout:fixed; 
+	width: 100%;
+}
+#pagecontainer {
+		display:table-cell;
+		vertical-align: top;
+}
+
+.col {
+	line-height: 1;
+	padding: 4px 4px 4px;
+}
+.nothingtosee {
+	padding: 50px 10px;
+	text-align: center;
+}
+.disk-info {
+	position: relative;
+	text-align: left;
+	padding-left: 80px;
+	.spin {
+		float: none;
+		margin: 0;
+	}
+	.col1 {
+		width: 100%;
+	}
+	div {
+		display: inline-block;
+		vertical-align: top;
+	}
+	.diskid {
+		font-size: 12px;
+		font-weight: 400;
+		word-wrap: break-word;
+		display: block;
+	}
+	.disk-ref { 
+		line-height: 22px; 
+		font-size: 22px; 
+		text-transform: uppercase; 
+		
+		padding: 10px 5px 5px; 
+		width: 100%; 
+		display: block; 
+		vertical-align: top; 
+		position: relative;
+		h2 {
+			margin: 0;
+			color: $light-text; 
+			font-weight: 400;
+			font-size: 22px;
+			line-height: 1;
+		}
+	}
+	.disk_size { position: absolute; right: 10px; top: 10px; }
+	.disk-name { display: block; font-size: 11px; font-weight: 400; word-wrap: break-word; line-height: 1; margin: 10px 0 10px; }
+	
+	.disk { 
+		display: inline-block; 
+		width: 55px; 
+		vertical-align: top; 
+		font-size: 55px; 
+		color: $healthy;
+		&.spundown { opacity: 0.2; }
+
+	}
+	.mini-disk-info {
+		margin-left: 5px;
+	}
+	.drivecol {
+		width: 60px;
+		text-align: center;
+		display: block;
+		position: absolute;
+		left: 10px;
+		top: 5px;
+	}
+	.temp {
+		font-size: 29px;
+		display: inline-block;
+		font-weight: 400;
+		color: #7a7f75;
+		min-width: 90px;
+		text-align: ledt;
+		span {
+			font-size: 18px;
+			display: inline-block;
+			font-weight: 300;
+			position: relative;
+			top: -8px;
+			color: #898989;
+		}
+	}
+	.spinico {
+		display: inline-block;
+		font-size: 26px;
+		text-decoration: none;
+		color: #7a7f75;
+		margin-left: 0px;
+		margin-top:5px;
+	}
+    .space-info {
+		background: #1e1e1e;
+		padding: 4px;
+		text-align: center;
+		clear: both;
+		font-size: 12px;
+    }
+    .space {
+		background: #898989;
+		height: 8px;
+		display: block;
+		text-align: left;
+	}
+	.used {
+		background: #636363;
+		height: 8px;
+		border-right: 1px solid #1e1e1e;
+	}
+}
+
+
+.table-box {
+	margin-bottom: 4px; 
+	padding: 10px 25px; 
+	.failed { 
+		background: #630e0e; 
+	}
+	.disk { 
+		display: inline-block; 
+		width: 40px; 
+		vertical-align: top; 
+		font-size: 40px; 
+		color: $healthy;
+		&.spundown { opacity: 0.2; }
+
+	}
+	&.disk_errors {
+		.disk {
+			color: $alert-red;
+		}
+	}
+
+	.spin { display: table-cell; width: 30px; vertical-align: top; }
+	.disk_size { position: absolute; left: 180px; top: 0px; }
+	.colspace { 
+		font-size: 13px; 
+		display: inline-block; 
+		font-weight: 400; 
+		color: $text-color; 
+		margin-bottom: 3px;
+		span { font-size: 10px; display: inline-block; font-weight: 300; position: relative; top: -2px; left: 3px; color: #898989; }
+	}
+
+	.spinico { display: inline-block; font-size: 20px; text-decoration: none; color: $text-color; margin-left: 8px;}
+	.disk-ref { line-height: 18px; font-size: 18px; text-transform: uppercase; font-weight: 700; color: $text-color; display: table-cell; vertical-align: top; position: relative; word-wrap: break-word;}
+	.disk-name { display: inline-block; font-size: 12px; font-weight: 400; color: #bebebe; width: 242px; }
+	.temp { 
+		font-size: 29px; 
+		display: inline-block; 
+		font-weight: 400; 
+		color: $text-color; 
+		span { font-size: 18px; display: inline-block; font-weight: 300; position: relative; top: -8px; color: #898989; }
+	}
+
+}
+.redtext { color: $alert-red !important; }
+.tabs {
+	ul {
+		display: block;
+		li {
+			display: block;
+			a {
+				padding: 10px 15px;
+				color: $text-color;
+				text-decoration: none;
+			}
+		}
+	}
+}
+
+/*********************
+LINK STYLES
+*********************/
+
+a, a:visited {
+	color: $link-color;
+
+	/* on hover */
+	&:hover, &:focus {
+		color: $link-hover;
+	}
+
+	/* on click */
+	&:active {
+
+	}
+
+	/* mobile tap color */
+	&:link {
+		/*
+		this highlights links on iPhones/iPads.
+		so it basically works like the :hover selector
+		for mobile devices.
+		*/
+		-webkit-tap-highlight-color : rgba( 0, 0, 0, 0.3 );
+	}
+}
+.account_button {
+	padding: 4px 10px!important;
+	margin-top: 10px;
+}
+.fr {
+	float: right;
+}
+
+/******************************************************************
+H1, H2, H3, H4, H5 STYLES
+******************************************************************/
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
+	text-rendering: optimizelegibility;
+	font-weight: 300;
+	text-transform: uppercase;
+	/*
+	if you're going to use webfonts, be sure to check your weights
+	http://css-tricks.com/watch-your-font-weight/
+	*/
+
+	/* removing text decoration from all headline links */
+	a {
+		text-decoration: none;
+	}
+}
+
+h1, .h1 {
+	font-size: 30px;
+	line-height: 50px;
+}
+
+h2, .h2 {
+	font-size: 25px;
+	line-height: 29px;
+}
+
+h3, .h3 {
+	font-size: 1.125em;
+}
+
+h4, .h4 {
+	font-size: 1.1em;
+	font-weight: 700;
+}
+
+h5, .h5 {
+	font-size: 0.846em;
+	line-height: 2.09em;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+}
+
+/*********************
+HEADER STYLES
+*********************/
+
+
+
+#header {
+	border-bottom: 1px solid $highlight-bottom;
+	#logo {
+		background: $navbutton;
+		text-align: center;
+		color: $white;
+		.h1 {
+			font-weight: 600;
+		}
+		span {
+			color: $highlight;
+			font-weight: 300;
+			&.sub {
+				color: $white;
+				font-size: 16px;
+				font-weight: 300;
+			}
+		}
+	}
+	section {
+		height: 94px;
+		padding: 30px 0 0;
+		display: block;
+
+	}
+	#title {
+		display: none;
+		background: $darker;
+		padding-left: 40px;
+		color: $white;
+	}
+}
+.left {
+	display:table-cell;
+	vertical-align: top;
+	overflow:hidden; 
+	white-space: nowrap;
+	@include transition(all 0.2s ease-in-out);
+}
+
+/*********************
+NAVIGATION STYLES
+*********************/
+
+#main-nav {
+	ul {
+		margin: 0;
+		li {
+			a {
+				text-decoration: none;
+				font-size: 18px;
+				line-height: 64px;			
+				background: $navbutton;
+				display: block;
+				padding: 0px 5px;
+				border-top: 1px solid $highlight-top;
+				border-bottom: 1px solid $highlight-bottom;
+				position: relative;
+				i {
+					font-size: 26px;
+					padding: 0 34px 0 24px;
+					line-height: 64px;
+					vertical-align: middle;
+				}
+
+			}
+			&.active {
+				a {
+					background: $activenav;
+					border-top: 1px solid $highlight-bottom;
+					@include box-shadow(0, 0, 10px, 2px, rgba(0,0,0,0.4), true);
+					&::after {
+						content: " ";
+						position: absolute;
+						left: 0;
+						top: 0;
+						bottom: 0;
+						width: 4px;
+						background: $highlight;
+					}
+				}
+			}
+		}
+	}
+}
+#content {
+	.left {
+		width:80px;
+		@include transition(all 0.2s ease-in-out);
+		&:hover {
+			width: 320px;
+		}
+	}
+}
+
+
+
+.tab_container {
+	position: relative;
+}
+.addontab {
+	display: none;
+	&.active {
+		display: block;
+	}
+}
+
+.table-box {
+	border-bottom: 1px solid $navbutton;
+	&:last-child {
+		border-bottom: none;
+	}
+}
+
+
+
+
+
+/*********************
+PAGE SPECIFIC STYLES
+*********************/
+
+/* DASHBOARD */
+.section1 {
+	background: $headersect;
+	padding: 30px 5px;
+	display: block;
+	text-align: center;
+}
+
+#datadisks {
+}
+.array_drives {
+	vertical-align: top;
+	box-sizing: border-box;
+	.drive_list {
+		@include bevel( #111310, #131513, $headersect );
+		padding: 5px;
+		margin: 0 5px;
+		ul {
+			position: relative;
+			margin: 0;
+		}
+		li {
+			padding: 4px 0;
+		}
+		.alt {
+			background: $navbutton;
+		}
+
+	}
+}
+
+
+/******************************************************************
+PAGE NAVI STYLES
+******************************************************************/
+
+
+/*********************
+SIDEBARS & ASIDES
+*********************/
+
+
+/*********************
+FOOTER STYLES
+*********************/
+

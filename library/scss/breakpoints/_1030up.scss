@@ -1,0 +1,207 @@
+/******************************************************************
+Site Name:
+Author:
+
+Stylesheet: Desktop Stylsheet
+
+This is the desktop size. It's larger than an iPad so it will only
+be seen on the Desktop.
+
+******************************************************************/
+
+/*********************
+GENERAL STYLES
+*********************/
+
+#status{
+	text-align: center;
+	padding: 50px;
+	.indicator {
+		display: inline-block;
+		vertical-align: top;
+		width: 33%;
+	}
+}
+#status.mini {
+	position: absolute;
+	padding: 0;
+	right: 10px;
+	top:15px;
+	background: none;
+}
+.dashmodules {
+	section {
+		display: inline-block;
+		vertical-align: top;
+		width: 33%;
+		&.full {
+			width: 100%;
+		}
+	}
+	.system_info {
+		li {
+		}
+		span.greentext {
+		}
+	}
+}
+
+/*********************
+LAYOUT & GRID STYLES
+*********************/
+
+
+
+.table-box { 
+	display: table; 
+	width: 100%; 
+	.disk { display: table-cell; }
+}
+
+
+
+.spin { float: left; font-size: 18px; margin-right: 18px; padding-top: 8px; }
+
+
+.col { 
+	display: table-cell; 
+	vertical-align: top;
+}
+.col1 { width: 340px; }
+.col-table { display: table; width: 100%;  }
+.overcol1 { width: 160px; }
+.col2 { width: 80px; }
+.col2,.col3,.col4,.col5,.col6 { text-align: center; }
+.col4,.col5 { width: 46%; padding-bottom: 0; }
+
+.col .space-info { background: #1e1e1e; padding: 1px; float: left; width: 100%; }
+.col .space { background: #898989; height: 8px; }
+.col .used { background: #636363; border-right: 1px solid #1e1e1e; height: 8px; }
+
+.disk-info.failed, .disk-info.failed .temp, .disk-info.failed .temp span, .disk-info.failed .mini-disk-info span { color: #c92525;}
+.disk-info.failed .space { background: #fb9797; }
+
+
+.table-box {
+	.disk {
+		
+	}
+
+}
+
+.tabs{
+	position: relative;
+	ul {
+		margin: 0; 
+		display:table;
+		width: 100%;
+	
+		li {
+			display:table-cell;
+			list-style: none;
+			border-left: 2px solid $headersect;
+			a {
+				display: inline-block;
+				background: $tablight;
+			 	padding: 30px 15px;
+				font-size: 16px;
+				width: 100%;
+				text-align: center;
+				
+			}
+			&.active {
+				a {
+					background: none;
+	  				color: $highlight;
+				}
+			}
+		}
+	}
+} 
+/*********************
+LINK STYLES
+*********************/
+
+
+/******************************************************************
+H1, H2, H3, H4, H5 STYLES
+******************************************************************/
+
+
+/*********************
+HEADER STYLES
+*********************/
+
+#header {
+	display:table;
+	width: 100%;
+	section {
+		display:table-cell;
+		vertical-align: top;
+	}
+	#title {
+		display: table-cell!important;
+	}
+}
+
+.left {
+	width: 320px;
+	display:table-cell;
+	vertical-align: top;
+	overflow:hidden; 
+	white-space: nowrap;
+	@include transition(all 0.2s ease-in-out);
+}
+
+
+/*********************
+NAVIGATION STYLES
+*********************/
+
+
+/*********************
+PAGE SPECIFIC STYLES
+*********************/
+
+/* DASHBOARD */
+.section1 {
+	padding: 70px 30px;
+}
+#datadisks {
+	display: inline-block;
+	vertical-align: top;
+	width: 70%;
+	text-align: left;
+	box-sizing: border-box;
+	.datadisks {
+		@include bevel( #111310, #131513, $headersect );
+		margin: 0 5px;
+		min-height: 316px;
+	}
+}
+
+.array_drives {
+	width: 30%;
+	display: inline-block;
+	vertical-align: top;
+	box-sizing: border-box;
+	.drive_list {
+		margin: 0 5px;
+
+	}
+}
+
+
+/******************************************************************
+PAGE NAVI STYLES
+******************************************************************/
+
+
+/*********************
+SIDEBARS & ASIDES
+*********************/
+
+
+/*********************
+FOOTER STYLES
+*********************/
