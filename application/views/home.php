@@ -17,7 +17,7 @@ $var = $this->config->item("unraid_vars");
         </section>
 
         
-        <section class="section1">
+        <section class="section1 center">
 
             <section id="datadisks" class="body">
             	<div class="datadisks">

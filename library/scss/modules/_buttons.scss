@@ -27,6 +27,7 @@ http://www.youtube.com/watch?v=hwdVpKiJzac
 %btn {
   display: inline-block;
   position: relative;
+  vertical-align: top;
   text-decoration: none;
   font-size: 16px;
   line-height: 34px;
@@ -71,3 +72,11 @@ and it will create a button dependant on those variables.
 
 } // end blue button
 
+.inputright {
+  @extend %btn;
+  @include input(#111310, #131513);
+  background: $highlight;
+  border-top-right-radius: 8px!important;
+  border-bottom-right-radius: 8px!important;
+  width: 120px;
+}

@@ -5,11 +5,15 @@ class Users extends MY_Controller {
 	public function index()
 	{
 		
+		$config['database'] = APPPATH.'cerberus';
+		$config['dbdriver'] = 'sqlite3';
+		$this->load->database($config);
+
 		$this->load->library('unraid');
 		$array_details = $this->unraid->array_details();
 		$data = $array_details;
 
-
+		$data['page_title'] = 'Users';
 		$data["users"] = parse_ini_file($this->config->item("ini_path")."users.ini", TRUE);
 		$this->load->database();
 		$this->load->model('user_model');

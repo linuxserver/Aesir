@@ -29,7 +29,7 @@
 				"name": "hdd"
 			},
 			"setIdx": 0,
-			"setId": 5,
+			"setId": 2,
 			"iconIdx": 0
 		},
 		{
@@ -58,7 +58,7 @@
 				"name": "warning"
 			},
 			"setIdx": 1,
-			"setId": 4,
+			"setId": 1,
 			"iconIdx": 0
 		},
 		{
@@ -85,7 +85,7 @@
 				"name": "home"
 			},
 			"setIdx": 1,
-			"setId": 4,
+			"setId": 1,
 			"iconIdx": 1
 		},
 		{
@@ -118,7 +118,7 @@
 				"name": "users"
 			},
 			"setIdx": 1,
-			"setId": 4,
+			"setId": 1,
 			"iconIdx": 2
 		},
 		{
@@ -149,7 +149,7 @@
 				"name": "equalizer"
 			},
 			"setIdx": 1,
-			"setId": 4,
+			"setId": 1,
 			"iconIdx": 3
 		},
 		{
@@ -179,7 +179,7 @@
 				"name": "knife"
 			},
 			"setIdx": 1,
-			"setId": 4,
+			"setId": 1,
 			"iconIdx": 4
 		},
 		{
@@ -209,7 +209,7 @@
 				"name": "meter"
 			},
 			"setIdx": 1,
-			"setId": 4,
+			"setId": 1,
 			"iconIdx": 5
 		},
 		{
@@ -239,7 +239,7 @@
 				"name": "puzzle3"
 			},
 			"setIdx": 1,
-			"setId": 4,
+			"setId": 1,
 			"iconIdx": 6
 		},
 		{
@@ -268,7 +268,7 @@
 				"name": "brain"
 			},
 			"setIdx": 1,
-			"setId": 4,
+			"setId": 1,
 			"iconIdx": 7
 		},
 		{
@@ -296,7 +296,7 @@
 				"name": "tree6"
 			},
 			"setIdx": 1,
-			"setId": 4,
+			"setId": 1,
 			"iconIdx": 8
 		},
 		{
@@ -324,9 +324,9 @@
 				"ligatures": "usb-stick, flash-memory",
 				"name": "usb-stick"
 			},
-			"setIdx": 3,
-			"setId": 2,
-			"iconIdx": 397
+			"setIdx": 1,
+			"setId": 1,
+			"iconIdx": 9
 		},
 		{
 			"icon": {
@@ -356,9 +356,9 @@
 				"ligatures": "sleepy, emoticon31",
 				"name": "sleepy"
 			},
-			"setIdx": 3,
-			"setId": 2,
-			"iconIdx": 1053
+			"setIdx": 1,
+			"setId": 1,
+			"iconIdx": 10
 		},
 		{
 			"icon": {
@@ -389,9 +389,9 @@
 				"ligatures": "loop2, repeat2",
 				"name": "loop2"
 			},
-			"setIdx": 3,
-			"setId": 2,
-			"iconIdx": 1190
+			"setIdx": 1,
+			"setId": 1,
+			"iconIdx": 11
 		},
 		{
 			"icon": {
@@ -415,9 +415,9 @@
 				"ligatures": "infinite",
 				"name": "infinite"
 			},
-			"setIdx": 3,
-			"setId": 2,
-			"iconIdx": 1193
+			"setIdx": 1,
+			"setId": 1,
+			"iconIdx": 12
 		},
 		{
 			"icon": {
@@ -443,9 +443,9 @@
 				"ligatures": "shuffle2, random2",
 				"name": "shuffle2"
 			},
-			"setIdx": 3,
-			"setId": 2,
-			"iconIdx": 1197
+			"setIdx": 1,
+			"setId": 1,
+			"iconIdx": 13
 		},
 		{
 			"icon": {
@@ -474,9 +474,9 @@
 				"ligatures": "checkbox-checked, checkbox",
 				"name": "checkbox-checked"
 			},
-			"setIdx": 3,
-			"setId": 2,
-			"iconIdx": 1379
+			"setIdx": 1,
+			"setId": 1,
+			"iconIdx": 14
 		},
 		{
 			"icon": {
@@ -503,9 +503,64 @@
 				"ligatures": "checkbox-unchecked, checkbox2",
 				"name": "checkbox-unchecked"
 			},
-			"setIdx": 3,
-			"setId": 2,
-			"iconIdx": 1380
+			"setIdx": 1,
+			"setId": 1,
+			"iconIdx": 15
+		},
+		{
+			"icon": {
+				"paths": [
+					"M512 0c-282.77 0-512 229.23-512 512s229.23 512 512 512 512-229.23 512-512-229.23-512-512-512zM512 896c-212.078 0-384-171.922-384-384s171.922-384 384-384c212.078 0 384 171.922 384 384 0 212.078-171.922 384-384 384zM320 512c0-106.039 85.961-192 192-192 106.039 0 192 85.961 192 192 0 106.039-85.961 192-192 192-106.039 0-192-85.961-192-192z"
+				],
+				"attrs": [],
+				"isMulticolor": false,
+				"tags": [
+					"radio-checked",
+					"radio-button"
+				],
+				"defaultCode": 58424,
+				"grid": 16
+			},
+			"attrs": [],
+			"properties": {
+				"order": 9,
+				"id": 1424,
+				"prevSize": 32,
+				"code": 61038,
+				"ligatures": "radio-checked, radio-button",
+				"name": "radio-checked"
+			},
+			"setIdx": 2,
+			"setId": 0,
+			"iconIdx": 1390
+		},
+		{
+			"icon": {
+				"paths": [
+					"M512 0c-282.77 0-512 229.23-512 512s229.23 512 512 512 512-229.23 512-512-229.23-512-512-512zM512 896c-212.078 0-384-171.922-384-384s171.922-384 384-384c212.078 0 384 171.922 384 384 0 212.078-171.922 384-384 384z"
+				],
+				"attrs": [],
+				"isMulticolor": false,
+				"tags": [
+					"radio-unchecked",
+					"radio-button",
+					"circle"
+				],
+				"defaultCode": 58425,
+				"grid": 16
+			},
+			"attrs": [],
+			"properties": {
+				"id": 1198,
+				"order": 10,
+				"prevSize": 32,
+				"code": 61040,
+				"ligatures": "radio-unchecked, radio-button3",
+				"name": "radio-unchecked"
+			},
+			"setIdx": 2,
+			"setId": 0,
+			"iconIdx": 1392
 		}
 	],
 	"height": 1024,

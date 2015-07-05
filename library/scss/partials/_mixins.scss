@@ -92,14 +92,20 @@ really slow down your CSS. Don't overdo it.
     -webkit-box-shadow: inset 0 -1px 1px rgba(0,0,0,.27),inset 0 1px 1px rgba(255,255,255,.18);
     box-shadow: inset 0 -1px 1px rgba(0,0,0,.27),inset 0 1px 1px rgba(255,255,255,.18);
   }
-  &.work::after, &::after {
-    content: '';
-    position: absolute;
-    left: 28px;
-    top: 31px;
-    width: 53px;
-    height: 50px;
+  > * {
+    position: relative;
   }
+}
+
+@mixin input($from: #000000, $to: #111111) {
+  background: -moz-linear-gradient(top,$from 0%, $to 100%);
+  background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,$from),color-stop(100%, $to));
+  background: -webkit-linear-gradient(top,$from 0%, $to 100%);
+  background: -o-linear-gradient(top,$from 0%, $to 100%);
+  background: -ms-linear-gradient(top,$from 0%, $to 100%);
+  background: linear-gradient(to bottom,$from 0%, $to 100%);
+  -webkit-box-shadow: 0 -1px 1px rgba(0,0,0,.27),0 1px 1px rgba(255,255,255,.18);
+  box-shadow: 0 -1px 1px rgba(0,0,0,.27),0 1px 1px rgba(255,255,255,.18);
 }
 
 /*********************

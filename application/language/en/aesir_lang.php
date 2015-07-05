@@ -9,7 +9,7 @@ $lang['Dashboard'] = 'Dashboard';
 $lang['Main'] = 'Main';
 $lang['Users'] = 'Users';
 $lang['Shares'] = 'Shares';
-$lang['Settings'] = 'Shares';
+$lang['Settings'] = 'Settings';
 $lang['Utilities'] = 'Utilities';
 $lang['Addons'] = 'Addons';
 $lang['About'] = 'About';
@@ -27,8 +27,6 @@ $lang['Options'] = 'Options';
 $lang['Model'] = 'Model';
 $lang['There are currently no disks needing attention'] = 'There are currently no disks needing attention';
 $lang['There are currently no non-array disks detected'] = 'There are currently no non-array disks detected';
-
-
 
 // STATUS
 $lang['Total'] = 'Total';

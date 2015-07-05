@@ -1,4 +1,5 @@
-        <section id="addons" class="body">
+        <section id="addons" class="body section1">
+            <?php $this->load->view( 'status', array( 'statustype' => 'mini' ) ); ?>
         	<nav class="secondary">
             	<ul>
                 	<?php
@@ -12,6 +13,21 @@
                 </ul>
             </nav>
             <section class="content">
+                <form>
+                    <fieldset>
+                        <legend>Some legend</legend>
+                        <ul>
+                            <li><label>Some input</label><input type="text" name="name" placeholder="Some input" /></li>
+                            <li><label>Email address</label><input class="inputleft" type="text" placeholder="Email address" name="user_email" value="" /><button class="inputright" type="submit">Save</button></li>
+                            <li><label>Some input</label><input type="text" name="name" placeholder="Some input" /></li>
+                            <li><label>Some input</label><input type="text" name="name" placeholder="Some input" /></li>
+                            <li><label>Some input</label><input type="text" name="name" placeholder="Some input" /></li>
+                            <li><label>Some input</label><input type="text" name="name" placeholder="Some input" /></li>
+
+
+                        </dl>
+                    </fieldset>
+                </form>
             
             </section>
             <div class="hr"></div>

@@ -104,9 +104,12 @@ FONT FACE (IN YOUR FACE)
 .icon-checkbox-unchecked:before {
   content: "\ee64";
 }
-
-
-
+.icon-radio-checked:before {
+  content: "\ee6e";
+}
+.icon-radio-unchecked:before {
+  content: "\ee70";
+}
 
 
 /*

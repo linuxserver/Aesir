@@ -695,6 +695,16 @@ FONT FACE (IN YOUR FACE)
   content: "\ee64";
 }
 
+/* line 107, ../scss/partials/_typography.scss */
+.icon-radio-checked:before {
+  content: "\ee6e";
+}
+
+/* line 110, ../scss/partials/_typography.scss */
+.icon-radio-unchecked:before {
+  content: "\ee70";
+}
+
 /*
 The following is based of Typebase:
 https://github.com/devinhunt/typebase.css
@@ -708,7 +718,7 @@ I've edited it a bit, but it's a nice starting point.
 some nice typographical defaults
 more here: http://www.newnet-soft.com/blog/csstypography
 */
-/* line 133, ../scss/partials/_typography.scss */
+/* line 136, ../scss/partials/_typography.scss */
 p {
   -ms-word-wrap: break-word;
   word-break: break-word;
@@ -1202,9 +1212,10 @@ http://www.youtube.com/watch?v=hwdVpKiJzac
 
 *********************/
 /* line 27, ../scss/modules/_buttons.scss */
-.blue-btn {
+.blue-btn, .inputright {
   display: inline-block;
   position: relative;
+  vertical-align: top;
   text-decoration: none;
   font-size: 16px;
   line-height: 34px;
@@ -1216,8 +1227,8 @@ http://www.youtube.com/watch?v=hwdVpKiJzac
   -webkit-transition: background-color 0.14s ease-in-out;
   transition: background-color 0.14s ease-in-out;
 }
-/* line 41, ../scss/modules/_buttons.scss */
-.blue-btn:hover, .blue-btn:focus {
+/* line 42, ../scss/modules/_buttons.scss */
+.blue-btn:hover, .inputright:hover, .blue-btn:focus, .inputright:focus {
   color: #000;
   text-decoration: none;
 }
@@ -1227,9 +1238,25 @@ An example button.
 You can use this example if you want. Just replace all the variables
 and it will create a button dependant on those variables.
 */
-/* line 58, ../scss/modules/_buttons.scss */
+/* line 59, ../scss/modules/_buttons.scss */
 .blue-btn {
   color: #000 !important;
+}
+
+/* line 75, ../scss/modules/_buttons.scss */
+.inputright {
+  background: -moz-linear-gradient(top, #111310 0%, #131513 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #111310), color-stop(100%, #131513));
+  background: -webkit-linear-gradient(top, #111310 0%, #131513 100%);
+  background: -o-linear-gradient(top, #111310 0%, #131513 100%);
+  background: -ms-linear-gradient(top, #111310 0%, #131513 100%);
+  background: linear-gradient(to bottom, #111310 0%, #131513 100%);
+  -webkit-box-shadow: 0 -1px 1px rgba(0, 0, 0, 0.27), 0 1px 1px rgba(255, 255, 255, 0.18);
+  box-shadow: 0 -1px 1px rgba(0, 0, 0, 0.27), 0 1px 1px rgba(255, 255, 255, 0.18);
+  background: #abc056;
+  border-top-right-radius: 8px !important;
+  border-bottom-right-radius: 8px !important;
+  width: 120px;
 }
 
 /******************************************************************
@@ -2342,15 +2369,20 @@ PAGE SPECIFIC STYLES
   background: #2c2d29;
   padding: 30px 5px;
   display: block;
+  text-align: left;
+}
+
+/* line 678, ../scss/breakpoints/_base.scss */
+.center {
   text-align: center;
 }
 
-/* line 680, ../scss/breakpoints/_base.scss */
+/* line 684, ../scss/breakpoints/_base.scss */
 .array_drives {
   vertical-align: top;
   box-sizing: border-box;
 }
-/* line 683, ../scss/breakpoints/_base.scss */
+/* line 687, ../scss/breakpoints/_base.scss */
 .array_drives .drive_list {
   background: -moz-linear-gradient(top, #111310 0%, #131513 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #111310), color-stop(100%, #131513));
@@ -2378,26 +2410,50 @@ PAGE SPECIFIC STYLES
   box-shadow: inset 0 -1px 1px rgba(0, 0, 0, 0.27), inset 0 1px 1px rgba(255, 255, 255, 0.18);
 }
 /* line 95, ../scss/partials/_mixins.scss */
-.array_drives .drive_list.work::after, .array_drives .drive_list::after {
-  content: '';
-  position: absolute;
-  left: 28px;
-  top: 31px;
-  width: 53px;
-  height: 50px;
+.array_drives .drive_list > * {
+  position: relative;
 }
-/* line 687, ../scss/breakpoints/_base.scss */
+/* line 691, ../scss/breakpoints/_base.scss */
 .array_drives .drive_list ul {
   position: relative;
   margin: 0;
 }
-/* line 691, ../scss/breakpoints/_base.scss */
+/* line 695, ../scss/breakpoints/_base.scss */
 .array_drives .drive_list li {
   padding: 4px 0;
 }
-/* line 694, ../scss/breakpoints/_base.scss */
+/* line 698, ../scss/breakpoints/_base.scss */
 .array_drives .drive_list .alt {
   background: #232621;
+}
+
+/* line 707, ../scss/breakpoints/_base.scss */
+.bevelbox ul.nav {
+  margin: 0;
+  width: 260px;
+}
+/* line 711, ../scss/breakpoints/_base.scss */
+.bevelbox ul.nav li a {
+  padding: 25px;
+  background: #31322F;
+  font-size: 16px;
+  color: #7a7f75;
+  text-decoration: none;
+  display: block;
+}
+/* line 720, ../scss/breakpoints/_base.scss */
+.bevelbox ul.nav li.active a {
+  background: none;
+  color: #abc056;
+}
+/* line 729, ../scss/breakpoints/_base.scss */
+.bevelbox .box-content ul {
+  margin: 0;
+}
+
+/* line 734, ../scss/breakpoints/_base.scss */
+.radio {
+  text-decoration: none;
 }
 
 /******************************************************************
@@ -2409,6 +2465,86 @@ SIDEBARS & ASIDES
 /*********************
 FOOTER STYLES
 *********************/
+/*********************
+FORM STYLES
+*********************/
+/* line 756, ../scss/breakpoints/_base.scss */
+fieldset legend {
+  border: 0;
+  position: absolute !important;
+  top: -15px;
+  background-color: #1B1D1B;
+  padding: 8px 10px;
+  left: 25px;
+}
+
+/* line 767, ../scss/breakpoints/_base.scss */
+input[type=text], input[type=password] {
+  border: 0 none;
+  padding: 20px 20px;
+  background: #222;
+  border-radius: 8px;
+  color: white;
+  -webkit-box-shadow: inset 0 0 10px 3px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 0 10px 3px rgba(0, 0, 0, 0.2);
+  background: -moz-linear-gradient(top, #111310 0%, #131513 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #111310), color-stop(100%, #131513));
+  background: -webkit-linear-gradient(top, #111310 0%, #131513 100%);
+  background: -o-linear-gradient(top, #111310 0%, #131513 100%);
+  background: -ms-linear-gradient(top, #111310 0%, #131513 100%);
+  background: linear-gradient(to bottom, #111310 0%, #131513 100%);
+  -webkit-box-shadow: 0 -1px 1px rgba(0, 0, 0, 0.27), 0 1px 1px rgba(255, 255, 255, 0.18);
+  box-shadow: 0 -1px 1px rgba(0, 0, 0, 0.27), 0 1px 1px rgba(255, 255, 255, 0.18);
+  font-size: 18px;
+}
+/* line 777, ../scss/breakpoints/_base.scss */
+input[type=text].inputleft, input[type=password].inputleft {
+  display: inline-block;
+  vertical-align: top;
+  max-width: 280px;
+}
+
+/* line 784, ../scss/breakpoints/_base.scss */
+form li {
+  position: relative;
+}
+
+/* line 788, ../scss/breakpoints/_base.scss */
+label {
+  display: block;
+  padding: 5px 10px;
+  font-size: 14px;
+  color: #ABC056;
+}
+
+/* line 795, ../scss/breakpoints/_base.scss */
+::-webkit-input-placeholder {
+  color: #616161;
+}
+
+/* line 798, ../scss/breakpoints/_base.scss */
+.inputleft {
+  border-top-right-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+}
+
+/* line 806, ../scss/breakpoints/_base.scss */
+:-moz-placeholder {
+  /* Firefox 18- */
+  color: #616161;
+}
+
+/* line 810, ../scss/breakpoints/_base.scss */
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #616161;
+}
+
+/* line 814, ../scss/breakpoints/_base.scss */
+:-ms-input-placeholder {
+  color: #616161;
+}
+
 /*********************
 LARGER MOBILE DEVICES
 This is for devices like the Galaxy Note or something that's
@@ -2776,13 +2912,8 @@ you can add resource intensive styles.
     box-shadow: inset 0 -1px 1px rgba(0, 0, 0, 0.27), inset 0 1px 1px rgba(255, 255, 255, 0.18);
   }
   /* line 95, ../scss/partials/_mixins.scss */
-  #datadisks .datadisks.work::after, #datadisks .datadisks::after {
-    content: '';
-    position: absolute;
-    left: 28px;
-    top: 31px;
-    width: 53px;
-    height: 50px;
+  #datadisks .datadisks > * {
+    position: relative;
   }
 
   /* line 183, ../scss/breakpoints/_1030up.scss */
@@ -2797,6 +2928,66 @@ you can add resource intensive styles.
     margin: 0 5px;
   }
 
+  /* line 194, ../scss/breakpoints/_1030up.scss */
+  .bevelbox {
+    background: -moz-linear-gradient(top, #111310 0%, #131513 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #111310), color-stop(100%, #131513));
+    background: -webkit-linear-gradient(top, #111310 0%, #131513 100%);
+    background: -o-linear-gradient(top, #111310 0%, #131513 100%);
+    background: -ms-linear-gradient(top, #111310 0%, #131513 100%);
+    background: linear-gradient(to bottom, #111310 0%, #131513 100%);
+    -webkit-box-shadow: 0 -1px 1px rgba(0, 0, 0, 0.27), 0 1px 1px rgba(255, 255, 255, 0.18);
+    box-shadow: 0 -1px 1px rgba(0, 0, 0, 0.27), 0 1px 1px rgba(255, 255, 255, 0.18);
+    position: relative;
+    padding: 7px;
+    border: 0 none;
+    position: relative;
+    display: table;
+    width: 100%;
+  }
+  /* line 84, ../scss/partials/_mixins.scss */
+  .bevelbox::before {
+    content: '';
+    position: absolute;
+    left: 5px;
+    right: 5px;
+    top: 5px;
+    bottom: 5px;
+    background: #2c2d29;
+    -webkit-box-shadow: inset 0 -1px 1px rgba(0, 0, 0, 0.27), inset 0 1px 1px rgba(255, 255, 255, 0.18);
+    box-shadow: inset 0 -1px 1px rgba(0, 0, 0, 0.27), inset 0 1px 1px rgba(255, 255, 255, 0.18);
+  }
+  /* line 95, ../scss/partials/_mixins.scss */
+  .bevelbox > * {
+    position: relative;
+  }
+  /* line 200, ../scss/breakpoints/_1030up.scss */
+  .bevelbox ul.nav {
+    display: table-cell;
+    vertical-align: top;
+  }
+  /* line 204, ../scss/breakpoints/_1030up.scss */
+  .bevelbox .box-content {
+    display: table-cell;
+    vertical-align: top;
+  }
+  /* line 207, ../scss/breakpoints/_1030up.scss */
+  .bevelbox .box-content li {
+    display: table;
+    width: 100%;
+  }
+  /* line 210, ../scss/breakpoints/_1030up.scss */
+  .bevelbox .box-content li .fourcol {
+    display: table-cell;
+    width: 25%;
+    padding: 25px 10px;
+    text-align: center;
+  }
+  /* line 216, ../scss/breakpoints/_1030up.scss */
+  .bevelbox .box-content li.header {
+    background: #1B1D1B;
+  }
+
   /******************************************************************
   PAGE NAVI STYLES
   ******************************************************************/
@@ -2806,6 +2997,41 @@ you can add resource intensive styles.
   /*********************
   FOOTER STYLES
   *********************/
+  /*********************
+  FORM STYLES
+  *********************/
+  /* line 243, ../scss/breakpoints/_1030up.scss */
+  fieldset {
+    background: -moz-linear-gradient(top, #111310 0%, #131513 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #111310), color-stop(100%, #131513));
+    background: -webkit-linear-gradient(top, #111310 0%, #131513 100%);
+    background: -o-linear-gradient(top, #111310 0%, #131513 100%);
+    background: -ms-linear-gradient(top, #111310 0%, #131513 100%);
+    background: linear-gradient(to bottom, #111310 0%, #131513 100%);
+    -webkit-box-shadow: 0 -1px 1px rgba(0, 0, 0, 0.27), 0 1px 1px rgba(255, 255, 255, 0.18);
+    box-shadow: 0 -1px 1px rgba(0, 0, 0, 0.27), 0 1px 1px rgba(255, 255, 255, 0.18);
+    position: relative;
+    padding: 7px;
+    border: 0 none;
+    position: relative;
+    padding: 25px;
+  }
+  /* line 84, ../scss/partials/_mixins.scss */
+  fieldset::before {
+    content: '';
+    position: absolute;
+    left: 5px;
+    right: 5px;
+    top: 5px;
+    bottom: 5px;
+    background: #2c2d29;
+    -webkit-box-shadow: inset 0 -1px 1px rgba(0, 0, 0, 0.27), inset 0 1px 1px rgba(255, 255, 255, 0.18);
+    box-shadow: inset 0 -1px 1px rgba(0, 0, 0, 0.27), inset 0 1px 1px rgba(255, 255, 255, 0.18);
+  }
+  /* line 95, ../scss/partials/_mixins.scss */
+  fieldset > * {
+    position: relative;
+  }
 }
 /*********************
 LARGE VIEWING SIZE

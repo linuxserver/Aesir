@@ -672,6 +672,10 @@ PAGE SPECIFIC STYLES
 	background: $headersect;
 	padding: 30px 5px;
 	display: block;
+	text-align: left;
+}
+
+.center {
 	text-align: center;
 }
 
@@ -699,6 +703,37 @@ PAGE SPECIFIC STYLES
 }
 
 
+.bevelbox {
+	ul.nav {
+		margin: 0;
+		width: 260px;
+		li {
+			a {
+				padding: 25px;
+				background: $tablight;
+				font-size: 16px;
+				color: $text-color;
+				text-decoration: none;
+				display: block;
+			}
+			&.active {
+				a {
+					background: none;
+	  				color: $highlight;
+				}
+			}
+
+		}
+	}
+	.box-content {
+		ul {
+			margin: 0;
+		}
+	}
+}
+.radio { text-decoration: none; }
+
+
 /******************************************************************
 PAGE NAVI STYLES
 ******************************************************************/
@@ -712,4 +747,71 @@ SIDEBARS & ASIDES
 /*********************
 FOOTER STYLES
 *********************/
+
+/*********************
+FORM STYLES
+*********************/
+
+fieldset {
+	legend {
+		border: 0;
+		position: absolute!important;
+		top: -15px;
+		background-color: #1B1D1B;
+		padding: 8px 10px;
+		left: 25px;
+	}
+}
+
+
+input[type=text],input[type=password] {
+    border: 0 none;
+    padding: 20px 20px;
+    background: #222;
+    border-radius: 8px;
+    color: white;
+    -webkit-box-shadow:inset 0 0 10px 3px rgba(0,0,0,0.2);
+    box-shadow:inset 0 0 10px 3px rgba(0,0,0,0.2);
+    @include input(#111310, #131513);
+    font-size: 18px;
+    &.inputleft {
+    	display: inline-block;
+    	vertical-align: top;
+    	max-width: 280px;
+    }
+}
+
+form li {
+	position: relative;
+}
+
+label { 
+	display: block;
+	padding: 5px 10px;
+	font-size: 14px;
+	color: #ABC056;
+}
+
+::-webkit-input-placeholder {
+   color: #616161;
+}
+.inputleft {
+    border-top-right-radius: 0px!important;
+    border-bottom-right-radius: 0px!important;
+
+}
+.inputright {
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: #616161;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: #616161;  
+}
+
+:-ms-input-placeholder {  
+   color: #616161;  
+}
 

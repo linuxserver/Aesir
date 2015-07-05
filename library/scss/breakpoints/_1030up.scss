@@ -191,6 +191,36 @@ PAGE SPECIFIC STYLES
 	}
 }
 
+.bevelbox {
+	@include bevel( #111310, #131513, $headersect );
+	border: 0 none;
+	position: relative;
+	display: table;
+	width: 100%;
+	ul.nav {
+		display: table-cell;
+		vertical-align: top;
+	}
+	.box-content {
+		display: table-cell;
+		vertical-align: top;
+		li {
+			display: table;
+			width: 100%;
+			.fourcol {
+				display: table-cell;
+				width: 25%;
+				padding: 25px 10px;
+				text-align: center;
+			}
+			&.header {
+				background: $darker;
+			}
+		}
+	}
+
+}
+
 
 /******************************************************************
 PAGE NAVI STYLES
@@ -205,3 +235,20 @@ SIDEBARS & ASIDES
 /*********************
 FOOTER STYLES
 *********************/
+
+/*********************
+FORM STYLES
+*********************/
+
+fieldset {
+	@include bevel( #111310, #131513, $headersect );
+	border: 0 none;
+	position: relative;
+	padding: 25px;
+	ul {
+
+	}
+	legend {
+
+	}
+}
