@@ -2,6 +2,7 @@
             <?php $this->load->view( 'status', array( 'statustype' => 'mini' ) ); ?>
         	<nav class="secondary">
             	<ul>
+                	<a href="<?php echo site_url( 'settings/translations' );?>">Translations</a>
                 	<?php
 					$initialactive = ($section === false) ? ' class="active"' : '';
 					echo '<li'.$initialactive.'><a href="/index.php/addons/">All</a></li>';

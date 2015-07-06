@@ -31,6 +31,18 @@ body {
 		width: 100%;
 	}
 }
+.notransform {
+	text-transform: none!important;
+}
+.tleft {
+	text-align: left!important;
+}
+.tcenter {
+	text-align: center!important;
+}
+.tright {
+	text-align: right!important;
+}
 
 #status {
 	text-align: center;

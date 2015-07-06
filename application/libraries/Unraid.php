@@ -83,7 +83,7 @@ class Unraid {
 				
 				
 	    		if ( $this->var['sbSynced']==0 ) {
-					$output['msg'] = 'Parity has not been checked yet';
+					$output['msg'] = __('Parity has not been checked yet');
 	    		} else {
 	      			unset( $time );
 	      			exec( "awk '/sync completion/ {gsub(\"(time=|sec)\",\"\",x);print x;print \$NF};{x=\$NF}' /var/log/syslog|tail -2", $time );
@@ -99,7 +99,7 @@ class Unraid {
 						$output['msg'] .= '<div class="title">'.__('Last Parity check').'</div>';
 						$output['msg'] .= time_ago( $this->var['sbSynced'], true, $diff=true, $granularity=2 ).' '.__('ago.').'<br />';
 						$output['msg'] .= (!$time[0]) ? '' : $this->var['sbSyncErrs'].' '.( $this->var['sbSyncErrs']==1? __('Error'):__('Errors') ).'<br />';
-						$output['msg'] .= (!$time[0]) ? __('Errors').': '.__('unavailable (system reboot or log rotation') : time_ago( $time[0], true, $diff=false, $granularity=2 ).'<br />';
+						$output['msg'] .= (!$time[0]) ? __('Errors').': '.__('unavailable system reboot or log rotation') : time_ago( $time[0], true, $diff=false, $granularity=2 ).'<br />';
 						$output['msg'] .= (!$time[0] || !isset( $this->disks['parity']['sizeSb'] ) ) ? '' : drive_speed( $this->disks['parity']['sizeSb']*1024, $time[0] );
 						$output['msg'] .= '</div>';
 						

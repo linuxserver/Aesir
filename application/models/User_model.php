@@ -1,10 +1,10 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 /**
- * Cerberus v1.0
+ * Aesir v1.0
  *
  * Web GUI for unRAID
  *
- * @package     Cerberus v1.0
+ * @package     Aesir v1.0
  * @author      Kode
  * @copyright   Copyright (c) 2015 coderior.com
  * @link        http://coderior.com
@@ -18,7 +18,7 @@
  *
  * Model for user specific functions
  *
- * @package     Cerberus v1.0
+ * @package     Aesir v1.0
  * @subpackage  Models
  * @author      Kode
  */
@@ -39,7 +39,7 @@ class User_model extends CI_Model {
      * @return array returns object if there are results and false if there aren't
      */
 	public function get_user_by_id( $user_id ) {
-		$this->db->select( 'user_id, user_email' );
+		/*$this->db->select( 'user_id, user_email' );
 		$user = $this->db->get_where('users', array('user_id' => $user_id));
 		if ($user->num_rows() > 0) {
 			// file already exists so no need to move the file
@@ -48,7 +48,7 @@ class User_model extends CI_Model {
 		} else {
 			// No user found
 			return false;
-		}
+		}*/
 		
 
 	}
@@ -63,7 +63,7 @@ class User_model extends CI_Model {
      */
 	public function save_email( $user_id, $user_email ) {
 
-		$data = array(
+		/*$data = array(
 			'user_email' => $user_email
 		);
 
@@ -76,7 +76,7 @@ class User_model extends CI_Model {
 		} else {
 	      $this->db->set('user_id', $user_id);
 	      $this->db->insert('users',$data);
-		}
+		}*/
 
 	}
 

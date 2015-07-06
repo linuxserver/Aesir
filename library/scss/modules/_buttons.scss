@@ -80,3 +80,11 @@ and it will create a button dependant on those variables.
   border-bottom-right-radius: 8px!important;
   width: 120px;
 }
+
+.savebutton {
+  @extend %btn;
+  width: 150px;
+  padding: 9px;
+  background: $highlight;
+  float: right;
+}

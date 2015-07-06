@@ -207,19 +207,44 @@ PAGE SPECIFIC STYLES
 		li {
 			display: table;
 			width: 100%;
-			.fourcol {
-				display: table-cell;
-				width: 25%;
-				padding: 25px 10px;
-				text-align: center;
-			}
-			&.header {
-				background: $darker;
-			}
+		}
+		.modified {
+			font-size: 12px;
 		}
 	}
 
 }
+
+.twocol {
+	display: table-cell;
+	vertical-align: top;
+	width: 50%;
+	padding: 10px 10px 0;
+	text-align: center;
+}
+.threecol {
+	display: table-cell;
+	vertical-align: top;
+	width: 33.333%;
+	padding: 10px 10px 0;
+	text-align: center;
+}
+.fourcol {
+	display: table-cell;
+	vertical-align: top;
+	width: 25%;
+	padding: 10px 10px 0;
+	text-align: center;
+}
+
+.header {
+	background: $darker;
+	margin-bottom: 10px;
+	.fourcol {
+		padding: 25px 10px;
+	}
+}
+
 
 
 /******************************************************************

@@ -2,11 +2,7 @@
             <?php $this->load->view( 'status', array( 'statustype' => 'mini' ) ); ?>
 
             <section class="bevelbox">
-                <ul class="nav">
-                    <li class="active"><a href="">Translations (<?php echo $lang_count;?>)</a></li>
-                    <li><a href="">Create New</a></li>
-                    <li><a href="">Get more</a></li>
-                </ul>
+            	<?php $this->load->view( 'settings/translation_menu', array( 'trans_active' => $trans_active ) ); ?>
                 <section class="box-content">
                     <ul>
                         <li class="header"><span class="fourcol">Current</span><span class="fourcol">Language</span><span class="fourcol">Complete</span><span class="fourcol">Actions</span></li>
@@ -17,7 +13,10 @@
                                     $percent = floor( ($lang['items']/$all_languages['en']['items']) *100 );
                                 } else $percent = 100;
                                 $current = ( $current_language == $lname ) ? '<a class="radio" href="'.site_url( 'settings/set_language/'.$lname ).'"><i class="icon-radio-checked"></i></a>' : '<a class="radio" href="'.site_url( 'settings/set_language/'.$lname ).'"><i class="icon-radio-unchecked"></i></a>';
-                                echo '<li><span class="fourcol">'.$current.'</span><span class="fourcol">'.$lname.'<br />'.date("jS F Y", $lang['modified']).'</span><span class="fourcol">'.$percent.'%</span><span class="fourcol">Edit | Duplicate | Delete</span></li>';
+                                $options = '<a href="'.site_url( 'settings/edit_translation/'.$lname ).'">Edit</a> | <a href="'.site_url( 'settings/duplicate_translation/'.$lname ).'">Duplicate</a> | <a href="'.site_url( 'settings/delete_translation/'.$lname ).'">Delete</a>';
+								if( $lname == 'en' ) $options = '<a href="'.site_url( 'settings/duplicate_translation/'.$lname ).'">Duplicate</a>';
+
+								echo '<li><span class="fourcol">'.$current.'</span><span class="fourcol">'.$lname.'<br /><span class="modified">'.date("jS F Y", $lang['modified']).'</span></span><span class="fourcol">'.$percent.'%</span><span class="fourcol">'.$options.'</span></li>';
                             }
                             //print_r($all_languages);
                         ?>

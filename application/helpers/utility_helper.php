@@ -94,6 +94,13 @@ function split_text($text, $len=18) {
 	} else return $text;
 }
 
+function deleteDir($path)
+{
+    return is_file($path) ?
+            unlink($path) :
+            array_map(__FUNCTION__, glob($path.'/*')) == rmdir($path);
+}
+
 function spin_disk($disk, $idx, $type="url", $usb=false) {
 	$CI =& get_instance();
 	$disks = $CI->config->item("unraid_disks");
