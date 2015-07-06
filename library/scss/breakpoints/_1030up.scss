@@ -26,7 +26,7 @@ GENERAL STYLES
 	position: absolute;
 	padding: 0;
 	right: 10px;
-	top:15px;
+	top:-4px;
 	background: none;
 }
 .dashmodules {
@@ -256,6 +256,58 @@ PAGE NAVI STYLES
 SIDEBARS & ASIDES
 *********************/
 
+nav.secondary {
+	
+	
+	height: 100%;
+	ul {
+		margin: 0;
+		padding: 0px;
+		li {
+			h3 {
+				Font-weight: 600;
+				margin: 0;
+				padding: 20px 20px 10px;
+				font-size: 16px;
+			}
+			a {
+				text-decoration: none;
+				text-transform: none;
+				display: block;
+				padding: 6px 30px;
+				font-weight: 400;
+				font-size: 13px;
+				color: $light-text;
+			}
+			&.active {
+				a {
+					background: #32352e;
+					border-top: 1px solid #52554f;
+					border-bottom: 1px solid #52554f;
+					color: $white;
+				}
+			}
+
+		}
+	}
+}
+
+.content-with-submenu {
+	background: #383A34;
+	display: table;
+	width: 100%;
+	.submenu {
+		display: table-cell;
+		vertical-align: top;
+		width: 240px;
+		border-top: 1px solid #51544C;
+	}
+	.rightcontent {
+		display: table-cell;
+		vertical-align: top;
+	}
+}
+
 
 /*********************
 FOOTER STYLES
@@ -266,7 +318,7 @@ FORM STYLES
 *********************/
 
 fieldset {
-	@include bevel( #111310, #131513, $headersect );
+	//@include bevel( #111310, #131513, $headersect );
 	border: 0 none;
 	position: relative;
 	padding: 25px;

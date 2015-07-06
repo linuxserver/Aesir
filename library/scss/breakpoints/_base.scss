@@ -277,6 +277,11 @@ body {
 
 }
 
+#pagecontainer {
+	.section1, #status.full {
+		border-top: 1px solid $s1-highlight;
+	}
+}
 
 /*********************
 LAYOUT & GRID STYLES

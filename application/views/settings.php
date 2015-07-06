@@ -1,18 +1,32 @@
+<section class="content-with-submenu">
+    <section class="submenu">
+        <nav class="secondary">
+            <ul>
+                <li><h3>System Settings</h3></li>
+                <li><a href="<?php echo site_url( 'settings/translations' );?>">Translations</a></li>
+                <li><a href="<?php echo site_url( 'settings/translations' );?>">Date and Time</a></li>
+                <li><a href="<?php echo site_url( 'settings/translations' );?>">Disk Settings</a></li>
+                <li><a href="<?php echo site_url( 'settings/translations' );?>">Docker</a></li>
+                <li><a href="<?php echo site_url( 'settings/translations' );?>">Identification</a></li>
+                <li><a href="<?php echo site_url( 'settings/translations' );?>">Network Settings</a></li>
+                <li><a href="<?php echo site_url( 'settings/translations' );?>">Global Share Settings</a></li>
+                <li><a href="<?php echo site_url( 'settings/translations' );?>">UPS Settings</a></li>
+                <li><a href="<?php echo site_url( 'settings/translations' );?>">VM Manager</a></li>
+                <li><a href="<?php echo site_url( 'settings/translations' );?>">Network Services</a></li>
+                <li><h3>Network Settings</h3></li>
+                <li><a href="<?php echo site_url( 'settings/translations' );?>">AFP</a></li>
+                <li><a href="<?php echo site_url( 'settings/translations' );?>">NFS</a></li>
+                <li><a href="<?php echo site_url( 'settings/translations' );?>">SMB</a></li>
+                <li><a href="<?php echo site_url( 'settings/translations' );?>">FTP Server</a></li>
+                <li><h3>User Preferences</h3></li>
+            </ul>
+        </nav>
+
+    </section>
+    <section class="rightcontent">
+        <?php $this->load->view( 'status', array( 'statustype' => 'mini' ) ); ?>
         <section id="addons" class="body section1">
-            <?php $this->load->view( 'status', array( 'statustype' => 'mini' ) ); ?>
-        	<nav class="secondary">
-            	<ul>
-                	<a href="<?php echo site_url( 'settings/translations' );?>">Translations</a>
-                	<?php
-					$initialactive = ($section === false) ? ' class="active"' : '';
-					echo '<li'.$initialactive.'><a href="/index.php/addons/">All</a></li>';
-					foreach ($tags as $tagname => $tag) {
-						$active = ($section == $tagname) ? ' class="active"' : '';
-						echo '<li'.$active.'><a href="/index.php/addons/category/'.$tagname.'/">'.$tag.'</a></li>';
-					}
-					?>
-                </ul>
-            </nav>
+            
             <section class="content">
                 <form>
                     <fieldset>
@@ -26,7 +40,7 @@
                             <li><label>Some input</label><input type="text" name="name" placeholder="Some input" /></li>
 
 
-                        </dl>
+                        </ul>
                     </fieldset>
                 </form>
             
@@ -34,4 +48,5 @@
             <div class="hr"></div>
 
         </section>
-
+    </section>
+</section>

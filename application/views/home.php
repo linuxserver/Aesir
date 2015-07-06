@@ -1,7 +1,7 @@
 <?php
 $var = $this->config->item("unraid_vars");
 ?>
-    <section id="dashboard">
+    <section id="dashboard" class="body">
 		<?php $this->load->view( 'status', array( 'statustype' => 'full' ) ); ?>
         <section class="dashmodules">
         	<section class="system_info full">

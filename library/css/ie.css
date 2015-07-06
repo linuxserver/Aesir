@@ -400,7 +400,7 @@ GENERAL STYLES
   position: absolute;
   padding: 0;
   right: 10px;
-  top: 15px;
+  top: -4px;
   background: none;
 }
 
@@ -731,43 +731,70 @@ PAGE NAVI STYLES
 /*********************
 SIDEBARS & ASIDES
 *********************/
+/* line 259, ../scss/breakpoints/_1030up.scss */
+nav.secondary {
+  height: 100%;
+}
+/* line 263, ../scss/breakpoints/_1030up.scss */
+nav.secondary ul {
+  margin: 0;
+  padding: 0px;
+}
+/* line 267, ../scss/breakpoints/_1030up.scss */
+nav.secondary ul li h3 {
+  Font-weight: 600;
+  margin: 0;
+  padding: 20px 20px 10px;
+  font-size: 16px;
+}
+/* line 273, ../scss/breakpoints/_1030up.scss */
+nav.secondary ul li a {
+  text-decoration: none;
+  text-transform: none;
+  display: block;
+  padding: 6px 30px;
+  font-weight: 400;
+  font-size: 13px;
+  color: #BCBDB0;
+}
+/* line 283, ../scss/breakpoints/_1030up.scss */
+nav.secondary ul li.active a {
+  background: #32352e;
+  border-top: 1px solid #52554f;
+  border-bottom: 1px solid #52554f;
+  color: #fafaf7;
+}
+
+/* line 295, ../scss/breakpoints/_1030up.scss */
+.content-with-submenu {
+  background: #383A34;
+  display: table;
+  width: 100%;
+}
+/* line 299, ../scss/breakpoints/_1030up.scss */
+.content-with-submenu .submenu {
+  display: table-cell;
+  vertical-align: top;
+  width: 240px;
+  border-top: 1px solid #51544C;
+}
+/* line 305, ../scss/breakpoints/_1030up.scss */
+.content-with-submenu .rightcontent {
+  display: table-cell;
+  vertical-align: top;
+}
+
 /*********************
 FOOTER STYLES
 *********************/
 /*********************
 FORM STYLES
 *********************/
-/* line 268, ../scss/breakpoints/_1030up.scss */
+/* line 320, ../scss/breakpoints/_1030up.scss */
 fieldset {
-  background: -moz-linear-gradient(top, #111310 0%, #131513 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #111310), color-stop(100%, #131513));
-  background: -webkit-linear-gradient(top, #111310 0%, #131513 100%);
-  background: -o-linear-gradient(top, #111310 0%, #131513 100%);
-  background: -ms-linear-gradient(top, #111310 0%, #131513 100%);
-  background: linear-gradient(to bottom, #111310 0%, #131513 100%);
-  -webkit-box-shadow: 0 -1px 1px rgba(0, 0, 0, 0.27), 0 1px 1px rgba(255, 255, 255, 0.18);
-  box-shadow: 0 -1px 1px rgba(0, 0, 0, 0.27), 0 1px 1px rgba(255, 255, 255, 0.18);
-  position: relative;
-  padding: 7px;
   border: 0 none;
   position: relative;
   padding: 25px;
-}
-/* line 84, ../scss/partials/_mixins.scss */
-fieldset::before {
-  content: '';
-  position: absolute;
-  left: 5px;
-  right: 5px;
-  top: 5px;
-  bottom: 5px;
-  background: #2c2d29;
-  -webkit-box-shadow: inset 0 -1px 1px rgba(0, 0, 0, 0.27), inset 0 1px 1px rgba(255, 255, 255, 0.18);
-  box-shadow: inset 0 -1px 1px rgba(0, 0, 0, 0.27), inset 0 1px 1px rgba(255, 255, 255, 0.18);
-}
-/* line 95, ../scss/partials/_mixins.scss */
-fieldset > * {
-  position: relative;
 }
 
 /*
