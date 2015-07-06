@@ -154,7 +154,7 @@ class Settings_model extends CI_Model {
 					$string .= '$lang[\''.$val.'\'] = \''.$posts[$key]."';\n";
 				}
 				file_put_contents($file, $string);
-				//redirect( site_url( 'settings/translations' ) );
+				redirect( site_url( 'settings/translations' ) );
 				break;	
 		}
 	}
