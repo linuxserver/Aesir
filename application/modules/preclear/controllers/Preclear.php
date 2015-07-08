@@ -1,6 +1,27 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+<?php defined('BASEPATH') OR exit('No direct script access allowed');
+/**
+ * Aesir
+ *
+ * A redesigned WebGUI for unRAID
+ *
+ * @package     Aesir
+ * @author      Kode
+ * @copyright   Copyright (c) 2014 Kode (admin@coderior.com)
+ * @link        http://coderior.com
+ * @since       Version 1.0
+ */
 
+ // --------------------------------------------------------------------
+
+/**
+ * Preclear class
+ *
+ * Controller for Preclear module
+ *
+ * @package     Aesir
+ * @subpackage  Modules
+ * @author      Kode
+ */
 class Preclear extends MY_Controller {
 
     function __construct()
