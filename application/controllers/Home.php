@@ -24,6 +24,11 @@
  */
 class Home extends MY_Controller {
 
+	public function __construct() {        
+	    parent::__construct();
+	}
+
+
 	public function index()
 	{
 		$this->load->library('unraid');
@@ -46,11 +51,11 @@ class Home extends MY_Controller {
 		//print_r($memory);
 		$data["memory"] = round(intval($memory["MemTotal"])/1048576).'GB';
 		//print_r($var);
+
 		$this->load->view('header', $data);
 		$this->load->view('home', $data);
 		$this->load->view('footer', $data);
 	}
-	
 	
 	public function about()
 	{
