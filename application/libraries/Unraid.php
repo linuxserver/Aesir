@@ -1,13 +1,28 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed'); // Remove line to use class outside of codeigniter
-/*
-* unraid library for use with codeigniter
-*
-* @author Chris Hunt <admin@coderior.com>
-* @link http://www.coderior.com
-* @package Codeigniter
-* @subpackage Unraid
-*
-*/
+/**
+ * Aesir
+ *
+ * A redesigned WebGUI for unRAID
+ *
+ * @package     Aesir
+ * @author      Kode
+ * @copyright   Copyright (c) 2014 Kode (admin@coderior.com)
+ * @link        http://coderior.com
+ * @since       Version 1.0
+ */
+
+ // --------------------------------------------------------------------
+
+/**
+ * Unraid class
+ *
+ * Library for dealing with unraid functions
+ *
+ * @package     Aesir
+ * @subpackage  Libraries
+ * @author      Kode
+ */
+
 class Unraid {
 	public $CI;
 	public $var;

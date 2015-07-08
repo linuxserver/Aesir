@@ -1,5 +1,27 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+/**
+ * Aesir
+ *
+ * A redesigned WebGUI for unRAID
+ *
+ * @package     Aesir
+ * @author      Kode
+ * @copyright   Copyright (c) 2014 Kode (admin@coderior.com)
+ * @link        http://coderior.com
+ * @since       Version 1.0
+ */
 
+ // --------------------------------------------------------------------
+
+/**
+ * Settings class
+ *
+ * Controller for settings
+ *
+ * @package     Aesir
+ * @subpackage  Controllers
+ * @author      Kode
+ */
 class Settings extends MY_Controller {
 	
 	public function __construct() {        
@@ -168,5 +190,5 @@ class Settings extends MY_Controller {
 
 }
 
-/* End of file home.php */
-/* Location: ./application/controllers/home.php */
+/* End of file Settings.php */
+/* Location: ./application/controllers/Settings.php */

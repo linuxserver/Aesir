@@ -79,7 +79,7 @@ class Settings_model extends CI_Model {
 	}
 
     /**
-     * save current language translation
+     * Save current language translation
      *
      * @access	public
      * @param	string		$lang iso code of language (the folder it is in)
@@ -96,6 +96,15 @@ class Settings_model extends CI_Model {
 
 	}
 	
+    /**
+     * Load translated values from $lang array
+     *
+     * @access	public
+     * @param	string		$lang_folder iso code of language (the folder it is in)
+     * @param	boolean		$assoc if assoc is not true, array is numerically indexed
+     * @param	boolean		$plugin if true tries to get the plugins language file
+     * @return array
+     */
 	public function lang_array( $lang_folder, $assoc=true, $plugin=false ) {
 		$path = ( $plugin!==false ) ? APPPATH.'modules/'.$plugin.'/language' : APPPATH.'language';
 		$langfile = ( $plugin!==false ) ? $plugin.'_lang.php' : 'aesir_lang.php';
@@ -107,6 +116,15 @@ class Settings_model extends CI_Model {
 		return ( $assoc === true ) ? $lang : array_values($lang);		
 	}
 
+    /**
+     * Load translated keys from $lang array
+     *
+     * @access	public
+     * @param	string		$lang_folder iso code of language (the folder it is in)
+     * @param	boolean		$assoc if assoc is not true, array is numerically indexed
+     * @param	boolean		$plugin if true tries to get the plugins language file
+     * @return array
+     */
 	public function lang_array_key( $lang_folder, $assoc=true, $plugin=false ) {
 		$path = ( $plugin!==false ) ? APPPATH.'modules/'.$plugin.'/language' : APPPATH.'language';
 		$langfile = ( $plugin!==false ) ? $plugin.'_lang.php' : 'aesir_lang.php';
@@ -119,6 +137,12 @@ class Settings_model extends CI_Model {
 	}
 
 	
+    /**
+     * Listens to form posts for settings
+     *
+     * @access	public
+     * @return void
+     */
 	public function form_listener() {
 		$action = $this->input->post('__action');
 		

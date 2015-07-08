@@ -1,5 +1,27 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+/**
+ * Aesir
+ *
+ * A redesigned WebGUI for unRAID
+ *
+ * @package     Aesir
+ * @author      Kode
+ * @copyright   Copyright (c) 2014 Kode (admin@coderior.com)
+ * @link        http://coderior.com
+ * @since       Version 1.0
+ */
 
+ // --------------------------------------------------------------------
+
+/**
+ * Users class
+ *
+ * Controller for users
+ *
+ * @package     Aesir
+ * @subpackage  Controllers
+ * @author      Kode
+ */
 class Users extends MY_Controller {
 
 	public function index()
