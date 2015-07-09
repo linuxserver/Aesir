@@ -33,8 +33,9 @@ class Preclear extends MY_Controller {
 	public function index()
 	{
 		$header_data['page_title'] = __( 'Preclear' );
+		$data["active_menu"] = 'preclear';
 		$this->load->view( 'header', $header_data );
-		$this->load->view( 'preclear' );
+		$this->load->view( 'preclear', $data );
 		$this->load->view( 'footer' );
 	}
 }

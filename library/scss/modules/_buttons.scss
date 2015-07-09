@@ -30,12 +30,13 @@ http://www.youtube.com/watch?v=hwdVpKiJzac
   vertical-align: top;
   text-decoration: none;
   font-size: 16px;
-  line-height: 34px;
+  line-height: 45px;
   font-weight: 700;
   text-transform: uppercase;
   padding: 3px 24px;
   border: 0;
   cursor: pointer;
+  margin: 1px 0;
   @include transition(background-color 0.14s ease-in-out);
 
   // hovering on the btn
@@ -76,6 +77,7 @@ and it will create a button dependant on those variables.
   @extend %btn;
   @include input(#111310, #131513);
   background: $highlight;
+  color: darken( $highlight, 40% );
   border-top-right-radius: 8px!important;
   border-bottom-right-radius: 8px!important;
   width: 120px;

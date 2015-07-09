@@ -33,16 +33,19 @@ class Docker extends MY_Controller {
 	public function index()
 	{
 		$header_data['page_title'] = __( 'Docker' );
+		$data["active_menu"] = 'docker';
 		$this->load->view( 'header', $header_data );
-		$this->load->view( 'index' );
+		$this->load->view( 'index', $data );
 		$this->load->view( 'footer' );
 	}
 	
-	public function docker_list()
+	public function docker_list( $submenu=false )
 	{
 		$header_data['page_title'] = __( 'Docker' );
+		$data["active_menu"] = 'docker_list';
+		$data["sub_menu"] = $submenu;
 		$this->load->view( 'header', $header_data );
-		$this->load->view( 'list' );
+		$this->load->view( 'list', $data );
 		$this->load->view( 'footer' );
 	}
 }

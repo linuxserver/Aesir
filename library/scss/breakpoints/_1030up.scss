@@ -280,12 +280,29 @@ nav.secondary {
 				color: $light-text;
 			}
 			&.active {
-				a {
-					background: #32352e;
-					border-top: 1px solid #52554f;
-					border-bottom: 1px solid #52554f;
+				& > a {
+					background: $subactive;
+					border-top: 1px solid $subhighlight;
+					border-bottom: 1px solid $subhighlight;
 					color: $white;
 				}
+				ul {
+					margin: 10px 0;
+				}
+				li {
+					padding: 0 0 0 10px;
+					a {
+						line-height: 1;
+					}
+				}
+				.highlight a {
+					color: $highlight;
+				}
+				i {
+						font-size: 12px;
+						margin-right: 10px;
+				}
+
 			}
 
 		}
@@ -293,7 +310,7 @@ nav.secondary {
 }
 
 .content-with-submenu {
-	background: #383A34;
+	background: $inputbg;
 	display: table;
 	width: 100%;
 	.submenu {
@@ -301,6 +318,9 @@ nav.secondary {
 		vertical-align: top;
 		width: 240px;
 		border-top: 1px solid #51544C;
+		.br {
+				border-top:1px solid #fff;
+		}
 	}
 	.rightcontent {
 		display: table-cell;

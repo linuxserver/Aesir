@@ -1218,16 +1218,17 @@ http://www.youtube.com/watch?v=hwdVpKiJzac
   vertical-align: top;
   text-decoration: none;
   font-size: 16px;
-  line-height: 34px;
+  line-height: 45px;
   font-weight: 700;
   text-transform: uppercase;
   padding: 3px 24px;
   border: 0;
   cursor: pointer;
+  margin: 1px 0;
   -webkit-transition: background-color 0.14s ease-in-out;
   transition: background-color 0.14s ease-in-out;
 }
-/* line 42, ../scss/modules/_buttons.scss */
+/* line 43, ../scss/modules/_buttons.scss */
 .blue-btn:hover, .inputright:hover, .savebutton:hover, .blue-btn:focus, .inputright:focus, .savebutton:focus {
   color: #000;
   text-decoration: none;
@@ -1238,12 +1239,12 @@ An example button.
 You can use this example if you want. Just replace all the variables
 and it will create a button dependant on those variables.
 */
-/* line 59, ../scss/modules/_buttons.scss */
+/* line 60, ../scss/modules/_buttons.scss */
 .blue-btn {
   color: #000 !important;
 }
 
-/* line 75, ../scss/modules/_buttons.scss */
+/* line 76, ../scss/modules/_buttons.scss */
 .inputright {
   background: -moz-linear-gradient(top, #111310 0%, #131513 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #111310), color-stop(100%, #131513));
@@ -1254,12 +1255,13 @@ and it will create a button dependant on those variables.
   -webkit-box-shadow: 0 -1px 1px rgba(0, 0, 0, 0.27), 0 1px 1px rgba(255, 255, 255, 0.18);
   box-shadow: 0 -1px 1px rgba(0, 0, 0, 0.27), 0 1px 1px rgba(255, 255, 255, 0.18);
   background: #abc056;
+  color: #2f3614;
   border-top-right-radius: 8px !important;
   border-bottom-right-radius: 8px !important;
   width: 120px;
 }
 
-/* line 84, ../scss/modules/_buttons.scss */
+/* line 86, ../scss/modules/_buttons.scss */
 .savebutton {
   width: 150px;
   padding: 9px;
@@ -1306,24 +1308,50 @@ select,
 textarea,
 .field {
   display: block;
-  height: 40px;
-  line-height: 40px;
-  padding: 0 12px;
+  height: 54px;
+  line-height: 54px;
+  padding: 0 16px;
   margin-bottom: 14px;
-  font-size: 1em;
-  color: #7a7f75;
-  border-radius: 3px;
+  font-size: 16px;
+  color: #fafaf7;
+  border-radius: 5px;
   vertical-align: middle;
   box-shadow: none;
   border: 0;
   width: 100%;
   max-width: 400px;
   font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  background-color: #ccc;
+  background-color: #383A34;
+  border: 1px solid #232621;
   -webkit-transition: background-color 0.24s ease-in-out;
   transition: background-color 0.24s ease-in-out;
 }
 /* line 59, ../scss/modules/_forms.scss */
+input[type="text"].inputleft,
+input[type="password"].inputleft,
+input[type="datetime"].inputleft,
+input[type="datetime-local"].inputleft,
+input[type="date"].inputleft,
+input[type="month"].inputleft,
+input[type="time"].inputleft,
+input[type="week"].inputleft,
+input[type="number"].inputleft,
+input[type="email"].inputleft,
+input[type="url"].inputleft,
+input[type="search"].inputleft,
+input[type="tel"].inputleft,
+input[type="color"].inputleft,
+select.inputleft,
+textarea.inputleft,
+.field.inputleft {
+  display: inline-block;
+  vertical-align: top;
+  max-width: 280px;
+  border-right: none;
+  border-top-right-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+}
+/* line 71, ../scss/modules/_forms.scss */
 input[type="text"]:focus, input[type="text"]:active,
 input[type="password"]:focus,
 input[type="password"]:active,
@@ -1357,10 +1385,10 @@ textarea:focus,
 textarea:active,
 .field:focus,
 .field:active {
-  background-color: #d6d6d6;
+  background-color: #42453e;
   outline: none;
 }
-/* line 66, ../scss/modules/_forms.scss */
+/* line 78, ../scss/modules/_forms.scss */
 input[type="text"].error, input[type="text"].is-invalid,
 input[type="password"].error,
 input[type="password"].is-invalid,
@@ -1402,7 +1430,7 @@ textarea.is-invalid,
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo2NDM0NDREQkYwNEIxMUUyOTI4REZGQTEzMzA2MDcyNiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo2NDM0NDREQ0YwNEIxMUUyOTI4REZGQTEzMzA2MDcyNiI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjQ3ODRGRkE2RjA0QTExRTI5MjhERkZBMTMzMDYwNzI2IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjY0MzQ0NERBRjA0QjExRTI5MjhERkZBMTMzMDYwNzI2Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+U8iT5wAAAedJREFUeNqk1U9I02Ecx/HtV3aIFAc1hcRDUoGXRAq0oNLA2CrsEFmHbikZu0iQYIFGYAiegkCpLipBxPpDEBMUzB0EhSG2LhG7hMR2GviPgUTvB57Bw8P3+U23B16HPX8+e/b8nt93wezZSMCnhXETF3AcB5BDCnH8Dq98ExcGHcFn8Ah3cdDni+fxnPDv9oAnTB7CKu6VCFXtChZy56LxUjt+jfuB8toSOth9wd7xWAWhqrUjYR/FRTwWJm+iIPT/w7bQf5ljiZnBg45dtKFX6H+LU8gIY8OEV6vgTkStwXWE8BPTGDHGPqNPz2mCfSOOYkA99TvCt1bhGPL68zMcwmncMuape10jrI+q4BbHi/FLn31S9z2x5tRhTc+1W506ipM+T3oRD4X+8+qtc4SqFvL0z/Fr14S+Szjis8bz9Lvvaq8cwS/wwGfdlqfPSWqTiFlX77o13u9Ym1PBs8JAytpRoy44X9Ft9E/gvbA+rYKn8NcaaMVc8UHgBw4b9/iqUQZ6hOAJFbyDcUflmsEX4a6+wTtHGfhAIUqa1U29Zc2BytouThD8x6xuN5CtMPi2CrXLZkZf/HyZoRFCP7n+QVR4PV7uI/AjGghN7OU/r1ilnqILtfpNC+o6vIFljBKYlhb/F2AAgaBsWR5wRiIAAAAASUVORK5CYII=);
   outline-color: #cb3935;
 }
-/* line 78, ../scss/modules/_forms.scss */
+/* line 90, ../scss/modules/_forms.scss */
 input[type="text"].success, input[type="text"].is-valid,
 input[type="password"].success,
 input[type="password"].is-valid,
@@ -1444,7 +1472,7 @@ textarea.is-valid,
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo2NDM0NDRERkYwNEIxMUUyOTI4REZGQTEzMzA2MDcyNiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo2NDM0NDRFMEYwNEIxMUUyOTI4REZGQTEzMzA2MDcyNiI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjY0MzQ0NERERjA0QjExRTI5MjhERkZBMTMzMDYwNzI2IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjY0MzQ0NERFRjA0QjExRTI5MjhERkZBMTMzMDYwNzI2Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+7olkTQAAAfhJREFUeNqklU9oE0EUhzdroWjw0tBeWlDxkEaIp55TsCU9VKIgCrHBelA8CQ1Kr1WPbZrQ3gqtQqvGqxpQc2jBk6BIIaAGD4qNCKURpDSKiPi98gLDsJt//uBjsztvfnk7895sIPAw6/joGMThFJyAXn2+A+9gA57/TaY/eU0OeBgfhGm4DiGnsb7DAszxBz/NAdcKjMJLuNWCqagHbsscN5+L+hmH4QkMOe1L5jzFfNA2PgT34ajTuY7AGuZB0/hmh5m+gS0r8xv1zRvg+gGCHZiOwnF4DP3iB3sQkYxPd2C6CWfhB9Xwlus5+K1j4jXuaq3a+gM1H9OPcAa+7q9lPidZJqHbiIm7Wg22rsEI7FrPSzAMX/T+ADyAKSsu7Fr1KplehLvwCs5DvfBf65p+MypqRbO1FXK9utH4/QKuaqYTsG3E3INJv00Q46px3+XxanJ/Ute2/vqP4FKDza2KcdljIKdnhS0xXYULTaqmLMZFn8FFSFtvt6x70ExFCS5oUXspq2ssa7oEl1swFa+CGFdgtkHgPDyDKy02zyxNU6lXRUZb1EuHYayNNs+Yh5B0WQo+/8fpJnNTZFuzz2OpjoQ2QruSOQlMy35fEGmEGMxY9e1brxobw7TkWA1h6xfckUPb+JhGoE/Hpfvew7qUld/H9J8AAwDpw3WYrxcZ3QAAAABJRU5ErkJggg==);
   outline-color: #88d92a;
 }
-/* line 90, ../scss/modules/_forms.scss */
+/* line 102, ../scss/modules/_forms.scss */
 input[type="text"][disabled], input[type="text"].is-disabled,
 input[type="password"][disabled],
 input[type="password"].is-disabled,
@@ -1482,7 +1510,7 @@ textarea.is-disabled,
   border-color: #eee;
   opacity: 0.6;
 }
-/* line 96, ../scss/modules/_forms.scss */
+/* line 108, ../scss/modules/_forms.scss */
 input[type="text"][disabled]:focus, input[type="text"][disabled]:active, input[type="text"].is-disabled:focus, input[type="text"].is-disabled:active,
 input[type="password"][disabled]:focus,
 input[type="password"][disabled]:active,
@@ -1551,20 +1579,55 @@ textarea.is-disabled:active,
   background-color: #d5edf8;
 }
 
-/* line 107, ../scss/modules/_forms.scss */
+/* line 119, ../scss/modules/_forms.scss */
 textarea {
   max-width: 100%;
   min-height: 120px;
   line-height: 1.5em;
 }
 
-/* line 114, ../scss/modules/_forms.scss */
+/* line 126, ../scss/modules/_forms.scss */
 select {
   -webkit-appearance: none;
   /* 1 */
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAHCAYAAADXhRcnAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpEOEZCMjYxMEYwNUUxMUUyOTI4REZGQTEzMzA2MDcyNiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpEOEZCMjYxMUYwNUUxMUUyOTI4REZGQTEzMzA2MDcyNiI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkQ4RkIyNjBFRjA1RTExRTI5MjhERkZBMTMzMDYwNzI2IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkQ4RkIyNjBGRjA1RTExRTI5MjhERkZBMTMzMDYwNzI2Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+Vxkp9gAAAI9JREFUeNpidHFxucHAwKAOxE+AmJmBMPgLxDJAfJMFSKwD4kqoAClgA+P///8ZXF1dPaCGcBKh6QcQB+3evXs7WDMIAA2QB1I7gFgDj0aQFz2BGh+AOEwwUaDAQyBlCMR7cGjcC5KHaQQBuM3IAOiKTiBVhiTUDdRUhq4Oq2aoAelAahIQ5wM1zsCmBiDAADhYMJXVZ9u9AAAAAElFTkSuQmCC);
   background-repeat: no-repeat;
   background-position: 97.5% center;
+}
+
+/* line 134, ../scss/modules/_forms.scss */
+::-webkit-input-placeholder {
+  color: #545750;
+}
+
+/* line 138, ../scss/modules/_forms.scss */
+:-moz-placeholder {
+  /* Firefox 18- */
+  color: #545750;
+}
+
+/* line 142, ../scss/modules/_forms.scss */
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #545750;
+}
+
+/* line 146, ../scss/modules/_forms.scss */
+:-ms-input-placeholder {
+  color: #545750;
+}
+
+/* line 151, ../scss/modules/_forms.scss */
+form li {
+  position: relative;
+}
+
+/* line 155, ../scss/modules/_forms.scss */
+label {
+  display: block;
+  padding: 5px 10px;
+  font-size: 14px;
+  color: #708030;
 }
 
 /*********************
@@ -2511,73 +2574,6 @@ fieldset legend {
   left: 25px;
 }
 
-/* line 784, ../scss/breakpoints/_base.scss */
-input[type=text], input[type=password] {
-  border: 0 none;
-  padding: 20px 20px;
-  background: #222;
-  border-radius: 8px;
-  color: white;
-  -webkit-box-shadow: inset 0 0 10px 3px rgba(0, 0, 0, 0.2);
-  box-shadow: inset 0 0 10px 3px rgba(0, 0, 0, 0.2);
-  background: -moz-linear-gradient(top, #111310 0%, #131513 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #111310), color-stop(100%, #131513));
-  background: -webkit-linear-gradient(top, #111310 0%, #131513 100%);
-  background: -o-linear-gradient(top, #111310 0%, #131513 100%);
-  background: -ms-linear-gradient(top, #111310 0%, #131513 100%);
-  background: linear-gradient(to bottom, #111310 0%, #131513 100%);
-  -webkit-box-shadow: 0 -1px 1px rgba(0, 0, 0, 0.27), 0 1px 1px rgba(255, 255, 255, 0.18);
-  box-shadow: 0 -1px 1px rgba(0, 0, 0, 0.27), 0 1px 1px rgba(255, 255, 255, 0.18);
-  font-size: 18px;
-}
-/* line 794, ../scss/breakpoints/_base.scss */
-input[type=text].inputleft, input[type=password].inputleft {
-  display: inline-block;
-  vertical-align: top;
-  max-width: 280px;
-}
-
-/* line 801, ../scss/breakpoints/_base.scss */
-form li {
-  position: relative;
-}
-
-/* line 805, ../scss/breakpoints/_base.scss */
-label {
-  display: block;
-  padding: 5px 10px;
-  font-size: 14px;
-  color: #ABC056;
-}
-
-/* line 812, ../scss/breakpoints/_base.scss */
-::-webkit-input-placeholder {
-  color: #616161;
-}
-
-/* line 815, ../scss/breakpoints/_base.scss */
-.inputleft {
-  border-top-right-radius: 0px !important;
-  border-bottom-right-radius: 0px !important;
-}
-
-/* line 823, ../scss/breakpoints/_base.scss */
-:-moz-placeholder {
-  /* Firefox 18- */
-  color: #616161;
-}
-
-/* line 827, ../scss/breakpoints/_base.scss */
-::-moz-placeholder {
-  /* Firefox 19+ */
-  color: #616161;
-}
-
-/* line 831, ../scss/breakpoints/_base.scss */
-:-ms-input-placeholder {
-  color: #616161;
-}
-
 /*********************
 LARGER MOBILE DEVICES
 This is for devices like the Galaxy Note or something that's
@@ -3084,27 +3080,52 @@ you can add resource intensive styles.
     color: #BCBDB0;
   }
   /* line 283, ../scss/breakpoints/_1030up.scss */
-  nav.secondary ul li.active a {
+  nav.secondary ul li.active > a {
     background: #32352e;
     border-top: 1px solid #52554f;
     border-bottom: 1px solid #52554f;
     color: #fafaf7;
   }
+  /* line 289, ../scss/breakpoints/_1030up.scss */
+  nav.secondary ul li.active ul {
+    margin: 10px 0;
+  }
+  /* line 292, ../scss/breakpoints/_1030up.scss */
+  nav.secondary ul li.active li {
+    padding: 0 0 0 10px;
+  }
+  /* line 294, ../scss/breakpoints/_1030up.scss */
+  nav.secondary ul li.active li a {
+    line-height: 1;
+  }
+  /* line 298, ../scss/breakpoints/_1030up.scss */
+  nav.secondary ul li.active .highlight a {
+    color: #abc056;
+  }
+  /* line 301, ../scss/breakpoints/_1030up.scss */
+  nav.secondary ul li.active i {
+    font-size: 12px;
+    margin-right: 10px;
+  }
 
-  /* line 295, ../scss/breakpoints/_1030up.scss */
+  /* line 312, ../scss/breakpoints/_1030up.scss */
   .content-with-submenu {
     background: #383A34;
     display: table;
     width: 100%;
   }
-  /* line 299, ../scss/breakpoints/_1030up.scss */
+  /* line 316, ../scss/breakpoints/_1030up.scss */
   .content-with-submenu .submenu {
     display: table-cell;
     vertical-align: top;
     width: 240px;
     border-top: 1px solid #51544C;
   }
-  /* line 305, ../scss/breakpoints/_1030up.scss */
+  /* line 321, ../scss/breakpoints/_1030up.scss */
+  .content-with-submenu .submenu .br {
+    border-top: 1px solid #fff;
+  }
+  /* line 325, ../scss/breakpoints/_1030up.scss */
   .content-with-submenu .rightcontent {
     display: table-cell;
     vertical-align: top;
@@ -3116,7 +3137,7 @@ you can add resource intensive styles.
   /*********************
   FORM STYLES
   *********************/
-  /* line 320, ../scss/breakpoints/_1030up.scss */
+  /* line 340, ../scss/breakpoints/_1030up.scss */
   fieldset {
     border: 0 none;
     position: relative;

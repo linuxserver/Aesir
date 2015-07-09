@@ -39,26 +39,38 @@ select,
 textarea,
 .field {
   display: block;
-  height: 40px;
-  line-height: 40px;
-  padding: 0 12px;
+  height: 54px;
+  line-height: 54px;
+  padding: 0 16px;
   margin-bottom: 14px;
-  font-size: 1em;
-  color: $text-color;
-  border-radius: 3px;
+  font-size: 16px;
+  color: $white;
+  border-radius: 5px;
   vertical-align: middle;
   box-shadow: none;
   border: 0;
   width: 100%;
   max-width: 400px;
   font-family: $lato;
-  background-color: $gray;
+  background-color: $inputbg;
+  border: 1px solid $navbutton;
   @include transition(background-color 0.24s ease-in-out);
+
+  &.inputleft {
+    display: inline-block;
+    vertical-align: top;
+    max-width: 280px;
+    border-right: none;
+    border-top-right-radius: 0px!important;
+    border-bottom-right-radius: 0px!important;
+
+  }
+
 
   // a focused input (or hovered on)
   &:focus,
   &:active {
-    background-color: lighten($gray, 4%);
+    background-color: lighten($inputbg, 4%);
     outline: none; 
   } // end hover or focus
 
@@ -119,4 +131,31 @@ select {
   background-position: 97.5% center;
 }
 
+::-webkit-input-placeholder {
+   color: darken( $text-color, 15% );
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: darken( $text-color, 15% );  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: darken( $text-color, 15% );  
+}
+
+:-ms-input-placeholder {  
+   color: darken( $text-color, 15% );  
+}
+
+
+form li {
+  position: relative;
+}
+
+label { 
+  display: block;
+  padding: 5px 10px;
+  font-size: 14px;
+  color: darken( $highlight, 20% );
+}
 

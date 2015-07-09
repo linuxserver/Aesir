@@ -39,6 +39,7 @@ class Settings extends MY_Controller {
 		$data["tags"] = array("dashboard" => "Dashboard", "users" => "Users");
 		$data["section"] = $section;
 		$data["disks"] = parse_ini_file($this->config->item("ini_path")."disks.ini", TRUE);
+		$data["active_menu"] = 'index';
 		//print_r($var);
 		$this->load->view('header', $data);
 		$this->load->view('settings', $data);
