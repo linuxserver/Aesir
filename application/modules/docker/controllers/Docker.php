@@ -28,6 +28,16 @@ class Docker extends MY_Controller {
     {
         parent::__construct();
         $this->load->language('docker');
+		
+		$defercreate = false;
+		if( !file_exists( APPPATH.'database/docker.db' ) ) $defercreate = true;
+		
+		$config['database'] = APPPATH.'database/docker.db';
+		$config['dbdriver'] = 'sqlite3';
+		$this->load->database($config);
+		
+		if( $defercreate ) $this->docker_model->create_docker_table(); // datbase is silently created if it doesn't exist, $defercreate ensures it's populated if it didn't exist to begin with
+
     }	
 
 	public function index()
