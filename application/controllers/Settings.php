@@ -53,7 +53,9 @@ class Settings extends MY_Controller {
 		
 		$config['database'] = APPPATH.'database/language.db';
 		$config['dbdriver'] = 'sqlite3';
-		$this->load->database($config);
+		$setdb = $this->load->database($config, true);
+
+		$this->settings_model->db1 = $setdb;
 		
 		if( $defercreate ) $this->settings_model->create_lang_table(); // datbase is silently created if it doesn't exist, $defercreate ensures it's populated if it didn't exist to begin with
 		

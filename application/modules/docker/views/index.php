@@ -1,7 +1,7 @@
 <section class="content-with-submenu">
     <section class="submenu">
         <nav class="secondary">
-            <?php $this->load->view( 'menu' ); ?>
+            <?php $this->load->view( 'menu', array('docker_images' => $docker_images) ); ?>
         </nav>
 
     </section>
@@ -10,7 +10,26 @@
         <section id="docker" class="body section1">
             
             <section class="content">
-				some content            
+                <h4>Recommended</h4>
+                <?php
+                    foreach( $dockers as $docker ) {
+                        echo '
+                        <div class="docker_list">
+                        <div class="dockers">
+
+                            <div class="image_column dark">
+                                <img src="'.$docker->temp_icon.'" />
+                            </div><div class="docker_details">
+                                <div class="author">'.$docker->temp_author.'</div>
+                                <h4>'.$docker->temp_name.'</h4>
+                                <div class="text_desc">'.$docker->temp_overview.'</div>
+
+                            </div>
+                        </div>
+                        </div>';
+                    }
+                ?>            
+				     
             </section>
             <div class="hr"></div>
 

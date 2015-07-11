@@ -1,37 +1,15 @@
-<?php $sub_menu = ( isset( $sub_menu ) ) ? $sub_menu : false; ?>
-            <ul>
-                <li><h3>Menu</h3></li>
-                <li<?php if( $active_menu == 'docker' ) echo ' class="active"';?>><a href="<?php echo site_url( 'docker' );?>"><?php _e( 'My Dockers' );?></a></li>
-                <li<?php if( $active_menu == 'docker_list' ) echo ' class="active"';?>><a href="<?php echo site_url( 'docker/docker_list' );?>"><?php _e( 'Docker List' );?></a>
-                <?php if( $active_menu == 'docker_list' ) { ?>
-                    <ul>
-                        <li<?php if( $sub_menu == 'all' ) echo ' class="highlight"';?>><a href="<?php echo site_url( 'docker/docker_list' );?>"><i class="icon-radio-unchecked"></i>All</a></li>
-                        <?php
-                            $catlist = $this->docker_model->cat_list();
-                            foreach( $catlist as $cat ) {
-                                //$slug = url_title($cat->cat_name, '-', true);
-                                $active = ( $sub_menu == $cat->cat_id ) ? ' class="highlight"' : '';
-                                echo '<li'.$active.'><a href="'.site_url( 'docker/docker_list/'.$cat->cat_id ).'"><i class="icon-radio-unchecked"></i>'.$cat->cat_name.'</a>';
-                                    if( $sub_menu == $cat->cat_id ) { // only show sublist when active, might change this to js later
-                                    if( ( $subcatlist = $this->docker_model->cat_list( $cat->cat_id ) ) !== false ) {
-                                        echo '<ul>';
-                                        foreach( $subcatlist as $subcat ) {
-                                           // $subslug = url_title($subcat->cat_name, '-', true);
-                                            $subactive = ( $subsub_menu == $subcat->cat_id ) ? ' class="highlight"' : '';
+            <ul class="docker_menu">
+                <li><h3>Containers</h3></li>
+                <li<?php if( $active_menu == 'docker' ) echo ' class="active"';?>><a href="<?php echo site_url( 'docker' );?>"><i class="icon-library2"></i> <?php _e( 'New Container' );?></a></li>
+                <?php
+                    foreach( $docker_images['running'] as $container => $running ) {
+                        $active = ( $active_menu == $container ) ? ' class="active"' : '';
+                        echo '<li'.$active.'><a href="'.site_url( 'docker/container/'.$container ).'"><i class="icon-database2 dockstatus running"></i><span class="name">'. __( $running['name'] ).'<span>'.$running['repository'].':'.$running['tag'].'</span></span></a></li>';
+                    }
+                    foreach( $docker_images['stopped'] as $container => $stopped ) {
+                        $active = ( $active_menu == $container ) ? ' class="active"' : '';
+                        echo '<li'.$active.'><a href="'.site_url( 'docker/container/'.$container ).'"><i class="icon-database2 dockstatus stopped"></i><span class="name">'. __( $stopped['name'] ).'<span>'.$stopped['repository'].':'.$stopped['tag'].'</span></span></a></li>';
+                    }
+                ?>
 
-                                            echo '<li'.$subactive.'><a href="'.site_url( 'docker/docker_list/'.$cat->cat_id .'/'.$subcat->cat_id).'"><i class="icon-radio-unchecked"></i>'.$subcat->cat_name.'</a></li>';
-
-                                        }
-                                         echo '</ul>';
-                                    }
-                                    }
-                                   
-                                   echo ' </li>';
-                            }
-                        ?>
-                        
-                    </ul>
-                <?php } ?>
-                </li>                
-                <li<?php if( $active_menu == 'docker_settings' ) echo ' class="active"';?>><a href="<?php echo site_url( 'docker/settings' );?>"><?php _e( 'Settings' );?></a></li>
             </ul>

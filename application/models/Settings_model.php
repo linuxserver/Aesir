@@ -25,6 +25,8 @@
 
 class Settings_model extends CI_Model {
 
+	public $db;
+
 	public function __construct() {        
 	    parent::__construct();
 

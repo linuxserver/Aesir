@@ -25,123 +25,14 @@
 
 class Docker_model extends CI_Model {
 
+	public $db;
+
 	public function __construct() {        
 	    parent::__construct();
 
 
 	}
 	
-    /**
-     * create lang table
-     *
-     * @access	public
-     * @return void
-     */
-	public function create_docker_table() {
-		$this->load->dbforge();
-		
-		$fields = array(
-        	'temp_id' => array(
-				'type' => 'INT',
-				'constraint' => '9',
-			),		
-        	'temp_name' => array(
-				'type' => 'VARCHAR',
-				'constraint' => '255',
-			),		
-        	'temp_overview' => array(
-				'type' => 'TEXT',
-			),		
-        	'temp_desc' => array(
-				'type' => 'TEXT',
-			),		
-        	'temp_registry' => array(
-				'type' => 'VARCHAR',
-				'constraint' => '255',
-			),		
-        	'temp_github' => array(
-				'type' => 'VARCHAR',
-				'constraint' => '255',
-			),		
-        	'temp_repository' => array(
-				'type' => 'VARCHAR',
-				'constraint' => '255',
-			),		
-        	'temp_support' => array(
-				'type' => 'VARCHAR',
-				'constraint' => '255',
-			),		
-        	'temp_icon' => array(
-				'type' => 'VARCHAR',
-				'constraint' => '255',
-			),		
-        	'temp_banner' => array(
-				'type' => 'VARCHAR',
-				'constraint' => '255',
-			),		
-        	'temp_base' => array(
-				'type' => 'VARCHAR',
-				'constraint' => '255',
-			),		
-        	'temp_downloads' => array(
-				'type' => 'INT',
-			),		
-        	'temp_beta' => array(
-				'type' => 'INT',
-				'constraint' => '1',
-				'default' => '0',
-			),
-		);		
-		$this->dbforge->add_field($fields);
-
-		
-		$this->dbforge->add_key('temp_id', true);
-		$this->dbforge->create_table('templates');
-
-		$fields = array(
-        	'cat_id' => array(
-				'type' => 'INT',
-				'auto_increment' => TRUE
-			),		
-        	'cat_name' => array(
-				'type' => 'VARCHAR',
-				'constraint' => '255',
-			),		
-        	'cat_parent' => array(
-				'type' => 'VARCHAR',
-				'constraint' => '255',
-				'default' => 'none',
-			),		
-		);		
-		$this->dbforge->add_field($fields);
-		
-		$this->dbforge->add_key('cat_id', TRUE);
-		$this->dbforge->add_key('cat_parent');
-		$this->dbforge->create_table('categories');
-
-
-		$this->dbforge->add_field('id');
-		$fields = array(
-        	'fk_cat_id' => array(
-				'type' => 'INT',
-			),		
-        	'fk_temp_id' => array(
-				'type' => 'INT',
-			),		
-		);		
-		$this->dbforge->add_field($fields);
-		
-		$this->dbforge->add_key('fk_cat_id', TRUE);
-		$this->dbforge->add_key('fk_temp_id', TRUE);
-		$this->dbforge->create_table('template_categories');
-		
-		//$data = array(
-		//	'current_lang' => $this->config->item( 'language' )
-		//);
-	    //$this->db->set('trans_id', 1);
-	    //$this->db->insert('translations',$data);
-
-	}
 
 	public function cat_list( $parent = 0 ) {
 		//$this->db->select( 'cat_name' );

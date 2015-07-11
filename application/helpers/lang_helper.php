@@ -5,8 +5,9 @@ function load_language() {
 	if( file_exists( APPPATH.'database/language.db' ) ) {
 		$config['database'] = APPPATH.'database/language.db';
 		$config['dbdriver'] = 'sqlite3';
-		$CI->load->database($config);
+		$setdb = $CI->load->database($config, true);
 		$CI->load->model('settings_model');
+		$CI->settings_model->db = $setdb;
 		$lang = $CI->settings_model->get_current_lang();
 	} else {
 		$lang = $CI->config->item( 'language' );

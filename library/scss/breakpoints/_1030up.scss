@@ -252,6 +252,105 @@ PAGE SPECIFIC STYLES
 }
 
 
+#docker {
+	text-align: left;
+	padding-top: 5px;
+
+	h2 {
+		span {
+			font-size: 14px;
+			line-height: 23px;
+			vertical-align: top;
+			&.running {
+				color: $healthy;
+			}
+			&.stopped {
+				color: $alert-red;
+			}
+		}
+	}
+
+}
+
+nav.secondary ul.docker_menu li.active i {
+	font-size: 19px;
+	&.dockstatus.running {
+		color: #DAED8D!important;		
+	}
+}
+
+.docker_menu {
+
+	.dockstatus {
+		font-size: 19px;
+		margin-right: 10px;
+		display: inline-block;
+	}
+	.dockstatus.running {
+		color: $healthy;
+	}
+	.name {
+		display: inline-block;
+  		font-size: 15px;
+  		text-transform: uppercase;
+  		line-height: 1.2;
+  		vertical-align: middle;
+  		span {
+				display: block;
+				font-size: 10px;
+				text-transform: none;
+		}
+	}
+	.dockstatus.stopped {
+		color: $alert-red;
+	}
+
+}
+
+.docker_list {
+	display: inline-block;
+	vertical-align: top;
+	width: 49%;
+	text-align: center;
+}
+.dockers {
+	width: 400px;
+	background: $darker;
+	margin-bottom: 40px;
+	border-radius: 5px;
+	display: inline-block;
+	border: 1px solid $navbutton;
+	.image_column {
+		display: inline-block;
+		vertical-align: top;
+		width: 120px;
+  		text-align: center;
+  		padding: 20px 10px;
+  		background: $navbutton;
+  		height: 230px;
+		img {
+			width: 70px;
+		}
+	}
+	.author {
+			font-size: 10px;
+	}
+	h4 {
+		margin: 0 0 10px;
+	}
+	.docker_details {
+		display: inline-block;
+		vertical-align: top;
+		width: 278px;
+		text-align: left;
+		padding: 15px 30px;
+	}
+	.text_desc {
+		text-transform: none;
+		font-size: 13px;
+	}
+}
+
 
 /******************************************************************
 PAGE NAVI STYLES
@@ -270,11 +369,15 @@ nav.secondary {
 		margin: 0;
 		padding: 0px;
 		li {
+			line-height: 4.2;
+			white-space: nowrap;
+			width: 240px;
+			overflow: hidden;
 			h3 {
-				Font-weight: 600;
+				font-weight: 600;
 				margin: 0;
-				padding: 20px 20px 10px;
 				font-size: 16px;
+				padding: 6px 20px;
 			}
 			a {
 				text-decoration: none;
@@ -287,7 +390,7 @@ nav.secondary {
 			}
 			&.active {
 				& > a {
-					background: $subactive;
+					background: $highlight;
 					border-top: 1px solid $subhighlight;
 					border-bottom: 1px solid $subhighlight;
 					color: $white;
@@ -298,7 +401,7 @@ nav.secondary {
 				li {
 					padding: 0 0 0 10px;
 					a {
-						line-height: 1;
+						line-height: 2;
 					}
 				}
 				.highlight > a {
