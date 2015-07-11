@@ -384,18 +384,24 @@ be seen on the Desktop.
 GENERAL STYLES
 *********************/
 /* line 16, ../scss/breakpoints/_1030up.scss */
-#status {
+#status, #docker {
   text-align: center;
   padding: 50px;
 }
 /* line 19, ../scss/breakpoints/_1030up.scss */
-#status .indicator {
+#status .indicator, #docker .indicator {
   display: inline-block;
   vertical-align: top;
   width: 33%;
 }
 
-/* line 25, ../scss/breakpoints/_1030up.scss */
+/* line 26, ../scss/breakpoints/_1030up.scss */
+#docker .indicator {
+  height: 248px;
+  margin-bottom: 50px;
+}
+
+/* line 31, ../scss/breakpoints/_1030up.scss */
 #status.mini {
   position: absolute;
   padding: 0;
@@ -404,13 +410,13 @@ GENERAL STYLES
   background: none;
 }
 
-/* line 33, ../scss/breakpoints/_1030up.scss */
+/* line 39, ../scss/breakpoints/_1030up.scss */
 .dashmodules section {
   display: inline-block;
   vertical-align: top;
   width: 33%;
 }
-/* line 37, ../scss/breakpoints/_1030up.scss */
+/* line 43, ../scss/breakpoints/_1030up.scss */
 .dashmodules section.full {
   width: 100%;
 }
@@ -418,17 +424,17 @@ GENERAL STYLES
 /*********************
 LAYOUT & GRID STYLES
 *********************/
-/* line 55, ../scss/breakpoints/_1030up.scss */
+/* line 61, ../scss/breakpoints/_1030up.scss */
 .table-box {
   display: table;
   width: 100%;
 }
-/* line 58, ../scss/breakpoints/_1030up.scss */
+/* line 64, ../scss/breakpoints/_1030up.scss */
 .table-box .disk {
   display: table-cell;
 }
 
-/* line 63, ../scss/breakpoints/_1030up.scss */
+/* line 69, ../scss/breakpoints/_1030up.scss */
 .spin {
   float: left;
   font-size: 18px;
@@ -436,45 +442,45 @@ LAYOUT & GRID STYLES
   padding-top: 8px;
 }
 
-/* line 66, ../scss/breakpoints/_1030up.scss */
+/* line 72, ../scss/breakpoints/_1030up.scss */
 .col {
   display: table-cell;
   vertical-align: top;
 }
 
-/* line 70, ../scss/breakpoints/_1030up.scss */
+/* line 76, ../scss/breakpoints/_1030up.scss */
 .col1 {
   width: 340px;
 }
 
-/* line 71, ../scss/breakpoints/_1030up.scss */
+/* line 77, ../scss/breakpoints/_1030up.scss */
 .col-table {
   display: table;
   width: 100%;
 }
 
-/* line 72, ../scss/breakpoints/_1030up.scss */
+/* line 78, ../scss/breakpoints/_1030up.scss */
 .overcol1 {
   width: 160px;
 }
 
-/* line 73, ../scss/breakpoints/_1030up.scss */
+/* line 79, ../scss/breakpoints/_1030up.scss */
 .col2 {
   width: 80px;
 }
 
-/* line 74, ../scss/breakpoints/_1030up.scss */
+/* line 80, ../scss/breakpoints/_1030up.scss */
 .col2, .col3, .col4, .col5, .col6 {
   text-align: center;
 }
 
-/* line 75, ../scss/breakpoints/_1030up.scss */
+/* line 81, ../scss/breakpoints/_1030up.scss */
 .col4, .col5 {
   width: 46%;
   padding-bottom: 0;
 }
 
-/* line 77, ../scss/breakpoints/_1030up.scss */
+/* line 83, ../scss/breakpoints/_1030up.scss */
 .col .space-info {
   background: #1e1e1e;
   padding: 1px;
@@ -482,46 +488,46 @@ LAYOUT & GRID STYLES
   width: 100%;
 }
 
-/* line 78, ../scss/breakpoints/_1030up.scss */
+/* line 84, ../scss/breakpoints/_1030up.scss */
 .col .space {
   background: #898989;
   height: 8px;
 }
 
-/* line 79, ../scss/breakpoints/_1030up.scss */
+/* line 85, ../scss/breakpoints/_1030up.scss */
 .col .used {
   background: #636363;
   border-right: 1px solid #1e1e1e;
   height: 8px;
 }
 
-/* line 81, ../scss/breakpoints/_1030up.scss */
+/* line 87, ../scss/breakpoints/_1030up.scss */
 .disk-info.failed, .disk-info.failed .temp, .disk-info.failed .temp span, .disk-info.failed .mini-disk-info span {
   color: #c92525;
 }
 
-/* line 82, ../scss/breakpoints/_1030up.scss */
+/* line 88, ../scss/breakpoints/_1030up.scss */
 .disk-info.failed .space {
   background: #fb9797;
 }
 
-/* line 92, ../scss/breakpoints/_1030up.scss */
+/* line 98, ../scss/breakpoints/_1030up.scss */
 .tabs {
   position: relative;
 }
-/* line 94, ../scss/breakpoints/_1030up.scss */
+/* line 100, ../scss/breakpoints/_1030up.scss */
 .tabs ul {
   margin: 0;
   display: table;
   width: 100%;
 }
-/* line 99, ../scss/breakpoints/_1030up.scss */
+/* line 105, ../scss/breakpoints/_1030up.scss */
 .tabs ul li {
   display: table-cell;
   list-style: none;
   border-left: 2px solid #2c2d29;
 }
-/* line 103, ../scss/breakpoints/_1030up.scss */
+/* line 109, ../scss/breakpoints/_1030up.scss */
 .tabs ul li a {
   display: inline-block;
   background: #31322F;
@@ -530,7 +536,7 @@ LAYOUT & GRID STYLES
   width: 100%;
   text-align: center;
 }
-/* line 113, ../scss/breakpoints/_1030up.scss */
+/* line 119, ../scss/breakpoints/_1030up.scss */
 .tabs ul li.active a {
   background: none;
   color: #abc056;
@@ -545,22 +551,22 @@ H1, H2, H3, H4, H5 STYLES
 /*********************
 HEADER STYLES
 *********************/
-/* line 135, ../scss/breakpoints/_1030up.scss */
+/* line 141, ../scss/breakpoints/_1030up.scss */
 #header {
   display: table;
   width: 100%;
 }
-/* line 138, ../scss/breakpoints/_1030up.scss */
+/* line 144, ../scss/breakpoints/_1030up.scss */
 #header section {
   display: table-cell;
   vertical-align: top;
 }
-/* line 142, ../scss/breakpoints/_1030up.scss */
+/* line 148, ../scss/breakpoints/_1030up.scss */
 #header #title {
   display: table-cell !important;
 }
 
-/* line 147, ../scss/breakpoints/_1030up.scss */
+/* line 153, ../scss/breakpoints/_1030up.scss */
 .left {
   width: 320px;
   display: table-cell;
@@ -578,12 +584,12 @@ NAVIGATION STYLES
 PAGE SPECIFIC STYLES
 *********************/
 /* DASHBOARD */
-/* line 167, ../scss/breakpoints/_1030up.scss */
+/* line 173, ../scss/breakpoints/_1030up.scss */
 .section1 {
   padding: 70px 30px;
 }
 
-/* line 170, ../scss/breakpoints/_1030up.scss */
+/* line 176, ../scss/breakpoints/_1030up.scss */
 #datadisks {
   display: inline-block;
   vertical-align: top;
@@ -591,7 +597,7 @@ PAGE SPECIFIC STYLES
   text-align: left;
   box-sizing: border-box;
 }
-/* line 176, ../scss/breakpoints/_1030up.scss */
+/* line 182, ../scss/breakpoints/_1030up.scss */
 #datadisks .datadisks {
   background: -moz-linear-gradient(top, #111310 0%, #131513 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #111310), color-stop(100%, #131513));
@@ -623,19 +629,19 @@ PAGE SPECIFIC STYLES
   position: relative;
 }
 
-/* line 183, ../scss/breakpoints/_1030up.scss */
+/* line 189, ../scss/breakpoints/_1030up.scss */
 .array_drives {
   width: 30%;
   display: inline-block;
   vertical-align: top;
   box-sizing: border-box;
 }
-/* line 188, ../scss/breakpoints/_1030up.scss */
+/* line 194, ../scss/breakpoints/_1030up.scss */
 .array_drives .drive_list {
   margin: 0 5px;
 }
 
-/* line 194, ../scss/breakpoints/_1030up.scss */
+/* line 200, ../scss/breakpoints/_1030up.scss */
 .bevelbox {
   background: -moz-linear-gradient(top, #111310 0%, #131513 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #111310), color-stop(100%, #131513));
@@ -668,27 +674,27 @@ PAGE SPECIFIC STYLES
 .bevelbox > * {
   position: relative;
 }
-/* line 200, ../scss/breakpoints/_1030up.scss */
+/* line 206, ../scss/breakpoints/_1030up.scss */
 .bevelbox ul.nav {
   display: table-cell;
   vertical-align: top;
 }
-/* line 204, ../scss/breakpoints/_1030up.scss */
+/* line 210, ../scss/breakpoints/_1030up.scss */
 .bevelbox .box-content {
   display: table-cell;
   vertical-align: top;
 }
-/* line 207, ../scss/breakpoints/_1030up.scss */
+/* line 213, ../scss/breakpoints/_1030up.scss */
 .bevelbox .box-content li {
   display: table;
   width: 100%;
 }
-/* line 211, ../scss/breakpoints/_1030up.scss */
+/* line 217, ../scss/breakpoints/_1030up.scss */
 .bevelbox .box-content .modified {
   font-size: 12px;
 }
 
-/* line 218, ../scss/breakpoints/_1030up.scss */
+/* line 224, ../scss/breakpoints/_1030up.scss */
 .twocol {
   display: table-cell;
   vertical-align: top;
@@ -697,7 +703,7 @@ PAGE SPECIFIC STYLES
   text-align: center;
 }
 
-/* line 225, ../scss/breakpoints/_1030up.scss */
+/* line 231, ../scss/breakpoints/_1030up.scss */
 .threecol {
   display: table-cell;
   vertical-align: top;
@@ -706,7 +712,7 @@ PAGE SPECIFIC STYLES
   text-align: center;
 }
 
-/* line 232, ../scss/breakpoints/_1030up.scss */
+/* line 238, ../scss/breakpoints/_1030up.scss */
 .fourcol {
   display: table-cell;
   vertical-align: top;
@@ -715,12 +721,12 @@ PAGE SPECIFIC STYLES
   text-align: center;
 }
 
-/* line 240, ../scss/breakpoints/_1030up.scss */
+/* line 246, ../scss/breakpoints/_1030up.scss */
 .header {
   background: #1B1D1B;
   margin-bottom: 10px;
 }
-/* line 243, ../scss/breakpoints/_1030up.scss */
+/* line 249, ../scss/breakpoints/_1030up.scss */
 .header .fourcol {
   padding: 25px 10px;
 }
@@ -731,23 +737,23 @@ PAGE NAVI STYLES
 /*********************
 SIDEBARS & ASIDES
 *********************/
-/* line 259, ../scss/breakpoints/_1030up.scss */
+/* line 265, ../scss/breakpoints/_1030up.scss */
 nav.secondary {
   height: 100%;
 }
-/* line 263, ../scss/breakpoints/_1030up.scss */
+/* line 269, ../scss/breakpoints/_1030up.scss */
 nav.secondary ul {
   margin: 0;
   padding: 0px;
 }
-/* line 267, ../scss/breakpoints/_1030up.scss */
+/* line 273, ../scss/breakpoints/_1030up.scss */
 nav.secondary ul li h3 {
   Font-weight: 600;
   margin: 0;
   padding: 20px 20px 10px;
   font-size: 16px;
 }
-/* line 273, ../scss/breakpoints/_1030up.scss */
+/* line 279, ../scss/breakpoints/_1030up.scss */
 nav.secondary ul li a {
   text-decoration: none;
   text-transform: none;
@@ -757,53 +763,53 @@ nav.secondary ul li a {
   font-size: 13px;
   color: #BCBDB0;
 }
-/* line 283, ../scss/breakpoints/_1030up.scss */
+/* line 289, ../scss/breakpoints/_1030up.scss */
 nav.secondary ul li.active > a {
   background: #32352e;
   border-top: 1px solid #52554f;
   border-bottom: 1px solid #52554f;
   color: #fafaf7;
 }
-/* line 289, ../scss/breakpoints/_1030up.scss */
+/* line 295, ../scss/breakpoints/_1030up.scss */
 nav.secondary ul li.active ul {
   margin: 10px 0;
 }
-/* line 292, ../scss/breakpoints/_1030up.scss */
+/* line 298, ../scss/breakpoints/_1030up.scss */
 nav.secondary ul li.active li {
   padding: 0 0 0 10px;
 }
-/* line 294, ../scss/breakpoints/_1030up.scss */
+/* line 300, ../scss/breakpoints/_1030up.scss */
 nav.secondary ul li.active li a {
   line-height: 1;
 }
-/* line 298, ../scss/breakpoints/_1030up.scss */
-nav.secondary ul li.active .highlight a {
+/* line 304, ../scss/breakpoints/_1030up.scss */
+nav.secondary ul li.active .highlight > a {
   color: #abc056;
 }
-/* line 301, ../scss/breakpoints/_1030up.scss */
+/* line 307, ../scss/breakpoints/_1030up.scss */
 nav.secondary ul li.active i {
   font-size: 12px;
   margin-right: 10px;
 }
 
-/* line 312, ../scss/breakpoints/_1030up.scss */
+/* line 318, ../scss/breakpoints/_1030up.scss */
 .content-with-submenu {
   background: #383A34;
   display: table;
   width: 100%;
 }
-/* line 316, ../scss/breakpoints/_1030up.scss */
+/* line 322, ../scss/breakpoints/_1030up.scss */
 .content-with-submenu .submenu {
   display: table-cell;
   vertical-align: top;
   width: 240px;
   border-top: 1px solid #51544C;
 }
-/* line 321, ../scss/breakpoints/_1030up.scss */
+/* line 327, ../scss/breakpoints/_1030up.scss */
 .content-with-submenu .submenu .br {
   border-top: 1px solid #fff;
 }
-/* line 325, ../scss/breakpoints/_1030up.scss */
+/* line 331, ../scss/breakpoints/_1030up.scss */
 .content-with-submenu .rightcontent {
   display: table-cell;
   vertical-align: top;
@@ -815,7 +821,7 @@ FOOTER STYLES
 /*********************
 FORM STYLES
 *********************/
-/* line 340, ../scss/breakpoints/_1030up.scss */
+/* line 346, ../scss/breakpoints/_1030up.scss */
 fieldset {
   border: 0 none;
   position: relative;

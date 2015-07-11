@@ -13,13 +13,19 @@ be seen on the Desktop.
 GENERAL STYLES
 *********************/
 
-#status{
+#status,#docker{
 	text-align: center;
 	padding: 50px;
 	.indicator {
 		display: inline-block;
 		vertical-align: top;
 		width: 33%;
+	}
+}
+#docker {
+	.indicator {
+		height: 248px;
+		margin-bottom: 50px;
 	}
 }
 #status.mini {
@@ -295,7 +301,7 @@ nav.secondary {
 						line-height: 1;
 					}
 				}
-				.highlight a {
+				.highlight > a {
 					color: $highlight;
 				}
 				i {

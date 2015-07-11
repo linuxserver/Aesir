@@ -38,7 +38,7 @@ $(document).ready(function() {
 	})
 	
 	
-	$('#status').on('mouseenter', '.status_button', function() {
+	$('#status,#docker').on('mouseenter', '.status_button', function() {
 		$(this).parent().addClass("active");
 	}).on('mouseleave', '.status_button', function() {
 		$(this).parent().removeClass("active");
@@ -60,6 +60,25 @@ $(document).ready(function() {
     	barColor: function (percent) {
 	       return (percent < 75 ? '#A4BB44' : percent < 90 ? '#f0ad4e' : '#cb3935');
 	    },
+	    trackColor: false,
+	    size: piesize,
+	    scaleColor: false,
+	    trackWidth: barwidth,
+	    lineWidth: barwidth,
+
+    });
+
+	$('.dockerbutton.stopped').easyPieChart({
+    	barColor: '#cb3935',
+	    trackColor: false,
+	    size: piesize,
+	    scaleColor: false,
+	    trackWidth: barwidth,
+	    lineWidth: barwidth,
+
+    });
+	$('.dockerbutton.running').easyPieChart({
+    	barColor:  '#A4BB44',
 	    trackColor: false,
 	    size: piesize,
 	    scaleColor: false,
@@ -91,8 +110,6 @@ $(document).ready(function() {
 	    lineWidth: barwidth,
 
     });
-
-    status_array
 
 
     $(window).on("scroll", function() {
