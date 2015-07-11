@@ -12,7 +12,7 @@
                                 //$slug = url_title($cat->cat_name, '-', true);
                                 $active = ( $sub_menu == $cat->cat_id ) ? ' class="highlight"' : '';
                                 echo '<li'.$active.'><a href="'.site_url( 'docker/docker_list/'.$cat->cat_id ).'"><i class="icon-radio-unchecked"></i>'.$cat->cat_name.'</a>';
-
+                                    if( $sub_menu == $cat->cat_id ) { // only show sublist when active, might change this to js later
                                     if( ( $subcatlist = $this->docker_model->cat_list( $cat->cat_id ) ) !== false ) {
                                         echo '<ul>';
                                         foreach( $subcatlist as $subcat ) {
@@ -24,7 +24,7 @@
                                         }
                                          echo '</ul>';
                                     }
-                            
+                                    }
                                    
                                    echo ' </li>';
                             }
