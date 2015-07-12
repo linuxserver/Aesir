@@ -55,7 +55,8 @@ class Settings extends MY_Controller {
 		$config['dbdriver'] = 'sqlite3';
 		$setdb = $this->load->database($config, true);
 
-		$this->settings_model->db1 = $setdb;
+		$this->settings_model->db = $setdb;
+		$this->db = $setdb; // without this dbforge doesn't work
 		
 		if( $defercreate ) $this->settings_model->create_lang_table(); // datbase is silently created if it doesn't exist, $defercreate ensures it's populated if it didn't exist to begin with
 		

@@ -213,7 +213,7 @@ class Docker extends MY_Controller {
 		$data['container_details'] = $this->container_details( $id );
 		$image = $data['container_details'][0]['Config']['Image'];
 		//$data['docker_details'] = $this->docker_details( $image );
-		//print_r( $this->getDockerJSON( '/containers/json' ) );
+		print_r( $this->getDockerJSON( '/images/ubuntu/json' ) );
 		//print_r( $data['container_details'] );
 		//print_r( $data['docker_details'] );
 		//die();
