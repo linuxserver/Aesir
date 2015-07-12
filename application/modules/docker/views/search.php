@@ -27,14 +27,16 @@
                         //print_r($docker);
                         $docker = (object)$docker;
                         $split = explode( '/', $docker->name );
+                        $author = $split[0];
+                        $name = ( isset( $split[1] ) && !empty( $split[1] ) ) ? $split[1] : $author;
                         echo '<div class="docker_list">
                         <div class="dockers">
 
                             <div class="image_column dark">
                                 <img src="/library/img/docker-logo.png" />
                             </div><div class="docker_details">
-                                <div class="author">'.$split[0].'</div>
-                                <h4>'.$split[1].'</h4>
+                                <div class="author">'.$author.'</div>
+                                <h4>'.$name.'</h4>
                                 <div class="text_desc">'.$docker->description.'</div>
                                 <a href="'.site_url( 'docker/download/' ).'" class="button dockerinstall">Install</a>
                                 <a href="" class="detailslink">Details</a>

@@ -7,7 +7,8 @@
     </section>
     <section class="rightcontent">
         <?php //$this->load->view( 'status', array( 'statustype' => 'mini' ) ); 
-            $up = (substr( $docker['status'], 0, 2 ) == 'Up') ? true : false;
+
+            $up = ( $container_details[0]['State']['Running'] == '1') ? true : false;
             $status = ( $up ) ? '<span class="running">'.__('Running').'</span>' : '<span class="stopped">'.__('Stopped').'</span>';
         ?>
         <section id="docker" class="body section1">
@@ -15,7 +16,7 @@
             //print_r($docker);
             ?>
             <section class="content">
-                <h2><?php echo $docker['name'];?> <?php echo $status;?></h2>    
+                <h2><?php echo ltrim($container_details[0]['Name'], '/');?> <?php echo $status;?></h2>    
 
                 <ul>
                     <?php if( $up ) { ?>
@@ -25,6 +26,9 @@
                     <?php } ?>
                 </ul>       
 				     
+                     <?php
+                        print_r( $container_details );
+                     ?>
             </section>
             <div class="hr"></div>
 
