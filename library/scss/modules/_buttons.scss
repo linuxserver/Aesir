@@ -90,3 +90,19 @@ and it will create a button dependant on those variables.
   background: $highlight;
   float: right;
 }
+
+.dockerinstall {
+  @extend %btn;
+  background: $navbutton;
+  line-height: 1.5;
+  padding: 10px 25px;
+  font-size: 13px;
+  &:hover,
+  &:focus {
+    //background-color: $highlight2;
+  } // end hover
+
+  &:active {
+    //background-color: $highlight2;
+  } // end active
+}

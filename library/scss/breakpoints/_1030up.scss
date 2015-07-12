@@ -254,7 +254,7 @@ PAGE SPECIFIC STYLES
 
 #docker {
 	text-align: left;
-	padding-top: 5px;
+	padding-top: 16px;
 
 	h2 {
 		span {
@@ -310,9 +310,32 @@ nav.secondary ul.docker_menu li.active i {
 .docker_list {
 	display: inline-block;
 	vertical-align: top;
-	width: 49%;
+	width: 50%;
+	text-align: center;
+	.inner {
+		width: 400px;
+		display: inline-block;
+		text-align: left;
+		text-transform: none;
+		vertical-align: middle;
+		line-height: 3.2;
+		h4 {
+			margin: 0;
+		}
+	}
+	.more_recommended {
+		text-align: right;
+		a {
+			color: $highlight2;
+			text-decoration: none;
+		}
+	}
+}
+.downloading_image { 
+	padding: 100px;
 	text-align: center;
 }
+
 .dockers {
 	width: 400px;
 	background: $darker;
@@ -320,6 +343,7 @@ nav.secondary ul.docker_menu li.active i {
 	border-radius: 5px;
 	display: inline-block;
 	border: 1px solid $navbutton;
+	position: relative;
 	.image_column {
 		display: inline-block;
 		vertical-align: top;
@@ -332,6 +356,13 @@ nav.secondary ul.docker_menu li.active i {
 			width: 70px;
 		}
 	}
+
+	.dockerinstall {
+		position: absolute;
+		bottom: 10px;
+		right: 10px;
+	}
+
 	.author {
 			font-size: 10px;
 	}
@@ -348,6 +379,26 @@ nav.secondary ul.docker_menu li.active i {
 	.text_desc {
 		text-transform: none;
 		font-size: 13px;
+		height: 98px;
+  		overflow: hidden;
+	}
+	.supportlink {
+		position: absolute;
+		bottom: 21px;
+		left: 150px;
+		text-decoration: none;
+		font-size: 12px;
+		color: $highlight2;
+	}
+	.detailslink {
+		position: absolute;
+		bottom: 21px;
+		left: 0px;
+		text-decoration: none;
+		font-size: 12px;
+		width: 120px;
+		text-align: center;
+		color: $highlight;
 	}
 }
 

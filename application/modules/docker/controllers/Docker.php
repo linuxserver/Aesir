@@ -103,6 +103,56 @@ class Docker extends MY_Controller {
 		return array( 'running' => $running, 'stopped' => $stopped );
 	}
 
+	private function unchunk($result) {
+		return preg_replace_callback(
+			'/(?:(?:\r\n|\n)|^)([0-9A-F]+)(?:\r\n|\n){1,2}(.*?)'
+			.'((?:\r\n|\n)(?:[0-9A-F]+(?:\r\n|\n))|$)/si',
+			create_function('$matches','return hexdec($matches[1]) == strlen($matches[2]) ? $matches[2] :$matches[0];'), $result);
+	}
+
+	private function getDockerJSON($url, $method = "GET"){
+		$fp = stream_socket_client('unix:///var/run/docker.sock', $errno, $errstr);
+		if ($fp === false) {
+			echo "Couldn't create socket: [$errno] $errstr";
+			return NULL;
+		}
+		$out="$method {$url} HTTP/1.1\r\nConnection: Close\r\n\r\n";
+		fwrite($fp, $out);
+		// Strip headers out
+		while (($line = fgets($fp)) !== false) {
+			if (rtrim($line) == '') {
+				break;
+			}
+		}
+		$data = '';
+		while (($line = fgets($fp)) !== false) {
+			$data .= $line;
+		}
+		fclose($fp);
+		$data = $this->unchunk($data);
+		$json = json_decode( $data, true );
+		if ($json === null) {
+			$json = array();
+		} else if (!array_key_exists(0, $json) && !empty($json)) {
+			$json = [ $json ];
+		}
+		return $json;
+	}
+
+	public function docker_search( $term ) {
+		$json = $this->getDockerJSON( '/images/search?term='.$term );
+		return $json;
+	}
+
+	public function docker_details( $repo ) {
+		$json = $this->getDockerJSON( '/images/'.$repo.'/json' );
+		return $json;
+	}
+
+	public function container_details( $id ) {
+		$json = $this->getDockerJSON( '/containers/'.$id.'/json' );
+		return $json;
+	}
 
 
     public function load_tables()
@@ -112,27 +162,61 @@ class Docker extends MY_Controller {
     	$this->docker_model->load_tables( $data_json );
     }
 
+	public function download( $docker )
+	{
+		$header_data['page_title'] = __( 'Docker' );
+		$data["active_menu"] = 'docker';
+		$data['docker'] = $this->docker_model->docker_details( $docker );
+		//print_r( $this->docker_search( $data['docker']->temp_repository ));
+		//print_r( $this->docker_details( $data['docker']->temp_repository ));
+
+		$this->load->view( 'header', $header_data );
+		$this->load->view( 'download', $data );
+		$this->load->view( 'footer' );
+	}
+
+	public function search()
+	{
+		$term = $_GET['s'];
+		$header_data['page_title'] = __( 'Docker' );
+		$data["active_menu"] = 'docker';
+		$data['dockers'] = $this->docker_search( $term );
+		$data['docker_images'] = $this->docker_images();
+
+		$this->load->view( 'header', $header_data );
+		$this->load->view( 'search', $data );
+		$this->load->view( 'footer' );
+	}
+
 	public function index()
 	{
 		$header_data['page_title'] = __( 'Docker' );
 		$data["active_menu"] = 'docker';
-		$data['dockers'] = $this->docker_model->docker_list( );
+		$data['dockers'] = $this->docker_model->docker_list();
 		$data['docker_images'] = $this->docker_images();
 
 		$this->load->view( 'header', $header_data );
 		$this->load->view( 'index', $data );
 		$this->load->view( 'footer' );
 	}
+
 	public function container( $id )
 	{
 		$header_data['page_title'] = __( 'Docker' );
 		$data["active_menu"] = $id;
 		//$data['dockers'] = $this->docker_model->docker_list( );
 		$data['docker_images'] = $this->docker_images();
-		$merge = array_merge( $data['docker_images']['running'], $data['docker_images']['stopped'] );
+		//$merge = array_merge( $data['docker_images']['running'], $data['docker_images']['stopped'] );
 
-		$data['docker'] = $merge[$id];
+		//$data['docker'] = $merge[$id];
 
+		$data['container_details'] = $this->container_details( $id );
+		$image = $data['container_details'][0]['Config']['Image'];
+		$data['docker_details'] = $this->docker_details( $image );
+		print_r( $this->getDockerJSON( '/containers/json' ) );
+		print_r( $data['container_details'] );
+		print_r( $data['docker_details'] );
+		die();
 		$this->load->view( 'header', $header_data );
 		$this->load->view( 'container', $data );
 		$this->load->view( 'footer' );

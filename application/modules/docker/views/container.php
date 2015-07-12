@@ -8,14 +8,14 @@
     <section class="rightcontent">
         <?php //$this->load->view( 'status', array( 'statustype' => 'mini' ) ); 
             $up = (substr( $docker['status'], 0, 2 ) == 'Up') ? true : false;
-            $status = ( $up ) ? '<span class="running">Running</span>' : '<span class="stopped">Stopped</span>';
+            $status = ( $up ) ? '<span class="running">'.__('Running').'</span>' : '<span class="stopped">'.__('Stopped').'</span>';
         ?>
         <section id="docker" class="body section1">
             <?php
             //print_r($docker);
             ?>
             <section class="content">
-                <h2><?php echo $docker['name'];?><?php echo $status;?></h2>    
+                <h2><?php echo $docker['name'];?> <?php echo $status;?></h2>    
 
                 <ul>
                     <?php if( $up ) { ?>

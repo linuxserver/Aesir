@@ -16,7 +16,7 @@
                     <div class="inner"><form method="get" action="<?php echo site_url( 'docker/search' );?>"><input type="text" name="s" placeholder="Search docker hub for an image" value="" /></form></div>
                 </div>
                 <div class="docker_list">
-                    <div class="inner"><h4>Recommended</h4></div>
+                    <div class="inner"><h4><?php _e('Search results');?></h4></div>
                 </div><div class="docker_list">
                     <div class="inner more_recommended"><a href="<?php echo site_url( 'docker/recommend' );?>"><?php _e('More recommended');?>...</a></div>
                 </div>
@@ -24,18 +24,21 @@
                 
                 <?php
                     foreach( $dockers as $docker ) {
+                        //print_r($docker);
+                        $docker = (object)$docker;
+                        $split = explode( '/', $docker->name );
                         echo '<div class="docker_list">
                         <div class="dockers">
 
                             <div class="image_column dark">
-                                <img src="'.$docker->temp_icon.'" />
+                                <img src="/library/img/docker-logo.png" />
                             </div><div class="docker_details">
-                                <div class="author">'.$docker->temp_author.'</div>
-                                <h4>'.$docker->temp_name.'</h4>
-                                <div class="text_desc">'.$docker->temp_overview.'</div>
-                                <a href="'.site_url( 'docker/download/'.$docker->temp_id ).'" class="button dockerinstall">Install</a>
+                                <div class="author">'.$split[0].'</div>
+                                <h4>'.$split[1].'</h4>
+                                <div class="text_desc">'.$docker->description.'</div>
+                                <a href="'.site_url( 'docker/download/' ).'" class="button dockerinstall">Install</a>
                                 <a href="" class="detailslink">Details</a>
-                                <a href="'.$docker->temp_support.'" class="supportlink">Support</a>
+                                <a href="" class="supportlink"><i class="icon-star-empty3"></i>'.$docker->star_count.'</a>
                             </div>
                         </div>
                         </div>';

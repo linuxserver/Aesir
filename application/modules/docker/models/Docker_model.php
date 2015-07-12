@@ -27,14 +27,16 @@ class Docker_model extends CI_Model {
 
 	public $db;
 
-	public function __construct() {        
+	public function __construct() 
+	{        
 	    parent::__construct();
 
 
 	}
 	
 
-	public function cat_list( $parent = 0 ) {
+	public function cat_list( $parent = 0 ) 
+	{
 		//$this->db->select( 'cat_name' );
 		//$this->db->join('template_categories', 'template_categories.fk_cat_id = categories.cat_id', 'left');
 		$this->db->where( 'cat_parent', $parent);
@@ -45,6 +47,18 @@ class Docker_model extends CI_Model {
 			return array();
 		}
 	}
+
+	public function docker_details( $id ) 
+	{
+		$this->db->where( 'temp_id', $id);
+		$docker = $this->db->get('templates');
+		if ($docker->num_rows() > 0) {
+			return $docker->row();
+		} else {
+			return false;
+		}
+	}
+
 	public function docker_list( $cat=false, $subcat=false ) {
 		//$this->db->select( 'cat_name' );
 		//$this->db->join('template_categories', 'template_categories.fk_cat_id = categories.cat_id', 'left');
