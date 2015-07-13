@@ -863,7 +863,7 @@ nav.secondary ul.docker_menu li.active i.dockstatus.running {
   text-align: center;
   padding: 20px 10px;
   background: #232621;
-  height: 230px;
+  height: 205px;
 }
 /* line 355, ../scss/breakpoints/_1030up.scss */
 .dockers .image_column img {
@@ -895,7 +895,7 @@ nav.secondary ul.docker_menu li.active i.dockstatus.running {
 .dockers .text_desc {
   text-transform: none;
   font-size: 13px;
-  height: 98px;
+  height: 78px;
   overflow: hidden;
 }
 /* line 385, ../scss/breakpoints/_1030up.scss */

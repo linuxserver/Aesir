@@ -192,7 +192,7 @@ class Docker extends MY_Controller {
 	{
 		$header_data['page_title'] = __( 'Docker' );
 		$data["active_menu"] = 'docker';
-		$data['dockers'] = $this->docker_model->docker_list();
+		$data['dockers'] = $this->docker_model->docker_list( false, false, true );
 		$data['docker_images'] = $this->docker_images();
 
 		$this->load->view( 'header', $header_data );

@@ -59,10 +59,14 @@ class Docker_model extends CI_Model {
 		}
 	}
 
-	public function docker_list( $cat=false, $subcat=false ) {
+	public function docker_list( $cat=false, $subcat=false, $front=false ) {
 		//$this->db->select( 'cat_name' );
 		//$this->db->join('template_categories', 'template_categories.fk_cat_id = categories.cat_id', 'left');
-		if($subcat !== false) {
+		if( $front !== false) {
+			$this->db->like('temp_repository', 'linuxserver/', 'after' ); 
+			$this->db->limit(8);
+
+		} elseif($subcat !== false) {
 			$this->db->join('template_categories', 'template_categories.fk_temp_id = templates.temp_id', 'left');
 			$this->db->where( 'fk_cat_id', $subcat);
 		}
@@ -107,12 +111,12 @@ class Docker_model extends CI_Model {
 		$this->db->truncate('templates'); 
 		$this->db->truncate('template_categories'); 
 
-		//$this->_build_cats( $json );
+		$this->_build_cats( $json );
 		$this->_load_tables( $json );
 	}
 
 
-	/*public function _build_cats( $json )
+	public function _build_cats( $json )
 	{
 		
 
@@ -127,7 +131,7 @@ class Docker_model extends CI_Model {
 				foreach( $_cat_split as $split ) {
 					$_cat_list = explode( ':', $split );
 					if( !empty( $_cat_list[1] ) ) { // has sub cat
-						$this->
+						//$this->
 						$cat_list[$_cat_list[0]][$_cat_list[1]] = $_cat_list[1];
 					} else { //does not have subcat
 						$cat_list[$_cat_list[0]] = $_cat_list[0];
@@ -145,7 +149,7 @@ class Docker_model extends CI_Model {
 		}
 		//print_r( $applist );
 
-	}*/
+	}
 
 
 	public function _load_tables( $json )
@@ -174,9 +178,16 @@ class Docker_model extends CI_Model {
 			$appRepository = (isset($app['Repository']) && !empty($app['Repository'])) ? (string)$app['Repository'] : '';
 			$appSupport = (isset($app['Support']) && !empty($app['Support'])) ? (string)$app['Support'] : '';
 			$appIcon = (isset($app['Icon']) && !empty($app['Icon'])) ? (string)$app['Icon'] : '';
-			$appBanner = (isset($app['Banner']) && !empty($app['Banner'])) ? (string)$app['Banner'] : '';
 			$appBase = (isset($app['Base']) && !empty($app['Base'])) ? (string)$app['Base'] : '';
-			$appDownloads = (isset($app['Downloads']) && !empty($app['Downloads'])) ? (string)$app['Downloads'] : '';
+			$appBindTime = (isset($app['BindTime']) && $app['BindTime'] == 'true') ? 1 : 0;
+			$appBindTime = (isset($app['BindTime']) && $app['BindTime'] == 'true') ? 1 : 0;
+			$appBase = (isset($app['Base']) && !empty($app['Base'])) ? (string)$app['Base'] : '';
+			$appBase = (isset($app['Base']) && !empty($app['Base'])) ? (string)$app['Base'] : '';
+			$appBase = (isset($app['Base']) && !empty($app['Base'])) ? (string)$app['Base'] : '';
+			$appBase = (isset($app['Base']) && !empty($app['Base'])) ? (string)$app['Base'] : '';
+			$appBase = (isset($app['Base']) && !empty($app['Base'])) ? (string)$app['Base'] : '';
+			$appBase = (isset($app['Base']) && !empty($app['Base'])) ? (string)$app['Base'] : '';
+			$appBase = (isset($app['Base']) && !empty($app['Base'])) ? (string)$app['Base'] : '';
 
 			$mapp[] = array(
 				'temp_id' => $a,
@@ -189,9 +200,12 @@ class Docker_model extends CI_Model {
 				'temp_repository' => $appRepository,
 				'temp_support' => $appSupport,
 				'temp_icon' => $appIcon,
-				'temp_banner' => $appBanner,
 				'temp_base' => $appBase,
-				'temp_downloads' => $appDownloads,
+				'temp_bindtime' => $appBase,
+				'temp_base' => $appBase,
+				'temp_base' => $appBase,
+				'temp_base' => $appBase,
+				'temp_base' => $appBase,
 			);
 
 			if( isset( $app['Category'] ) && !empty($app['Category']) ) {

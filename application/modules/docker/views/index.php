@@ -24,13 +24,15 @@
                 
                 <?php
                     foreach( $dockers as $docker ) {
+                        $author = explode('/', $docker->temp_repository );
+                        $author = $author[0];
                         echo '<div class="docker_list">
                         <div class="dockers">
 
                             <div class="image_column dark">
                                 <img src="'.$docker->temp_icon.'" />
                             </div><div class="docker_details">
-                                <div class="author">'.$docker->temp_author.'</div>
+                                <div class="author">'.$author.'</div>
                                 <h4>'.$docker->temp_name.'</h4>
                                 <div class="text_desc">'.$docker->temp_overview.'</div>
                                 <a href="'.site_url( 'docker/download/'.$docker->temp_id ).'" class="button dockerinstall">Install</a>
