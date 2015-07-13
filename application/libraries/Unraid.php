@@ -74,7 +74,7 @@ class Unraid {
 		$output = array();
 		$output['percent'] = 100;
 		if ($this->disks['parity']['status']=='DISK_NP') { // exit early if no parity disk, DISK_NP = Disk not present
-			return array( 'status' => 'error', 'msg' => '<div class="indicator_details"><div class="title">'.__( 'Parity Status' ).'</div>'.__( 'Parity disk not present' ).'</div></div>', 'indicator' => 'error', 'percent' => 100 );
+			return array( 'status' => 'error', 'msg' => '<div class="indicator_details"><div class="title">'.__( 'Parity Status' ).'</div>'.__( 'Parity disk not present' ).'</div>', 'indicator' => 'error', 'percent' => 100 );
 		}
 		
 		$parity = $this->parity_status();
@@ -98,7 +98,7 @@ class Unraid {
 				
 				
 	    		if ( $this->var['sbSynced']==0 ) {
-					$output['msg'] = __('Parity has not been checked yet');
+					$output['msg'] = '<div class="indicator_details"><div class="title">'.__( 'Parity Status' ).'</div>'.__('Parity has not been checked yet').'</div>';
 	    		} else {
 	      			unset( $time );
 	      			exec( "awk '/sync completion/ {gsub(\"(time=|sec)\",\"\",x);print x;print \$NF};{x=\$NF}' /var/log/syslog|tail -2", $time );
