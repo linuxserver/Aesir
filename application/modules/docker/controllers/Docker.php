@@ -38,6 +38,7 @@ class Docker extends MY_Controller {
 
 		$this->load->model('docker_model');
 		$this->docker_model->db = $dockdb;
+		$this->db = $dockdb;
 		
 		//if( $defercreate ) {
 		//	$this->docker_model->create_docker_table(); // datbase is silently created if it doesn't exist, $defercreate ensures it's populated if it didn't exist to begin with
@@ -212,6 +213,12 @@ class Docker extends MY_Controller {
 		$this->load->view( 'header', $header_data );
 		$this->load->view( 'index', $data );
 		$this->load->view( 'footer' );
+	}
+	
+	public function folder( $dir=false ) {
+		$dir = ($dir===false) ? FCPATH : $dir;
+		$dirs = scan( $dir );
+		print_r( $dirs );
 	}
 
 	public function container( $id )

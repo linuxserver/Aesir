@@ -14,6 +14,7 @@
     <section class="rightcontent">
         <?php //$this->load->view( 'status', array( 'statustype' => 'mini' ) ); 
             $status = __('Building');
+			print_r($docker);
         ?>
         <section id="docker" class="body section1">
             <?php
@@ -72,6 +73,10 @@
                       <div class="addontab infotab" id="tabs-3">
 						<h2>Privileges</h2>
                         <label><input type="checkbox" name="privilege" />Use high privilege container</label>
+						<h2>Net type</h2>
+                            <label><input type="radio" value="0" name="nettype" /> None</label>
+                            <label><input type="radio" value="1" name="nettype" checked="checked" /> Bridged (Default)</label>
+                            <label><input type="radio" value="2" name="nettype" /> Host)</label>
                      	 <h2>Environment Variables</h2>
                          
                          <table style="width: 100%">

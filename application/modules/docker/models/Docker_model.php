@@ -111,7 +111,7 @@ class Docker_model extends CI_Model {
 		$this->db->truncate('templates'); 
 		$this->db->truncate('template_categories'); 
 
-		$this->_build_cats( $json );
+		//$this->_build_cats( $json );
 		$this->_load_tables( $json );
 	}
 
@@ -180,14 +180,12 @@ class Docker_model extends CI_Model {
 			$appIcon = (isset($app['Icon']) && !empty($app['Icon'])) ? (string)$app['Icon'] : '';
 			$appBase = (isset($app['Base']) && !empty($app['Base'])) ? (string)$app['Base'] : '';
 			$appBindTime = (isset($app['BindTime']) && $app['BindTime'] == 'true') ? 1 : 0;
-			$appBindTime = (isset($app['BindTime']) && $app['BindTime'] == 'true') ? 1 : 0;
-			$appBase = (isset($app['Base']) && !empty($app['Base'])) ? (string)$app['Base'] : '';
-			$appBase = (isset($app['Base']) && !empty($app['Base'])) ? (string)$app['Base'] : '';
-			$appBase = (isset($app['Base']) && !empty($app['Base'])) ? (string)$app['Base'] : '';
-			$appBase = (isset($app['Base']) && !empty($app['Base'])) ? (string)$app['Base'] : '';
-			$appBase = (isset($app['Base']) && !empty($app['Base'])) ? (string)$app['Base'] : '';
-			$appBase = (isset($app['Base']) && !empty($app['Base'])) ? (string)$app['Base'] : '';
-			$appBase = (isset($app['Base']) && !empty($app['Base'])) ? (string)$app['Base'] : '';
+			$appPrivileged = (isset($app['Privileged']) && $app['Privileged'] == 'true') ? 1 : 0;
+			$appEnvironment = (isset($app['Environment']) && !empty($app['Environment'])) ? base64_encode(serialize($app['Environment'])) : '';
+			$appNetworking = (isset($app['Networking']) && !empty($app['Networking'])) ? base64_encode(serialize($app['Networking'])) : '';
+			$appData = (isset($app['Data']) && !empty($app['Data'])) ? base64_encode(serialize($app['Data'])) : '';
+			$appWebUI = (isset($app['WebUI']) && !empty($app['WebUI'])) ? (string)$app['WebUI'] : '';
+
 
 			$mapp[] = array(
 				'temp_id' => $a,
@@ -201,11 +199,12 @@ class Docker_model extends CI_Model {
 				'temp_support' => $appSupport,
 				'temp_icon' => $appIcon,
 				'temp_base' => $appBase,
-				'temp_bindtime' => $appBase,
-				'temp_base' => $appBase,
-				'temp_base' => $appBase,
-				'temp_base' => $appBase,
-				'temp_base' => $appBase,
+				'temp_bindtime' => $appBindTime,
+				'temp_privileged' => $appPrivileged,
+				'temp_environment' => $appEnvironment,
+				'temp_networking' => $appNetworking,
+				'temp_data' => $appData,
+				'temp_webui' => $appWebUI,
 			);
 
 			if( isset( $app['Category'] ) && !empty($app['Category']) ) {
@@ -237,6 +236,7 @@ class Docker_model extends CI_Model {
 		//print_r( $mapp );
 
 		$this->db->insert_batch('templates', $mapp); 
+		echo $this->db->last_query();
 		//$this->db->insert_batch('categories', $mcat); 
 		$this->db->insert_batch('template_categories', $appcat); 
 
