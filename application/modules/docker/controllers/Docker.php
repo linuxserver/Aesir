@@ -67,14 +67,15 @@ class Docker extends MY_Controller {
 
     public function docker_images() 
     {
+		$running = array();
+		$stopped = array();
+
     	//$cmd = 'docker images';
     	$cmd = 'docker ps -a';
 		//unset( $output );
 		exec( $cmd, $output, $return );
 		//var_dump($return);
 		if( $return === 0) {
-			$running = array();
-			$stopped = array();
 			foreach( $output as $key => $dock ) {
 				$parts = preg_split('~  +~', $dock, -1,  PREG_SPLIT_NO_EMPTY);
 
@@ -161,6 +162,19 @@ class Docker extends MY_Controller {
     	$data_json = json_decode( $data, true );
     	$this->docker_model->load_tables( $data_json );
     }
+
+	public function install( $docker )
+	{
+		$header_data['page_title'] = __( 'Docker' );
+		$data["active_menu"] = 'docker';
+		$data['docker'] = $this->docker_model->docker_details( $docker );
+		//print_r( $this->docker_search( $data['docker']->temp_repository ));
+		//print_r( $this->docker_details( $data['docker']->temp_repository ));
+
+		$this->load->view( 'header', $header_data );
+		$this->load->view( 'install', $data );
+		$this->load->view( 'footer' );
+	}
 
 	public function download( $docker )
 	{

@@ -186,6 +186,31 @@ PAGE SPECIFIC STYLES
 	}
 }
 
+#docker {
+	.options {
+		@include bevel( #111310, #131513, $headersect );
+		margin: 0;
+		min-height: 316px;
+	}
+	.infotab {
+		padding: 30px 40px;
+	}
+	.resources {
+		padding: 0px 40px 0;
+		display: none;
+		label {
+			display: inline-block;
+			vertical-align: top;
+			line-height: 65px;
+			margin-right: 10px;
+		}
+		&.active {
+			display: block;
+		}
+	}
+
+}
+
 .array_drives {
 	width: 30%;
 	display: inline-block;

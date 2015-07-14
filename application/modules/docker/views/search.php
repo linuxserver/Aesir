@@ -38,7 +38,7 @@
                                 <div class="author">'.$author.'</div>
                                 <h4>'.$name.'</h4>
                                 <div class="text_desc">'.$docker->description.'</div>
-                                <a href="'.site_url( 'docker/download/' ).'" class="button dockerinstall">Install</a>
+                                <a href="'.site_url( 'docker/install/'.$docker->name ).'" class="button dockerinstall">Install</a>
                                 <a href="" class="detailslink">Details</a>
                                 <a href="" class="supportlink"><i class="icon-star-empty3"></i>'.$docker->star_count.'</a>
                             </div>

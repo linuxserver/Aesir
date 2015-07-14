@@ -668,6 +668,12 @@ NAVIGATION STYLES
 		display: block;
 	}
 }
+.infotab {
+	display: none;
+	&.active {
+		display: block;
+	}
+}
 
 .table-box {
 	border-bottom: 1px solid $navbutton;

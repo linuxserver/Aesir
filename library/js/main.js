@@ -120,6 +120,14 @@ $(document).ready(function() {
 	
 	//$("div.tab_container").css("height", $(this).find("div.showscale").outerHeight()+"px");
 	//$( ".tabs" ).tabs();
+	
+	$( ".toggle_hidden" ).on("change", function() { 
+		var toggle = $( this ).data( 'toggle' );
+		if( $(this).is(':checked') ) $( toggle ).slideDown();
+		else $( toggle ).slideUp();
+	});
+
+	
 	$( ".tabs li a" ).on("click", function() { 
 		$( ".tabs li" ).removeClass("active");
 		$( this ).parent().addClass("active");

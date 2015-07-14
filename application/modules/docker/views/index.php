@@ -35,7 +35,7 @@
                                 <div class="author">'.$author.'</div>
                                 <h4>'.$docker->temp_name.'</h4>
                                 <div class="text_desc">'.$docker->temp_overview.'</div>
-                                <a href="'.site_url( 'docker/download/'.$docker->temp_id ).'" class="button dockerinstall">Install</a>
+                                <a href="'.site_url( 'docker/install/'.$docker->temp_id ).'" class="button dockerinstall">Install</a>
                                 <a href="" class="detailslink">Details</a>
                                 <a href="'.$docker->temp_support.'" class="supportlink">Support</a>
                             </div>
