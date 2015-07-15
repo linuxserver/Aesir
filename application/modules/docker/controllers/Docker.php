@@ -164,11 +164,92 @@ class Docker extends MY_Controller {
     	$this->docker_model->load_tables( $data_json );
     }
 
+    public function buildCommand() {
+    	if( isset( $_POST ) && !empty( $_POST ) ) {
+
+    		$this->load->library('unraid');
+
+    		$ports = array();
+    		$volumes = array();
+    		$variables = array();
+
+    		$name = $this->input->post('name');
+    		$name = ( strlen( $name ) ) ? '--name="' . $name . '"' : "";
+
+  			$privileged = $this->input->post('privileged');
+  			$privileged = ( $privileged	=== 1) ? '--privileged="true"' : "";
+  			
+  			$repository = $this->input->post('repository');
+
+  			$mode = $this->input->post('nettype');
+  			$mode = '--net="'.strtolower( $mode ).'"';
+
+  			$bindtime = $this->input->post('bindtime');
+  			$bindtime = ( $bindtime	=== 1 ) ? 'TZ="' . $this->unraid->var2['timeZone'] . '"' : '';
+
+  			$networking = $this->input->post('networking');
+  			foreach ($networking as $port ) {
+  				if ( !strlen( $port['ContainerPort'] ) ) continue;
+    			
+    			$ports[] = sprintf( "%s:%s/%s", $port['HostPort'], $port['ContainerPort'], $port['Protocol'] );
+
+  			}
+
+  			$data = $this->input->post('data');
+  			foreach ($data as $volume ) {
+  				if ( !strlen( $volume['ContainerDir'] ) ) continue;
+    			$vmode = ( isset( $volume['read_only'] ) && $volume['read_only'] == '1' ) ? 'ro' : 'rw';
+
+    			$volumes[] = sprintf( '"%s":"%s":%s', $volume['HostDir'], $volume['ContainerDir'], $vmode );
+
+  			}
+
+  			$environment = $this->input->post('environment');
+  			foreach ($environment as $env ) {
+  				if ( !strlen( $env['Name'] ) ) continue;
+
+    			$variables[] = sprintf( '%s="%s"', $env['Name'], $env['Value'] );
+
+  			}
+
+
+	  		if ( strlen( $bindtime ) ) {
+	    		$variables[] = $cmdBindTime;
+	  		}
+
+  			$execute = $this->input->post( 'execute_command' );
+  
+  			$cmd = sprintf(
+  				'/usr/bin/docker run -d %s %s %s %s %s %s %s %s', 
+  				$name, 
+  				$mode, 
+  				$privileged, 
+  				' -e '.implode( ' -e ', $variables ),
+       			' -p '.implode( ' -p ', $ports ), 
+       			' -v '.implode( ' -v ', $volumes ), 
+       			$execute, 
+       			$repository
+       		);
+  			$cmd = preg_replace( '/\s+/', ' ', $cmd );
+  			return array( 'cmd' => $cmd, 'name' => $name, 'repository' => $repository );
+    	}
+    }
+
 	public function install( $docker )
 	{
+
+		if( isset( $_POST ) && !empty( $_POST ) ) {
+			$run = $this->buildCommand();
+			echo $run['cmd'];
+			die();
+		}
+
 		$header_data['page_title'] = __( 'Docker' );
 		$data["active_menu"] = 'docker';
 		$data['docker'] = $this->docker_model->docker_details( $docker );
+		$data['environment'] = unserialize(base64_decode( $data['docker']->temp_environment ));
+		$data['networking'] = unserialize(base64_decode( $data['docker']->temp_networking ));
+		$data['data'] = unserialize(base64_decode( $data['docker']->temp_data ));
 		//print_r( $this->docker_search( $data['docker']->temp_repository ));
 		//print_r( $this->docker_details( $data['docker']->temp_repository ));
 
