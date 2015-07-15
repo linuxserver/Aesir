@@ -26,6 +26,7 @@
 class Unraid {
 	public $CI;
 	public $var;
+	public $var2;
 	public $sec;
 	public $devs;
 	public $disks;
@@ -37,6 +38,7 @@ class Unraid {
 	public function __construct() {
 		$this->CI =& get_instance();
 		$this->var     = $this->var_details();
+		$this->var2    = parse_ini_file( $this->CI->config->item("ini_path").'var.ini', true );
 		$this->sec     = parse_ini_file( $this->CI->config->item("ini_path").'sec.ini',true );
 		$this->devs    = parse_ini_file( $this->CI->config->item("ini_path").'devs.ini',true );
 		$this->disks   = parse_ini_file( $this->CI->config->item("ini_path").'disks.ini',true );
@@ -52,7 +54,7 @@ class Unraid {
 
 		$check = shell_exec( '/root/mdcmd status' );
 		if( trim($check) == "" ) { // fallback to reading the ini file if the command fails
-			return parse_ini_file( $this->CI->config->item("ini_path").'var.ini' );
+			return parse_ini_file( $this->CI->config->item("ini_path").'var.ini', true );
 		} else {
 			$check = str_replace(array("\n", "\r", "\r\n"), '&', $check);
     		parse_str($check, $response_array);
