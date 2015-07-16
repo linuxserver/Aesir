@@ -32,30 +32,32 @@
                 <div class="tabs addons">
                   <ul>
                     <li class="active"><a href="#tabs-1">Basic Options</a></li>
-                    <li><a href="#tabs-2">Volume</a></li>
-                    <li><a href="#tabs-3">Environment</a></li>
+                    <li><a href="#tabs-2">Environment</a></li>
+                    <li><a href="#tabs-3">Resources</a></li>
                   </ul>
                     <div class="tab_container">
                       <div class="addontab infotab active" id="tabs-1">
                        <h2>Name</h2>
                         <input type="text" value="<?php if( isset( $docker->temp_name ) && !empty( $docker->temp_name ) ) echo $docker->temp_name;?>" name="name" placeholder="Names must be unique" />
-                       <h2>resources</h2>
-                      	<label><input type="checkbox" name="enable_limitation" class="toggle_hidden" data-toggle="#install_resources" />Enable resource limitation</label>
-                        <div class="resources" id="install_resources">
-                            <h3>CPU Priority</h3>
-                            <label><input type="radio" value="512" name="cpu" /> Low (512)</label>
-                            <label><input type="radio" value="1024" name="cpu" checked="checked" /> Default (1024)</label>
-                            <label><input type="radio" value="2048" name="cpu" /> High (2048)</label>
-                            <label><input type="radio" value="custom" name="cpu" /> Custom <input type="text" value="" style="width: 120px; display: inline-block;" name="cpu_custom" /></label>
-                           
+                         
+                         
+                         <h2>Volumes</h2>
+                         <table style="width: 100%">
+                            <tr><td>File/Folder</td><td>Mount path</td><td colspan="2">Read-Only</td></tr>
+                             <?php
+                                if( isset( $data['Volume'][0]['Mode'] ) && !empty( $data['Volume'][0]['Mode'] ) ) {
+                                    foreach ( $data['Volume'] as $key => $volume ) {
+                                        $checked = ( $volume['Mode'] == 'rw' ) ? '' : ' checked="checked"';
+                                        echo '<tr><td><input type="text" name="data['.$key.'][HostDir]" value="'.$volume['HostDir'].'" /></td><td><input type="text" name="data['.$key.'][ContainerDir]" value="'.$volume['ContainerDir'].'" /></td><td><input type="checkbox" name="data['.$key.'][read_only]"'.$checked.' value="1" /></td><td><a href="">x</a></td></tr>';
+                                    }
+                                }
+                            ?>
                             
-                           <h3>Memory Limit</h3>
-                             <input type="text" value="" name="memory" placeholder="eg. 700M or 1G or 8G" />
-                         </div>
-                         
-                         <h2>Webpage</h2>
-                         <input type="text" value="<?php if( isset( $docker->temp_webui ) && !empty( $docker->temp_webui ) ) echo $docker->temp_webui;?>" name="webpage" />
-                         
+                         </table>
+                            <a href="">Add</a>
+
+
+
                          <h2>Ports</h2>
                          <table style="width: 100%">
                          	<tr><td>Local Port</td><td>Container Port</td><td colspan="2">Type</td></tr>
@@ -72,32 +74,19 @@
                          <a href="">Add</a>
                       </div>
                       <div class="addontab infotab" id="tabs-2">
-                      	
-                         <table style="width: 100%">
-                         	<tr><td>File/Folder</td><td>Mount path</td><td colspan="2">Read-Only</td></tr>
-                             <?php
-                                if( isset( $data['Volume'][0]['Mode'] ) && !empty( $data['Volume'][0]['Mode'] ) ) {
-                                    foreach ( $data['Volume'] as $key => $volume ) {
-                                        $checked = ( $volume['Mode'] == 'rw' ) ? '' : ' checked="checked"';
-                                        echo '<tr><td><input type="text" name="data['.$key.'][HostDir]" value="'.$volume['HostDir'].'" /></td><td><input type="text" name="data['.$key.'][ContainerDir]" value="'.$volume['ContainerDir'].'" /></td><td><input type="checkbox" name="data['.$key.'][read_only]"'.$checked.' value="1" /></td><td><a href="">x</a></td></tr>';
-                                    }
-                                }
-                            ?>
-                            
-                         </table>
-                        	<a href="">Add</a>
-                      </div>
-                      <div class="addontab infotab" id="tabs-3">
-						<h2>Privileges</h2>
+                         <h2>Webpage</h2>
+                         <input type="text" value="<?php if( isset( $docker->temp_webui ) && !empty( $docker->temp_webui ) ) echo $docker->temp_webui;?>" name="webpage" />
+
+                        <h2>Privileges</h2>
                         <label><input type="checkbox" name="privileged" value="1"<?php if( $docker->temp_privileged === 1 ) echo 'checked="checked"';?> />Use high privilege container</label>
-						<h2>Net type</h2>
+                        <h2>Net type</h2>
                             <label><input type="radio" value="host" name="nettype"<?php if( isset( $networking['Mode'] ) && $networking['Mode'] == 'host' ) echo ' checked="checked"';?> /> Host</label>
                             <label><input type="radio" value="bridge" name="nettype"<?php if( isset( $networking['Mode'] ) && $networking['Mode'] == 'bridge' ) echo ' checked="checked"';?> /> Bridged (Default)</label>
                             <label><input type="radio" value="none" name="nettype"<?php if( isset( $networking['Mode'] ) && $networking['Mode'] == 'none' ) echo ' checked="checked"';?> /> None</label>
-                     	 <h2>Environment Variables</h2>
+                         <h2>Environment Variables</h2>
                          
                          <table style="width: 100%">
-                         	<tr><td>Variable</td><td>Value</td><td></td></tr>
+                            <tr><td>Variable</td><td>Value</td><td></td></tr>
                             <?php
                                 if( isset( $environment['Variable'] ) && !empty( $environment['Variable'] ) ) {
                                     foreach ( $environment['Variable'] as $key => $variable) {
@@ -106,8 +95,22 @@
                                 }
                             ?>
                          </table>
-  						<h2>Execution Command</h2>
+                        <h2>Execution Command</h2>
                        <input type="text" value="" name="execute_command" />
+                      	
+                      </div>
+                      <div class="addontab infotab" id="tabs-3">
+                        <h2>resources</h2>
+                            <h3>CPU Priority</h3>
+                            <label><input type="radio" value="512" name="cpu" /> Low (512)</label>
+                            <label><input type="radio" value="1024" name="cpu" checked="checked" /> Default (1024)</label>
+                            <label><input type="radio" value="2048" name="cpu" /> High (2048)</label>
+                            <label><input type="radio" value="custom" name="cpu" /> Custom <input type="text" value="" style="width: 120px; display: inline-block;" name="cpu_custom" /></label>
+                           
+                            
+                           <h3>Memory Limit</h3>
+                             <input type="text" value="" name="memory" placeholder="eg. 700M or 1G or 8G" />
+                     
                       </div>
                     </div>
                   </div>
