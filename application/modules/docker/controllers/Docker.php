@@ -184,6 +184,17 @@ class Docker extends MY_Controller {
   			$mode = $this->input->post('nettype');
   			$mode = '--net="'.strtolower( $mode ).'"';
 
+  			$cpu = $this->input->post('cpu');
+  			if( $cpu !== 'custom' ) {
+  				$cpu = ( $cpu !== '1024' ) ? ' --cpu-shares='.$cpu : '';
+  			} else {
+  				$cpucustom = $this->input->post('cpu_custom');
+  				$cpu = ( $cpucustom !== '1024' && $cpu >= '2' ) ? ' --cpu-shares='.$cpucustom : '';
+  			}
+
+  			$memory = $this->input->post('memory');
+    		$memory = ( strlen( $memory ) ) ? ' -m ' . $memory : "";	
+
   			$bindtime = $this->input->post('bindtime');
   			$bindtime = ( $bindtime	=== 1 ) ? 'TZ="' . $this->unraid->var2['timeZone'] . '"' : '';
 
@@ -195,6 +206,8 @@ class Docker extends MY_Controller {
 
   			}
 
+	  		$ports = ( count( $ports ) > 0 ) ? ' -p '.implode( ' -p ', $ports ) : '';
+
   			$data = $this->input->post('data');
   			foreach ($data as $volume ) {
   				if ( !strlen( $volume['ContainerDir'] ) ) continue;
@@ -203,6 +216,8 @@ class Docker extends MY_Controller {
     			$volumes[] = sprintf( '"%s":"%s":%s', $volume['HostDir'], $volume['ContainerDir'], $vmode );
 
   			}
+
+	  		$volumes = ( count( $volumes ) > 0 ) ? ' -v '.implode( ' -v ', $volumes ) : '';
 
   			$environment = $this->input->post('environment');
   			foreach ($environment as $env ) {
@@ -217,16 +232,19 @@ class Docker extends MY_Controller {
 	    		$variables[] = $cmdBindTime;
 	  		}
 
+	  		$variables = ( count( $variables ) > 0 ) ? ' -e '.implode( ' -e ', $variables ) : '';
+
   			$execute = $this->input->post( 'execute_command' );
   
   			$cmd = sprintf(
-  				'/usr/bin/docker run -d %s %s %s %s %s %s %s %s', 
+  				'/usr/bin/docker run -d %s %s %s %s %s %s %s %s %s', 
   				$name, 
+  				$cpu, 
   				$mode, 
   				$privileged, 
-  				' -e '.implode( ' -e ', $variables ),
-       			' -p '.implode( ' -p ', $ports ), 
-       			' -v '.implode( ' -v ', $volumes ), 
+  				$variables,
+       			$ports, 
+       			$volumes, 
        			$execute, 
        			$repository
        		);
@@ -235,12 +253,57 @@ class Docker extends MY_Controller {
     	}
     }
 
+
 	public function install( $docker )
 	{
 
 		if( isset( $_POST ) && !empty( $_POST ) ) {
-			$run = $this->buildCommand();
-			echo $run['cmd'];
+			//$run = $this->buildCommand();
+			//echo $run['cmd'];
+			$outputfile = 'test.txt';
+			$outputfile2 = 'test2.txt';
+			$pidfile = 'docker_pidfile';
+			//$run = sprintf('nohup %s > %s 2>&1 & echo $! >> %s', $run['cmd'], $outputfile, $pidfile);
+			$cmd = 'php index.php docker pull_image '.base64_encode($_POST['repository']);
+			//die($cmd);
+			//$run = sprintf('%s 2>&1 &', $run['cmd']);
+			$run = sprintf('nohup %s &> /dev/null &', $cmd);
+			/*//echo "c: ".$run;
+
+			$descriptorspec = array(
+   				0 => array("pipe", "r"),  // stdin is a pipe that the child will read from
+   				1 => array("file", $outputfile, "a"),  // stdout is a pipe that the child will write to
+   				2 => array("pipe", $outputfile2, "a") // stderr is a file to write to
+			);
+
+		$cwd = FCPATH;
+		$env = NULL;
+
+		$process = proc_open($run, $descriptorspec, $pipes, $cwd, $env);*/
+
+
+
+		/*$command = '/usr/bin/docker run -d --name="quassel-core" --net="bridge" -e PGID="99" -e PUID="100" -e TZ="Europe/London" -p 4242:4242/tcp -p 64443:64443/tcp -v "/mnt/user/appdata/quassel-core":"/config":rw linuxserver/quassel-core';
+  $descriptorspec = array(
+        0 => array("pipe", "r"),   // stdin is a pipe that the child will read from
+        1 => array("pipe", "w"),   // stdout is a pipe that the child will write to
+        2 => array("pipe", "w")    // stderr is a pipe that the child will write to
+        );
+    	$id = mt_rand();
+    	$output = array();
+    $proc = proc_open($command." 2>&1", $descriptorspec, $pipes, '/', array());
+    while ($out = fgets( $pipes[1] )) {
+      $out = preg_replace("%[\t\n\x0B\f\r]+%", '', $out );
+      @flush();
+      echo htmlentities($out) . "<br />";
+      @flush();
+    }
+    $retval = proc_close($proc);*/
+  
+
+
+			exec($run);
+			redirect( 'docker/process_download' );
 			die();
 		}
 
@@ -257,6 +320,89 @@ class Docker extends MY_Controller {
 		$this->load->view( 'install', $data );
 		$this->load->view( 'footer' );
 	}
+
+	public function pull_image( $image )
+	{
+		$image = base64_decode( $image );
+		if (! preg_match("/:[\w]*$/i", $image)) $image .= ":latest";
+
+		//die("image: ".$image);
+
+		$fp = stream_socket_client('unix:///var/run/docker.sock', $errno, $errstr);
+		if (!$fp) {
+		    echo "$errstr ($errno)<br />\n";
+		} else {
+			@unlink('text2.txt');
+			$out="POST /images/create?fromImage=$image HTTP/1.1\r\nConnection: Close\r\n\r\n";
+		    fwrite($fp, $out);
+		    while (!feof($fp)) {
+		    	$thisline = fgets($fp, 5000);
+		    	$current = json_decode( $thisline, true );
+		    	file_put_contents( 'text1.txt', $thisline  );
+
+		    	$id = ( isset( $current['id'] ) ) ? $current['id'] : "";
+		    	if($current['status'] == 'Pulling fs layer') $layers[$id] = 0;
+		    	elseif($current['status'] == 'Downloading') {
+		    		$total = $current['progressDetail']['total'];
+      				$curr = $current['progressDetail']['current'];
+      				if ($total > 0) {
+        				$percentage = round(($curr/$total) * 100);
+        				$layers[$id] = $percentage;
+      				} else { // doesn't know total so set at 50%
+      					$layers[$id] = 50;
+      				}
+		    	} elseif( $current['status'] == 'Download complete' ) {
+					$layers[$id] = 100;
+		    	}
+
+		    	if( !empty( $layers ) ) file_put_contents( 'text2.txt', json_encode( $layers )  );
+		        //echo fgets($fp, 1024);
+		    }
+		    fclose($fp);
+		}		
+	}
+    public function process_download()
+    {
+    	$file = json_decode(file_get_contents('text2.txt'));
+
+    	/*foreach( $file as $line => $value ) {
+    		$split = explode( ': ', $value );
+    		if( !isset( $split[1] ) ) continue;
+    		if( trim( $split[1] ) == 'Pulling fs layer' ) $layers[$split[0]] = 0;
+    	}
+    	foreach( $file as $line => $value ) {
+    		$split = explode( ': ', $value );
+    		if( !isset( $split[1] ) ) continue;
+    		if( trim( $split[1] ) == 'Download complete' ) $layers[$split[0]] = 100;
+    	}
+    	foreach( $file as $line => $value ) {
+    		$split = explode( ': ', $value );
+    		if( !isset( $split[1] ) ) continue;
+    		if( substr( $split[1], 0, 11 ) == 'Downloading' ) {
+    			$dl = substr( $split[1], 12 );
+    			$amounts = explode( '/', $dl );
+    			$val1 = substr( trim( $amounts[0] ), 0, -3 );
+    			$val2 = substr( trim( $amounts[1] ), 0, -3 );
+    			$val1 = (float)$val1;
+    			$val2 = (float)$val2;
+    			$curr_perc = floor( $val1 / $val2 ) *100;
+    			$layers[$split[0]] = $curr_perc;
+    		}
+    	}*/
+		$file = (array)$file;
+		//print_r($file);
+
+    	$layer_count = count( $file );
+    	$max = $layer_count * 100;
+
+    	$current = array_sum($file);
+
+    	$percent = ( $current / $max ) * 100;
+
+    	echo json_encode( array( 'percent' => $percent ) );
+
+
+    }
 
 	public function download( $docker )
 	{
