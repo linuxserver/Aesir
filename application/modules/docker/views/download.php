@@ -26,6 +26,8 @@
                     
                     <div id="download_image" class="indicator" data-percent="0" data-img="<?php echo $shaimage;?>">
                 	<div class="decor-container"><span class="decor"></span></div>
+                    <div class="section_title"><div id="download_status"></div></div>
+                    <div class="show_status"><span id="download_percent"></span>%</div>
                     </div>
 
 

@@ -74,8 +74,10 @@ $(document).ready(function() {
 		function get_current() {
 			var img = $('#download_image').data('img');
 			$.getJSON('/index.php/docker/process_download/'+img, function( data ) {
-				$('#download_image').data('easyPieChart').update(data.percent);
-				if( data.percent >= 100 || data.percent == '-1' )  abortTimer();
+				if( data.percent > 0 ) $('#download_image').data('easyPieChart').update(data.percent);
+				$('#download_status').html(data.dstatus);
+				$('#download_percent').html(data.percent);
+				if( data.dstatus == 'Extracting' && data.percent >= 100 )  abortTimer();
 			});
 		}
 		function abortTimer() { // to be called when you want to stop the timer
@@ -88,6 +90,10 @@ $(document).ready(function() {
 			barColor: '#A4BB44',
 			trackColor: false,
 			size: piesize,
+		    animate: {
+				duration: 250,
+				enabled: true
+			},
 			scaleColor: false,
 			trackWidth: barwidth,
 			lineWidth: barwidth,

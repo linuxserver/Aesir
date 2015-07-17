@@ -335,18 +335,19 @@ class Docker extends MY_Controller {
 
 		$fp = stream_socket_client('unix:///var/run/docker.sock', $errno, $errstr);
 		if (!$fp) {
-		    echo "$errstr ($errno)<br />\n";
+			file_put_contents( 'error.txt', "$errstr ($errno)<br />\n", FILE_APPEND  );
 		} else {
 			$out="POST /images/create?fromImage=$image HTTP/1.1\r\nConnection: Close\r\n\r\n";
 		    fwrite($fp, $out);
 		    while (!feof($fp)) {
 		    	$thisline = fgets($fp, 5000);
 		    	$current = json_decode( $thisline, true );
-		    	//file_put_contents( 'text1.txt', $thisline  );
+		    	file_put_contents( 'text1.txt', $thisline, FILE_APPEND  );
 
 		    	$id = ( isset( $current['id'] ) ) ? $current['id'] : "";
 		    	if($current['status'] == 'Pulling fs layer') $layers[$id] = 0;
-		    	elseif($current['status'] == 'Downloading') {
+		    	elseif($current['status'] == 'Downloading' || $current['status'] == 'Extracting') {
+		    		$status = $current['status'];
 		    		$total = $current['progressDetail']['total'];
       				$curr = $current['progressDetail']['current'];
       				if ($total > 0) {
@@ -356,6 +357,8 @@ class Docker extends MY_Controller {
       					$layers[$id] = 500;
       					$layers_total[$id] = 1000;
       				}
+		    	} elseif($current['status'] == 'Extracting') {
+
 		    	} elseif( $current['status'] == 'Download complete' ) {
 					$layers[$id] = $layers_total[$id];
 		    	}
@@ -363,24 +366,22 @@ class Docker extends MY_Controller {
 		    	$all_current = array_sum($layers);
 		    	$all_total = array_sum($layers_total);
 
-		    	$percent = ( $all_current / $all_total ) * 100;		    	
+		    	$percent = round(( $all_current / $all_total ) * 100);		    	
 
-		    	if( !empty( $layers ) ) file_put_contents( $file, json_encode( array( 'total' => $full_total, 'current' => $full_current, 'percent' => $percent ) ) );
+		    	if( !empty( $layers ) ) file_put_contents( $file, json_encode( array( 'dstatus' => $status, 'total' => $all_total, 'current' => $all_current, 'percent' => $percent ) ) );
 		        //echo fgets($fp, 1024);
 		    }
 		    fclose( $fp );
-		    @unlink( $file );
+		    //@unlink( $file );
 		}		
 	}
     public function process_download( $image )
     {
-		$image = base64_decode( $image );
 
-    	$ffile = sha1($image);
-    	if( file_exists( $ffile ) ) {
-    		$file = file_get_contents( $ffile );
+    	if( file_exists( $image ) ) {
+    		$file = file_get_contents( $image );
     	} else {
-    		$file = json_encode( array( 'percent' => '-1' ) );
+    		$file = json_encode( array( 'dstatus' => 'Initialising', 'percent' => '0' ) );
     	}
     	
 
