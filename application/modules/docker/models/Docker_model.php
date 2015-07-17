@@ -59,9 +59,12 @@ class Docker_model extends CI_Model {
 		}
 	}
 
-	public function docker_list( $cat=false, $subcat=false, $front=false ) {
+	public function docker_list( $cat=false, $subcat=false, $front=false, $limit=false, $page=false ) {
 		//$this->db->select( 'cat_name' );
 		//$this->db->join('template_categories', 'template_categories.fk_cat_id = categories.cat_id', 'left');
+		if( $limit !== false && $page !== false) {
+			$this->db->limit( $limit, $page );
+		}
 		if( $front !== false) {
 			$this->db->like('temp_repository', 'linuxserver/', 'after' ); 
 			$this->db->limit(8);
@@ -79,6 +82,16 @@ class Docker_model extends CI_Model {
 			return $cats->result();
 		} else {
 			return array();
+		}
+	}
+
+	public function docker_count( $cat=false, $subcat=false, $front=false ) {
+		$total = $this->docker_list( $cat, $subcat, $front );
+		$total = count( $total );
+		if ($total > 0) {
+			return $total;
+		} else {
+			return 0;
 		}
 	}
 

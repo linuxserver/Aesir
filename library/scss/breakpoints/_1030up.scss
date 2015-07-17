@@ -303,12 +303,18 @@ PAGE SPECIFIC STYLES
 nav.secondary ul.docker_menu li.active i {
 	font-size: 19px;
 	&.dockstatus.running {
-		color: #DAED8D!important;		
+		color: $highlight!important;		
 	}
 }
 
 .docker_menu {
-
+	.new_docker {
+		background: $highlight2;
+		a{
+			color: white;
+		}
+		
+	}
 	.dockstatus {
 		font-size: 19px;
 		margin-right: 10px;

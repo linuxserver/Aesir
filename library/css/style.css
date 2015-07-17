@@ -3172,20 +3172,28 @@ you can add resource intensive styles.
   }
   /* line 305, ../scss/breakpoints/_1030up.scss */
   nav.secondary ul.docker_menu li.active i.dockstatus.running {
-    color: #DAED8D !important;
+    color: #abc056 !important;
   }
 
-  /* line 312, ../scss/breakpoints/_1030up.scss */
+  /* line 311, ../scss/breakpoints/_1030up.scss */
+  .docker_menu .new_docker {
+    background: #CE7F17;
+  }
+  /* line 313, ../scss/breakpoints/_1030up.scss */
+  .docker_menu .new_docker a {
+    color: white;
+  }
+  /* line 318, ../scss/breakpoints/_1030up.scss */
   .docker_menu .dockstatus {
     font-size: 19px;
     margin-right: 10px;
     display: inline-block;
   }
-  /* line 317, ../scss/breakpoints/_1030up.scss */
+  /* line 323, ../scss/breakpoints/_1030up.scss */
   .docker_menu .dockstatus.running {
     color: #A4BB44;
   }
-  /* line 320, ../scss/breakpoints/_1030up.scss */
+  /* line 326, ../scss/breakpoints/_1030up.scss */
   .docker_menu .name {
     display: inline-block;
     font-size: 15px;
@@ -3193,25 +3201,25 @@ you can add resource intensive styles.
     line-height: 1.2;
     vertical-align: middle;
   }
-  /* line 326, ../scss/breakpoints/_1030up.scss */
+  /* line 332, ../scss/breakpoints/_1030up.scss */
   .docker_menu .name span {
     display: block;
     font-size: 10px;
     text-transform: none;
   }
-  /* line 332, ../scss/breakpoints/_1030up.scss */
+  /* line 338, ../scss/breakpoints/_1030up.scss */
   .docker_menu .dockstatus.stopped {
     color: #cb3935;
   }
 
-  /* line 338, ../scss/breakpoints/_1030up.scss */
+  /* line 344, ../scss/breakpoints/_1030up.scss */
   .docker_list {
     display: inline-block;
     vertical-align: top;
     width: 50%;
     text-align: center;
   }
-  /* line 343, ../scss/breakpoints/_1030up.scss */
+  /* line 349, ../scss/breakpoints/_1030up.scss */
   .docker_list .inner {
     width: 400px;
     display: inline-block;
@@ -3220,27 +3228,27 @@ you can add resource intensive styles.
     vertical-align: middle;
     line-height: 3.2;
   }
-  /* line 350, ../scss/breakpoints/_1030up.scss */
+  /* line 356, ../scss/breakpoints/_1030up.scss */
   .docker_list .inner h4 {
     margin: 0;
   }
-  /* line 354, ../scss/breakpoints/_1030up.scss */
+  /* line 360, ../scss/breakpoints/_1030up.scss */
   .docker_list .more_recommended {
     text-align: right;
   }
-  /* line 356, ../scss/breakpoints/_1030up.scss */
+  /* line 362, ../scss/breakpoints/_1030up.scss */
   .docker_list .more_recommended a {
     color: #CE7F17;
     text-decoration: none;
   }
 
-  /* line 362, ../scss/breakpoints/_1030up.scss */
+  /* line 368, ../scss/breakpoints/_1030up.scss */
   .downloading_image {
     padding: 100px;
     text-align: center;
   }
 
-  /* line 367, ../scss/breakpoints/_1030up.scss */
+  /* line 373, ../scss/breakpoints/_1030up.scss */
   .dockers {
     width: 400px;
     background: #1B1D1B;
@@ -3250,7 +3258,7 @@ you can add resource intensive styles.
     border: 1px solid #232621;
     position: relative;
   }
-  /* line 375, ../scss/breakpoints/_1030up.scss */
+  /* line 381, ../scss/breakpoints/_1030up.scss */
   .dockers .image_column {
     display: inline-block;
     vertical-align: top;
@@ -3260,25 +3268,25 @@ you can add resource intensive styles.
     background: #232621;
     height: 205px;
   }
-  /* line 383, ../scss/breakpoints/_1030up.scss */
+  /* line 389, ../scss/breakpoints/_1030up.scss */
   .dockers .image_column img {
     width: 70px;
   }
-  /* line 388, ../scss/breakpoints/_1030up.scss */
+  /* line 394, ../scss/breakpoints/_1030up.scss */
   .dockers .dockerinstall {
     position: absolute;
     bottom: 10px;
     right: 10px;
   }
-  /* line 394, ../scss/breakpoints/_1030up.scss */
+  /* line 400, ../scss/breakpoints/_1030up.scss */
   .dockers .author {
     font-size: 10px;
   }
-  /* line 397, ../scss/breakpoints/_1030up.scss */
+  /* line 403, ../scss/breakpoints/_1030up.scss */
   .dockers h4 {
     margin: 0 0 10px;
   }
-  /* line 400, ../scss/breakpoints/_1030up.scss */
+  /* line 406, ../scss/breakpoints/_1030up.scss */
   .dockers .docker_details {
     display: inline-block;
     vertical-align: top;
@@ -3286,14 +3294,14 @@ you can add resource intensive styles.
     text-align: left;
     padding: 15px 30px;
   }
-  /* line 407, ../scss/breakpoints/_1030up.scss */
+  /* line 413, ../scss/breakpoints/_1030up.scss */
   .dockers .text_desc {
     text-transform: none;
     font-size: 13px;
     height: 78px;
     overflow: hidden;
   }
-  /* line 413, ../scss/breakpoints/_1030up.scss */
+  /* line 419, ../scss/breakpoints/_1030up.scss */
   .dockers .supportlink {
     position: absolute;
     bottom: 21px;
@@ -3302,7 +3310,7 @@ you can add resource intensive styles.
     font-size: 12px;
     color: #CE7F17;
   }
-  /* line 421, ../scss/breakpoints/_1030up.scss */
+  /* line 427, ../scss/breakpoints/_1030up.scss */
   .dockers .detailslink {
     position: absolute;
     bottom: 21px;
@@ -3320,30 +3328,30 @@ you can add resource intensive styles.
   /*********************
   SIDEBARS & ASIDES
   *********************/
-  /* line 443, ../scss/breakpoints/_1030up.scss */
+  /* line 449, ../scss/breakpoints/_1030up.scss */
   nav.secondary {
     height: 100%;
   }
-  /* line 447, ../scss/breakpoints/_1030up.scss */
+  /* line 453, ../scss/breakpoints/_1030up.scss */
   nav.secondary ul {
     margin: 0;
     padding: 0px;
   }
-  /* line 450, ../scss/breakpoints/_1030up.scss */
+  /* line 456, ../scss/breakpoints/_1030up.scss */
   nav.secondary ul li {
     line-height: 4.2;
     white-space: nowrap;
     width: 240px;
     overflow: hidden;
   }
-  /* line 455, ../scss/breakpoints/_1030up.scss */
+  /* line 461, ../scss/breakpoints/_1030up.scss */
   nav.secondary ul li h3 {
     font-weight: 600;
     margin: 0;
     font-size: 16px;
     padding: 6px 20px;
   }
-  /* line 461, ../scss/breakpoints/_1030up.scss */
+  /* line 467, ../scss/breakpoints/_1030up.scss */
   nav.secondary ul li a {
     text-decoration: none;
     text-transform: none;
@@ -3353,53 +3361,53 @@ you can add resource intensive styles.
     font-size: 13px;
     color: #BCBDB0;
   }
-  /* line 471, ../scss/breakpoints/_1030up.scss */
+  /* line 477, ../scss/breakpoints/_1030up.scss */
   nav.secondary ul li.active > a {
     background: #abc056;
     border-top: 1px solid #52554f;
     border-bottom: 1px solid #52554f;
     color: #fafaf7;
   }
-  /* line 477, ../scss/breakpoints/_1030up.scss */
+  /* line 483, ../scss/breakpoints/_1030up.scss */
   nav.secondary ul li.active ul {
     margin: 10px 0;
   }
-  /* line 480, ../scss/breakpoints/_1030up.scss */
+  /* line 486, ../scss/breakpoints/_1030up.scss */
   nav.secondary ul li.active li {
     padding: 0 0 0 10px;
   }
-  /* line 482, ../scss/breakpoints/_1030up.scss */
+  /* line 488, ../scss/breakpoints/_1030up.scss */
   nav.secondary ul li.active li a {
     line-height: 2;
   }
-  /* line 486, ../scss/breakpoints/_1030up.scss */
+  /* line 492, ../scss/breakpoints/_1030up.scss */
   nav.secondary ul li.active .highlight > a {
     color: #abc056;
   }
-  /* line 489, ../scss/breakpoints/_1030up.scss */
+  /* line 495, ../scss/breakpoints/_1030up.scss */
   nav.secondary ul li.active i {
     font-size: 12px;
     margin-right: 10px;
   }
 
-  /* line 500, ../scss/breakpoints/_1030up.scss */
+  /* line 506, ../scss/breakpoints/_1030up.scss */
   .content-with-submenu {
     background: #383A34;
     display: table;
     width: 100%;
   }
-  /* line 504, ../scss/breakpoints/_1030up.scss */
+  /* line 510, ../scss/breakpoints/_1030up.scss */
   .content-with-submenu .submenu {
     display: table-cell;
     vertical-align: top;
     width: 240px;
     border-top: 1px solid #51544C;
   }
-  /* line 509, ../scss/breakpoints/_1030up.scss */
+  /* line 515, ../scss/breakpoints/_1030up.scss */
   .content-with-submenu .submenu .br {
     border-top: 1px solid #fff;
   }
-  /* line 513, ../scss/breakpoints/_1030up.scss */
+  /* line 519, ../scss/breakpoints/_1030up.scss */
   .content-with-submenu .rightcontent {
     display: table-cell;
     vertical-align: top;
@@ -3411,7 +3419,7 @@ you can add resource intensive styles.
   /*********************
   FORM STYLES
   *********************/
-  /* line 528, ../scss/breakpoints/_1030up.scss */
+  /* line 534, ../scss/breakpoints/_1030up.scss */
   fieldset {
     border: 0 none;
     position: relative;

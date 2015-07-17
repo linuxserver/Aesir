@@ -470,13 +470,36 @@ class Docker extends MY_Controller {
 		$this->load->view( 'footer' );
 	}
 	
-	public function docker_list( $submenu=false, $subsubmenu=false )
+	public function recommended( $submenu=false, $subsubmenu=false )
 	{
+
+		$page = ( isset( $_GET['page'] ) && is_numeric( $_GET['page'] ) ) ? $_GET['page'] : 1;
+
 		$header_data['page_title'] = __( 'Docker' );
-		$data["active_menu"] = 'docker_list';
+		$data["active_menu"] = 'recommended';
 		$data["sub_menu"] = $submenu;
 		$data["subsub_menu"] = $subsubmenu;
-		$data['dockers'] = $this->docker_model->docker_list( $submenu, $subsubmenu );
+
+		$page_limit = 20;
+
+		$dockertotal = $this->docker_model->docker_count( $submenu, $subsubmenu );
+
+		$data['dockers'] = $this->docker_model->docker_list( $submenu, $subsubmenu, false, $page_limit, $page );
+
+		$this->load->library('pagination');
+
+		$config['base_url'] = site_url( 'docker/recommended/'.$submenu.'/'.$subsubmenu.'/');
+		$config['total_rows'] = $dockertotal;
+		$config['per_page'] = 20;
+		$config['use_page_numbers'] = true;
+		$config['page_query_string'] = true;
+		$config['query_string_segment'] = 'page';
+		$this->pagination->initialize($config);
+
+		echo $this->pagination->create_links();
+
+
+
 		$this->load->view( 'header', $header_data );
 		$this->load->view( 'list', $data );
 		$this->load->view( 'footer' );

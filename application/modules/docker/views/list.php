@@ -1,7 +1,7 @@
 <section class="content-with-submenu">
     <section class="submenu">
         <nav class="secondary">
-            <?php $this->load->view( 'menu' ); ?>
+            <?php $this->load->view( 'menu-recommended' ); ?>
         </nav>
 
     </section>
@@ -12,18 +12,22 @@
             <section class="content">
 				<?php
                     foreach( $dockers as $docker ) {
-                        $sall = array('none', 'running', 'none', 'stopped', 'none', 'none', 'none', 'none', 'none');
-                        $status = array_rand($sall, 1);
-                        $percent = ($sall[$status] == 'none') ? 0 : 100;
-                        echo '
-                        <div class="indicator dockerbuttonz '.$sall[$status].'" data-percent="'.$percent.'">
-                            <div class="status_container"><div class="status_button"><div class="title">'.__('Install').'</div><a href="#problem">'.__('Install this docker').'</a></div></div>
-                            <div class="decor-container"><span class="decor"></span></div>
-                            <div id="over-free" class="show_status">
-                                <img width="100" src="'.$docker->temp_icon.'" />
+                        $author = explode('/', $docker->temp_repository );
+                        $author = $author[0];
+                        echo '<div class="docker_list">
+                        <div class="dockers">
+
+                            <div class="image_column dark">
+                                <img src="'.$docker->temp_icon.'" />
+                            </div><div class="docker_details">
+                                <div class="author">'.$author.'</div>
+                                <h4>'.$docker->temp_name.'</h4>
+                                <div class="text_desc">'.$docker->temp_overview.'</div>
+                                <a href="'.site_url( 'docker/install/'.$docker->temp_id ).'" class="button dockerinstall">Install</a>
+                                <a href="" class="detailslink">Details</a>
+                                <a href="'.$docker->temp_support.'" class="supportlink">Support</a>
                             </div>
-                            <div id="capacity-details">'.$docker->temp_name.'</div>
-                    
+                        </div>
                         </div>';
                     }
                 ?>            

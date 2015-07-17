@@ -18,7 +18,7 @@
                 <div class="docker_list">
                     <div class="inner"><h4>Recommended</h4></div>
                 </div><div class="docker_list">
-                    <div class="inner more_recommended"><a href="<?php echo site_url( 'docker/recommend' );?>"><?php _e('More recommended');?>...</a></div>
+                    <div class="inner more_recommended"><a href="<?php echo site_url( 'docker/recommended' );?>"><?php _e('More recommended');?>...</a></div>
                 </div>
 
                 
