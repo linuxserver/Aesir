@@ -264,7 +264,10 @@ class Docker extends MY_Controller {
 			$outputfile2 = 'test2.txt';
 			$pidfile = 'docker_pidfile';
 			//$run = sprintf('nohup %s > %s 2>&1 & echo $! >> %s', $run['cmd'], $outputfile, $pidfile);
-			$cmd = 'php index.php docker pull_image '.base64_encode($_POST['repository']);
+
+			$image = base64_encode($_POST['repository']);
+
+			$cmd = 'php index.php docker pull_image '.$image;
 			//die($cmd);
 			//$run = sprintf('%s 2>&1 &', $run['cmd']);
 			$run = sprintf('nohup %s &> /dev/null &', $cmd);
@@ -303,7 +306,7 @@ class Docker extends MY_Controller {
 
 
 			exec($run);
-			redirect( 'docker/process_download' );
+			redirect( 'docker/download/'.trim( $image, '=') );
 			die();
 		}
 
@@ -328,17 +331,18 @@ class Docker extends MY_Controller {
 
 		//die("image: ".$image);
 
+		$file = sha1($image);
+
 		$fp = stream_socket_client('unix:///var/run/docker.sock', $errno, $errstr);
 		if (!$fp) {
 		    echo "$errstr ($errno)<br />\n";
 		} else {
-			@unlink('text2.txt');
 			$out="POST /images/create?fromImage=$image HTTP/1.1\r\nConnection: Close\r\n\r\n";
 		    fwrite($fp, $out);
 		    while (!feof($fp)) {
 		    	$thisline = fgets($fp, 5000);
 		    	$current = json_decode( $thisline, true );
-		    	file_put_contents( 'text1.txt', $thisline  );
+		    	//file_put_contents( 'text1.txt', $thisline  );
 
 		    	$id = ( isset( $current['id'] ) ) ? $current['id'] : "";
 		    	if($current['status'] == 'Pulling fs layer') $layers[$id] = 0;
@@ -346,71 +350,63 @@ class Docker extends MY_Controller {
 		    		$total = $current['progressDetail']['total'];
       				$curr = $current['progressDetail']['current'];
       				if ($total > 0) {
-        				$percentage = round(($curr/$total) * 100);
-        				$layers[$id] = $percentage;
+        				$layers[$id] = $curr;
+        				$layers_total[$id] = $total;
       				} else { // doesn't know total so set at 50%
-      					$layers[$id] = 50;
+      					$layers[$id] = 500;
+      					$layers_total[$id] = 1000;
       				}
 		    	} elseif( $current['status'] == 'Download complete' ) {
-					$layers[$id] = 100;
+					$layers[$id] = $layers_total[$id];
 		    	}
 
-		    	if( !empty( $layers ) ) file_put_contents( 'text2.txt', json_encode( $layers )  );
+		    	$all_current = array_sum($layers);
+		    	$all_total = array_sum($layers_total);
+
+		    	$percent = ( $all_current / $all_total ) * 100;		    	
+
+		    	if( !empty( $layers ) ) file_put_contents( $file, json_encode( array( 'total' => $full_total, 'current' => $full_current, 'percent' => $percent ) ) );
 		        //echo fgets($fp, 1024);
 		    }
-		    fclose($fp);
+		    fclose( $fp );
+		    @unlink( $file );
 		}		
 	}
-    public function process_download()
+    public function process_download( $image )
     {
-    	$file = json_decode(file_get_contents('text2.txt'));
+		$image = base64_decode( $image );
 
-    	/*foreach( $file as $line => $value ) {
-    		$split = explode( ': ', $value );
-    		if( !isset( $split[1] ) ) continue;
-    		if( trim( $split[1] ) == 'Pulling fs layer' ) $layers[$split[0]] = 0;
+    	$ffile = sha1($image);
+    	if( file_exists( $ffile ) ) {
+    		$file = file_get_contents( $ffile );
+    	} else {
+    		$file = json_encode( array( 'percent' => '-1' ) );
     	}
-    	foreach( $file as $line => $value ) {
-    		$split = explode( ': ', $value );
-    		if( !isset( $split[1] ) ) continue;
-    		if( trim( $split[1] ) == 'Download complete' ) $layers[$split[0]] = 100;
-    	}
-    	foreach( $file as $line => $value ) {
-    		$split = explode( ': ', $value );
-    		if( !isset( $split[1] ) ) continue;
-    		if( substr( $split[1], 0, 11 ) == 'Downloading' ) {
-    			$dl = substr( $split[1], 12 );
-    			$amounts = explode( '/', $dl );
-    			$val1 = substr( trim( $amounts[0] ), 0, -3 );
-    			$val2 = substr( trim( $amounts[1] ), 0, -3 );
-    			$val1 = (float)$val1;
-    			$val2 = (float)$val2;
-    			$curr_perc = floor( $val1 / $val2 ) *100;
-    			$layers[$split[0]] = $curr_perc;
-    		}
-    	}*/
-		$file = (array)$file;
-		//print_r($file);
+    	
 
-    	$layer_count = count( $file );
-    	$max = $layer_count * 100;
-
-    	$current = array_sum($file);
-
-    	$percent = ( $current / $max ) * 100;
-
-    	echo json_encode( array( 'percent' => $percent ) );
-
+    	echo $file;
 
     }
 
-	public function download( $docker )
+	public function download( $image )
 	{
 		$header_data['page_title'] = __( 'Docker' );
 		$data["active_menu"] = 'docker';
-		$data['docker'] = $this->docker_model->docker_details( $docker );
+		//$data['docker'] = $this->docker_model->docker_details( $docker );
 		//print_r( $this->docker_search( $data['docker']->temp_repository ));
 		//print_r( $this->docker_details( $data['docker']->temp_repository ));
+
+		$image = base64_decode( $image );
+		if (! preg_match("/:[\w]*$/i", $image)) $image .= ":latest";
+
+		$shaimage = sha1( $image );
+
+		$data['image'] = $image;
+		$data['shaimage'] = $shaimage;
+		$split = explode( '/', $image );
+		$data['name'] = $split[1];
+		$data['repo'] = $split[0];
+
 
 		$this->load->view( 'header', $header_data );
 		$this->load->view( 'download', $data );
@@ -495,9 +491,6 @@ class Docker extends MY_Controller {
 		$config['page_query_string'] = true;
 		$config['query_string_segment'] = 'page';
 		$this->pagination->initialize($config);
-
-		echo $this->pagination->create_links();
-
 
 
 		$this->load->view( 'header', $header_data );

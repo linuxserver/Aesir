@@ -67,6 +67,34 @@ $(document).ready(function() {
 	    lineWidth: barwidth,
 
     });
+	
+	if($('#download_image').length) {
+		
+		var tid = setInterval(get_current, 500);
+		function get_current() {
+			var img = $('#download_image').data('img');
+			$.getJSON('/index.php/docker/process_download/'+img, function( data ) {
+				$('#download_image').data('easyPieChart').update(data.percent);
+				if( data.percent >= 100 || data.percent == '-1' )  abortTimer();
+			});
+		}
+		function abortTimer() { // to be called when you want to stop the timer
+		  clearInterval(tid);
+		}	
+		
+		
+		
+		$('#download_image').easyPieChart({
+			barColor: '#A4BB44',
+			trackColor: false,
+			size: piesize,
+			scaleColor: false,
+			trackWidth: barwidth,
+			lineWidth: barwidth,
+		});
+		
+		
+	}
 
 	$('.dockerbutton.stopped').easyPieChart({
     	barColor: '#cb3935',

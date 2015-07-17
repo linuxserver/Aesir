@@ -11,6 +11,7 @@
             
             <section class="content">
 				<?php
+					echo '<div class="pagination">'.$this->pagination->create_links().'</div>';
                     foreach( $dockers as $docker ) {
                         $author = explode('/', $docker->temp_repository );
                         $author = $author[0];
@@ -30,6 +31,7 @@
                         </div>
                         </div>';
                     }
+					echo '<div class="pagination">'.$this->pagination->create_links().'</div>';
                 ?>            
             </section>
             <div class="hr"></div>
