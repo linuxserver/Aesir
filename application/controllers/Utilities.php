@@ -33,8 +33,59 @@ class Utilities extends MY_Controller {
 		$this->load->view('utilities', $data);
 		$this->load->view('footer', $data);
 	}
+	
+	public function all_plugins() 
+	{
+		$demo = false;
+		$plugin_dir = '/var/log/plugins/';
+		if ( $this->config->item("ini_path") == 'demo/' ) {
+			$demo = true;
+			$plugin_dir = 'demo'.$plugin_dir;
+		}
+		foreach ( glob( $plugin_dir."*.plg", GLOB_NOSORT ) as $plugin_link ) {
+			if ( $demo ) {
+				echo $plugin_link.'<br />';
+			} else {
+				if( !is_link( $plugin_link ) ) continue;
+				$plugin_file = readlink( $plugin_link );
+				if ($plugin_file === false) continue;
+			}
+		}
+		
+	}
+	
+	protected function plugin_details( $type, $file )
+	{
+		// try to get it from the plugin first
+		if( $type == 'desc' ) {
+			$this->load->library('markdown');
+			$readme = "plugins/{$name}/README.md";
+  			if ( file_exists( $readme ) ) {
+    			$desc = $this->markdown->parse_file($readme);
+			} else {
+    			$desc = $this->markdown->parse("**{$name}**");
+			}
+		} else {
+			$output = $this->_plugin( $type, $file );
+			if( $output !== false) return $output;
+			else {
+				switch( $type ) {
+					case 'name': $output = basename( $file, ".plg" ); break;
+					case 'author': $output ='unknown'; break;
+					case 'version': $output ='unknown'; break;
+				}
+			}
+		}
+		return $output;
+	}
+	
+	protected function _plugin( $method, $arg )
+	{
+		exec( "/usr/local/sbin/plugin $method $arg", $output, $retval );
+		return ( $retval != 0 ) ? false : implode( "\n", $output );
+	}
 
-	public function preclear() {
+	/*public function preclear() {
 		$available_disks = shell_exec('uploaded/preclear_disk.sh -l');
 		$split_disks = explode("/dev/", $available_disks);
 		array_shift($split_disks); // remove first array item as it just has intro text
@@ -60,7 +111,7 @@ class Utilities extends MY_Controller {
         $array["preclear_".$disk] = $pid;
         $this->session->set_userdata($array);
         redirect("/index.php/utilities/preclear/");
-	}
+	}*/
 
 
 
