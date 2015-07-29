@@ -159,7 +159,7 @@ class Docker extends MY_Controller {
 
     public function load_tables()
     {
-    	$data = file_get_contents( 'https://fanart.tv/webservice/unraid/docker.php' );
+    	$data = file_get_contents( 'https://tools.linuxserver.io/unraid-docker-templates.json' );
     	$data_json = json_decode( $data, true );
     	$this->docker_model->load_tables( $data_json );
     }
@@ -258,6 +258,7 @@ class Docker extends MY_Controller {
 	{
 
 		if( isset( $_POST ) && !empty( $_POST ) ) {
+			die( print_r( $_POST ) );
 			//$run = $this->buildCommand();
 			//echo $run['cmd'];
 			$outputfile = 'test.txt';
@@ -267,7 +268,7 @@ class Docker extends MY_Controller {
 
 			$image = base64_encode($_POST['repository']);
 
-			$cmd = 'php index.php docker pull_image '.$image;
+			$cmd = 'php index.php docker pull_image '.rtrim( $image, '=' );
 			//die($cmd);
 			//$run = sprintf('%s 2>&1 &', $run['cmd']);
 			$run = sprintf('nohup %s &> /dev/null &', $cmd);
@@ -306,7 +307,7 @@ class Docker extends MY_Controller {
 
 
 			exec($run);
-			redirect( 'docker/download/'.trim( $image, '=') );
+			redirect( 'docker/download/'.rtrim( $image, '=') );
 			die();
 		}
 
@@ -378,6 +379,8 @@ class Docker extends MY_Controller {
     public function process_download( $image )
     {
 
+    	//echo 'i: '.$image;
+
     	if( file_exists( $image ) ) {
     		$file = file_get_contents( $image );
     	} else {
@@ -401,6 +404,9 @@ class Docker extends MY_Controller {
 		if (! preg_match("/:[\w]*$/i", $image)) $image .= ":latest";
 
 		$shaimage = sha1( $image );
+
+
+
 
 		$data['image'] = $image;
 		$data['shaimage'] = $shaimage;

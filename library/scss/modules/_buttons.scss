@@ -78,8 +78,8 @@ and it will create a button dependant on those variables.
   @include input(#111310, #131513);
   background: $highlight;
   color: darken( $highlight, 40% );
-  border-top-right-radius: 8px!important;
-  border-bottom-right-radius: 8px!important;
+  border-top-right-radius: 5px!important;
+  border-bottom-right-radius: 5px!important;
   width: 120px;
 }
 

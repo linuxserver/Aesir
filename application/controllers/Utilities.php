@@ -38,39 +38,40 @@ class Utilities extends MY_Controller {
 	{
 		$demo = false;
 		$plugin_dir = '/var/log/plugins/';
-		if ( $this->config->item("ini_path") == 'demo/' ) {
-			$demo = true;
-			$plugin_dir = 'demo'.$plugin_dir;
-		}
 		foreach ( glob( $plugin_dir."*.plg", GLOB_NOSORT ) as $plugin_link ) {
-			if ( $demo ) {
-				echo $plugin_link.'<br />';
-			} else {
-				if( !is_link( $plugin_link ) ) continue;
-				$plugin_file = readlink( $plugin_link );
-				if ($plugin_file === false) continue;
-			}
+			if( !is_link( $plugin_link ) ) continue;
+			$plugin_file = readlink( $plugin_link );
+			if ($plugin_file === false) continue;
+			$plugins[] = array( 
+				'name' => $this->plugin_details( 'name', $plugin_file ),
+				'author' => $this->plugin_details( 'author', $plugin_file ),
+				'version' => $this->plugin_details( 'version', $plugin_file ),
+				'description' => $this->plugin_details( 'desc', $plugin_file ),
+			);
 		}
+
+		print_r( $plugins );
 		
 	}
 	
 	protected function plugin_details( $type, $file )
 	{
 		// try to get it from the plugin first
+		$name = basename( $file, ".plg" );
 		if( $type == 'desc' ) {
 			$this->load->library('markdown');
 			$readme = "plugins/{$name}/README.md";
   			if ( file_exists( $readme ) ) {
-    			$desc = $this->markdown->parse_file($readme);
+    			$output = $this->markdown->parse_file($readme);
 			} else {
-    			$desc = $this->markdown->parse("**{$name}**");
+    			$output = $this->markdown->parse("**{$name}**");
 			}
 		} else {
 			$output = $this->_plugin( $type, $file );
 			if( $output !== false) return $output;
 			else {
 				switch( $type ) {
-					case 'name': $output = basename( $file, ".plg" ); break;
+					case 'name': $output = $name; break;
 					case 'author': $output ='unknown'; break;
 					case 'version': $output ='unknown'; break;
 				}

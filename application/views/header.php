@@ -34,9 +34,9 @@ $page_title = ( isset( $page_title ) && !empty( $page_title ) ) ? $page_title : 
         </header><section id="content"><div class="left"><nav id="main-nav" class="body"><ul>
                 <li class="<?php echo menu_active( 'home' );?>"><a href="/"><i class="icon-meter"></i><?php _e( 'Dashboard' );?></a></li>
                 <li class="<?php echo menu_active( 'main' );?>"><a href="/"><i class="icon-home"></i><?php _e( 'Main' );?></a></li>
-                <li class="<?php echo menu_active( 'shares' );?>"><a href="/index.php/shares/"><i class="icon-tree6"></i><?php _e( 'Shares' );?></a></li>
+                <!--<li class="<?php echo menu_active( 'shares' );?>"><a href="/index.php/shares/"><i class="icon-tree6"></i><?php _e( 'Shares' );?></a></li>-->
                 <li class="<?php echo menu_active( 'users' );?>"><a href="/index.php/users/"><i class="icon-users"></i><?php _e( 'Users' );?></a></li>
-                <li class="<?php echo menu_active( 'settings' );?>"><a href="/index.php/settings/"><i class="icon-equalizer"></i><?php _e( 'Settings' );?></a></li>
+               <!-- <li class="<?php echo menu_active( 'settings' );?>"><a href="/index.php/settings/"><i class="icon-equalizer"></i><?php _e( 'Settings' );?></a></li>-->
                 <li class="<?php echo menu_active( 'utilities' );?>"><a href="/index.php/utilities/"><i class="icon-knife"></i><?php _e( 'Utilities' );?></a></li>
                 <li class="<?php echo menu_active( 'docker' );?>"><a href="/index.php/docker/"><i class="icon-puzzle3"></i><?php _e( 'Addons' );?></a></li>
                 <li class="<?php echo menu_active( 'about' );?>"><a href="/index.php/home/about/"><i class="icon-brain"></i><?php _e( 'About' );?></a></li>

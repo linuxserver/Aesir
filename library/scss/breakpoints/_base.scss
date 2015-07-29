@@ -306,10 +306,13 @@ LAYOUT & GRID STYLES
 	display:table;
 	table-layout:fixed; 
 	width: 100%;
+	position: relative;
 }
 #pagecontainer {
 		display:table-cell;
 		vertical-align: top;
+		width: 100%;
+		padding-left: 80px;
 }
 
 .col {
@@ -661,6 +664,8 @@ NAVIGATION STYLES
 	.left {
 		width:80px;
 		@include transition(all 0.2s ease-in-out);
+		position: absolute;
+		z-index: 11;
 		&:hover {
 			width: 320px;
 		}
