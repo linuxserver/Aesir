@@ -53,6 +53,9 @@ FONT FACE (IN YOUR FACE)
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-docker-plain:before {
+  content: "\e601";
+}
 .icon-hdd:before {
   content: "\e600";
 }

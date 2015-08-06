@@ -611,116 +611,121 @@ FONT FACE (IN YOUR FACE)
 }
 
 /* line 56, ../scss/partials/_typography.scss */
+.icon-docker-plain:before {
+  content: "\e601";
+}
+
+/* line 59, ../scss/partials/_typography.scss */
 .icon-hdd:before {
   content: "\e600";
 }
 
-/* line 59, ../scss/partials/_typography.scss */
+/* line 62, ../scss/partials/_typography.scss */
 .icon-warning:before {
   content: "\ed4c";
 }
 
-/* line 62, ../scss/partials/_typography.scss */
+/* line 65, ../scss/partials/_typography.scss */
 .icon-home:before {
   content: "\e900";
 }
 
-/* line 65, ../scss/partials/_typography.scss */
+/* line 68, ../scss/partials/_typography.scss */
 .icon-users:before {
   content: "\eaf5";
 }
 
-/* line 68, ../scss/partials/_typography.scss */
+/* line 71, ../scss/partials/_typography.scss */
 .icon-equalizer:before {
   content: "\eb58";
 }
 
-/* line 71, ../scss/partials/_typography.scss */
+/* line 74, ../scss/partials/_typography.scss */
 .icon-knife:before {
   content: "\eb67";
 }
 
-/* line 74, ../scss/partials/_typography.scss */
+/* line 77, ../scss/partials/_typography.scss */
 .icon-meter:before {
   content: "\ebdb";
 }
 
-/* line 77, ../scss/partials/_typography.scss */
+/* line 80, ../scss/partials/_typography.scss */
 .icon-puzzle3:before {
   content: "\ec1e";
 }
 
-/* line 80, ../scss/partials/_typography.scss */
+/* line 83, ../scss/partials/_typography.scss */
 .icon-brain:before {
   content: "\ec24";
 }
 
-/* line 83, ../scss/partials/_typography.scss */
+/* line 86, ../scss/partials/_typography.scss */
 .icon-tree6:before {
   content: "\ec62";
 }
 
-/* line 86, ../scss/partials/_typography.scss */
+/* line 89, ../scss/partials/_typography.scss */
 .icon-usb-stick:before {
   content: "\ea8d";
 }
 
-/* line 89, ../scss/partials/_typography.scss */
+/* line 92, ../scss/partials/_typography.scss */
 .icon-sleepy:before {
   content: "\ed1d";
 }
 
-/* line 92, ../scss/partials/_typography.scss */
+/* line 95, ../scss/partials/_typography.scss */
 .icon-loop2:before {
   content: "\eda6";
 }
 
-/* line 95, ../scss/partials/_typography.scss */
+/* line 98, ../scss/partials/_typography.scss */
 .icon-infinite:before {
   content: "\eda9";
 }
 
-/* line 98, ../scss/partials/_typography.scss */
+/* line 101, ../scss/partials/_typography.scss */
 .icon-shuffle2:before {
   content: "\edad";
 }
 
-/* line 101, ../scss/partials/_typography.scss */
+/* line 104, ../scss/partials/_typography.scss */
 .icon-checkbox-checked:before {
   content: "\ee63";
 }
 
-/* line 104, ../scss/partials/_typography.scss */
+/* line 107, ../scss/partials/_typography.scss */
 .icon-checkbox-unchecked:before {
   content: "\ee64";
 }
 
-/* line 107, ../scss/partials/_typography.scss */
+/* line 110, ../scss/partials/_typography.scss */
 .icon-radio-checked:before {
   content: "\ee6e";
 }
 
-/* line 110, ../scss/partials/_typography.scss */
+/* line 113, ../scss/partials/_typography.scss */
 .icon-radio-unchecked:before {
   content: "\ee70";
 }
 
-/* line 113, ../scss/partials/_typography.scss */
+/* line 116, ../scss/partials/_typography.scss */
 .icon-library2:before {
   content: "\e999";
 }
 
-/* line 116, ../scss/partials/_typography.scss */
+/* line 119, ../scss/partials/_typography.scss */
 .icon-database2:before {
   content: "\ea91";
 }
 
-/* line 119, ../scss/partials/_typography.scss */
+/* line 122, ../scss/partials/_typography.scss */
 .icon-cloud-download:before {
   content: "\ec73";
 }
 
-/* line 122, ../scss/partials/_typography.scss */
+/* line 125, ../scss/partials/_typography.scss */
 .icon-star-empty3:before {
   content: "\ece0";
 }
@@ -738,7 +743,7 @@ I've edited it a bit, but it's a nice starting point.
 some nice typographical defaults
 more here: http://www.newnet-soft.com/blog/csstypography
 */
-/* line 148, ../scss/partials/_typography.scss */
+/* line 151, ../scss/partials/_typography.scss */
 p {
   -ms-word-wrap: break-word;
   word-break: break-word;
@@ -2443,7 +2448,12 @@ NAVIGATION STYLES
   line-height: 64px;
   vertical-align: middle;
 }
-/* line 645, ../scss/breakpoints/_base.scss */
+/* line 642, ../scss/breakpoints/_base.scss */
+#main-nav ul li a i.icon-docker-plain {
+  font-size: 38px;
+  padding: 0 34px 0 19px;
+}
+/* line 649, ../scss/breakpoints/_base.scss */
 #main-nav ul li.active a {
   background: #1c2018;
   border-top: 1px solid #121314;
@@ -2451,7 +2461,7 @@ NAVIGATION STYLES
   -moz-box-shadow: inset 0 0 10px 2px rgba(0, 0, 0, 0.4);
   box-shadow: inset 0 0 10px 2px rgba(0, 0, 0, 0.4);
 }
-/* line 649, ../scss/breakpoints/_base.scss */
+/* line 653, ../scss/breakpoints/_base.scss */
 #main-nav ul li.active a::after {
   content: " ";
   position: absolute;
@@ -2462,7 +2472,7 @@ NAVIGATION STYLES
   background: #abc056;
 }
 
-/* line 664, ../scss/breakpoints/_base.scss */
+/* line 668, ../scss/breakpoints/_base.scss */
 #content .left {
   width: 80px;
   -webkit-transition: all 0.2s ease-in-out;
@@ -2470,39 +2480,39 @@ NAVIGATION STYLES
   position: absolute;
   z-index: 11;
 }
-/* line 669, ../scss/breakpoints/_base.scss */
+/* line 673, ../scss/breakpoints/_base.scss */
 #content .left:hover {
   width: 320px;
 }
 
-/* line 677, ../scss/breakpoints/_base.scss */
+/* line 681, ../scss/breakpoints/_base.scss */
 .tab_container {
   position: relative;
 }
 
-/* line 680, ../scss/breakpoints/_base.scss */
+/* line 684, ../scss/breakpoints/_base.scss */
 .addontab {
   display: none;
 }
-/* line 682, ../scss/breakpoints/_base.scss */
+/* line 686, ../scss/breakpoints/_base.scss */
 .addontab.active {
   display: block;
 }
 
-/* line 686, ../scss/breakpoints/_base.scss */
+/* line 690, ../scss/breakpoints/_base.scss */
 .infotab {
   display: none;
 }
-/* line 688, ../scss/breakpoints/_base.scss */
+/* line 692, ../scss/breakpoints/_base.scss */
 .infotab.active {
   display: block;
 }
 
-/* line 693, ../scss/breakpoints/_base.scss */
+/* line 697, ../scss/breakpoints/_base.scss */
 .table-box {
   border-bottom: 1px solid #232621;
 }
-/* line 695, ../scss/breakpoints/_base.scss */
+/* line 699, ../scss/breakpoints/_base.scss */
 .table-box:last-child {
   border-bottom: none;
 }
@@ -2511,7 +2521,7 @@ NAVIGATION STYLES
 PAGE SPECIFIC STYLES
 *********************/
 /* DASHBOARD */
-/* line 709, ../scss/breakpoints/_base.scss */
+/* line 713, ../scss/breakpoints/_base.scss */
 .section1 {
   background: #2c2d29;
   padding: 30px 5px;
@@ -2519,17 +2529,17 @@ PAGE SPECIFIC STYLES
   text-align: left;
 }
 
-/* line 716, ../scss/breakpoints/_base.scss */
+/* line 720, ../scss/breakpoints/_base.scss */
 .center {
   text-align: center;
 }
 
-/* line 722, ../scss/breakpoints/_base.scss */
+/* line 726, ../scss/breakpoints/_base.scss */
 .array_drives {
   vertical-align: top;
   box-sizing: border-box;
 }
-/* line 725, ../scss/breakpoints/_base.scss */
+/* line 729, ../scss/breakpoints/_base.scss */
 .array_drives .drive_list {
   background: -moz-linear-gradient(top, #111310 0%, #131513 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #111310), color-stop(100%, #131513));
@@ -2560,26 +2570,26 @@ PAGE SPECIFIC STYLES
 .array_drives .drive_list > * {
   position: relative;
 }
-/* line 729, ../scss/breakpoints/_base.scss */
+/* line 733, ../scss/breakpoints/_base.scss */
 .array_drives .drive_list ul {
   position: relative;
   margin: 0;
 }
-/* line 733, ../scss/breakpoints/_base.scss */
+/* line 737, ../scss/breakpoints/_base.scss */
 .array_drives .drive_list li {
   padding: 4px 0;
 }
-/* line 736, ../scss/breakpoints/_base.scss */
+/* line 740, ../scss/breakpoints/_base.scss */
 .array_drives .drive_list .alt {
   background: #232621;
 }
 
-/* line 745, ../scss/breakpoints/_base.scss */
+/* line 749, ../scss/breakpoints/_base.scss */
 .bevelbox ul.nav {
   margin: 0;
   width: 260px;
 }
-/* line 749, ../scss/breakpoints/_base.scss */
+/* line 753, ../scss/breakpoints/_base.scss */
 .bevelbox ul.nav li a {
   padding: 25px;
   background: #31322F;
@@ -2588,17 +2598,17 @@ PAGE SPECIFIC STYLES
   text-decoration: none;
   display: block;
 }
-/* line 758, ../scss/breakpoints/_base.scss */
+/* line 762, ../scss/breakpoints/_base.scss */
 .bevelbox ul.nav li.active a {
   background: none;
   color: #abc056;
 }
-/* line 767, ../scss/breakpoints/_base.scss */
+/* line 771, ../scss/breakpoints/_base.scss */
 .bevelbox .box-content ul {
   margin: 0;
 }
 
-/* line 772, ../scss/breakpoints/_base.scss */
+/* line 776, ../scss/breakpoints/_base.scss */
 .radio {
   text-decoration: none;
 }
@@ -2615,7 +2625,7 @@ FOOTER STYLES
 /*********************
 FORM STYLES
 *********************/
-/* line 794, ../scss/breakpoints/_base.scss */
+/* line 798, ../scss/breakpoints/_base.scss */
 fieldset legend {
   border: 0;
   position: absolute !important;

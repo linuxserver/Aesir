@@ -89,116 +89,121 @@ FONT FACE (IN YOUR FACE)
 }
 
 /* line 56, ../scss/partials/_typography.scss */
+.icon-docker-plain:before {
+  content: "\e601";
+}
+
+/* line 59, ../scss/partials/_typography.scss */
 .icon-hdd:before {
   content: "\e600";
 }
 
-/* line 59, ../scss/partials/_typography.scss */
+/* line 62, ../scss/partials/_typography.scss */
 .icon-warning:before {
   content: "\ed4c";
 }
 
-/* line 62, ../scss/partials/_typography.scss */
+/* line 65, ../scss/partials/_typography.scss */
 .icon-home:before {
   content: "\e900";
 }
 
-/* line 65, ../scss/partials/_typography.scss */
+/* line 68, ../scss/partials/_typography.scss */
 .icon-users:before {
   content: "\eaf5";
 }
 
-/* line 68, ../scss/partials/_typography.scss */
+/* line 71, ../scss/partials/_typography.scss */
 .icon-equalizer:before {
   content: "\eb58";
 }
 
-/* line 71, ../scss/partials/_typography.scss */
+/* line 74, ../scss/partials/_typography.scss */
 .icon-knife:before {
   content: "\eb67";
 }
 
-/* line 74, ../scss/partials/_typography.scss */
+/* line 77, ../scss/partials/_typography.scss */
 .icon-meter:before {
   content: "\ebdb";
 }
 
-/* line 77, ../scss/partials/_typography.scss */
+/* line 80, ../scss/partials/_typography.scss */
 .icon-puzzle3:before {
   content: "\ec1e";
 }
 
-/* line 80, ../scss/partials/_typography.scss */
+/* line 83, ../scss/partials/_typography.scss */
 .icon-brain:before {
   content: "\ec24";
 }
 
-/* line 83, ../scss/partials/_typography.scss */
+/* line 86, ../scss/partials/_typography.scss */
 .icon-tree6:before {
   content: "\ec62";
 }
 
-/* line 86, ../scss/partials/_typography.scss */
+/* line 89, ../scss/partials/_typography.scss */
 .icon-usb-stick:before {
   content: "\ea8d";
 }
 
-/* line 89, ../scss/partials/_typography.scss */
+/* line 92, ../scss/partials/_typography.scss */
 .icon-sleepy:before {
   content: "\ed1d";
 }
 
-/* line 92, ../scss/partials/_typography.scss */
+/* line 95, ../scss/partials/_typography.scss */
 .icon-loop2:before {
   content: "\eda6";
 }
 
-/* line 95, ../scss/partials/_typography.scss */
+/* line 98, ../scss/partials/_typography.scss */
 .icon-infinite:before {
   content: "\eda9";
 }
 
-/* line 98, ../scss/partials/_typography.scss */
+/* line 101, ../scss/partials/_typography.scss */
 .icon-shuffle2:before {
   content: "\edad";
 }
 
-/* line 101, ../scss/partials/_typography.scss */
+/* line 104, ../scss/partials/_typography.scss */
 .icon-checkbox-checked:before {
   content: "\ee63";
 }
 
-/* line 104, ../scss/partials/_typography.scss */
+/* line 107, ../scss/partials/_typography.scss */
 .icon-checkbox-unchecked:before {
   content: "\ee64";
 }
 
-/* line 107, ../scss/partials/_typography.scss */
+/* line 110, ../scss/partials/_typography.scss */
 .icon-radio-checked:before {
   content: "\ee6e";
 }
 
-/* line 110, ../scss/partials/_typography.scss */
+/* line 113, ../scss/partials/_typography.scss */
 .icon-radio-unchecked:before {
   content: "\ee70";
 }
 
-/* line 113, ../scss/partials/_typography.scss */
+/* line 116, ../scss/partials/_typography.scss */
 .icon-library2:before {
   content: "\e999";
 }
 
-/* line 116, ../scss/partials/_typography.scss */
+/* line 119, ../scss/partials/_typography.scss */
 .icon-database2:before {
   content: "\ea91";
 }
 
-/* line 119, ../scss/partials/_typography.scss */
+/* line 122, ../scss/partials/_typography.scss */
 .icon-cloud-download:before {
   content: "\ec73";
 }
 
-/* line 122, ../scss/partials/_typography.scss */
+/* line 125, ../scss/partials/_typography.scss */
 .icon-star-empty3:before {
   content: "\ece0";
 }
@@ -216,7 +221,7 @@ I've edited it a bit, but it's a nice starting point.
 some nice typographical defaults
 more here: http://www.newnet-soft.com/blog/csstypography
 */
-/* line 148, ../scss/partials/_typography.scss */
+/* line 151, ../scss/partials/_typography.scss */
 p {
   -ms-word-wrap: break-word;
   word-break: break-word;
