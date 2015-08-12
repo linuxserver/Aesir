@@ -38,13 +38,13 @@
                             <div class="tab_container">
                                 <div class="addontab infotab active" id="tabs-1">
                                     <section>
-                                        <h2>Name</h2>
+                                        <h3>Name</h3>
                                         <input type="text" value="<?php if( isset( $docker->temp_name ) && !empty( $docker->temp_name ) ) echo $docker->temp_name;?>" name="name" placeholder="Names must be unique" />
                                     </section>
                                     <section> 
-                                        <h2>Volumes</h2>
+                                        <h3>Volumes</h3>
                                         <table style="width: 100%">
-                                            <tr><td>File/Folder</td><td>Mount path</td><td colspan="2">Read-Only</td></tr>
+                                            <tr><th>File/Folder</th><th>Mount path</th><th colspan="2">Read-Only</th></tr>
                                             <?php
                                             if( isset( $data['Volume'][0]['Mode'] ) && !empty( $data['Volume'][0]['Mode'] ) ) {
                                                 foreach ( $data['Volume'] as $key => $volume ) {
@@ -61,7 +61,7 @@
                                         
                                     
 
-                                        <h2>Ports</h2>
+                                        <h3>Ports</h3>
                                         <table style="width: 100%">
                                      	    <tr><td>Local Port</td><td>Container Port</td><td colspan="2">Type</td></tr>
                                      	
@@ -79,21 +79,21 @@
                                 </div>
                                 <div class="addontab infotab" id="tabs-2">
                                     <section>
-                                        <h2>Webpage</h2>
+                                        <h3>Webpage</h3>
                                         <input type="text" value="<?php if( isset( $docker->temp_webui ) && !empty( $docker->temp_webui ) ) echo $docker->temp_webui;?>" name="webpage" />
                                     </section>
                                     <section>
-                                        <h2>Privileges</h2>
+                                        <h3>Privileges</h3>
                                         <label><input type="checkbox" name="privileged" value="1"<?php if( $docker->temp_privileged === 1 ) echo 'checked="checked"';?> />Use high privilege container</label>
                                     </section>
                                     <section>
-                                        <h2>Net type</h2>
+                                        <h3>Net type</h3>
                                         <label><input type="radio" value="host" name="nettype"<?php if( isset( $networking['Mode'] ) && $networking['Mode'] == 'host' ) echo ' checked="checked"';?> /> Host</label>
                                         <label><input type="radio" value="bridge" name="nettype"<?php if( isset( $networking['Mode'] ) && $networking['Mode'] == 'bridge' ) echo ' checked="checked"';?> /> Bridged (Default)</label>
                                         <label><input type="radio" value="none" name="nettype"<?php if( isset( $networking['Mode'] ) && $networking['Mode'] == 'none' ) echo ' checked="checked"';?> /> None</label>
                                     </section>
                                     <section>
-                                        <h2>Environment Variables</h2>
+                                        <h3>Environment Variables</h3>
                                      
                                         <table style="width: 100%">
                                             <tr><td>Variable</td><td>Value</td><td></td></tr>
@@ -107,13 +107,13 @@
                                         </table>
                                     </section>
                                     <section>
-                                        <h2>Execution Command</h2>
+                                        <h3>Execution Command</h3>
                                         <input type="text" value="" name="execute_command" />
                                   	</section>
                                 </div>
                                 <div class="addontab infotab" id="tabs-3">
                                     <section>
-                                        <h2>resources</h2>
+                                        <h3>resources</h3>
                                         <h3>CPU Priority</h3>
                                         <label><input type="radio" value="512" name="cpu" /> Low (512)</label>
                                         <label><input type="radio" value="1024" name="cpu" checked="checked" /> Default (1024)</label>

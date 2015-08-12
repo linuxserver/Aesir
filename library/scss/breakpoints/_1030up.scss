@@ -195,7 +195,23 @@ PAGE SPECIFIC STYLES
 	.infotab {
 		padding: 30px 40px;
 		section {
-			margin-bottom: 60px;
+			margin-bottom: 30px;
+			padding-bottom: 30px;
+			border-bottom: 1px solid #1C1D19;
+			position: relative;
+			&::after {
+				content: '';
+				border-bottom: 1px solid #393A35;
+				position: absolute;
+				width: 100%;
+				bottom: -2px;
+				left: 0;
+			}
+			th {
+				font-size: 13px;
+				color: #5E6159;
+				font-weight: 400;
+			}
 		}
 	}
 	.resources {
