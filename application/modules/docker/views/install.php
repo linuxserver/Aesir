@@ -63,7 +63,7 @@
 
                                         <h3>Ports</h3>
                                         <table style="width: 100%">
-                                     	    <tr><td>Local Port</td><td>Container Port</td><td colspan="2">Type</td></tr>
+                                     	    <tr><th>Local Port</th><th>Container Port</th><th colspan="2">Type</th></tr>
                                      	
                                             <?php
                                                 if( isset( $networking['Publish'][0]['Port'][0]['HostPort'] ) && !empty( $networking['Publish'][0]['Port'][0]['HostPort'] ) ) {
@@ -96,7 +96,7 @@
                                         <h3>Environment Variables</h3>
                                      
                                         <table style="width: 100%">
-                                            <tr><td>Variable</td><td>Value</td><td></td></tr>
+                                            <tr><th>Variable</th><th>Value</th><th></th></tr>
                                             <?php
                                             if( isset( $environment['Variable'] ) && !empty( $environment['Variable'] ) ) {
                                                 foreach ( $environment['Variable'] as $key => $variable) {
