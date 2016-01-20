@@ -83,12 +83,12 @@ class Docker extends MY_Controller {
 				if( $key == '0') continue;
 				$arrcount = count($parts);
 				$repotag = explode(':', $parts[1]);
-				$repo = $repotag[0];
-				$tag = $repotag[1];
-				$status = $parts[4];
+				$repo = ( isset( $repotag[0] ) ) ? $repotag[0] : null;
+				$tag = ( isset( $repotag[1] ) ) ? $repotag[1] : null;
+				$status = ( isset( $parts[4] ) ) ? $parts[4] : null;
 				$ports = ($arrcount === 6) ? $parts[5] : false;
 				$name = end($parts);
-				$details = array( 'repository' => $repo, 'tag' => $tag, 'status' => $status, 'ports' => $ports, 'name' => $name);
+				$details = array( 'repository' => $repo, 'tag' => $tag, 'status' => $status, 'ports' => $ports, 'name' => $name );
 				if( substr( $status, 0, 2 ) == 'Up' ) $running[$parts[0]] = $details;
 				else $stopped[$parts[0]] = $details;
 
