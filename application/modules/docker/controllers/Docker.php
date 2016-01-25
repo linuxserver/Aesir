@@ -155,6 +155,11 @@ class Docker extends MY_Controller {
 		$json = $this->getDockerJSON( '/containers/'.$id.'/json' );
 		return $json;
 	}
+	
+	public function container_stats( $id ) {
+		$json = $this->getDockerJSON( '/containers/'.$id.'/stats?stream=false' );
+		return $json;
+	}
 
 
     public function load_tables()
@@ -462,6 +467,20 @@ class Docker extends MY_Controller {
 		//$data['docker'] = $merge[$id];
 
 		$data['container_details'] = $this->container_details( $id );
+		
+		//Begin Timer
+		echo $id."<br>";
+		$time_start = microtime(true); 
+		$data['container_stats'] = $this->container_stats( $data['container_details'][0]['Id'] );
+		$time_end = microtime(true);
+		echo "Data set 1 collected in ".($time_end - $time_start)."s<br>";
+		
+		$time_start = microtime(true); 
+		$data['container_stats_second'] = $this->container_stats( $data['container_details'][0]['Id'] );
+		$time_end = microtime(true);
+		echo "Data set 2 collected in ".($time_end - $time_start)."s<br>";
+		//Display time taken
+		
 		$image = $data['container_details'][0]['Config']['Image'];
 		//$data['docker_details'] = $this->docker_details( $image );
 		print_r( $this->getDockerJSON( '/images/ubuntu/json' ) );

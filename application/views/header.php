@@ -18,6 +18,7 @@ $page_title = ( isset( $page_title ) && !empty( $page_title ) ) ? $page_title : 
 
         <link href='http://fonts.googleapis.com/css?family=Kaushan+Script|Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="/library/css/style.css">
+        <link rel="stylesheet" href="/library/css/custom_display.css">
         <script src="/library/js/vendor/modernizr-2.6.2.min.js"></script>
     </head>
     <body>

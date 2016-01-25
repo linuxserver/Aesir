@@ -1,0 +1,56 @@
+/* Fixing General Display */
+pre {
+		
+	text-transform: none;
+}
+
+
+/* Display Row */
+div.display_row {
+	overflow: hidden;
+	text-transform: none;
+}
+div.display_row div.label {
+	float: left;
+	padding-right: 10px;
+	font-weight: bold;
+}
+div.display_row div.value {
+	float: left;
+}
+div.display_row.port_binding div.label, div.display_row.path_mapping div.label {
+	padding-right: 30px;
+	margin-right: 10px;
+	font-weight: normal;
+	background: url("/library/img/arrow-right.png") no-repeat right center;
+}
+
+/* Heading Display */
+h2.underline {
+	padding-bottom: 3px;
+	border-bottom: 2px solid #697539;
+	margin-bottom: 8px;
+}
+
+
+/* Action Buttons */
+ul.action_bottoms {
+	list-style-type: none;
+	padding: 0px;
+	overflow: hidden;
+}
+ul.action_bottoms li {
+	float: left;
+}
+
+ul.action_bottoms li a, a.action_bottom {
+	background: #1B1D1B;
+	line-height: 1.5;
+    padding: 10px 25px;
+    font-size: 13px;
+	margin-right: 15px;
+	display: inline-block;
+	zoom: 1;
+    *display: inline;
+	text-decoration: none;
+}
