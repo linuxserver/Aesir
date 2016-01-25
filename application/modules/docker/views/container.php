@@ -21,6 +21,8 @@
 			
         ?>
         <section id="docker" class="body section1">
+		
+		
             <?php
             //print_r($docker);
             ?>
@@ -37,96 +39,100 @@
 					<li><a href="<?php echo site_url( 'docker/docker_control/edit/'.$active_menu );?>">Edit</a></li>
                 </ul>       
 				     
-					<h2 class="underline">Network Details</h2>
+					<h2 class="underline"><?php _e( 'Network Details' ); ?></h2>
 					<div class="display_row">
-						<div class="label">Network Mode:</div>
+						<div class="label"><?php _e( 'Network Mode' ); ?>:</div>
 						<div class="value"><?php echo ucwords($network_mode); ?></div>
 					</div>
 					
-					<h2 class="underline">Port Binding</h3>
+					<h2 class="underline"><?php _e( 'Port Binding' ); ?></h3>
 					<?php
 						
 					foreach($port_bindings as $initial => $port_binding){
-						$initial_port = explode("/",$initial)[0];
+						$initial_port = explode('/',$initial)[0];
 						$sorted_port_bindings[$initial_port] = $port_binding;
 					}
 					ksort($sorted_port_bindings);
 					
 					foreach($sorted_port_bindings as $initial_port => $port_binding){
 						$target_port = $port_binding[0]['HostPort'];
-						echo("<div class=\"display_row port_binding\">");
-							echo("<div class=\"label\">Port ".$initial_port."</div>");
-							echo("<div class=\"value\">Port ".$target_port."</div>");
-						echo("</div>");
+						echo '<div class="display_row port_binding">';
+							echo '<div class="label">'.__( 'Port' ).' '.$initial_port.'</div>';
+							echo '<div class="value">'.__( 'Port' ).' '.$target_port.'</div>';
+						echo '</div>';
 					}
 					?>
 					
-					<h2 class="underline">Volume Mapping</h2>
+					<h2 class="underline"><?php _e( 'Volume Mapping' ); ?></h2>
 					
 					<?php
 					foreach($volume_mappings as $docker_path => $host_path){
-						echo("<div class=\"display_row path_mapping\">");
-							echo("<div class=\"label\">".$docker_path."</div>");
-							echo("<div class=\"value\">".$host_path."</div>");
-						echo("</div>");
+						echo '<div class="display_row path_mapping">';
+							echo '<div class="label">'.$docker_path.'</div>';
+							echo '<div class="value">'.$host_path.'</div>';
+						echo '</div>';
 					}
 					?>
 					
 					
 					<?php
 					$display_store = false;
-					$echo_store = "<h2 class=\"underline\">Environment Variables</h2>";
+					$echo_store = '<h2 class="underline">'.__( 'Environment Variables' ).'</h2>';
 					foreach($enviroment_configs as $enviroment_config){
-						list($variable,$value) = explode("=",$enviroment_config);
+						list($variable,$value) = explode('=',$enviroment_config);
 						switch(strtolower($variable)){
 							case "puid":
 							case "pgid":
 								$display_store = true;
-								$echo_store .= "<div class=\"display_row\">";
-									$echo_store .= "<div class=\"label\">".$variable.":</div>";
-									$echo_store .= "<div class=\"value\">".$value."</div>";
-								$echo_store .= "</div>";
+								$echo_store .= '<div class="display_row">';
+									$echo_store .= '<div class="label">'.$variable.':</div>';
+									$echo_store .= '<div class="value">'.$value.'</div>';
+								$echo_store .= '</div>';
 								break;
 							default:
 								//Nothing
 						}
 					}	
-					echo ($display_store === true) ? $echo_store : "";
+					echo ($display_store === true) ? $echo_store : '';
 					?>
 					
-					<h2 class="underline">System Usage</h2>
+					<h2 class="underline"><?php _e( 'System Usage' ); ?></h2>
 					 
 					 
 					<?php
 					
-					function bytesToSize1024($bytes, $precision = 2){
-						$unit = array('B','KB','MB','GB','TB','PB','EB');
-						return @round(
-							$bytes / pow(1000, ($i = floor(log($bytes, 1000)))), $precision
-						).' '.$unit[$i];
-					}
+					$current_cpu_usage = $container_stats[0]['cpu_stats']['cpu_usage']['total_usage'];
+					$current_system_cpu_usage = $container_stats[0]['cpu_stats']['system_cpu_usage'];
+					$cpu_cores = $container_stats[0]['cpu_stats']['cpu_usage']['percpu_usage'];
 					
-					echo("<div class=\"display_row\">");
-						echo("<div class=\"label\">CPU Usage: </div>");
-						echo("<div class=\"value\">".$container_stats[0]['cpu_stats']['cpu_usage']['total_usage']."</div>");
-					echo("</div>");
-					echo("<div class=\"display_row\">");
-						echo("<div class=\"label\">Current Memory Usage: </div>");
-						echo("<div class=\"value\">".bytesToSize1024($container_stats[0]['memory_stats']['usage'])." / ".bytesToSize1024($container_stats[0]['memory_stats']['limit'])."</div>");
-					echo("</div>");
-					echo("<div class=\"display_row\">");
-						echo("<div class=\"label\">Maximum Memory Usage: </div>");
-						echo("<div class=\"value\">".bytesToSize1024($container_stats[0]['memory_stats']['max_usage'])." / ".bytesToSize1024($container_stats[0]['memory_stats']['limit'])."</div>");
-					echo("</div>");
+					$previous_cpu_usage = $container_stats_second[0]['cpu_stats']['cpu_usage']['total_usage'];
+					$previous_system_cpu_usage = $container_stats_second[0]['cpu_stats']['system_cpu_usage'];
+					
+					$cpu_delta = $current_cpu_usage - $previous_cpu_usage;
+					$system_delta = $current_system_cpu_usage - $previous_system_cpu_usage;
+					$cpu_percentage = number_format((($cpu_delta / $system_delta) * 100), 2);
+					
+					echo '<div class="display_row">';
+						echo '<div class="label">'.__( 'CPU Usage' ).':</div>';
+						echo '<div class="value">'.$cpu_percentage.'%</div>';
+					echo '</div>';
+					echo '<div class="display_row">';
+						echo '<div class="label">'.__( 'Current Memory Usage' ).': </div>';
+						echo '<div class="value">'.number_format(($container_stats[0]['memory_stats']['usage'] / $container_stats[0]['memory_stats']['limit'])*100,2).'% ('.format_bytes($container_stats[0]['memory_stats']['usage'],false,'','').' / '.format_bytes($container_stats[0]['memory_stats']['limit'],false,'','').')</div>';
+					echo '</div>';
+					echo '<div class="display_row">';
+						echo '<div class="label">'.__( 'Maximum Memory Usage' ).': </div>';
+						echo '<div class="value">'.number_format(($container_stats[0]['memory_stats']['max_usage'] / $container_stats[0]['memory_stats']['limit'])*100,2).'% ('.format_bytes($container_stats[0]['memory_stats']['max_usage'],false,'','').' / '.format_bytes($container_stats[0]['memory_stats']['limit'],false,'','').')</div>';
+					echo '</div>';
 					?>
 					
                      <?php
-						/*echo("<pre>");
+						/*echo '<pre>';
                         print_r( $container_details );
-						echo("</pre>");
-						echo("<pre>");
+						echo '</pre>';
+						echo '<pre>';
                         print_r( $container_stats );
-						echo("</pre>");*/
+						echo '</pre>';*/
                      ?>
             </section>
             <div class="hr"></div>
