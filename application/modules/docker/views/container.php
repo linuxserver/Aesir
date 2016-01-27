@@ -12,13 +12,19 @@
             $status = ( $up ) ? '<span class="running">'.__('Running').'</span>' : '<span class="stopped">'.__('Stopped').'</span>';
 			
 			$id = $container_details[0]['Id'];
+			$image_id = $container_details[0]['Image'];
 			$name = ltrim($container_details[0]['Name'], '/');
 			$volume_mappings = $container_details[0]['Volumes'];
 			$port_bindings = $container_details[0]['HostConfig']['PortBindings'];
 			$sorted_port_bindings = array();
 			$network_mode = $container_details[0]['HostConfig']['NetworkMode'];
 			$enviroment_configs = $container_details[0]['Config']['Env'];
-			
+			$virtual_storage_usage = 0;
+			foreach($image_stats as $image_details){
+				if($image_details['Id'] == $image_id){
+					$virtual_storage_usage = $image_details['VirtualSize'];
+				}
+			}
         ?>
         <section id="docker" class="body section1">
 		
@@ -124,6 +130,21 @@
 						echo '<div class="label">'.__( 'Maximum Memory Usage' ).': </div>';
 						echo '<div class="value">'.number_format(($container_stats[0]['memory_stats']['max_usage'] / $container_stats[0]['memory_stats']['limit'])*100,2).'% ('.format_bytes($container_stats[0]['memory_stats']['max_usage'],false,'','').' / '.format_bytes($container_stats[0]['memory_stats']['limit'],false,'','').')</div>';
 					echo '</div>';
+					?>
+
+					<h2 class="underline"><?php _e( 'Storage Usage' ); ?></h2>
+					
+					<?php
+					echo '<div class="display_row">';
+						echo '<div class="label">'.__( 'Virtual Storage Usage' ).': </div>';
+						echo '<div class="value">'.format_bytes($virtual_storage_usage,false,'','').'</div>';
+					echo '</div>';
+					if( isset($volume_mappings['/config']) ){
+						echo '<div class="display_row">';
+							echo '<div class="label">'.__( '/config Storage Usage' ).': </div>';
+							echo '<div class="value">'.explode("\t",shell_exec('du -sh '.$volume_mappings['/config']))[0].'B</div>';
+						echo '</div>';
+					}
 					?>
 					
                      <?php

@@ -160,6 +160,11 @@ class Docker extends MY_Controller {
 		$json = $this->getDockerJSON( '/containers/'.$id.'/stats?stream=false' );
 		return $json;
 	}
+	
+	public function image_stats() {
+		$json = $this->getDockerJSON( '/images/json?all=0' );
+		return $json;
+	}
 
 
     public function load_tables()
@@ -467,6 +472,7 @@ class Docker extends MY_Controller {
 		//$data['docker'] = $merge[$id];
 
 		$data['container_details'] = $this->container_details( $id );
+		$data['image_stats'] = $this->image_stats();
 		
 		//Begin Timer
 		echo $id."<br>";
