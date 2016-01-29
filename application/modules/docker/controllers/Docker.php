@@ -474,18 +474,6 @@ class Docker extends MY_Controller {
 		$data['container_details'] = $this->container_details( $id );
 		$data['image_stats'] = $this->image_stats();
 		
-		//Begin Timer
-		echo $id."<br>";
-		$time_start = microtime(true); 
-		$data['container_stats'] = $this->container_stats( $data['container_details'][0]['Id'] );
-		$time_end = microtime(true);
-		echo "Data set 1 collected in ".($time_end - $time_start)."s<br>";
-		
-		$time_start = microtime(true); 
-		$data['container_stats_second'] = $this->container_stats( $data['container_details'][0]['Id'] );
-		$time_end = microtime(true);
-		echo "Data set 2 collected in ".($time_end - $time_start)."s<br>";
-		//Display time taken
 		
 		$image = $data['container_details'][0]['Config']['Image'];
 		//$data['docker_details'] = $this->docker_details( $image );
