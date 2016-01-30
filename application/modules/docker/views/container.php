@@ -37,10 +37,10 @@
 				
                 <ul class="action_bottoms">
                     <?php if( $up ) { ?>
-                    <li><a href="<?php echo site_url( 'docker/container/'.$id.'/stop' );?>">Stop</a></li>
-                    <li><a href="<?php echo site_url( 'docker/container/'.$id.'/restart' );?>">Restart</a></li>
+                    <li><a href="<?php echo site_url( 'docker/container/'.$active_menu.'/stop' );?>">Stop</a></li>
+                    <li><a href="<?php echo site_url( 'docker/container/'.$active_menu.'/restart' );?>">Restart</a></li>
                     <?php } else { ?>
-                    <li><a href="<?php echo site_url( 'docker/container/'.$id.'/start' );?>">Start</a></li>
+                    <li><a href="<?php echo site_url( 'docker/container/'.$active_menu.'/start' );?>">Start</a></li>
                     <?php } ?>
 					<li><a href="<?php echo site_url( 'docker/docker_control/edit/'.$active_menu );?>">Edit</a></li>
                 </ul>       
