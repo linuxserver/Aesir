@@ -28,22 +28,19 @@
         ?>
         <section id="docker" class="body section1">
 		
-			<pre>
             <?php
-            //print_r($docker);
-			echo $id;
+			print_r_fancy($id);
             ?>
-			</pre>
             <section class="content">
                 <h2><?php echo $name.$status;?></h2>    
 
 				
                 <ul class="action_bottoms">
                     <?php if( $up ) { ?>
-                    <li><a href="<?php echo site_url( 'docker/docker_control/stop/'.$active_menu );?>">Stop</a></li>
-                    <li><a href="<?php echo site_url( 'docker/docker_control/restart/'.$active_menu );?>">Restart</a></li>
+                    <li><a href="<?php echo site_url( 'docker/container/'.$active_menu.'/stop' );?>">Stop</a></li>
+                    <li><a href="<?php echo site_url( 'docker/container/'.$active_menu.'/restart' );?>">Restart</a></li>
                     <?php } else { ?>
-                    <li><a href="<?php echo site_url( 'docker/docker_control/start/'.$active_menu );?>">Start</a></li>
+                    <li><a href="<?php echo site_url( 'docker/container/'.$active_menu.'/start' );?>">Start</a></li>
                     <?php } ?>
 					<li><a href="<?php echo site_url( 'docker/docker_control/edit/'.$active_menu );?>">Edit</a></li>
                 </ul>       
@@ -109,53 +106,21 @@
 					 
 					 
 					<?php
-					
-					$time_pre = microtime(true);
-					
-					$memory_usage = trim(shell_exec('cat /sys/fs/cgroup/memory/docker/'.$id.'/memory.usage_in_bytes'));
-					$maximum_memory_usage = trim(shell_exec('cat /sys/fs/cgroup/memory/docker/'.$id.'/memory.max_usage_in_bytes'));
-					$cpu_cores = trim(shell_exec('nproc'));
-					
-					$previous_cpu_usage = trim(shell_exec('cat /sys/fs/cgroup/cpuacct/docker/'.$id.'/cpuacct.usage'));
-					$parts = explode(" ",trim(shell_exec('grep \'cpu \' /proc/stat')));
-					$previous_system_cpu_usage = 0;
-					for($i = 2;$i <= 8;$i++){
-						$previous_system_cpu_usage += $parts[$i];
-					}
-					$previous_system_cpu_usage = $previous_system_cpu_usage * 10000000;
-					
-					usleep(100000);
-					
-					$current_cpu_usage = trim(shell_exec('cat /sys/fs/cgroup/cpuacct/docker/'.$id.'/cpuacct.usage'));	
-					$parts = explode(" ",trim(shell_exec('grep \'cpu \' /proc/stat')));
-					$current_system_cpu_usage = 0;
-					for($i = 2;$i <= 8;$i++){
-						$current_system_cpu_usage += $parts[$i];
-					}
-					$current_system_cpu_usage = $current_system_cpu_usage * 10000000;
-					
-					$cpu_delta = $current_cpu_usage - $previous_cpu_usage;
-					$system_delta = $current_system_cpu_usage - $previous_system_cpu_usage;
-					$cpu_percentage = number_format(((($cpu_delta / $system_delta) * $cpu_cores) * 100), 2);
-					
-					$lines = explode("\n",trim(shell_exec('cat /proc/meminfo')));
-					$parts = explode(":",$lines[0]);
-					$total_system_memory = trim(explode(" ",trim($parts[1]))[0]) * 1024;
-					
-					$time_post = microtime(true);
-					echo $time_post - $time_pre;
-					
+
+					//print_r_fancy($container_stats);
+					echo 'Docker stats gathered in '.$container_stats["gather_time_ms"].'ms<br>';
+
 					echo '<div class="display_row">';
 						echo '<div class="label">'.__( 'CPU Usage' ).':</div>';
-						echo '<div class="value">'.$cpu_percentage.'%</div>';
+						echo '<div class="value">'.$container_stats['cpu_stats']['total_usage_percent'].'%</div>';
 					echo '</div>';
 					echo '<div class="display_row">';
 						echo '<div class="label">'.__( 'Current Memory Usage' ).': </div>';
-						echo '<div class="value">'.number_format(($memory_usage / $total_system_memory)*100,2).'% ('.format_bytes($memory_usage,false,'','').' / '.format_bytes($total_system_memory,false,'','').')</div>';
+						echo '<div class="value">'.$container_stats['memory_stats']['usage_percent'].'% ('.format_bytes($container_stats['memory_stats']['usage'],false,'','').' / '.format_bytes($container_stats['memory_stats']['total_system_bytes'],false,'','').')</div>';
 					echo '</div>';
 					echo '<div class="display_row">';
 						echo '<div class="label">'.__( 'Maximum Memory Usage' ).': </div>';
-						echo '<div class="value">'.number_format(($maximum_memory_usage / $total_system_memory)*100,2).'% ('.format_bytes($maximum_memory_usage,false,'','').' / '.format_bytes($total_system_memory,false,'','').')</div>';
+						echo '<div class="value">'.$container_stats['memory_stats']['max_usage_percent'].'% ('.format_bytes($container_stats['memory_stats']['max_usage'],false,'','').' / '.format_bytes($container_stats['memory_stats']['total_system_bytes'],false,'','').')</div>';
 					echo '</div>';
 
 					?>
@@ -176,15 +141,6 @@
 					}*/
 					
 					?>
-					
-                     <?php
-						/*echo '<pre>';
-                        print_r( $container_details );
-						echo '</pre>';
-						echo '<pre>';
-                        print_r( $container_stats );
-						echo '</pre>';*/
-                     ?>
             </section>
             <div class="hr"></div>
 
