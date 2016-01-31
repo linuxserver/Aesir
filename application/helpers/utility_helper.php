@@ -171,6 +171,11 @@ function scan($dir, $level=0){
 }
 
 
+function print_r_fancy($resource) {
+	echo("<pre>");
+	print_r($resource);
+	echo("</pre>");
+}
 
 
 

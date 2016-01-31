@@ -50,19 +50,30 @@ class Docker extends MY_Controller {
 
     public function docker_control( $command, $container, $main = false ) 
     {
-    	$container = preg_replace('/[^\da-z]/i', '', $container);
-    	switch( $command ) {
-    		case 'stop':
-    			$cmd = 'docker stop --time=10 '.$container;
-    			break;
-    		case 'start':
-    			$cmd = 'docker start '.$container;
-    			break;
-    	}
-    	//die(base64_decode( $return ));
-    	exec( $cmd, $output, $return );
-    	if( $main == '1' ) redirect( 'docker' );
-    	else redirect( 'docker/container/'.$container );
+    	
+		switch($command){
+			case "start":
+				$this->getDockerJSON( '/containers/'.$container.'/start', 'POST' );
+				break;
+			case "stop":
+				$this->getDockerJSON( '/containers/'.$container.'/stop', 'POST' );
+				break;
+			case "restart":
+				$this->getDockerJSON( '/containers/'.$container.'/restart', 'POST' );
+				break;
+			default:
+				//nothing
+		}
+		switch($command){
+			case "start":
+			case "stop":
+			case "restart":
+				if( $main == '1' ) redirect( 'docker' );
+				else redirect( 'docker/container/'.$container );
+			default:
+				//nothing
+		}
+		
     }
 
 
@@ -159,6 +170,80 @@ class Docker extends MY_Controller {
 	public function container_stats( $id ) {
 		$json = $this->getDockerJSON( '/containers/'.$id.'/stats?stream=false' );
 		return $json;
+	}
+	
+	public function image_details( $repository_name ){
+		$this->db->where( 'temp_repository', $repository_name);
+		$docker = $this->db->get('templates');
+		if ($docker->num_rows() > 0) {
+			return $docker->row();
+		} else {
+			return false;
+		}
+	}
+	
+	public function custom_container_stats( $full_id, $wait = 100000 ) {
+	
+		$time_pre = microtime(true);
+		
+		$memory_usage = trim(shell_exec('cat /sys/fs/cgroup/memory/docker/'.$full_id.'/memory.usage_in_bytes'));
+		$maximum_memory_usage = trim(shell_exec('cat /sys/fs/cgroup/memory/docker/'.$full_id.'/memory.max_usage_in_bytes'));
+		$cpu_cores = trim(shell_exec('nproc'));
+		
+		$lines = explode("\n",trim(shell_exec('cat /proc/meminfo')));
+		$parts = explode(":",$lines[0]);
+		$total_system_memory = trim(explode(" ",trim($parts[1]))[0]) * 1024;
+		
+		$previous_cpu_usage = trim(shell_exec('cat /sys/fs/cgroup/cpuacct/docker/'.$full_id.'/cpuacct.usage'));
+		$parts = explode(" ",trim(shell_exec('grep \'cpu \' /proc/stat')));
+		$previous_system_cpu_usage = 0;
+		for($i = 2;$i <= 8;$i++){
+			$previous_system_cpu_usage += $parts[$i];
+		}
+		$previous_system_cpu_usage = $previous_system_cpu_usage * 10000000;
+		
+		usleep($wait);
+		
+		$current_cpu_usage = trim(shell_exec('cat /sys/fs/cgroup/cpuacct/docker/'.$full_id.'/cpuacct.usage'));	
+		$parts = explode(" ",trim(shell_exec('grep \'cpu \' /proc/stat')));
+		$current_system_cpu_usage = 0;
+		for($i = 2;$i <= 8;$i++){
+			$current_system_cpu_usage += $parts[$i];
+		}
+		$current_system_cpu_usage = $current_system_cpu_usage * 10000000;
+		
+		$cpu_delta = $current_cpu_usage - $previous_cpu_usage;
+		$system_delta = $current_system_cpu_usage - $previous_system_cpu_usage;
+		
+		$total_cpu_percentage = number_format((($cpu_delta / $system_delta) * 100), 2);
+		$core_cpu_percentage = number_format(((($cpu_delta / $system_delta) * $cpu_cores) * 100), 2);
+		
+		$time_post = microtime(true);
+		
+		$result = array(
+			"read"=>date("Y-m-d\TH:i:s"),
+			"gather_time_ms"=>intval(($time_post - $time_pre) * 1000),
+			"memory_stats"=>array(
+				"usage"=>$memory_usage,
+				"usage_formatted"=>format_bytes($memory_usage,false,'',''),
+				"usage_percent"=>number_format(($memory_usage / $total_system_memory)*100,2),
+				"max_usage"=>$maximum_memory_usage,
+				"max_usage_formatted"=>format_bytes($maximum_memory_usage,false,'',''),
+				"max_usage_percent"=>number_format(($maximum_memory_usage / $total_system_memory)*100,2),
+				"total_system_bytes"=>$total_system_memory,
+				"total_system_formatted"=>format_bytes($total_system_memory,false,'',''),
+			),
+			"cpu_stats"=>array(
+				"total_system_cores"=>$cpu_cores,
+				"total_usage_percent"=>$total_cpu_percentage,
+				"core_usage_percent"=>$core_cpu_percentage
+			)
+		);
+		return $result;
+	}
+	
+	public function live_container_stats( $full_id, $wait = 500000 ) {
+		echo json_encode( $this->custom_container_stats($full_id,$wait) );
 	}
 	
 	public function image_stats() {
@@ -334,7 +419,22 @@ class Docker extends MY_Controller {
 		$this->load->view( 'install', $data );
 		$this->load->view( 'footer' );
 	}
-
+	
+	public function edit( $docker )
+	{
+		$header_data['page_title'] = __( 'Docker' );
+		$data["active_menu"] = $id;
+		$data['docker_images'] = $this->docker_images();
+		
+		$data['container_details'] = $this->container_details( $id );
+		$data['image_stats'] = $this->image_stats();
+		
+		$this->load->view( 'header', $header_data );
+		$this->load->view( 'edit', $data );
+		$this->load->view( 'footer' );
+	}
+	
+	
 	public function pull_image( $image )
 	{
 		$image = base64_decode( $image );
@@ -461,19 +561,22 @@ class Docker extends MY_Controller {
 		print_r( $dirs );
 	}
 
-	public function container( $id )
+	public function container( $id, $action = null )
 	{
+		
+		$this->docker_control( $action, $id );
+		
 		$header_data['page_title'] = __( 'Docker' );
 		$data["active_menu"] = $id;
 		//$data['dockers'] = $this->docker_model->docker_list( );
 		$data['docker_images'] = $this->docker_images();
 		//$merge = array_merge( $data['docker_images']['running'], $data['docker_images']['stopped'] );
-
 		//$data['docker'] = $merge[$id];
-
-		$data['container_details'] = $this->container_details( $id );
-		$data['image_stats'] = $this->image_stats();
 		
+		$data['container_details'] = $this->container_details( $id );
+		$data['container_stats'] = $this->custom_container_stats( $data['container_details'][0]['Id'] );
+		$data['image_detail'] = $this->image_details( $data['container_details'][0]['Config']['Image'] );
+		$data['image_stats'] = $this->image_stats();
 		
 		$image = $data['container_details'][0]['Config']['Image'];
 		//$data['docker_details'] = $this->docker_details( $image );
