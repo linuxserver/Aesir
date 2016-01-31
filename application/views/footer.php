@@ -7,7 +7,17 @@
         <script src="/library/js/vendor/Chart.min.js"></script>
         <script src="/library/js/vendor/jquery.easypiechart.min.js"></script>
         <script src="/library/js/main.js"></script>
-
+        <?php 
+        if( isset( $extra_scripts ) && !empty( $extra_scripts ) ) {
+            foreach ( $extra_scripts as $extra ) {
+                if( isset( $this->_module ) && !empty( $this->_module ) && file_exists( $this->_ci_model_paths[0].'js/'.$extra.'.js' ) ) {
+                    echo '<script src="/application/modules/'.$this->_module.'/js/'.$extra.'.js"></script>';
+                } elseif( file_exists( FCPATH.'library/js'.$extra.'.js' ) ) {
+                    echo '<script src="/library/js/'.$extra.'.js"></script>';
+                }
+            }
+        }
+        ?>
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>
             (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
