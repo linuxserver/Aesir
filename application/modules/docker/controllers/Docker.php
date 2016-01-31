@@ -172,7 +172,17 @@ class Docker extends MY_Controller {
 		return $json;
 	}
 	
-	public function custom_container_stats( $full_id ) {
+	public function image_details( $repository_name ){
+		$this->db->where( 'temp_repository', $repository_name);
+		$docker = $this->db->get('templates');
+		if ($docker->num_rows() > 0) {
+			return $docker->row();
+		} else {
+			return false;
+		}
+	}
+	
+	public function custom_container_stats( $full_id, $wait = 100000 ) {
 	
 		$time_pre = microtime(true);
 		
@@ -192,7 +202,7 @@ class Docker extends MY_Controller {
 		}
 		$previous_system_cpu_usage = $previous_system_cpu_usage * 10000000;
 		
-		usleep(100000);
+		usleep($wait);
 		
 		$current_cpu_usage = trim(shell_exec('cat /sys/fs/cgroup/cpuacct/docker/'.$full_id.'/cpuacct.usage'));	
 		$parts = explode(" ",trim(shell_exec('grep \'cpu \' /proc/stat')));
@@ -215,10 +225,13 @@ class Docker extends MY_Controller {
 			"gather_time_ms"=>intval(($time_post - $time_pre) * 1000),
 			"memory_stats"=>array(
 				"usage"=>$memory_usage,
+				"usage_formatted"=>format_bytes($memory_usage,false,'',''),
 				"usage_percent"=>number_format(($memory_usage / $total_system_memory)*100,2),
 				"max_usage"=>$maximum_memory_usage,
+				"max_usage_formatted"=>format_bytes($maximum_memory_usage,false,'',''),
 				"max_usage_percent"=>number_format(($maximum_memory_usage / $total_system_memory)*100,2),
-				"total_system_bytes"=>$total_system_memory
+				"total_system_bytes"=>$total_system_memory,
+				"total_system_formatted"=>format_bytes($total_system_memory,false,'',''),
 			),
 			"cpu_stats"=>array(
 				"total_system_cores"=>$cpu_cores,
@@ -227,6 +240,10 @@ class Docker extends MY_Controller {
 			)
 		);
 		return $result;
+	}
+	
+	public function live_container_stats( $full_id, $wait = 500000 ) {
+		echo json_encode( $this->custom_container_stats($full_id,$wait) );
 	}
 	
 	public function image_stats() {
@@ -402,7 +419,22 @@ class Docker extends MY_Controller {
 		$this->load->view( 'install', $data );
 		$this->load->view( 'footer' );
 	}
-
+	
+	public function edit( $docker )
+	{
+		$header_data['page_title'] = __( 'Docker' );
+		$data["active_menu"] = $id;
+		$data['docker_images'] = $this->docker_images();
+		
+		$data['container_details'] = $this->container_details( $id );
+		$data['image_stats'] = $this->image_stats();
+		
+		$this->load->view( 'header', $header_data );
+		$this->load->view( 'edit', $data );
+		$this->load->view( 'footer' );
+	}
+	
+	
 	public function pull_image( $image )
 	{
 		$image = base64_decode( $image );
@@ -543,6 +575,7 @@ class Docker extends MY_Controller {
 		
 		$data['container_details'] = $this->container_details( $id );
 		$data['container_stats'] = $this->custom_container_stats( $data['container_details'][0]['Id'] );
+		$data['image_detail'] = $this->image_details( $data['container_details'][0]['Config']['Image'] );
 		$data['image_stats'] = $this->image_stats();
 		
 		$image = $data['container_details'][0]['Config']['Image'];

@@ -25,6 +25,13 @@
 					$virtual_storage_usage = $image_details['VirtualSize'];
 				}
 			}
+			
+			foreach($port_bindings as $initial => $port_binding){
+				$initial_port = explode('/',$initial)[0];
+				$sorted_port_bindings[$initial_port] = $port_binding[0]['HostPort'];
+			}
+			ksort($sorted_port_bindings);
+					
         ?>
         <section id="docker" class="body section1">
 		
@@ -43,6 +50,19 @@
                     <li><a href="<?php echo site_url( 'docker/container/'.$active_menu.'/start' );?>">Start</a></li>
                     <?php } ?>
 					<li><a href="<?php echo site_url( 'docker/docker_control/edit/'.$active_menu );?>">Edit</a></li>
+					
+					<?php
+					if( is_object($image_detail) ){
+						$gui_ip = explode(":",$_SERVER['HTTP_HOST'])[0];
+						$webui = $image_detail->temp_webui;
+						if( trim($webui) ){
+							$webui = str_replace(array("[IP]","[PORT:","]"),array($gui_ip,"",""),$webui);
+							$port = parse_url($webui)['port'];
+							$webui = str_replace(":".$port,":".$sorted_port_bindings[$port],$webui);
+							echo '<li><a href="'.$webui.'" target="_blank">WebUI</a></li>';
+						}
+					}
+					?>
                 </ul>       
 				     
 					<h2 class="underline"><?php _e( 'Network Details' ); ?></h2>
@@ -53,15 +73,8 @@
 					
 					<h2 class="underline"><?php _e( 'Port Binding' ); ?></h3>
 					<?php
-						
-					foreach($port_bindings as $initial => $port_binding){
-						$initial_port = explode('/',$initial)[0];
-						$sorted_port_bindings[$initial_port] = $port_binding;
-					}
-					ksort($sorted_port_bindings);
 					
-					foreach($sorted_port_bindings as $initial_port => $port_binding){
-						$target_port = $port_binding[0]['HostPort'];
+					foreach($sorted_port_bindings as $initial_port => $target_port){
 						echo '<div class="display_row port_binding">';
 							echo '<div class="label">'.__( 'Port' ).' '.$initial_port.'</div>';
 							echo '<div class="value">'.__( 'Port' ).' '.$target_port.'</div>';
@@ -103,24 +116,46 @@
 					?>
 					
 					<h2 class="underline"><?php _e( 'System Usage' ); ?></h2>
-					 
+					
+					<?php if($up){ ?>
+					<script src="/library/js/vendor/jquery-1.10.2.min.js"></script>
+					<script>
+					$(document).ready(function() {
+						
+						function getStats(){
+							$.ajax({
+								url: "<?php echo site_url( 'docker/live_container_stats/'.$id.'/500000' ); ?>",
+								cache: false,
+								success: function(data){
+									obj = JSON.parse(data);
+									$("div.total_usage_percentage").html(obj.cpu_stats.total_usage_percent + "%");
+									$("div.current_memory_usage").html(obj.memory_stats.usage_percent + "% (" + obj.memory_stats.usage_formatted + " / " + obj.memory_stats.total_system_formatted + ")");
+									$("div.max_memory_usage").html(obj.memory_stats.max_usage_percent + "% (" + obj.memory_stats.max_usage_formatted + " / " + obj.memory_stats.total_system_formatted + ")");
+									getStats();
+								}
+							});
+						}
+						getStats();
+						
+					});
+					</script>
+					
+					<?php } ?>
+					
 					 
 					<?php
 
-					//print_r_fancy($container_stats);
-					echo 'Docker stats gathered in '.$container_stats["gather_time_ms"].'ms<br>';
-
 					echo '<div class="display_row">';
 						echo '<div class="label">'.__( 'CPU Usage' ).':</div>';
-						echo '<div class="value">'.$container_stats['cpu_stats']['total_usage_percent'].'%</div>';
+						echo '<div class="value total_usage_percentage">'.$container_stats['cpu_stats']['total_usage_percent'].'%</div>';
 					echo '</div>';
 					echo '<div class="display_row">';
 						echo '<div class="label">'.__( 'Current Memory Usage' ).': </div>';
-						echo '<div class="value">'.$container_stats['memory_stats']['usage_percent'].'% ('.format_bytes($container_stats['memory_stats']['usage'],false,'','').' / '.format_bytes($container_stats['memory_stats']['total_system_bytes'],false,'','').')</div>';
+						echo '<div class="value current_memory_usage">'.$container_stats['memory_stats']['usage_percent'].'% ('.$container_stats['memory_stats']['usage_formatted'].' / '.$container_stats['memory_stats']['total_system_formatted'].')</div>';
 					echo '</div>';
 					echo '<div class="display_row">';
 						echo '<div class="label">'.__( 'Maximum Memory Usage' ).': </div>';
-						echo '<div class="value">'.$container_stats['memory_stats']['max_usage_percent'].'% ('.format_bytes($container_stats['memory_stats']['max_usage'],false,'','').' / '.format_bytes($container_stats['memory_stats']['total_system_bytes'],false,'','').')</div>';
+						echo '<div class="value max_memory_usage">'.$container_stats['memory_stats']['max_usage_percent'].'% ('.$container_stats['memory_stats']['max_usage_formatted'].' / '.$container_stats['memory_stats']['total_system_formatted'].')</div>';
 					echo '</div>';
 
 					?>
