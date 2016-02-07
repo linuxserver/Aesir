@@ -24,7 +24,7 @@
  */
 class Backups extends MY_Controller {
 
-	public $container = '3ff9ca9f3d76';
+	public $container = '7c14f99c9f06'; // docker ps and find the rsnapshot image maybe?
 
     function __construct()
     {
@@ -38,5 +38,19 @@ class Backups extends MY_Controller {
 		$this->load->view( 'header', $header_data );
 		$this->load->view( 'index' );
 		$this->load->view( 'footer' );
+	}
+
+	public function add_server()
+	{
+		$header_data['page_title'] = __( 'Add Server' );
+		if( $_POST ) {
+			$server_ip = $this->input->post('server_address');
+			$server_password = $this->input->post('server_password');
+			exec("docker exec -it ".$this->container." bash -c '/usr/bin/expect ~/.ssh/addserver.expect root ".$server_ip." ".$server_password."'");
+		}
+		$this->load->view( 'header', $header_data );
+		$this->load->view( 'add_server' );
+		$this->load->view( 'footer' );
+
 	}
 }

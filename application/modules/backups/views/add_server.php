@@ -11,7 +11,14 @@
         <?php //$this->load->view( 'status', array( 'statustype' => 'mini' ) ); ?>
         <section id="docker" class="body section1">
 
-        	<a href="<?php echo site_url( 'backups/add_server' );?>">Add new</a>
+        	<h2>Add a new server to backup</h2>
+        	<p>Enter the details of the server you want to backup</p>
+
+        	<form method="post" action="">
+        		<label>IP Address</label><input type="text" name="server_address" />
+        		<label>Password</label><input type="text" name="server_password" />
+        		<button type="submit" class="button dockerinstall">Save</button>
+        	</form>
 
         </section>
     </section>
