@@ -1,5 +1,4 @@
         <section id="translation" class="body section1">
-            <?php $this->load->view( 'status', array( 'statustype' => 'mini' ) ); ?>
 
             <section class="bevelbox">
             	<?php $this->load->view( 'settings/translation_menu', array( 'trans_active' => $trans_active ) ); ?>

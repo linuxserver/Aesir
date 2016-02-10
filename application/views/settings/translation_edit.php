@@ -1,5 +1,4 @@
         <section id="translation" class="body section1">
-            <?php $this->load->view( 'status', array( 'statustype' => 'mini' ) ); ?>
 			<form action="" method="post" />
             <input type="hidden" name="__action" value="save_translation" />
             <section class="bevelbox">
