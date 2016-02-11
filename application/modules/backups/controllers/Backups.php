@@ -125,11 +125,23 @@ class Backups extends MY_Controller {
 			echo "c: ".$cmd;
 			exec( $cmd, $output );
 			print_r( $output );
+			if( $this->successfully_added( $output ) ) {
+				// add server to database
+			} else {
+				// something went wrong
+			}
 		}
 		$this->load->view( 'header', $header_data );
 		if( $this->stoperrors !== false ) $this->load->view( 'stoperrors', [ 'stoperrors' => $this->stoperrors ] );
 		else $this->load->view( 'add_server' );
 		$this->load->view( 'footer' );
 
+	}
+	private function successfully_added( $output ) {
+		$success = array(
+			'Number of key(s) added: 1',
+			'/usr/bin/ssh-copy-id: WARNING: All keys were skipped because they already exist on the remote system.'
+		);
+		return (bool)array_intersect( $success, $output );
 	}
 }
