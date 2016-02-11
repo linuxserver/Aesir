@@ -33,6 +33,19 @@ class Backups extends MY_Controller {
         parent::__construct();
         $this->load->language('backups');
         $this->load->helper( 'docker/docker' );
+        
+	$defercreate = false;
+	if( !file_exists( APPPATH.'database/language.db' ) ) $defercreate = true;
+		
+	$config['database'] = APPPATH.'database/backups.db';
+	$config['dbdriver'] = 'sqlite3';
+	$setdb = $this->load->database($config, true);
+	$this->backups_model->db = $setdb;
+	$this->db = $setdb; // without this dbforge doesn't work
+		
+	if( $defercreate ) $this->backups_model->create_lang_table(); // datbase is silently created if it doesn't exist, $defercreate ensures it's populated if it didn't exist to begin with
+		        
+
     }	
 
     public function get_container()
