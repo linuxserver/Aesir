@@ -43,7 +43,7 @@ class Backups extends MY_Controller {
 	$this->backups_model->db = $setdb;
 	$this->db = $setdb; // without this dbforge doesn't work
 		
-	if( $defercreate ) $this->backups_model->create_lang_table(); // datbase is silently created if it doesn't exist, $defercreate ensures it's populated if it didn't exist to begin with
+	if( $defercreate ) $this->backups_model->create_backups_table(); // datbase is silently created if it doesn't exist, $defercreate ensures it's populated if it didn't exist to begin with
 		        
 
     }	
