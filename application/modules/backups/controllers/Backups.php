@@ -32,6 +32,7 @@ class Backups extends MY_Controller {
     {
         parent::__construct();
         $this->load->language('backups');
+        $this->load->model('backups_model');
         $this->load->helper( 'docker/docker' );
         
 	$defercreate = false;
@@ -117,9 +118,10 @@ class Backups extends MY_Controller {
 		$header_data['page_title'] = __( 'Add Server' );
 		if( $_POST ) {
 			$server_ip = $this->input->post('server_address');
-			$server_password = $this->input->post('server_password');
+			$server_password = "'".$this->input->post('server_password')."'";
 			unset( $output );
-			$cmd = "docker exec -it ".$this->container." bash -c '/usr/bin/expect ~/.ssh/addserver.expect root ".$server_ip." \'".$server_password."\'";
+
+			$cmd = "docker exec -it ".$this->container." bash -c '/usr/bin/expect ~/.ssh/addserver.expect root ".$server_ip." ".$server_password."'";
 			echo "c: ".$cmd;
 			exec( $cmd, $output );
 			print_r( $output );
