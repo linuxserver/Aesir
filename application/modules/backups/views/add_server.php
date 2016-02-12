@@ -13,7 +13,7 @@
         	<p>Enter the details of the server you want to backup</p>
 
         	<form method="post" action="">
-                <label>Name</label><input type="text" name="server_name" />
+                <label>Name <span>(for your reference only)</span></label><input type="text" name="server_name" />
                 <label>IP Address</label><input type="text" name="server_address" />
         		<label>Password</label><input type="text" name="server_password" />
         		<button type="submit" class="button dockerinstall">Save</button>
