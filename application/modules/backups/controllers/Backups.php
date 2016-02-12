@@ -112,7 +112,7 @@ class Backups extends MY_Controller {
 	{
 	    $this->container = $this->get_container();
         if( $this->container === false ) {
-        	$this->stoperrors[] = 'Required backup module is missing, <a href="/backups/install_docker">Install now?</a>';
+        	//$this->stoperrors[] = 'Required backup module is missing, <a href="/backups/install_docker">Install now?</a>';
         }
 
 		$header_data['page_title'] = __( 'Add Server' );

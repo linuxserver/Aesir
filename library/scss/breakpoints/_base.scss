@@ -44,6 +44,23 @@ body {
 	text-align: right!important;
 }
 
+.add_new {
+	position: relative;
+	background: $highlight4;
+	color: white!important;
+	text-transform: uppercase!important;
+	font-size: 16px!important;
+	line-height: 3.5;
+	i {
+		background: $highlight3;
+		padding: 10px;
+		border-radius: 50%;
+		position: absolute;
+		top: 16px;
+		right: 30px;
+	}
+}
+
 #status, #docker {
 	text-align: center;
 	padding: 10px 0;

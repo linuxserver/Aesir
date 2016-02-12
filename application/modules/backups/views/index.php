@@ -1,9 +1,7 @@
 <section class="content-with-submenu">
     <section class="submenu">
         <nav class="secondary">
-            <ul>
-            	<li><a href="">something</a></li>
-            </ul>
+            <?php $this->load->view('side-menu'); ?>
         </nav>
 
     </section>

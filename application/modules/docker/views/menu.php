@@ -1,6 +1,6 @@
             <ul class="docker_menu">
                 <li><h3>Containers</h3></li>
-                <li<?php if( $active_menu == 'docker' ) echo ' class="active"';?>><a href="<?php echo site_url( 'docker' );?>"><i class="icon-library2"></i> <?php _e( 'New Container' );?></a></li>
+                <li><a class="add_new" href=""><?php _e( 'Add New' );?> <i class="icon-plus3"></i></a></li>
                 <?php
 					if( isset( $docker_images['running'] ) && !empty( $docker_images['running'] ) ) {
 						foreach( $docker_images['running'] as $container => $running ) {
