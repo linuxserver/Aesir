@@ -121,7 +121,7 @@ class Backups extends MY_Controller {
 			$server_password = "'".$this->input->post('server_password')."'";
 			unset( $output );
 
-			$cmd = 'docker exec -it '.$this->container.' /usr/bin/expect ~/.ssh/addserver.expect root '.$server_ip.' '.$server_password;
+			$cmd = 'docker exec -t '.$this->container.' /usr/bin/expect ~/.ssh/addserver.expect root '.$server_ip.' '.$server_password;
 			echo "c: ".$cmd;
 			exec( $cmd, $output );
 			print_r( $output );
