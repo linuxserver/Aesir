@@ -127,6 +127,9 @@ class Backups extends MY_Controller {
 			print_r( $output );
 			if( $this->successfully_added( $output ) ) {
 				// add server to database
+				$name = $this->input->post('server_name');
+				$address = $this->input->post('server_address');
+				$this->backups_model->add_server( $name, $address );
 			} else {
 				// something went wrong
 			}

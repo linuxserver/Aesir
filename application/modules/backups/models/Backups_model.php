@@ -53,4 +53,16 @@ class Backups_model extends CI_Model {
 		$this->dbforge->create_table('servers');
 		
 	}
+
+	public function add_server( $name, $address )
+	{
+
+		$data = array(
+			'server_name' => $name,
+			'server_address' => $address
+		);
+	    $this->db->insert('servers',$data);
+
+	}
+
 }
