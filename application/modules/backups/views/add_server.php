@@ -14,7 +14,7 @@
 
         	<form method="post" action="">
                 <label>Name <span>(for your reference only)</span></label><input type="text" name="server_name" />
-                <label>IP Address</label><input type="text" name="server_address" />
+                <label>IP Address <span>(or hostname)</span></label><input type="text" name="server_address" />
         		<label>Password</label><input type="text" name="server_password" />
         		<button type="submit" class="button dockerinstall">Save</button>
         	</form>
