@@ -51,14 +51,25 @@ body {
 	text-transform: uppercase!important;
 	font-size: 16px!important;
 	line-height: 3.5;
+	@include transition(all 0.8s ease-in-out);
 	i {
-		background: $highlight3;
+		@include transition(all 0.8s ease-in-out);
+		background: darken( $highlight4, 6% );
 		padding: 10px;
 		border-radius: 50%;
 		position: absolute;
 		top: 16px;
 		right: 30px;
 	}
+	&:hover, &:focus {
+		background: $highlight2;
+		i {
+			background: darken( $highlight2, 6% );
+		}
+	}
+
+
+
 }
 
 #status, #docker {

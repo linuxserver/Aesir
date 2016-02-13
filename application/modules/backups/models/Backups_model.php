@@ -32,12 +32,14 @@ class Backups_model extends CI_Model {
      * @access	public
      * @return void
      */
-	public function create_backups_table() {
+	public function create_backups_table()
+	{
 		$this->load->dbforge();
 		$fields = array(
       'server_id' => array(
 				'type' => 'INT',
 				'constraint' => '6',
+				'auto_increment' => TRUE
 			),
       'server_name' => array(
 				'type' => 'VARCHAR',
@@ -63,6 +65,19 @@ class Backups_model extends CI_Model {
 		);
 	    $this->db->insert('servers',$data);
 
+	}
+    /**
+     * get list of server
+     *
+     * @access	public
+     * @return string
+     */
+	public function get_servers() {
+		if( !$this->db->table_exists( 'servers' ) ) $this->create_backups_table();
+		$servers = $this->db->get('servers');
+		if ($servers->num_rows() > 0) {
+			return $servers->result();
+		} else return array();
 	}
 
 }

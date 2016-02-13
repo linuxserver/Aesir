@@ -53,6 +53,9 @@ FONT FACE (IN YOUR FACE)
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-server:before {
+    content: "\ea92";
+}
 .icon-plus2:before {
     content: "\ed5b";
 }
@@ -124,6 +127,9 @@ FONT FACE (IN YOUR FACE)
 }
 .icon-star-empty3:before {
     content: "\ece0";
+}
+.icon-aesir:before {
+    content: "\e901";
 }
 .icon-docker-plain:before {
     content: "\e601";
