@@ -1,5 +1,5 @@
 <?php
-$newversion = ( $this->github_updater->has_update() ) ? ' <a class="update_available" href="'.site_url( 'main/update' ).'">Update Available</a>' : '' ;
+$newversion = ( $this->github_updater->has_update() ) ? ' <a class="update_available" href="'.site_url( 'home/update' ).'">Update Available</a>' : '' ;
 ?>
         </section><!-- END OF #pagecontainer-->
         </section><!-- END OF #content-->
