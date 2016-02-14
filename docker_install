@@ -1,0 +1,43 @@
+Unable to find image 'linuxserver/jackett:latest' locally
+latest: Pulling from linuxserver/jackett
+9f012ebc2437: Pulling fs layer
+138d734cbf03: Pulling fs layer
+e984eaea1331: Pulling fs layer
+2ec8ee84071c: Pulling fs layer
+943cc0e1a2aa: Pulling fs layer
+b7b6bb69ba33: Pulling fs layer
+95bcf937b5d9: Pulling fs layer
+6f5beac51fc5: Pulling fs layer
+c24f53d2731d: Pulling fs layer
+428b411c28f0: Already exists
+435050075b3f: Already exists
+9fd3c8c9af32: Already exists
+6d4946999d4f: Already exists
+f6e250afd5cc: Already exists
+80c1ef08f5e9: Already exists
+29ae179a0774: Already exists
+fdcdf46f55d4: Already exists
+9b883c576b37: Already exists
+e244385f01e3: Already exists
+024d35e3b959: Already exists
+414001b6cfcc: Already exists
+5b552f5cca8b: Already exists
+c24f53d2731d: Verifying Checksum
+c24f53d2731d: Download complete
+138d734cbf03: Verifying Checksum
+138d734cbf03: Download complete
+6f5beac51fc5: Verifying Checksum
+6f5beac51fc5: Download complete
+9f012ebc2437: Verifying Checksum
+9f012ebc2437: Download complete
+e984eaea1331: Verifying Checksum
+e984eaea1331: Download complete
+95bcf937b5d9: Verifying Checksum
+95bcf937b5d9: Download complete
+943cc0e1a2aa: Verifying Checksum
+943cc0e1a2aa: Download complete
+9f012ebc2437: Pull complete
+138d734cbf03: Pull complete
+b7b6bb69ba33: Verifying Checksum
+b7b6bb69ba33: Download complete
+e984eaea1331: Pull complete

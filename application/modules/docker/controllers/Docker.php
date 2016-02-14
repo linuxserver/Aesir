@@ -353,55 +353,30 @@ class Docker extends MY_Controller {
 	{
 
 		if( isset( $_POST ) && !empty( $_POST ) ) {
-			die( print_r( $_POST ) );
-			//$run = $this->buildCommand();
-			//echo $run['cmd'];
-			$outputfile = 'test.txt';
-			$outputfile2 = 'test2.txt';
+			//die( print_r( $_POST ) );
+			
+			$outputfile = 'docker_install';
+			$outputfile2 = 'docker_error';
+
+			$install = $this->buildCommand();
+			$cmd = $install['cmd'];
 			$pidfile = 'docker_pidfile';
-			//$run = sprintf('nohup %s > %s 2>&1 & echo $! >> %s', $run['cmd'], $outputfile, $pidfile);
+			$run = sprintf('nohup %s > %s 2>&1 & echo $! >> %s', $cmd, $outputfile, $pidfile);
 
-			$image = base64_encode($_POST['repository']);
-
-			$cmd = 'php index.php docker pull_image '.rtrim( $image, '=' );
-			//die($cmd);
-			//$run = sprintf('%s 2>&1 &', $run['cmd']);
-			$run = sprintf('nohup %s &> /dev/null &', $cmd);
-			/*//echo "c: ".$run;
+			$image = base64_encode($install['repository']);
 
 			$descriptorspec = array(
    				0 => array("pipe", "r"),  // stdin is a pipe that the child will read from
    				1 => array("file", $outputfile, "a"),  // stdout is a pipe that the child will write to
-   				2 => array("pipe", $outputfile2, "a") // stderr is a file to write to
+   				2 => array("file", $outputfile2, "a") // stderr is a file to write to
 			);
 
-		$cwd = FCPATH;
-		$env = NULL;
+			$cwd = FCPATH;
+			$env = NULL;
 
-		$process = proc_open($run, $descriptorspec, $pipes, $cwd, $env);*/
+			$process = proc_open($run, $descriptorspec, $pipes, $cwd, $env);
 
-
-
-		/*$command = '/usr/bin/docker run -d --name="quassel-core" --net="bridge" -e PGID="99" -e PUID="100" -e TZ="Europe/London" -p 4242:4242/tcp -p 64443:64443/tcp -v "/mnt/user/appdata/quassel-core":"/config":rw linuxserver/quassel-core';
-  $descriptorspec = array(
-        0 => array("pipe", "r"),   // stdin is a pipe that the child will read from
-        1 => array("pipe", "w"),   // stdout is a pipe that the child will write to
-        2 => array("pipe", "w")    // stderr is a pipe that the child will write to
-        );
-    	$id = mt_rand();
-    	$output = array();
-    $proc = proc_open($command." 2>&1", $descriptorspec, $pipes, '/', array());
-    while ($out = fgets( $pipes[1] )) {
-      $out = preg_replace("%[\t\n\x0B\f\r]+%", '', $out );
-      @flush();
-      echo htmlentities($out) . "<br />";
-      @flush();
-    }
-    $retval = proc_close($proc);*/
-  
-
-
-			exec($run);
+			//exec($run);
 			redirect( 'docker/download/'.rtrim( $image, '=') );
 			die();
 		}
@@ -435,70 +410,38 @@ class Docker extends MY_Controller {
 	}
 	
 	
-	public function pull_image( $image )
-	{
-		$image = base64_decode( $image );
-		if (! preg_match("/:[\w]*$/i", $image)) $image .= ":latest";
-
-		//die("image: ".$image);
-
-		$file = sha1($image);
-
-		$fp = stream_socket_client('unix:///var/run/docker.sock', $errno, $errstr);
-		if (!$fp) {
-			file_put_contents( 'error.txt', "$errstr ($errno)<br />\n", FILE_APPEND  );
-		} else {
-			$out="POST /images/create?fromImage=$image HTTP/1.1\r\nConnection: Close\r\n\r\n";
-		    fwrite($fp, $out);
-		    while (!feof($fp)) {
-		    	$thisline = fgets($fp, 5000);
-		    	$current = json_decode( $thisline, true );
-		    	file_put_contents( 'text1.txt', $thisline, FILE_APPEND  );
-
-		    	$id = ( isset( $current['id'] ) ) ? $current['id'] : "";
-		    	if($current['status'] == 'Pulling fs layer') $layers[$id] = 0;
-		    	elseif($current['status'] == 'Downloading' || $current['status'] == 'Extracting') {
-		    		$status = $current['status'];
-		    		$total = $current['progressDetail']['total'];
-      				$curr = $current['progressDetail']['current'];
-      				if ($total > 0) {
-        				$layers[$id] = $curr;
-        				$layers_total[$id] = $total;
-      				} else { // doesn't know total so set at 50%
-      					$layers[$id] = 500;
-      					$layers_total[$id] = 1000;
-      				}
-		    	} elseif($current['status'] == 'Extracting') {
-
-		    	} elseif( $current['status'] == 'Download complete' ) {
-					$layers[$id] = $layers_total[$id];
-		    	}
-
-		    	$all_current = array_sum($layers);
-		    	$all_total = array_sum($layers_total);
-
-		    	$percent = round(( $all_current / $all_total ) * 100);		    	
-
-		    	if( !empty( $layers ) ) file_put_contents( $file, json_encode( array( 'dstatus' => $status, 'total' => $all_total, 'current' => $all_current, 'percent' => $percent ) ) );
-		        //echo fgets($fp, 1024);
-		    }
-		    fclose( $fp );
-		    //@unlink( $file );
-		}		
-	}
-    public function process_download( $image )
+    public function process_download( $file )
     {
-
-    	//echo 'i: '.$image;
-
-    	if( file_exists( $image ) ) {
-    		$file = file_get_contents( $image );
-    	} else {
-    		$file = json_encode( array( 'dstatus' => 'Initialising', 'percent' => '0' ) );
-    	}
-    	
-
-    	echo $file;
+    	if( file_exists( 'docker_install' ) ) {
+	   		$file = file( 'docker_install' );
+	   		//print_r($file);
+	   		$status = array();
+	   		$container = false;
+	   		foreach( $file as $f ) {
+	   			$split = explode( ': ', $f );
+	   			if( !isset( $split[1] ) ) continue;
+	   			//print_r($split );
+	   			if( trim( $split[1] ) == 'Pulling fs layer' ) $status[$split[0]] = 1;
+	   			if( trim( $split[1] ) == 'Verifying Checksum' ) $status[$split[0]] = 2;
+	   			if( trim( $split[1] ) == 'Download complete' ) $status[$split[0]] = 3;
+	   			if( trim( $split[1] ) == 'Pull complete' ) $status[$split[0]] = 4;
+	   			if( trim( $split[0] ) == 'Status' ) $container = substr(end($file), 0, 12);
+	   			//print_r( $status );
+	   		}
+	   		//print_r($status);
+	   		$total = count($status)*4;
+	   		$current = array_sum($status);
+	   		$percent = round(( $current / $total ) * 100);	
+	   		echo json_encode( array( 'total' => $total, 'current' => $current, 'percent' => $percent, 'container' => $container ) );
+	   		if( $container !== false ) {
+	   			// clean up
+	   			unlink( 'docker_install' );
+	   			unlink( 'docker_error' );
+	   			unlink( 'docker_pid' );
+	   		}
+	   	} else {
+	   		echo json_encode( array( 'total' => 1, 'current' => 1, 'percent' => 100 ) );
+	   	}
 
     }
 
@@ -580,7 +523,7 @@ class Docker extends MY_Controller {
 		
 		$image = $data['container_details'][0]['Config']['Image'];
 		//$data['docker_details'] = $this->docker_details( $image );
-		print_r( $this->getDockerJSON( '/images/ubuntu/json' ) );
+		//print_r( $this->getDockerJSON( '/images/ubuntu/json' ) );
 		//print_r( $data['container_details'] );
 		//print_r( $data['docker_details'] );
 		//die();

@@ -20,19 +20,24 @@
             //print_r($docker);
             ?>
             <section class="content">
-                <h2><?php echo $name;?> <span class="running"><?php echo $status;?></span></h2>    
+                <h2><?php echo $name;?> <span class="running"><?php echo $status;?></span></h2> 
+                
+                <div id="downloading_image" class="downloading_image">
+                    <div class="ball"></div>
+                    <div class="ball1"></div>
 
-                <div class="downloading_image">
-                    
+
+                    <div class="download_contain">
                     <div id="download_image" class="indicator" data-percent="0" data-img="<?php echo $shaimage;?>">
                 	<div class="decor-container"><span class="decor"></span></div>
-                    <div class="section_title"><div id="download_status"></div></div>
-                    <div class="show_status"><span id="download_percent"></span>%</div>
+                    <div class="section_title"><div id="download_status">Downloading</div></div>
+                    <div class="show_status"><span id="download_percent">0</span>%</div>
                     </div>
 
 
+                
                 </div>
-				
+                </div>
             </section>
             <div class="hr"></div>
 

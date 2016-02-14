@@ -70,14 +70,25 @@ $(document).ready(function() {
 	
 	if($('#download_image').length) {
 		
-		var tid = setInterval(get_current, 500);
+		var tid = setInterval(get_current, 2000);
 		function get_current() {
 			var img = $('#download_image').data('img');
+			var current = $('#download_percent').html();
 			$.getJSON('/index.php/docker/process_download/'+img, function( data ) {
 				if( data.percent > 0 ) $('#download_image').data('easyPieChart').update(data.percent);
-				$('#download_status').html(data.dstatus);
-				$('#download_percent').html(data.percent);
-				if( data.dstatus == 'Extracting' && data.percent >= 100 )  abortTimer();
+				//$('#download_status').html(data.dstatus);
+
+				$('#download_percent').jQuerySimpleCounter({
+					start: current,
+					end: data.percent,
+					duration: 1000
+				});
+				if( data.percent >= 100 ) {
+					abortTimer();
+					$("#downloading_image .ball").animate({ opacity: 0 }, 500);
+					$("#downloading_image .ball1").animate({ opacity: 0 }, 500);
+					window.location="/index.php/docker/container/"+data.container;
+				} 
 			});
 		}
 		function abortTimer() { // to be called when you want to stop the timer
