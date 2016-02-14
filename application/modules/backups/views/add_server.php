@@ -13,10 +13,16 @@
         	<p>Enter the details of the server you want to backup</p>
 
         	<form method="post" action="">
-                <label>Name <span>(for your reference only)</span></label><input type="text" name="server_name" />
-                <label>IP Address <span>(or hostname)</span></label><input type="text" name="server_address" />
-        		<label>Password <span>(password is *NOT* saved anywhere, only used for initial setup)</span></label><input type="text" name="server_password" />
-        		<button type="submit" class="button dockerinstall">Save</button>
+                <div class="formrow">
+                    <div class="label"><label><?php _e('Name')?> <span><?php _e('For your reference only')?></span></label></div><div class="input"><input type="text" name="server_name" /></div>
+                </div>
+                <div class="formrow">
+                    <div class="label"><label><?php _e('IP Address')?> <span><?php _e('or hostname')?></span></label></div><div class="input"><input type="text" name="server_address" /></div>
+                </div>
+                <div class="formrow">
+        		    <div class="label"><label><?php _e('Password')?> <span><?php _e('Password is *NOT* saved anywhere, only used for initial setup')?></span></label></div><div class="input"><input type="text" name="server_password" /></div>
+                </div>
+        		<button type="submit" class="button dockerinstall"><?php _e('Save')?></button>
         	</form>
 
         </section>

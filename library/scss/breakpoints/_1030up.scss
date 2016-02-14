@@ -405,6 +405,9 @@ nav.secondary ul.docker_menu li.active i {
 		img {
 			width: 70px;
 		}
+		i {
+			font-size: 45px;
+		}
 	}
 
 	.dockerinstall {
@@ -478,13 +481,14 @@ nav.secondary {
 				font-weight: 600;
 				margin: 0;
 				font-size: 16px;
-				padding: 6px 20px;
+				padding: 0px 20px;
+				line-height: 4;
 			}
 			a {
 				text-decoration: none;
 				text-transform: none;
 				display: block;
-				padding: 6px 30px;
+				padding: 6px 20px 5px;
 				font-weight: 400;
 				font-size: 13px;
 				color: $light-text;

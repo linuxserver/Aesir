@@ -976,21 +976,25 @@ nav.secondary ul.docker_menu li.active i.dockstatus.running {
 .dockers .image_column img {
   width: 70px;
 }
-/* line 410, ../scss/breakpoints/_1030up.scss */
+/* line 408, ../scss/breakpoints/_1030up.scss */
+.dockers .image_column i {
+  font-size: 45px;
+}
+/* line 413, ../scss/breakpoints/_1030up.scss */
 .dockers .dockerinstall {
   position: absolute;
   bottom: 10px;
   right: 10px;
 }
-/* line 416, ../scss/breakpoints/_1030up.scss */
+/* line 419, ../scss/breakpoints/_1030up.scss */
 .dockers .author {
   font-size: 10px;
 }
-/* line 419, ../scss/breakpoints/_1030up.scss */
+/* line 422, ../scss/breakpoints/_1030up.scss */
 .dockers h4 {
   margin: 0 0 10px;
 }
-/* line 422, ../scss/breakpoints/_1030up.scss */
+/* line 425, ../scss/breakpoints/_1030up.scss */
 .dockers .docker_details {
   display: inline-block;
   vertical-align: top;
@@ -998,14 +1002,14 @@ nav.secondary ul.docker_menu li.active i.dockstatus.running {
   text-align: left;
   padding: 15px 30px;
 }
-/* line 429, ../scss/breakpoints/_1030up.scss */
+/* line 432, ../scss/breakpoints/_1030up.scss */
 .dockers .text_desc {
   text-transform: none;
   font-size: 13px;
   height: 78px;
   overflow: hidden;
 }
-/* line 435, ../scss/breakpoints/_1030up.scss */
+/* line 438, ../scss/breakpoints/_1030up.scss */
 .dockers .supportlink {
   position: absolute;
   bottom: 21px;
@@ -1014,7 +1018,7 @@ nav.secondary ul.docker_menu li.active i.dockstatus.running {
   font-size: 12px;
   color: #CE7F17;
 }
-/* line 443, ../scss/breakpoints/_1030up.scss */
+/* line 446, ../scss/breakpoints/_1030up.scss */
 .dockers .detailslink {
   position: absolute;
   bottom: 21px;
@@ -1032,86 +1036,87 @@ PAGE NAVI STYLES
 /*********************
 SIDEBARS & ASIDES
 *********************/
-/* line 465, ../scss/breakpoints/_1030up.scss */
+/* line 468, ../scss/breakpoints/_1030up.scss */
 nav.secondary {
   height: 100%;
 }
-/* line 469, ../scss/breakpoints/_1030up.scss */
+/* line 472, ../scss/breakpoints/_1030up.scss */
 nav.secondary ul {
   margin: 0;
   padding: 0px;
 }
-/* line 472, ../scss/breakpoints/_1030up.scss */
+/* line 475, ../scss/breakpoints/_1030up.scss */
 nav.secondary ul li {
   line-height: 4.2;
   white-space: nowrap;
   width: 240px;
   overflow: hidden;
 }
-/* line 477, ../scss/breakpoints/_1030up.scss */
+/* line 480, ../scss/breakpoints/_1030up.scss */
 nav.secondary ul li h3 {
   font-weight: 600;
   margin: 0;
   font-size: 16px;
-  padding: 6px 20px;
+  padding: 0px 20px;
+  line-height: 4;
 }
-/* line 483, ../scss/breakpoints/_1030up.scss */
+/* line 487, ../scss/breakpoints/_1030up.scss */
 nav.secondary ul li a {
   text-decoration: none;
   text-transform: none;
   display: block;
-  padding: 6px 30px;
+  padding: 6px 20px 5px;
   font-weight: 400;
   font-size: 13px;
   color: #BCBDB0;
 }
-/* line 493, ../scss/breakpoints/_1030up.scss */
+/* line 497, ../scss/breakpoints/_1030up.scss */
 nav.secondary ul li.active > a {
   background: #697539;
   border-top: 1px solid #52554f;
   border-bottom: 1px solid #52554f;
   color: #fafaf7;
 }
-/* line 499, ../scss/breakpoints/_1030up.scss */
+/* line 503, ../scss/breakpoints/_1030up.scss */
 nav.secondary ul li.active ul {
   margin: 10px 0;
 }
-/* line 502, ../scss/breakpoints/_1030up.scss */
+/* line 506, ../scss/breakpoints/_1030up.scss */
 nav.secondary ul li.active li {
   padding: 0 0 0 10px;
 }
-/* line 504, ../scss/breakpoints/_1030up.scss */
+/* line 508, ../scss/breakpoints/_1030up.scss */
 nav.secondary ul li.active li a {
   line-height: 2;
 }
-/* line 508, ../scss/breakpoints/_1030up.scss */
+/* line 512, ../scss/breakpoints/_1030up.scss */
 nav.secondary ul li.active .highlight > a {
   color: #abc056;
 }
-/* line 511, ../scss/breakpoints/_1030up.scss */
+/* line 515, ../scss/breakpoints/_1030up.scss */
 nav.secondary ul li.active i {
   font-size: 12px;
   margin-right: 10px;
 }
 
-/* line 522, ../scss/breakpoints/_1030up.scss */
+/* line 526, ../scss/breakpoints/_1030up.scss */
 .content-with-submenu {
   background: #383A34;
   display: table;
   width: 100%;
 }
-/* line 526, ../scss/breakpoints/_1030up.scss */
+/* line 530, ../scss/breakpoints/_1030up.scss */
 .content-with-submenu .submenu {
   display: table-cell;
   vertical-align: top;
   width: 240px;
   border-top: 1px solid #51544C;
 }
-/* line 531, ../scss/breakpoints/_1030up.scss */
+/* line 535, ../scss/breakpoints/_1030up.scss */
 .content-with-submenu .submenu .br {
   border-top: 1px solid #fff;
 }
-/* line 535, ../scss/breakpoints/_1030up.scss */
+/* line 539, ../scss/breakpoints/_1030up.scss */
 .content-with-submenu .rightcontent {
   display: table-cell;
   vertical-align: top;
@@ -1123,7 +1128,7 @@ FOOTER STYLES
 /*********************
 FORM STYLES
 *********************/
-/* line 550, ../scss/breakpoints/_1030up.scss */
+/* line 554, ../scss/breakpoints/_1030up.scss */
 fieldset {
   border: 0 none;
   position: relative;

@@ -181,5 +181,17 @@ $(document).ready(function() {
 		if($(this).data("follow") == true) return true;
 		else return false;
 	});
+
+	$("#add_dir").on("click", function(e) {
+		e.preventDefault();
+		var clone = $("#backuprow").clone();
+		var amount = $("#backups .formrow").length;
+		var total = amount+1;
+		clone.removeAttr('id');
+		$('input', clone).val('');
+		$('b', clone).html('#'+total);
+		$("#backups").append(clone);
+
+	});
 	
 });
