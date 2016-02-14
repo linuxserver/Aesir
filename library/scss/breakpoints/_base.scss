@@ -24,12 +24,16 @@ body {
   	-webkit-font-smoothing: antialiased;
   	-moz-osx-font-smoothing: grayscale;
   	text-transform: uppercase;
+  	padding-bottom: 48px;
 }
 .dashmodules {
 	section {
 		position: relative;
 		width: 100%;
 	}
+}
+.update_available {
+	color: $highlight4;
 }
 .notransform {
 	text-transform: none!important;
@@ -925,6 +929,33 @@ SIDEBARS & ASIDES
 /*********************
 FOOTER STYLES
 *********************/
+
+footer {
+	&.main {
+		padding: 9px;
+	    text-align: center;
+	    background: rgba(27,29,27,0.95);
+	    position: fixed;
+	    bottom: 0;
+	    left: 0;
+	    right: 0;
+	    z-index: 99;
+		i {
+			font-size: 30px;
+			display: inline-block;
+			vertical-align: bottom;
+		}
+		.appname {
+			line-height: 24px;
+			display: inline-block;
+			vertical-align: bottom;
+		}
+		.appversion {
+			text-transform: none;
+			color: $text-alt;
+		}
+	}
+}
 
 /*********************
 FORM STYLES

@@ -74,6 +74,15 @@ class Home extends MY_Controller {
 		redirect( 'home' );
 	}
 
+	public function update() {
+		$success = $this->github_updater->update();
+		if( $success ) {
+			redirect( site_url() );
+		} else {
+			echo "An error occured updating";
+		}
+	}
+
 }
 
 /* End of file home.php */

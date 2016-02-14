@@ -96,7 +96,7 @@ class Backups_model extends CI_Model {
 		$this->dbforge->create_table('settings');
 
 		$data = array(
-			'settings_alpha' => 6,
+			'settings_alpha' => 8,
 			'settings_beta' => 7,
 			'settings_gamma' => 4,
 			'settings_delta' => 6,
@@ -140,6 +140,16 @@ class Backups_model extends CI_Model {
 		);
 	    $this->db->insert('servers',$data);
 	    return $this->db->insert_id();
+
+	}
+
+	public function set_backup_location( $path )
+	{
+		$data = array(
+			'settings_backup_path' => $path,
+		);
+	    $this->db->where('settings_id', 1);
+	    $this->db->update('settings',$data);
 
 	}
 
@@ -230,6 +240,20 @@ class Backups_model extends CI_Model {
 		if ( ( $rowcount = $servers->num_rows() ) > 0) {
 			return array( "folders" => $rowcount, "backups" => $servers->result() );
 		} else return array();
+	}
+	/**
+     * get settings
+     *
+     * @access	public
+     * @return string
+     */
+	public function get_settings()
+	{
+		$this->db->where( 'settings_id', 1 );
+		$settings = $this->db->get('settings');
+		if ( ( $rows = $settings->num_rows() ) > 0) {
+			return $settings->row();
+		}
 	}
 
 

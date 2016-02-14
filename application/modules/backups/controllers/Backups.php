@@ -84,6 +84,7 @@ class Backups extends MY_Controller {
     		$build_json = json_decode( $build );
     		getDockerJSON( '/containers/'.$build_json['Id'].'/start', 'POST' );*/
     		exec( 'docker run -d --name=aesir-rsnapshot -v /mnt/cache/appdata/aesir-rsnapshot:/config -v '.$backup_path.':/backups  '.$image );
+    		$this->backups_model->set_backup_location( $backup_path );
     		redirect( 'backups' );
     	}
  		$header_data['page_title'] = __( 'Install Module' );
@@ -91,6 +92,16 @@ class Backups extends MY_Controller {
 
 		$this->load->view( 'install_docker' );
 
+		$this->load->view( 'footer' );   	
+    }
+   public function settings()
+    {
+    	if( $_POST ) {
+    	}
+    	$data['settings'] = $this->backups_model->get_settings();
+ 		$header_data['page_title'] = __( 'Backups Settings' );
+		$this->load->view( 'header', $header_data );
+		$this->load->view( 'settings', $data );
 		$this->load->view( 'footer' );   	
     }
 

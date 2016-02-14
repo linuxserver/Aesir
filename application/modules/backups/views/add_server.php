@@ -20,7 +20,7 @@
                     <div class="label"><label><?php _e('IP Address')?> <span><?php _e('or hostname')?></span></label></div><div class="input"><input type="text" name="server_address" /></div>
                 </div>
                 <div class="formrow">
-        		    <div class="label"><label><?php _e('Password')?> <span><?php _e('Password is *NOT* saved anywhere, only used for initial setup')?></span></label></div><div class="input"><input type="text" name="server_password" /></div>
+        		    <div class="label"><label><?php _e('Password')?> <span><?php _e('Password is *NOT* saved anywhere, only used for initial setup')?></span></label></div><div class="input"><input type="password" name="server_password" /></div>
                 </div>
         		<button type="submit" class="button dockerinstall"><?php _e('Save')?></button>
         	</form>

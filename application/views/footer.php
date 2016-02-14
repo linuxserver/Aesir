@@ -1,5 +1,13 @@
+<?php
+$newversion = ( $this->github_updater->has_update() ) ? ' <a c;ass="update_available" href="'.site_url( 'main/update' ).'">Update Available</a>' : '' ;
+?>
         </section><!-- END OF #pagecontainer-->
         </section><!-- END OF #content-->
+        <footer class="main">
+            <div class="wrap">
+                <i class="icon-aesir"></i> <span class="appname">Aesir</span> <span class="appversion">v<?php echo substr( $this->config->item('current_commit') , 0, 7 );?><?php echo $newversion;?></span>
+            </div>
+        </footer>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
         <script>window.jQuery || document.write('<script src="/js/vendor/jquery-1.10.2.min.js"><\/script>')</script>

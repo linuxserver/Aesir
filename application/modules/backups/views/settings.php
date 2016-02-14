@@ -11,19 +11,19 @@
 
         	<form method="post" action="">
                 <div class="formrow">
-                    <div class="label"><label><?php _e('Backup location')?> <span><?php _e('path to backup location')?></span></label></div><div class="input"><input type="text" name="settings_backup_path" /></div>
+                    <div class="label"><label><?php _e('Backup location')?> <span><?php _e('path to backup location')?></span></label></div><div class="input"><input type="text" name="settings_backup_path" value="<?php echo $settings->settings_backup_path;?>" /></div>
                 </div>
                 <div class="formrow">
-                    <div class="label"><label><?php _e('Alpha')?> <span><?php _e('How many hours to save')?></span></label></div><div class="input"><input type="text" name="settings_alpha" /></div>
+                    <div class="label"><label><?php _e('Alpha')?> <span><?php _e('How many hours to save')?></span></label></div><div class="input"><input type="text" name="settings_alpha" value="<?php echo $settings->settings_alpha;?>" /></div>
                 </div>
                 <div class="formrow">
-                    <div class="label"><label><?php _e('Beta')?> <span><?php _e('How many hours to save')?></span></label></div><div class="input"><input type="text" name="settings_alpha" /></div>
+                    <div class="label"><label><?php _e('Beta')?> <span><?php _e('How many hours to save')?></span></label></div><div class="input"><input type="text" name="settings_beta" value="<?php echo $settings->settings_beta;?>" /></div>
                 </div>
                 <div class="formrow">
-                    <div class="label"><label><?php _e('Gamma')?> <span><?php _e('How many hours to save')?></span></label></div><div class="input"><input type="text" name="settings_alpha" /></div>
+                    <div class="label"><label><?php _e('Gamma')?> <span><?php _e('How many hours to save')?></span></label></div><div class="input"><input type="text" name="settings_gamma" value="<?php echo $settings->settings_gamma;?>" /></div>
                 </div>
                 <div class="formrow">
-                    <div class="label"><label><?php _e('Delta')?> <span><?php _e('How many hours to save')?></span></label></div><div class="input"><input type="text" name="settings_alpha" /></div>
+                    <div class="label"><label><?php _e('Delta')?> <span><?php _e('How many hours to save')?></span></label></div><div class="input"><input type="text" name="settings_delta" value="<?php echo $settings->settings_delta;?>" /></div>
                 </div>
         		<button type="submit" class="button dockerinstall"><?php _e('Save')?></button>
         	</form>

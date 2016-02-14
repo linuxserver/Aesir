@@ -19,6 +19,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $config['base_url'] = '';
 
+$config['app_version'] = '0.1';
+
 //$config['ini_path'] = 'demo/'; // while in development
 $config['ini_path'] = '/var/local/emhttp/'; // once live
 $config['unraid_vars'] = parse_ini_file($config['ini_path']."var.ini");
