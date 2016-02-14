@@ -437,7 +437,7 @@ class Docker extends MY_Controller {
 	   			// clean up
 	   			unlink( 'docker_install' );
 	   			unlink( 'docker_error' );
-	   			unlink( 'docker_pid' );
+	   			unlink( 'docker_pidfile' );
 	   		}
 	   	} else {
 	   		echo json_encode( array( 'total' => 1, 'current' => 1, 'percent' => 100 ) );

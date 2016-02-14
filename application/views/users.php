@@ -1,5 +1,4 @@
 <section id="users" class="body">
-	<?php $this->load->view( 'status', array( 'statustype' => 'mini' ) ); ?>
 <section class="section1">	
 <ul>
 <?php
