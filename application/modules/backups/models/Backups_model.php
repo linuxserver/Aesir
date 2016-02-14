@@ -196,8 +196,9 @@ class Backups_model extends CI_Model {
 	public function backup_list( $server_id )
 	{
 		$server_backups = $this->get_backups( $server_id );
-		$backups = $server_backups['backups'];
-		if ( !empty( $backups ) ) {
+		
+		if ( !empty( $server_backups ) ) {
+			$backups = $server_backups['backups'];
 			$a = 1;
 			$output = '';
 			foreach( $backups as $backup ) {
