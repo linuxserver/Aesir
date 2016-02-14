@@ -33,7 +33,9 @@ class Github_updater
         $this->ci =& get_instance();
         $this->ci->load->config('github_updater');
         if( $this->ci->config->item('current_commit') == '' ) {
-            $this->_set_config_hash( $this->current_hash() );
+            $current_hash = $this->current_hash();
+            $this->_set_config_hash( $current_hash );
+            $this->ci->config->set_item( 'current_commit', $current_hash );
         }
     }
 
@@ -50,7 +52,9 @@ class Github_updater
 
     public function current_hash()
     {
+        //echo "url: ".self::API_URL.$this->ci->config->item('github_user').'/'.$this->ci->config->item('github_repo').'/branches';
         $branches = json_decode($this->_connect(self::API_URL.$this->ci->config->item('github_user').'/'.$this->ci->config->item('github_repo').'/branches'));
+        //print_r( $branches );
         foreach( $branches as $br ) {
             if( $br->name == $this->ci->config->item('github_branch') ) {
                 return $br->commit->sha;
@@ -167,15 +171,19 @@ class Github_updater
     {
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC ) ;
-        curl_setopt($ch, CURLOPT_SSLVERSION,3);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
+        //curl_setopt($ch, CURLOPT_SSLVERSION,3);
+        //curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+        //curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
+        curl_setopt($ch, CURLOPT_USERAGENT, 'Aesir for unRAID');
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLINFO_HEADER_OUT, true);
 
         $response = curl_exec($ch);
-
+        if(curl_errno($ch)) {
+            echo 'error:' . curl_error($ch);
+        }
         curl_close($ch);
+        //die ("response: ".$response);
         return $response;
     }
 }
