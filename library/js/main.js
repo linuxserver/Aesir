@@ -87,7 +87,7 @@ $(document).ready(function() {
 					abortTimer();
 					$("#downloading_image .ball").animate({ opacity: 0 }, 500);
 					$("#downloading_image .ball1").animate({ opacity: 0 }, 500);
-					window.location="/index.php/docker/container/"+data.container;
+					window.location="/index.php/docker";
 				} 
 			});
 		}
