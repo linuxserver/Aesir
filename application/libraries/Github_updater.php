@@ -92,8 +92,7 @@ class Github_updater
      */
     public function update()
     {
-        $branches = json_decode($this->_connect(self::API_URL.$this->ci->config->item('github_user').'/'.$this->ci->config->item('github_repo').'/branches'));
-        $hash = $branches[0]->commit->sha;
+        $hash = $this->current_hash();
         if($hash !== $this->ci->config->item('current_commit'))
         {
             $commits = json_decode($this->_connect(self::API_URL.$this->ci->config->item('github_user').'/'.$this->ci->config->item('github_repo').'/compare/'.$this->ci->config->item('current_commit').'...'.$hash));
