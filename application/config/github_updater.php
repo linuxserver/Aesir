@@ -8,7 +8,7 @@ $config['github_user'] = 'linuxserver';
 /**
  * The repo on GitHub we will be updating from
  */
-$config['github_repo'] = 'aesir';
+$config['github_repo'] = 'Aesir';
 
 /**
  * The branch to update from
