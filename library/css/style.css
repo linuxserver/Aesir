@@ -1726,7 +1726,7 @@ body {
 
 /* line 35, ../scss/breakpoints/_base.scss */
 .update_available {
-  color: #7C8A44;
+  color: #7C8A44 !important;
 }
 
 /* line 38, ../scss/breakpoints/_base.scss */
@@ -2807,23 +2807,28 @@ footer.main i {
   font-size: 30px;
   display: inline-block;
   vertical-align: bottom;
+  color: #ccc;
 }
-/* line 948, ../scss/breakpoints/_base.scss */
+/* line 949, ../scss/breakpoints/_base.scss */
 footer.main .appname {
   line-height: 24px;
   display: inline-block;
   vertical-align: bottom;
 }
-/* line 953, ../scss/breakpoints/_base.scss */
+/* line 954, ../scss/breakpoints/_base.scss */
 footer.main .appversion {
   text-transform: none;
-  color: #54564E;
+  color: #ccc;
+}
+/* line 957, ../scss/breakpoints/_base.scss */
+footer.main .appversion span {
+  color: #7a7f75;
 }
 
 /*********************
 FORM STYLES
 *********************/
-/* line 965, ../scss/breakpoints/_base.scss */
+/* line 969, ../scss/breakpoints/_base.scss */
 fieldset legend {
   border: 0;
   position: absolute !important;

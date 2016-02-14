@@ -33,7 +33,7 @@ body {
 	}
 }
 .update_available {
-	color: $highlight4;
+	color: $highlight4!important;
 }
 .notransform {
 	text-transform: none!important;
@@ -944,6 +944,7 @@ footer {
 			font-size: 30px;
 			display: inline-block;
 			vertical-align: bottom;
+			color: $link-hover;
 		}
 		.appname {
 			line-height: 24px;
@@ -952,7 +953,10 @@ footer {
 		}
 		.appversion {
 			text-transform: none;
-			color: $text-alt;
+			color: $link-hover;
+			span {
+				color: $text-color;
+			}
 		}
 	}
 }
