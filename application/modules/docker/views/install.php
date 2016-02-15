@@ -115,20 +115,29 @@
                                         </div>
                                        
                                    
-                                    </section>
-                                    <section>
-                                        <h3>Environment Variables</h3>
+
+
+                                        <div class="formrow">
+
+                                            <div class="label"><label><?php _e('Environment Variables')?> <span><?php _e('Variables that do things')?></span></label></div><div class="input">
+
+                                                <table style="width: 100%">
+                                                    <tr><th class="col45"><label><?php _e('Variable');?></label></th><th class="col45"><label><?php _e('Value');?></label></th><th class="col10"></th></tr>
+                                                    <?php
+                                                    if( isset( $environment['Variable'] ) && !empty( $environment['Variable'] ) ) {
+                                                        foreach ( $environment['Variable'] as $key => $variable) {
+                                                           if( !empty($variable['Name']) )  echo '<tr><td class="col45"><input type="text" name="environment['.$key.'][Name]" value="'.$variable['Name'].'" /></td><td class="col45"><input type="text" name="environment['.$key.'][Value]" value="'.$variable['Value'].'" /></td><td class="col10"><a href=""><i class="icon-cancel-circle"></i></a></td></tr>';
+                                                        }
+                                                    }
+                                                    ?>
+                                            
+                                                </table>
+                                                <a href="">Add</a>
+
+                                            </div>
+                                        </div>
+
                                      
-                                        <table style="width: 100%">
-                                            <tr><th>Variable</th><th>Value</th><th></th></tr>
-                                            <?php
-                                            if( isset( $environment['Variable'] ) && !empty( $environment['Variable'] ) ) {
-                                                foreach ( $environment['Variable'] as $key => $variable) {
-                                                   if( !empty($variable['Name']) )  echo '<tr><td><input type="text" name="environment['.$key.'][Name]" value="'.$variable['Name'].'" /></td><td><input type="text" name="environment['.$key.'][Value]" value="'.$variable['Value'].'" /></td><td><a href="">x</a></td></tr>';
-                                                }
-                                            }
-                                            ?>
-                                        </table>
                                     </section>
                                 </div>
                                 <div class="addontab infotab" id="tabs-3">
