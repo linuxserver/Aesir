@@ -1971,8 +1971,8 @@ body {
 /* line 211, ../scss/breakpoints/_base.scss */
 .formrow .input th label {
   display: block !important;
-  background: #7C8A44;
-  color: rgba(255, 255, 255, 0.8);
+  background: #1D1D1C;
+  color: rgba(255, 255, 255, 0.7);
   font-size: 13px;
   border-top-left-radius: 10px !important;
   border-top-right-radius: 10px !important;
