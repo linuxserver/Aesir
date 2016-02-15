@@ -36,7 +36,7 @@
         <section id="docker" class="body section1">
 		
             <?php
-			print_r_fancy($id);
+			//print_r_fancy($id);
             ?>
             <section class="content">
                 <h2><?php echo $name.$status;?></h2>    
@@ -63,119 +63,100 @@
 						}
 					}
 					?>
-                </ul>       
-				     
-					<h2 class="underline"><?php _e( 'Network Details' ); ?></h2>
-					<div class="display_row">
-						<div class="label"><?php _e( 'Network Mode' ); ?>:</div>
-						<div class="value"><?php echo ucwords($network_mode); ?></div>
-					</div>
-					
-					<h2 class="underline"><?php _e( 'Port Binding' ); ?></h3>
-					<?php
-					
-					foreach($sorted_port_bindings as $initial_port => $target_port){
-						echo '<div class="display_row port_binding">';
-							echo '<div class="label">'.__( 'Port' ).' '.$initial_port.'</div>';
-							echo '<div class="value">'.__( 'Port' ).' '.$target_port.'</div>';
-						echo '</div>';
-					}
-					?>
-					
-					<h2 class="underline"><?php _e( 'Volume Mapping' ); ?></h2>
-					
-					<?php
-					foreach($volume_mappings as $docker_path => $host_path){
-						echo '<div class="display_row path_mapping">';
-							echo '<div class="label">'.$docker_path.'</div>';
-							echo '<div class="value">'.$host_path.'</div>';
-						echo '</div>';
-					}
-					?>
-					
-					
-					<?php
-					$display_store = false;
-					$echo_store = '<h2 class="underline">'.__( 'Environment Variables' ).'</h2>';
-					foreach($enviroment_configs as $enviroment_config){
-						list($variable,$value) = explode('=',$enviroment_config);
-						switch(strtolower($variable)){
-							case "puid":
-							case "pgid":
-								$display_store = true;
-								$echo_store .= '<div class="display_row">';
-									$echo_store .= '<div class="label">'.$variable.':</div>';
-									$echo_store .= '<div class="value">'.$value.'</div>';
-								$echo_store .= '</div>';
-								break;
-							default:
-								//Nothing
-						}
-					}	
-					echo ($display_store === true) ? $echo_store : '';
-					?>
-					
-					<h2 class="underline"><?php _e( 'System Usage' ); ?></h2>
-					
-					<?php if($up){ ?>
-					<script src="/library/js/vendor/jquery-1.10.2.min.js"></script>
-					<script>
-					$(document).ready(function() {
-						
-						function getStats(){
-							$.ajax({
-								url: "<?php echo site_url( 'docker/live_container_stats/'.$id.'/500000' ); ?>",
-								cache: false,
-								success: function(data){
-									obj = JSON.parse(data);
-									$("div.total_usage_percentage").html(obj.cpu_stats.total_usage_percent + "%");
-									$("div.current_memory_usage").html(obj.memory_stats.usage_percent + "% (" + obj.memory_stats.usage_formatted + " / " + obj.memory_stats.total_system_formatted + ")");
-									$("div.max_memory_usage").html(obj.memory_stats.max_usage_percent + "% (" + obj.memory_stats.max_usage_formatted + " / " + obj.memory_stats.total_system_formatted + ")");
-									getStats();
+                </ul>   
+
+                    <section>
+                        <div class="formrow">
+                            <div class="label"><label><?php _e('Network Mode')?> <span><?php _e('Network settings')?></span></label></div><div class="input">
+                            	<?php echo ucwords($network_mode); ?>
+                            </div>
+                        </div>
+                        <div class="formrow">
+                            <div class="label"><label><?php _e('Port Binding')?> <span><?php _e('What ports to bind')?></span></label></div><div class="input">
+                            	<?php 
+								foreach($sorted_port_bindings as $initial_port => $target_port){
+									echo '<div class="display_row port_binding">';
+										echo '<div class="inputlabel">'.__( 'Port' ).' '.$initial_port.'</div>';
+										echo '<div class="inputvalue">'.__( 'Port' ).' '.$target_port.'</div>';
+									echo '</div>';
 								}
-							});
-						}
-						getStats();
-						
-					});
-					</script>
-					
-					<?php } ?>
-					
-					 
-					<?php
 
+                            	?>
+                            </div>
+                        </div>
+                        <div class="formrow">
+                            <div class="label"><label><?php _e('Volume Mapping')?></label></div><div class="input">
+                            	<?php 
+								foreach($volume_mappings as $docker_path => $host_path){
+									echo '<div class="display_row path_mapping">';
+										echo '<div class="inputlabel">'.$docker_path.'</div>';
+										echo '<div class="inputvalue">'.$host_path.'</div>';
+									echo '</div>';
+								}
+
+                            	?>
+                            </div>
+                        </div>
+                        <div class="formrow">
+                            <div class="label"><label><?php _e('Environment Variables')?></label></div><div class="input">
+                            	<?php 
+								$display_store = false;
+								$echo_store = '';
+								foreach($enviroment_configs as $enviroment_config){
+									list($variable,$value) = explode('=',$enviroment_config);
+									switch(strtolower($variable)){
+										case "puid":
+										case "pgid":
+											$display_store = true;
+											$echo_store .= '<div class="display_row">';
+												$echo_store .= '<div class="inputlabel">'.$variable.':</div>';
+												$echo_store .= '<div class="inputvalue">'.$value.'</div>';
+											$echo_store .= '</div>';
+											break;
+										default:
+											//Nothing
+									}
+								}	
+								echo ($display_store === true) ? $echo_store : '';
+
+                            	?>
+                            </div>
+                        </div>
+                        <div class="formrow">
+                            <div class="label"><label><?php _e('System Usage')?></label></div><div class="input">
+                            	<?php 
 					echo '<div class="display_row">';
-						echo '<div class="label">'.__( 'CPU Usage' ).':</div>';
-						echo '<div class="value total_usage_percentage">'.$container_stats['cpu_stats']['total_usage_percent'].'%</div>';
+						echo '<div class="inputlabel">'.__( 'CPU Usage' ).':</div>';
+						echo '<div class="inputvalue total_usage_percentage">'.$container_stats['cpu_stats']['total_usage_percent'].'%</div>';
 					echo '</div>';
 					echo '<div class="display_row">';
-						echo '<div class="label">'.__( 'Current Memory Usage' ).': </div>';
-						echo '<div class="value current_memory_usage">'.$container_stats['memory_stats']['usage_percent'].'% ('.$container_stats['memory_stats']['usage_formatted'].' / '.$container_stats['memory_stats']['total_system_formatted'].')</div>';
+						echo '<div class="inputlabel">'.__( 'Current Memory Usage' ).': </div>';
+						echo '<div class="inputvalue current_memory_usage">'.$container_stats['memory_stats']['usage_percent'].'% ('.$container_stats['memory_stats']['usage_formatted'].' / '.$container_stats['memory_stats']['total_system_formatted'].')</div>';
 					echo '</div>';
 					echo '<div class="display_row">';
-						echo '<div class="label">'.__( 'Maximum Memory Usage' ).': </div>';
-						echo '<div class="value max_memory_usage">'.$container_stats['memory_stats']['max_usage_percent'].'% ('.$container_stats['memory_stats']['max_usage_formatted'].' / '.$container_stats['memory_stats']['total_system_formatted'].')</div>';
+						echo '<div class="inputlabel">'.__( 'Maximum Memory Usage' ).': </div>';
+						echo '<div class="inputvalue max_memory_usage">'.$container_stats['memory_stats']['max_usage_percent'].'% ('.$container_stats['memory_stats']['max_usage_formatted'].' / '.$container_stats['memory_stats']['total_system_formatted'].')</div>';
 					echo '</div>';
 
-					?>
+                            	?>
+                            </div>
+                        </div>
 
-					<h2 class="underline"><?php _e( 'Storage Usage' ); ?></h2>
-					
-					<?php
-					echo '<div class="display_row">';
-						echo '<div class="label">'.__( 'Virtual Storage Usage' ).': </div>';
-						echo '<div class="value">'.format_bytes($virtual_storage_usage,false,'','').'</div>';
-					echo '</div>';
+                        <div class="formrow">
+                            <div class="label"><label><?php _e('Storage Usage')?></label></div><div class="input">
+								<?php
+								echo '<div class="display_row">';
+									echo '<div class="inputlabel">'.__( 'Virtual Storage Usage' ).': </div>';
+									echo '<div class="inputvalue">'.format_bytes($virtual_storage_usage,false,'','').'</div>';
+								echo '</div>';
+								?>
+                            </div>
+                        </div>
 
-					/*if( isset($volume_mappings['/config']) ){
-						echo '<div class="display_row">';
-							echo '<div class="label">'.__( '/config Storage Usage' ).': </div>';
-							echo '<div class="value">'.explode("\t",shell_exec('du -cksh '.$volume_mappings['/config']))[0].'B</div>';
-						echo '</div>';
-					}*/
-					
-					?>
+
+                    </section>
+				     
+										
             </section>
             <div class="hr"></div>
 

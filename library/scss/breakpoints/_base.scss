@@ -194,6 +194,17 @@ body {
 			padding-bottom: 8px;
 		}
 	}
+	.inputlabel {
+		display: inline-block;
+		padding-right: 30px;
+	    margin-right: 10px;
+	    font-weight: normal;
+	    background: url("/library/img/arrow-right.png") no-repeat right center;
+	}
+	.inputvalue {
+		display: inline-block;
+	}
+
 	.input {
 		background: $inputbg;
 		display: inline-block;
