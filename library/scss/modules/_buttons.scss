@@ -107,3 +107,24 @@ and it will create a button dependant on those variables.
     //background-color: $highlight2;
   } // end active
 }
+
+.big_green {
+  @extend %btn;
+  background: $highlight4;
+  line-height: 1.5;
+  padding: 15px 25px;
+  display: inline-block;
+  text-align: center;
+
+  font-size: 16px;
+  color: rgba(255,255,255,0.8);
+  &:hover,
+  &:focus {
+    background-color: darken( $highlight4, 10%);
+    color: rgba(255,255,255,0.8);
+  } // end hover
+
+  &:active {
+    //background-color: $highlight2;
+  } // end active
+}

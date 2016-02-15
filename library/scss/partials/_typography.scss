@@ -53,6 +53,15 @@ FONT FACE (IN YOUR FACE)
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-cancel-circle:before {
+    content: "\e904";
+}
+.icon-lock:before {
+    content: "\e902";
+}
+.icon-unlocked:before {
+    content: "\e903";
+}
 .icon-server:before {
     content: "\ea92";
 }
@@ -137,7 +146,6 @@ FONT FACE (IN YOUR FACE)
 .icon-hdd:before {
     content: "\e600";
 }
-
 
 /*
 The following is based of Typebase:

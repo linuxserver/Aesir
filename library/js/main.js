@@ -204,5 +204,14 @@ $(document).ready(function() {
 		$("#backups").append(clone);
 
 	});
+
+	if( $("#cpu_custom").length ) {
+		if($('#cpu4').is(':checked')) $("#cpu_custom").show();
+		else $("#cpu_custom").hide();
+	}
+	$('input[name=cpu]').on("change", function() {
+	   if( $('#cpu4').is(':checked') )  $("#cpu_custom").show();
+	   else $("#cpu_custom").hide();
+	});
 	
 });

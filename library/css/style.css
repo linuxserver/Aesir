@@ -611,141 +611,156 @@ FONT FACE (IN YOUR FACE)
 }
 
 /* line 56, ../scss/partials/_typography.scss */
+.icon-cancel-circle:before {
+  content: "\e904";
+}
+
+/* line 59, ../scss/partials/_typography.scss */
+.icon-lock:before {
+  content: "\e902";
+}
+
+/* line 62, ../scss/partials/_typography.scss */
+.icon-unlocked:before {
+  content: "\e903";
+}
+
+/* line 65, ../scss/partials/_typography.scss */
 .icon-server:before {
   content: "\ea92";
 }
 
-/* line 59, ../scss/partials/_typography.scss */
+/* line 68, ../scss/partials/_typography.scss */
 .icon-plus2:before {
   content: "\ed5b";
 }
 
-/* line 62, ../scss/partials/_typography.scss */
+/* line 71, ../scss/partials/_typography.scss */
 .icon-plus3:before {
   content: "\ed5d";
 }
 
-/* line 65, ../scss/partials/_typography.scss */
+/* line 74, ../scss/partials/_typography.scss */
 .icon-warning:before {
   content: "\ed4c";
 }
 
-/* line 68, ../scss/partials/_typography.scss */
+/* line 77, ../scss/partials/_typography.scss */
 .icon-home:before {
   content: "\e900";
 }
 
-/* line 71, ../scss/partials/_typography.scss */
+/* line 80, ../scss/partials/_typography.scss */
 .icon-users:before {
   content: "\eaf5";
 }
 
-/* line 74, ../scss/partials/_typography.scss */
+/* line 83, ../scss/partials/_typography.scss */
 .icon-equalizer:before {
   content: "\eb58";
 }
 
-/* line 77, ../scss/partials/_typography.scss */
+/* line 86, ../scss/partials/_typography.scss */
 .icon-knife:before {
   content: "\eb67";
 }
 
-/* line 80, ../scss/partials/_typography.scss */
+/* line 89, ../scss/partials/_typography.scss */
 .icon-meter:before {
   content: "\ebdb";
 }
 
-/* line 83, ../scss/partials/_typography.scss */
+/* line 92, ../scss/partials/_typography.scss */
 .icon-puzzle3:before {
   content: "\ec1e";
 }
 
-/* line 86, ../scss/partials/_typography.scss */
+/* line 95, ../scss/partials/_typography.scss */
 .icon-brain:before {
   content: "\ec24";
 }
 
-/* line 89, ../scss/partials/_typography.scss */
+/* line 98, ../scss/partials/_typography.scss */
 .icon-tree6:before {
   content: "\ec62";
 }
 
-/* line 92, ../scss/partials/_typography.scss */
+/* line 101, ../scss/partials/_typography.scss */
 .icon-usb-stick:before {
   content: "\ea8d";
 }
 
-/* line 95, ../scss/partials/_typography.scss */
+/* line 104, ../scss/partials/_typography.scss */
 .icon-sleepy:before {
   content: "\ed1d";
 }
 
-/* line 98, ../scss/partials/_typography.scss */
+/* line 107, ../scss/partials/_typography.scss */
 .icon-loop2:before {
   content: "\eda6";
 }
 
-/* line 101, ../scss/partials/_typography.scss */
+/* line 110, ../scss/partials/_typography.scss */
 .icon-infinite:before {
   content: "\eda9";
 }
 
-/* line 104, ../scss/partials/_typography.scss */
+/* line 113, ../scss/partials/_typography.scss */
 .icon-shuffle2:before {
   content: "\edad";
 }
 
-/* line 107, ../scss/partials/_typography.scss */
+/* line 116, ../scss/partials/_typography.scss */
 .icon-checkbox-checked:before {
   content: "\ee63";
 }
 
-/* line 110, ../scss/partials/_typography.scss */
+/* line 119, ../scss/partials/_typography.scss */
 .icon-checkbox-unchecked:before {
   content: "\ee64";
 }
 
-/* line 113, ../scss/partials/_typography.scss */
+/* line 122, ../scss/partials/_typography.scss */
 .icon-radio-checked:before {
   content: "\ee6e";
 }
 
-/* line 116, ../scss/partials/_typography.scss */
+/* line 125, ../scss/partials/_typography.scss */
 .icon-radio-unchecked:before {
   content: "\ee70";
 }
 
-/* line 119, ../scss/partials/_typography.scss */
+/* line 128, ../scss/partials/_typography.scss */
 .icon-library2:before {
   content: "\e999";
 }
 
-/* line 122, ../scss/partials/_typography.scss */
+/* line 131, ../scss/partials/_typography.scss */
 .icon-database2:before {
   content: "\ea91";
 }
 
-/* line 125, ../scss/partials/_typography.scss */
+/* line 134, ../scss/partials/_typography.scss */
 .icon-cloud-download:before {
   content: "\ec73";
 }
 
-/* line 128, ../scss/partials/_typography.scss */
+/* line 137, ../scss/partials/_typography.scss */
 .icon-star-empty3:before {
   content: "\ece0";
 }
 
-/* line 131, ../scss/partials/_typography.scss */
+/* line 140, ../scss/partials/_typography.scss */
 .icon-aesir:before {
   content: "\e901";
 }
 
-/* line 134, ../scss/partials/_typography.scss */
+/* line 143, ../scss/partials/_typography.scss */
 .icon-docker-plain:before {
   content: "\e601";
 }
 
-/* line 137, ../scss/partials/_typography.scss */
+/* line 146, ../scss/partials/_typography.scss */
 .icon-hdd:before {
   content: "\e600";
 }
@@ -763,7 +778,7 @@ I've edited it a bit, but it's a nice starting point.
 some nice typographical defaults
 more here: http://www.newnet-soft.com/blog/csstypography
 */
-/* line 163, ../scss/partials/_typography.scss */
+/* line 171, ../scss/partials/_typography.scss */
 p {
   -ms-word-wrap: break-word;
   word-break: break-word;
@@ -1257,7 +1272,7 @@ http://www.youtube.com/watch?v=hwdVpKiJzac
 
 *********************/
 /* line 27, ../scss/modules/_buttons.scss */
-.blue-btn, .inputright, .savebutton, .dockerinstall {
+.blue-btn, .inputright, .savebutton, .dockerinstall, .big_green {
   display: inline-block;
   position: relative;
   vertical-align: top;
@@ -1274,7 +1289,7 @@ http://www.youtube.com/watch?v=hwdVpKiJzac
   transition: background-color 0.14s ease-in-out;
 }
 /* line 43, ../scss/modules/_buttons.scss */
-.blue-btn:hover, .inputright:hover, .savebutton:hover, .dockerinstall:hover, .blue-btn:focus, .inputright:focus, .savebutton:focus, .dockerinstall:focus {
+.blue-btn:hover, .inputright:hover, .savebutton:hover, .dockerinstall:hover, .big_green:hover, .blue-btn:focus, .inputright:focus, .savebutton:focus, .dockerinstall:focus, .big_green:focus {
   color: #000;
   text-decoration: none;
 }
@@ -1321,6 +1336,22 @@ and it will create a button dependant on those variables.
   padding: 10px 25px;
   font-size: 13px;
   color: rgba(255, 255, 255, 0.7);
+}
+
+/* line 111, ../scss/modules/_buttons.scss */
+.big_green {
+  background: #7C8A44;
+  line-height: 1.5;
+  padding: 15px 25px;
+  display: inline-block;
+  text-align: center;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.8);
+}
+/* line 121, ../scss/modules/_buttons.scss */
+.big_green:hover, .big_green:focus {
+  background-color: #5d6833;
+  color: rgba(255, 255, 255, 0.8);
 }
 
 /******************************************************************
@@ -1804,50 +1835,215 @@ body {
 }
 
 /* line 106, ../scss/breakpoints/_base.scss */
+.col10,
+.col15,
+.col20,
+.col30,
+.col40,
+.col45,
+.col50,
+.col60,
+.col70,
+.col80,
+.col90,
+.col100 {
+  display: inline-block;
+}
+
+/* line 121, ../scss/breakpoints/_base.scss */
+.col10 {
+  width: 10%;
+}
+
+/* line 124, ../scss/breakpoints/_base.scss */
+.col15 {
+  width: 15%;
+}
+
+/* line 127, ../scss/breakpoints/_base.scss */
+.col20 {
+  width: 20%;
+}
+
+/* line 130, ../scss/breakpoints/_base.scss */
+.col30 {
+  width: 30%;
+}
+
+/* line 133, ../scss/breakpoints/_base.scss */
+.col40 {
+  width: 40%;
+}
+
+/* line 136, ../scss/breakpoints/_base.scss */
+.col45 {
+  width: 45%;
+}
+
+/* line 139, ../scss/breakpoints/_base.scss */
+.col50 {
+  width: 50%;
+}
+
+/* line 142, ../scss/breakpoints/_base.scss */
+.col60 {
+  width: 60%;
+}
+
+/* line 145, ../scss/breakpoints/_base.scss */
+.col70 {
+  width: 70%;
+}
+
+/* line 148, ../scss/breakpoints/_base.scss */
+.col80 {
+  width: 80%;
+}
+
+/* line 151, ../scss/breakpoints/_base.scss */
+.col90 {
+  width: 90%;
+}
+
+/* line 154, ../scss/breakpoints/_base.scss */
+.col100 {
+  width: 100%;
+}
+
+/* line 158, ../scss/breakpoints/_base.scss */
+.formlabel {
+  margin-left: 30%;
+  padding: 0 25px;
+}
+/* line 161, ../scss/breakpoints/_base.scss */
+.formlabel label {
+  display: inline-block;
+  background: #7C8A44;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 13px;
+  border-top-left-radius: 10px !important;
+  border-top-right-radius: 10px !important;
+  padding: 8px 15px 5px;
+}
+
+/* line 172, ../scss/breakpoints/_base.scss */
 .formrow {
-  background: #383A34;
+  background: #7C8A44;
   display: block;
   border-radius: 5px;
   margin-bottom: 15px;
 }
-/* line 111, ../scss/breakpoints/_base.scss */
+/* line 179, ../scss/breakpoints/_base.scss */
 .formrow .label {
-  background: #7C8A44;
   display: inline-block;
   vertical-align: top;
   width: 30%;
   padding: 15px 20px;
   min-height: 92px;
-  border-top-left-radius: 5px !important;
-  border-bottom-left-radius: 5px !important;
 }
-/* line 120, ../scss/breakpoints/_base.scss */
+/* line 186, ../scss/breakpoints/_base.scss */
 .formrow .label label {
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.8);
 }
-/* line 123, ../scss/breakpoints/_base.scss */
+/* line 189, ../scss/breakpoints/_base.scss */
 .formrow .label span {
   display: block;
   font-size: 12px;
   text-transform: none;
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.6);
+  padding-bottom: 8px;
 }
-/* line 130, ../scss/breakpoints/_base.scss */
+/* line 197, ../scss/breakpoints/_base.scss */
 .formrow .input {
+  background: #383A34;
   display: inline-block;
   vertical-align: top;
   width: 70%;
   padding: 23px 25px;
+  min-height: 92px;
+  border-top-right-radius: 5px !important;
+  border-bottom-right-radius: 5px !important;
 }
-/* line 136, ../scss/breakpoints/_base.scss */
-.formrow .input input {
+/* line 207, ../scss/breakpoints/_base.scss */
+.formrow .input label {
+  display: inline-block !important;
+}
+/* line 211, ../scss/breakpoints/_base.scss */
+.formrow .input th label {
+  display: block !important;
+  background: #7C8A44;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 13px;
+  border-top-left-radius: 10px !important;
+  border-top-right-radius: 10px !important;
+  padding: 8px 15px 5px;
+}
+/* line 223, ../scss/breakpoints/_base.scss */
+.formrow .input input[type=text],
+.formrow .input input[type=password],
+.formrow .input select,
+.formrow .input textarea {
   margin: 0;
   width: 100%;
   max-width: none;
   background: #2c2d29;
 }
 
-/* line 145, ../scss/breakpoints/_base.scss */
+/* line 236, ../scss/breakpoints/_base.scss */
+input[type=checkbox] {
+  display: none;
+}
+/* line 238, ../scss/breakpoints/_base.scss */
+input[type=checkbox] + label:before {
+  font-family: icomoon;
+  display: inline-block;
+  content: "\ee64";
+  letter-spacing: 10px;
+}
+/* line 244, ../scss/breakpoints/_base.scss */
+input[type=checkbox]:checked + label:before {
+  display: inline-block;
+  content: "\ee63";
+  letter-spacing: 10px;
+}
+
+/* line 251, ../scss/breakpoints/_base.scss */
+input[type=radio] {
+  display: none;
+}
+/* line 253, ../scss/breakpoints/_base.scss */
+input[type=radio] + label:before {
+  font-family: icomoon;
+  display: inline-block;
+  content: "\ee70";
+  letter-spacing: 10px;
+}
+/* line 259, ../scss/breakpoints/_base.scss */
+input[type=radio]:checked + label:before {
+  display: inline-block;
+  content: "\ee6e";
+  letter-spacing: 10px;
+}
+
+/* line 267, ../scss/breakpoints/_base.scss */
+input.lockbox {
+  display: none;
+}
+/* line 269, ../scss/breakpoints/_base.scss */
+input.lockbox + label:before {
+  font-family: icomoon;
+  display: inline-block;
+  content: "\e903";
+  letter-spacing: 10px;
+}
+/* line 275, ../scss/breakpoints/_base.scss */
+input.lockbox:checked + label:before {
+  display: inline-block;
+  content: "\e902";
+  letter-spacing: 10px;
+}
+
+/* line 284, ../scss/breakpoints/_base.scss */
 .add_new {
   position: relative;
   background: #7C8A44;
@@ -1861,7 +2057,7 @@ body {
   -webkit-transition: all 0.8s ease-in-out;
   transition: all 0.8s ease-in-out;
 }
-/* line 156, ../scss/breakpoints/_base.scss */
+/* line 295, ../scss/breakpoints/_base.scss */
 .add_new i {
   -webkit-transition: all 0.8s ease-in-out;
   transition: all 0.8s ease-in-out;
@@ -1872,30 +2068,30 @@ body {
   top: 11px;
   right: 15px;
 }
-/* line 165, ../scss/breakpoints/_base.scss */
+/* line 304, ../scss/breakpoints/_base.scss */
 .add_new:hover, .add_new:focus {
   background: #CE7F17;
   border-top: 1px solid #E8A64F;
   border-bottom: 1px solid #A56613;
 }
-/* line 170, ../scss/breakpoints/_base.scss */
+/* line 309, ../scss/breakpoints/_base.scss */
 .add_new:hover i, .add_new:focus i {
   background: #b26e14;
 }
 
-/* line 179, ../scss/breakpoints/_base.scss */
+/* line 318, ../scss/breakpoints/_base.scss */
 #status, #docker {
   text-align: center;
   padding: 10px 0;
   background: #2c2d29;
 }
-/* line 183, ../scss/breakpoints/_base.scss */
+/* line 322, ../scss/breakpoints/_base.scss */
 #status .indicator, #docker .indicator {
   position: relative;
   width: 100%;
   margin: 10px 0;
 }
-/* line 187, ../scss/breakpoints/_base.scss */
+/* line 326, ../scss/breakpoints/_base.scss */
 #status .indicator .section_title, #docker .indicator .section_title {
   position: absolute;
   top: 35px;
@@ -1905,12 +2101,12 @@ body {
   font-size: 19px;
   font-weight: 300;
 }
-/* line 198, ../scss/breakpoints/_base.scss */
+/* line 337, ../scss/breakpoints/_base.scss */
 #status canvas, #docker canvas {
   position: relative;
   margin: 1px;
 }
-/* line 203, ../scss/breakpoints/_base.scss */
+/* line 342, ../scss/breakpoints/_base.scss */
 #status .status_container, #docker .status_container {
   position: absolute;
   top: 0;
@@ -1922,15 +2118,15 @@ body {
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
-/* line 212, ../scss/breakpoints/_base.scss */
+/* line 351, ../scss/breakpoints/_base.scss */
 #status .status_container.active, #docker .status_container.active {
   opacity: 1;
 }
-/* line 215, ../scss/breakpoints/_base.scss */
+/* line 354, ../scss/breakpoints/_base.scss */
 #status .status_container.clicked, #docker .status_container.clicked {
   opacity: 1;
 }
-/* line 220, ../scss/breakpoints/_base.scss */
+/* line 359, ../scss/breakpoints/_base.scss */
 #status .status_button, #docker .status_button {
   background: rgba(0, 0, 0, 0.9);
   width: 252px;
@@ -1941,7 +2137,7 @@ body {
   font-size: 12px;
   text-transform: none;
 }
-/* line 229, ../scss/breakpoints/_base.scss */
+/* line 368, ../scss/breakpoints/_base.scss */
 #status .status_button .title, #docker .status_button .title {
   color: #fafaf7;
   font-size: 20px;
@@ -1949,7 +2145,7 @@ body {
   line-height: 1.2;
   margin-bottom: 20px;
 }
-/* line 238, ../scss/breakpoints/_base.scss */
+/* line 377, ../scss/breakpoints/_base.scss */
 #status #over-free span, #docker #over-free span {
   text-align: center;
   font-size: 20px;
@@ -1958,7 +2154,7 @@ body {
   line-height: 21px;
   text-transform: uppercase;
 }
-/* line 246, ../scss/breakpoints/_base.scss */
+/* line 385, ../scss/breakpoints/_base.scss */
 #status #capacity-details, #docker #capacity-details {
   position: absolute;
   top: 148px;
@@ -1968,7 +2164,7 @@ body {
   line-height: 1;
   width: 100%;
 }
-/* line 256, ../scss/breakpoints/_base.scss */
+/* line 395, ../scss/breakpoints/_base.scss */
 #status .indicator_details, #docker .indicator_details {
   position: absolute;
   top: 148px;
@@ -1979,16 +2175,16 @@ body {
   line-height: 1.2;
   text-transform: none;
 }
-/* line 265, ../scss/breakpoints/_base.scss */
+/* line 404, ../scss/breakpoints/_base.scss */
 #status .indicator_details .title, #docker .indicator_details .title {
   font-size: 20px;
   text-transform: uppercase;
 }
-/* line 269, ../scss/breakpoints/_base.scss */
+/* line 408, ../scss/breakpoints/_base.scss */
 #status .indicator_details span, #docker .indicator_details span {
   color: #fafaf7;
 }
-/* line 273, ../scss/breakpoints/_base.scss */
+/* line 412, ../scss/breakpoints/_base.scss */
 #status .show_status, #docker .show_status {
   position: absolute;
   top: 40px;
@@ -2000,22 +2196,22 @@ body {
   vertical-align: bottom;
   line-height: 120px;
 }
-/* line 283, ../scss/breakpoints/_base.scss */
+/* line 422, ../scss/breakpoints/_base.scss */
 #status .show_status i, #docker .show_status i {
   font-size: 65px;
   line-height: 120px;
 }
 
-/* line 292, ../scss/breakpoints/_base.scss */
+/* line 431, ../scss/breakpoints/_base.scss */
 #download_image .section_title {
   top: 50px;
 }
-/* line 295, ../scss/breakpoints/_base.scss */
+/* line 434, ../scss/breakpoints/_base.scss */
 #download_image .show_status {
   top: 60px;
 }
 
-/* line 300, ../scss/breakpoints/_base.scss */
+/* line 439, ../scss/breakpoints/_base.scss */
 .decor-container {
   position: absolute;
   top: 0;
@@ -2024,7 +2220,7 @@ body {
   text-align: center;
 }
 
-/* line 307, ../scss/breakpoints/_base.scss */
+/* line 446, ../scss/breakpoints/_base.scss */
 .decor {
   display: block;
   margin: 0 auto 25px;
@@ -2042,7 +2238,7 @@ body {
   box-shadow: 0 -1px 1px rgba(0, 0, 0, 0.27), 0 1px 1px rgba(255, 255, 255, 0.18);
   position: relative;
 }
-/* line 324, ../scss/breakpoints/_base.scss */
+/* line 463, ../scss/breakpoints/_base.scss */
 .decor::before {
   content: '';
   border-radius: 100%;
@@ -2056,7 +2252,7 @@ body {
   -webkit-box-shadow: inset 0 -1px 1px rgba(0, 0, 0, 0.27), inset 0 1px 1px rgba(255, 255, 255, 0.18);
   box-shadow: inset 0 -1px 1px rgba(0, 0, 0, 0.27), inset 0 1px 1px rgba(255, 255, 255, 0.18);
 }
-/* line 337, ../scss/breakpoints/_base.scss */
+/* line 476, ../scss/breakpoints/_base.scss */
 .decor.work::after, .decor::after {
   content: '';
   position: absolute;
@@ -2066,12 +2262,12 @@ body {
   height: 50px;
 }
 
-/* line 350, ../scss/breakpoints/_base.scss */
+/* line 489, ../scss/breakpoints/_base.scss */
 .dashmodules section {
   display: block;
   background: #1B1D1B;
 }
-/* line 354, ../scss/breakpoints/_base.scss */
+/* line 493, ../scss/breakpoints/_base.scss */
 .dashmodules .system_info {
   padding: 20px;
   text-align: center;
@@ -2079,77 +2275,77 @@ body {
   font-weight: 400;
   color: #54564E;
 }
-/* line 360, ../scss/breakpoints/_base.scss */
+/* line 499, ../scss/breakpoints/_base.scss */
 .dashmodules .system_info ul {
   margin: 0;
 }
-/* line 363, ../scss/breakpoints/_base.scss */
+/* line 502, ../scss/breakpoints/_base.scss */
 .dashmodules .system_info li {
   display: inline-block;
   margin: 0 5px;
 }
-/* line 367, ../scss/breakpoints/_base.scss */
+/* line 506, ../scss/breakpoints/_base.scss */
 .dashmodules .system_info span.greentext {
   color: #7a7f75;
   display: inline-block;
 }
 
-/* line 374, ../scss/breakpoints/_base.scss */
+/* line 513, ../scss/breakpoints/_base.scss */
 #status.mini .decor {
   width: 122px;
   height: 122px;
 }
-/* line 378, ../scss/breakpoints/_base.scss */
+/* line 517, ../scss/breakpoints/_base.scss */
 #status.mini .decor::before {
   left: 5px;
   right: 5px;
   top: 5px;
   bottom: 5px;
 }
-/* line 385, ../scss/breakpoints/_base.scss */
+/* line 524, ../scss/breakpoints/_base.scss */
 #status.mini canvas {
   width: 120px;
   height: 120px;
 }
-/* line 389, ../scss/breakpoints/_base.scss */
+/* line 528, ../scss/breakpoints/_base.scss */
 #status.mini .show_status {
   top: -10px;
   font-size: 40px;
 }
-/* line 392, ../scss/breakpoints/_base.scss */
+/* line 531, ../scss/breakpoints/_base.scss */
 #status.mini .show_status i {
   font-size: 40px;
   position: relative;
   top: -4px;
 }
-/* line 398, ../scss/breakpoints/_base.scss */
+/* line 537, ../scss/breakpoints/_base.scss */
 #status.mini #over-free span {
   font-size: 12px;
   line-height: 12px;
 }
-/* line 402, ../scss/breakpoints/_base.scss */
+/* line 541, ../scss/breakpoints/_base.scss */
 #status.mini .indicator .section_title, #status.mini #capacity-details {
   font-weight: 400;
   font-size: 12px;
   top: 70px;
 }
-/* line 407, ../scss/breakpoints/_base.scss */
+/* line 546, ../scss/breakpoints/_base.scss */
 #status.mini .indicator_details {
   display: none;
 }
-/* line 410, ../scss/breakpoints/_base.scss */
+/* line 549, ../scss/breakpoints/_base.scss */
 #status.mini .status_button {
   width: 122px;
   height: 122px;
   padding: 10px 2px 0;
 }
-/* line 414, ../scss/breakpoints/_base.scss */
+/* line 553, ../scss/breakpoints/_base.scss */
 #status.mini .status_button .title {
   font-size: 12px;
   margin-bottom: 4px;
 }
 
-/* line 423, ../scss/breakpoints/_base.scss */
+/* line 562, ../scss/breakpoints/_base.scss */
 #pagecontainer .section1, #pagecontainer #status.full {
   border-top: 1px solid #3C3D39;
 }
@@ -2157,7 +2353,7 @@ body {
 /*********************
 LAYOUT & GRID STYLES
 *********************/
-/* line 432, ../scss/breakpoints/_base.scss */
+/* line 571, ../scss/breakpoints/_base.scss */
 .stoperrors {
   background: #cb3935;
   padding: 50px;
@@ -2165,13 +2361,13 @@ LAYOUT & GRID STYLES
   color: white;
 }
 
-/* line 440, ../scss/breakpoints/_base.scss */
+/* line 579, ../scss/breakpoints/_base.scss */
 .wrap {
   width: 100%;
   margin: 0 auto;
 }
 
-/* line 445, ../scss/breakpoints/_base.scss */
+/* line 584, ../scss/breakpoints/_base.scss */
 #content {
   display: table;
   table-layout: fixed;
@@ -2179,7 +2375,7 @@ LAYOUT & GRID STYLES
   position: relative;
 }
 
-/* line 451, ../scss/breakpoints/_base.scss */
+/* line 590, ../scss/breakpoints/_base.scss */
 #pagecontainer {
   display: table-cell;
   vertical-align: top;
@@ -2187,46 +2383,46 @@ LAYOUT & GRID STYLES
   padding-left: 80px;
 }
 
-/* line 458, ../scss/breakpoints/_base.scss */
+/* line 597, ../scss/breakpoints/_base.scss */
 .col {
   line-height: 1;
   padding: 4px 4px 4px;
 }
 
-/* line 462, ../scss/breakpoints/_base.scss */
+/* line 601, ../scss/breakpoints/_base.scss */
 .nothingtosee {
   padding: 50px 10px;
   text-align: center;
 }
 
-/* line 466, ../scss/breakpoints/_base.scss */
+/* line 605, ../scss/breakpoints/_base.scss */
 .disk-info {
   position: relative;
   text-align: left;
   padding-left: 80px;
 }
-/* line 470, ../scss/breakpoints/_base.scss */
+/* line 609, ../scss/breakpoints/_base.scss */
 .disk-info .spin {
   float: none;
   margin: 0;
 }
-/* line 474, ../scss/breakpoints/_base.scss */
+/* line 613, ../scss/breakpoints/_base.scss */
 .disk-info .col1 {
   width: 100%;
 }
-/* line 477, ../scss/breakpoints/_base.scss */
+/* line 616, ../scss/breakpoints/_base.scss */
 .disk-info div {
   display: inline-block;
   vertical-align: top;
 }
-/* line 481, ../scss/breakpoints/_base.scss */
+/* line 620, ../scss/breakpoints/_base.scss */
 .disk-info .diskid {
   font-size: 12px;
   font-weight: 400;
   word-wrap: break-word;
   display: block;
 }
-/* line 487, ../scss/breakpoints/_base.scss */
+/* line 626, ../scss/breakpoints/_base.scss */
 .disk-info .disk-ref {
   line-height: 22px;
   font-size: 22px;
@@ -2237,7 +2433,7 @@ LAYOUT & GRID STYLES
   vertical-align: top;
   position: relative;
 }
-/* line 497, ../scss/breakpoints/_base.scss */
+/* line 636, ../scss/breakpoints/_base.scss */
 .disk-info .disk-ref h2 {
   margin: 0;
   color: #BCBDB0;
@@ -2245,13 +2441,13 @@ LAYOUT & GRID STYLES
   font-size: 22px;
   line-height: 1;
 }
-/* line 505, ../scss/breakpoints/_base.scss */
+/* line 644, ../scss/breakpoints/_base.scss */
 .disk-info .disk_size {
   position: absolute;
   right: 10px;
   top: 10px;
 }
-/* line 506, ../scss/breakpoints/_base.scss */
+/* line 645, ../scss/breakpoints/_base.scss */
 .disk-info .disk-name {
   display: block;
   font-size: 11px;
@@ -2260,7 +2456,7 @@ LAYOUT & GRID STYLES
   line-height: 1;
   margin: 10px 0 10px;
 }
-/* line 508, ../scss/breakpoints/_base.scss */
+/* line 647, ../scss/breakpoints/_base.scss */
 .disk-info .disk {
   display: inline-block;
   width: 55px;
@@ -2268,15 +2464,15 @@ LAYOUT & GRID STYLES
   font-size: 55px;
   color: #A4BB44;
 }
-/* line 514, ../scss/breakpoints/_base.scss */
+/* line 653, ../scss/breakpoints/_base.scss */
 .disk-info .disk.spundown {
   opacity: 0.2;
 }
-/* line 517, ../scss/breakpoints/_base.scss */
+/* line 656, ../scss/breakpoints/_base.scss */
 .disk-info .mini-disk-info {
   margin-left: 5px;
 }
-/* line 520, ../scss/breakpoints/_base.scss */
+/* line 659, ../scss/breakpoints/_base.scss */
 .disk-info .drivecol {
   width: 60px;
   text-align: center;
@@ -2285,7 +2481,7 @@ LAYOUT & GRID STYLES
   left: 10px;
   top: 5px;
 }
-/* line 528, ../scss/breakpoints/_base.scss */
+/* line 667, ../scss/breakpoints/_base.scss */
 .disk-info .temp {
   font-size: 29px;
   display: inline-block;
@@ -2294,7 +2490,7 @@ LAYOUT & GRID STYLES
   min-width: 90px;
   text-align: ledt;
 }
-/* line 535, ../scss/breakpoints/_base.scss */
+/* line 674, ../scss/breakpoints/_base.scss */
 .disk-info .temp span {
   font-size: 18px;
   display: inline-block;
@@ -2303,7 +2499,7 @@ LAYOUT & GRID STYLES
   top: -8px;
   color: #898989;
 }
-/* line 544, ../scss/breakpoints/_base.scss */
+/* line 683, ../scss/breakpoints/_base.scss */
 .disk-info .spinico {
   display: inline-block;
   font-size: 26px;
@@ -2312,7 +2508,7 @@ LAYOUT & GRID STYLES
   margin-left: 0px;
   margin-top: 5px;
 }
-/* line 552, ../scss/breakpoints/_base.scss */
+/* line 691, ../scss/breakpoints/_base.scss */
 .disk-info .space-info {
   background: #1e1e1e;
   padding: 4px;
@@ -2320,30 +2516,30 @@ LAYOUT & GRID STYLES
   clear: both;
   font-size: 12px;
 }
-/* line 559, ../scss/breakpoints/_base.scss */
+/* line 698, ../scss/breakpoints/_base.scss */
 .disk-info .space {
   background: #898989;
   height: 8px;
   display: block;
   text-align: left;
 }
-/* line 565, ../scss/breakpoints/_base.scss */
+/* line 704, ../scss/breakpoints/_base.scss */
 .disk-info .used {
   background: #636363;
   height: 8px;
   border-right: 1px solid #1e1e1e;
 }
 
-/* line 573, ../scss/breakpoints/_base.scss */
+/* line 712, ../scss/breakpoints/_base.scss */
 .table-box {
   margin-bottom: 4px;
   padding: 10px 25px;
 }
-/* line 576, ../scss/breakpoints/_base.scss */
+/* line 715, ../scss/breakpoints/_base.scss */
 .table-box .failed {
   background: #630e0e;
 }
-/* line 579, ../scss/breakpoints/_base.scss */
+/* line 718, ../scss/breakpoints/_base.scss */
 .table-box .disk {
   display: inline-block;
   width: 40px;
@@ -2351,27 +2547,27 @@ LAYOUT & GRID STYLES
   font-size: 40px;
   color: #A4BB44;
 }
-/* line 585, ../scss/breakpoints/_base.scss */
+/* line 724, ../scss/breakpoints/_base.scss */
 .table-box .disk.spundown {
   opacity: 0.2;
 }
-/* line 589, ../scss/breakpoints/_base.scss */
+/* line 728, ../scss/breakpoints/_base.scss */
 .table-box.disk_errors .disk {
   color: #cb3935;
 }
-/* line 594, ../scss/breakpoints/_base.scss */
+/* line 733, ../scss/breakpoints/_base.scss */
 .table-box .spin {
   display: table-cell;
   width: 30px;
   vertical-align: top;
 }
-/* line 595, ../scss/breakpoints/_base.scss */
+/* line 734, ../scss/breakpoints/_base.scss */
 .table-box .disk_size {
   position: absolute;
   left: 180px;
   top: 0px;
 }
-/* line 596, ../scss/breakpoints/_base.scss */
+/* line 735, ../scss/breakpoints/_base.scss */
 .table-box .colspace {
   font-size: 13px;
   display: inline-block;
@@ -2379,7 +2575,7 @@ LAYOUT & GRID STYLES
   color: #7a7f75;
   margin-bottom: 3px;
 }
-/* line 602, ../scss/breakpoints/_base.scss */
+/* line 741, ../scss/breakpoints/_base.scss */
 .table-box .colspace span {
   font-size: 10px;
   display: inline-block;
@@ -2389,7 +2585,7 @@ LAYOUT & GRID STYLES
   left: 3px;
   color: #898989;
 }
-/* line 605, ../scss/breakpoints/_base.scss */
+/* line 744, ../scss/breakpoints/_base.scss */
 .table-box .spinico {
   display: inline-block;
   font-size: 20px;
@@ -2397,7 +2593,7 @@ LAYOUT & GRID STYLES
   color: #7a7f75;
   margin-left: 8px;
 }
-/* line 606, ../scss/breakpoints/_base.scss */
+/* line 745, ../scss/breakpoints/_base.scss */
 .table-box .disk-ref {
   line-height: 18px;
   font-size: 18px;
@@ -2409,7 +2605,7 @@ LAYOUT & GRID STYLES
   position: relative;
   word-wrap: break-word;
 }
-/* line 607, ../scss/breakpoints/_base.scss */
+/* line 746, ../scss/breakpoints/_base.scss */
 .table-box .disk-name {
   display: inline-block;
   font-size: 12px;
@@ -2417,14 +2613,14 @@ LAYOUT & GRID STYLES
   color: #bebebe;
   width: 242px;
 }
-/* line 608, ../scss/breakpoints/_base.scss */
+/* line 747, ../scss/breakpoints/_base.scss */
 .table-box .temp {
   font-size: 29px;
   display: inline-block;
   font-weight: 400;
   color: #7a7f75;
 }
-/* line 613, ../scss/breakpoints/_base.scss */
+/* line 752, ../scss/breakpoints/_base.scss */
 .table-box .temp span {
   font-size: 18px;
   display: inline-block;
@@ -2434,20 +2630,20 @@ LAYOUT & GRID STYLES
   color: #898989;
 }
 
-/* line 617, ../scss/breakpoints/_base.scss */
+/* line 756, ../scss/breakpoints/_base.scss */
 .redtext {
   color: #cb3935 !important;
 }
 
-/* line 619, ../scss/breakpoints/_base.scss */
+/* line 758, ../scss/breakpoints/_base.scss */
 .tabs ul {
   display: block;
 }
-/* line 621, ../scss/breakpoints/_base.scss */
+/* line 760, ../scss/breakpoints/_base.scss */
 .tabs ul li {
   display: block;
 }
-/* line 623, ../scss/breakpoints/_base.scss */
+/* line 762, ../scss/breakpoints/_base.scss */
 .tabs ul li a {
   padding: 10px 15px;
   color: #7a7f75;
@@ -2457,18 +2653,18 @@ LAYOUT & GRID STYLES
 /*********************
 LINK STYLES
 *********************/
-/* line 636, ../scss/breakpoints/_base.scss */
+/* line 775, ../scss/breakpoints/_base.scss */
 a, a:visited {
   color: #fff;
   /* on hover */
   /* on click */
   /* mobile tap color */
 }
-/* line 640, ../scss/breakpoints/_base.scss */
+/* line 779, ../scss/breakpoints/_base.scss */
 a:hover, a:focus, a:visited:hover, a:visited:focus {
   color: #ccc;
 }
-/* line 650, ../scss/breakpoints/_base.scss */
+/* line 789, ../scss/breakpoints/_base.scss */
 a:link, a:visited:link {
   /*
   this highlights links on iPhones/iPads.
@@ -2478,13 +2674,13 @@ a:link, a:visited:link {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0.3);
 }
 
-/* line 659, ../scss/breakpoints/_base.scss */
+/* line 798, ../scss/breakpoints/_base.scss */
 .account_button {
   padding: 4px 10px !important;
   margin-top: 10px;
 }
 
-/* line 663, ../scss/breakpoints/_base.scss */
+/* line 802, ../scss/breakpoints/_base.scss */
 .fr {
   float: right;
 }
@@ -2492,7 +2688,7 @@ a:link, a:visited:link {
 /******************************************************************
 H1, H2, H3, H4, H5 STYLES
 ******************************************************************/
-/* line 671, ../scss/breakpoints/_base.scss */
+/* line 810, ../scss/breakpoints/_base.scss */
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
   text-rendering: optimizelegibility;
   font-weight: 300;
@@ -2503,35 +2699,35 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
   */
   /* removing text decoration from all headline links */
 }
-/* line 681, ../scss/breakpoints/_base.scss */
+/* line 820, ../scss/breakpoints/_base.scss */
 h1 a, .h1 a, h2 a, .h2 a, h3 a, .h3 a, h4 a, .h4 a, h5 a, .h5 a {
   text-decoration: none;
 }
 
-/* line 686, ../scss/breakpoints/_base.scss */
+/* line 825, ../scss/breakpoints/_base.scss */
 h1, .h1 {
   font-size: 30px;
   line-height: 50px;
 }
 
-/* line 691, ../scss/breakpoints/_base.scss */
+/* line 830, ../scss/breakpoints/_base.scss */
 h2, .h2 {
   font-size: 25px;
   line-height: 29px;
 }
 
-/* line 696, ../scss/breakpoints/_base.scss */
+/* line 835, ../scss/breakpoints/_base.scss */
 h3, .h3 {
   font-size: 1.125em;
 }
 
-/* line 700, ../scss/breakpoints/_base.scss */
+/* line 839, ../scss/breakpoints/_base.scss */
 h4, .h4 {
   font-size: 1.1em;
   font-weight: 700;
 }
 
-/* line 705, ../scss/breakpoints/_base.scss */
+/* line 844, ../scss/breakpoints/_base.scss */
 h5, .h5 {
   font-size: 0.846em;
   line-height: 2.09em;
@@ -2542,38 +2738,38 @@ h5, .h5 {
 /*********************
 HEADER STYLES
 *********************/
-/* line 718, ../scss/breakpoints/_base.scss */
+/* line 857, ../scss/breakpoints/_base.scss */
 #header {
   border-bottom: 1px solid #121314;
 }
-/* line 720, ../scss/breakpoints/_base.scss */
+/* line 859, ../scss/breakpoints/_base.scss */
 #header #logo {
   background: #232621;
   text-align: center;
   color: #fafaf7;
 }
-/* line 724, ../scss/breakpoints/_base.scss */
+/* line 863, ../scss/breakpoints/_base.scss */
 #header #logo .h1 {
   font-weight: 600;
 }
-/* line 727, ../scss/breakpoints/_base.scss */
+/* line 866, ../scss/breakpoints/_base.scss */
 #header #logo span {
   color: #abc056;
   font-weight: 300;
 }
-/* line 730, ../scss/breakpoints/_base.scss */
+/* line 869, ../scss/breakpoints/_base.scss */
 #header #logo span.sub {
   color: #fafaf7;
   font-size: 16px;
   font-weight: 300;
 }
-/* line 737, ../scss/breakpoints/_base.scss */
+/* line 876, ../scss/breakpoints/_base.scss */
 #header section {
   height: 94px;
   padding: 30px 0 0;
   display: block;
 }
-/* line 743, ../scss/breakpoints/_base.scss */
+/* line 882, ../scss/breakpoints/_base.scss */
 #header #title {
   display: none;
   background: #1B1D1B;
@@ -2581,7 +2777,7 @@ HEADER STYLES
   color: #fafaf7;
 }
 
-/* line 750, ../scss/breakpoints/_base.scss */
+/* line 889, ../scss/breakpoints/_base.scss */
 .left {
   display: table-cell;
   vertical-align: top;
@@ -2594,11 +2790,11 @@ HEADER STYLES
 /*********************
 NAVIGATION STYLES
 *********************/
-/* line 763, ../scss/breakpoints/_base.scss */
+/* line 902, ../scss/breakpoints/_base.scss */
 #main-nav ul {
   margin: 0;
 }
-/* line 766, ../scss/breakpoints/_base.scss */
+/* line 905, ../scss/breakpoints/_base.scss */
 #main-nav ul li a {
   text-decoration: none;
   font-size: 18px;
@@ -2610,19 +2806,19 @@ NAVIGATION STYLES
   border-bottom: 1px solid #121314;
   position: relative;
 }
-/* line 776, ../scss/breakpoints/_base.scss */
+/* line 915, ../scss/breakpoints/_base.scss */
 #main-nav ul li a i {
   font-size: 26px;
   padding: 0 34px 0 24px;
   line-height: 64px;
   vertical-align: middle;
 }
-/* line 782, ../scss/breakpoints/_base.scss */
+/* line 921, ../scss/breakpoints/_base.scss */
 #main-nav ul li a i.icon-docker-plain {
   font-size: 38px;
   padding: 0 34px 0 19px;
 }
-/* line 789, ../scss/breakpoints/_base.scss */
+/* line 928, ../scss/breakpoints/_base.scss */
 #main-nav ul li.active a {
   background: #1c2018;
   border-top: 1px solid #121314;
@@ -2630,7 +2826,7 @@ NAVIGATION STYLES
   -moz-box-shadow: inset 0 0 10px 2px rgba(0, 0, 0, 0.4);
   box-shadow: inset 0 0 10px 2px rgba(0, 0, 0, 0.4);
 }
-/* line 793, ../scss/breakpoints/_base.scss */
+/* line 932, ../scss/breakpoints/_base.scss */
 #main-nav ul li.active a::after {
   content: " ";
   position: absolute;
@@ -2641,7 +2837,7 @@ NAVIGATION STYLES
   background: #abc056;
 }
 
-/* line 808, ../scss/breakpoints/_base.scss */
+/* line 947, ../scss/breakpoints/_base.scss */
 #content .left {
   width: 80px;
   -webkit-transition: all 0.2s ease-in-out;
@@ -2649,39 +2845,39 @@ NAVIGATION STYLES
   position: absolute;
   z-index: 11;
 }
-/* line 813, ../scss/breakpoints/_base.scss */
+/* line 952, ../scss/breakpoints/_base.scss */
 #content .left:hover {
   width: 320px;
 }
 
-/* line 821, ../scss/breakpoints/_base.scss */
+/* line 960, ../scss/breakpoints/_base.scss */
 .tab_container {
   position: relative;
 }
 
-/* line 824, ../scss/breakpoints/_base.scss */
+/* line 963, ../scss/breakpoints/_base.scss */
 .addontab {
   display: none;
 }
-/* line 826, ../scss/breakpoints/_base.scss */
+/* line 965, ../scss/breakpoints/_base.scss */
 .addontab.active {
   display: block;
 }
 
-/* line 830, ../scss/breakpoints/_base.scss */
+/* line 969, ../scss/breakpoints/_base.scss */
 .infotab {
   display: none;
 }
-/* line 832, ../scss/breakpoints/_base.scss */
+/* line 971, ../scss/breakpoints/_base.scss */
 .infotab.active {
   display: block;
 }
 
-/* line 837, ../scss/breakpoints/_base.scss */
+/* line 976, ../scss/breakpoints/_base.scss */
 .table-box {
   border-bottom: 1px solid #232621;
 }
-/* line 839, ../scss/breakpoints/_base.scss */
+/* line 978, ../scss/breakpoints/_base.scss */
 .table-box:last-child {
   border-bottom: none;
 }
@@ -2690,7 +2886,7 @@ NAVIGATION STYLES
 PAGE SPECIFIC STYLES
 *********************/
 /* DASHBOARD */
-/* line 853, ../scss/breakpoints/_base.scss */
+/* line 992, ../scss/breakpoints/_base.scss */
 .section1 {
   background: #2c2d29;
   padding: 30px 5px;
@@ -2698,17 +2894,17 @@ PAGE SPECIFIC STYLES
   text-align: left;
 }
 
-/* line 860, ../scss/breakpoints/_base.scss */
+/* line 999, ../scss/breakpoints/_base.scss */
 .center {
   text-align: center;
 }
 
-/* line 866, ../scss/breakpoints/_base.scss */
+/* line 1005, ../scss/breakpoints/_base.scss */
 .array_drives {
   vertical-align: top;
   box-sizing: border-box;
 }
-/* line 869, ../scss/breakpoints/_base.scss */
+/* line 1008, ../scss/breakpoints/_base.scss */
 .array_drives .drive_list {
   background: -moz-linear-gradient(top, #111310 0%, #131513 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #111310), color-stop(100%, #131513));
@@ -2739,26 +2935,26 @@ PAGE SPECIFIC STYLES
 .array_drives .drive_list > * {
   position: relative;
 }
-/* line 873, ../scss/breakpoints/_base.scss */
+/* line 1012, ../scss/breakpoints/_base.scss */
 .array_drives .drive_list ul {
   position: relative;
   margin: 0;
 }
-/* line 877, ../scss/breakpoints/_base.scss */
+/* line 1016, ../scss/breakpoints/_base.scss */
 .array_drives .drive_list li {
   padding: 4px 0;
 }
-/* line 880, ../scss/breakpoints/_base.scss */
+/* line 1019, ../scss/breakpoints/_base.scss */
 .array_drives .drive_list .alt {
   background: #232621;
 }
 
-/* line 889, ../scss/breakpoints/_base.scss */
+/* line 1028, ../scss/breakpoints/_base.scss */
 .bevelbox ul.nav {
   margin: 0;
   width: 260px;
 }
-/* line 893, ../scss/breakpoints/_base.scss */
+/* line 1032, ../scss/breakpoints/_base.scss */
 .bevelbox ul.nav li a {
   padding: 25px;
   background: #31322F;
@@ -2767,17 +2963,17 @@ PAGE SPECIFIC STYLES
   text-decoration: none;
   display: block;
 }
-/* line 902, ../scss/breakpoints/_base.scss */
+/* line 1041, ../scss/breakpoints/_base.scss */
 .bevelbox ul.nav li.active a {
   background: none;
   color: #abc056;
 }
-/* line 911, ../scss/breakpoints/_base.scss */
+/* line 1050, ../scss/breakpoints/_base.scss */
 .bevelbox .box-content ul {
   margin: 0;
 }
 
-/* line 916, ../scss/breakpoints/_base.scss */
+/* line 1055, ../scss/breakpoints/_base.scss */
 .radio {
   text-decoration: none;
 }
@@ -2791,7 +2987,7 @@ SIDEBARS & ASIDES
 /*********************
 FOOTER STYLES
 *********************/
-/* line 934, ../scss/breakpoints/_base.scss */
+/* line 1073, ../scss/breakpoints/_base.scss */
 footer.main {
   padding: 9px;
   text-align: center;
@@ -2802,25 +2998,25 @@ footer.main {
   right: 0;
   z-index: 99;
 }
-/* line 943, ../scss/breakpoints/_base.scss */
+/* line 1082, ../scss/breakpoints/_base.scss */
 footer.main i {
-  font-size: 30px;
+  font-size: 24px;
   display: inline-block;
   vertical-align: bottom;
   color: #ccc;
 }
-/* line 949, ../scss/breakpoints/_base.scss */
+/* line 1088, ../scss/breakpoints/_base.scss */
 footer.main .appname {
   line-height: 24px;
   display: inline-block;
   vertical-align: bottom;
 }
-/* line 954, ../scss/breakpoints/_base.scss */
+/* line 1093, ../scss/breakpoints/_base.scss */
 footer.main .appversion {
   text-transform: none;
   color: #ccc;
 }
-/* line 957, ../scss/breakpoints/_base.scss */
+/* line 1096, ../scss/breakpoints/_base.scss */
 footer.main .appversion span {
   color: #7a7f75;
 }
@@ -2828,7 +3024,7 @@ footer.main .appversion span {
 /*********************
 FORM STYLES
 *********************/
-/* line 969, ../scss/breakpoints/_base.scss */
+/* line 1108, ../scss/breakpoints/_base.scss */
 fieldset legend {
   border: 0;
   position: absolute !important;
@@ -2838,7 +3034,7 @@ fieldset legend {
   left: 25px;
 }
 
-/* line 980, ../scss/breakpoints/_base.scss */
+/* line 1119, ../scss/breakpoints/_base.scss */
 .ball {
   background-color: transparent;
   border: 5px solid rgba(204, 204, 204, 0.9);
@@ -2853,7 +3049,7 @@ fieldset legend {
   -webkit-animation: spin 2.5s infinite linear;
 }
 
-/* line 994, ../scss/breakpoints/_base.scss */
+/* line 1133, ../scss/breakpoints/_base.scss */
 .ball1 {
   background-color: transparent;
   border: 5px solid rgba(204, 204, 204, 0.9);
@@ -2870,7 +3066,7 @@ fieldset legend {
   -webkit-animation: spinoff 2.5s infinite linear;
 }
 
-/* line 1009, ../scss/breakpoints/_base.scss */
+/* line 1148, ../scss/breakpoints/_base.scss */
 .download_contain {
   position: absolute;
   top: 114px;
@@ -3318,18 +3514,22 @@ you can add resource intensive styles.
   #docker .options > * {
     position: relative;
   }
-  /* line 195, ../scss/breakpoints/_1030up.scss */
-  #docker .infotab {
-    padding: 30px 40px;
+  /* line 194, ../scss/breakpoints/_1030up.scss */
+  #docker .options .big_green {
+    margin: 0 40px 30px;
   }
-  /* line 197, ../scss/breakpoints/_1030up.scss */
+  /* line 198, ../scss/breakpoints/_1030up.scss */
+  #docker .infotab {
+    padding: 30px 40px 0;
+  }
+  /* line 200, ../scss/breakpoints/_1030up.scss */
   #docker .infotab section {
     margin-bottom: 30px;
     padding-bottom: 30px;
     border-bottom: 1px solid #1C1D19;
     position: relative;
   }
-  /* line 202, ../scss/breakpoints/_1030up.scss */
+  /* line 205, ../scss/breakpoints/_1030up.scss */
   #docker .infotab section::after {
     content: '';
     border-bottom: 1px solid #393A35;
@@ -3338,42 +3538,42 @@ you can add resource intensive styles.
     bottom: -2px;
     left: 0;
   }
-  /* line 210, ../scss/breakpoints/_1030up.scss */
+  /* line 213, ../scss/breakpoints/_1030up.scss */
   #docker .infotab section th {
     font-size: 13px;
     color: #5E6159;
     font-weight: 400;
   }
-  /* line 217, ../scss/breakpoints/_1030up.scss */
+  /* line 220, ../scss/breakpoints/_1030up.scss */
   #docker .resources {
     padding: 0px 40px 0;
     display: none;
   }
-  /* line 220, ../scss/breakpoints/_1030up.scss */
+  /* line 223, ../scss/breakpoints/_1030up.scss */
   #docker .resources label {
     display: inline-block;
     vertical-align: top;
     line-height: 65px;
     margin-right: 10px;
   }
-  /* line 226, ../scss/breakpoints/_1030up.scss */
+  /* line 229, ../scss/breakpoints/_1030up.scss */
   #docker .resources.active {
     display: block;
   }
 
-  /* line 233, ../scss/breakpoints/_1030up.scss */
+  /* line 236, ../scss/breakpoints/_1030up.scss */
   .array_drives {
     width: 30%;
     display: inline-block;
     vertical-align: top;
     box-sizing: border-box;
   }
-  /* line 238, ../scss/breakpoints/_1030up.scss */
+  /* line 241, ../scss/breakpoints/_1030up.scss */
   .array_drives .drive_list {
     margin: 0 5px;
   }
 
-  /* line 244, ../scss/breakpoints/_1030up.scss */
+  /* line 247, ../scss/breakpoints/_1030up.scss */
   .bevelbox {
     background: -moz-linear-gradient(top, #111310 0%, #131513 100%);
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #111310), color-stop(100%, #131513));
@@ -3406,27 +3606,27 @@ you can add resource intensive styles.
   .bevelbox > * {
     position: relative;
   }
-  /* line 250, ../scss/breakpoints/_1030up.scss */
+  /* line 253, ../scss/breakpoints/_1030up.scss */
   .bevelbox ul.nav {
     display: table-cell;
     vertical-align: top;
   }
-  /* line 254, ../scss/breakpoints/_1030up.scss */
+  /* line 257, ../scss/breakpoints/_1030up.scss */
   .bevelbox .box-content {
     display: table-cell;
     vertical-align: top;
   }
-  /* line 257, ../scss/breakpoints/_1030up.scss */
+  /* line 260, ../scss/breakpoints/_1030up.scss */
   .bevelbox .box-content li {
     display: table;
     width: 100%;
   }
-  /* line 261, ../scss/breakpoints/_1030up.scss */
+  /* line 264, ../scss/breakpoints/_1030up.scss */
   .bevelbox .box-content .modified {
     font-size: 12px;
   }
 
-  /* line 268, ../scss/breakpoints/_1030up.scss */
+  /* line 271, ../scss/breakpoints/_1030up.scss */
   .twocol {
     display: table-cell;
     vertical-align: top;
@@ -3435,7 +3635,7 @@ you can add resource intensive styles.
     text-align: center;
   }
 
-  /* line 275, ../scss/breakpoints/_1030up.scss */
+  /* line 278, ../scss/breakpoints/_1030up.scss */
   .threecol {
     display: table-cell;
     vertical-align: top;
@@ -3444,7 +3644,7 @@ you can add resource intensive styles.
     text-align: center;
   }
 
-  /* line 282, ../scss/breakpoints/_1030up.scss */
+  /* line 285, ../scss/breakpoints/_1030up.scss */
   .fourcol {
     display: table-cell;
     vertical-align: top;
@@ -3453,64 +3653,64 @@ you can add resource intensive styles.
     text-align: center;
   }
 
-  /* line 290, ../scss/breakpoints/_1030up.scss */
+  /* line 293, ../scss/breakpoints/_1030up.scss */
   .header {
     background: #1B1D1B;
     margin-bottom: 10px;
   }
-  /* line 293, ../scss/breakpoints/_1030up.scss */
+  /* line 296, ../scss/breakpoints/_1030up.scss */
   .header .fourcol {
     padding: 25px 10px;
   }
 
-  /* line 299, ../scss/breakpoints/_1030up.scss */
+  /* line 302, ../scss/breakpoints/_1030up.scss */
   #docker {
     text-align: left;
     padding-top: 16px;
   }
-  /* line 304, ../scss/breakpoints/_1030up.scss */
+  /* line 307, ../scss/breakpoints/_1030up.scss */
   #docker h2 span {
     font-size: 14px;
     line-height: 23px;
     vertical-align: top;
   }
-  /* line 308, ../scss/breakpoints/_1030up.scss */
+  /* line 311, ../scss/breakpoints/_1030up.scss */
   #docker h2 span.running {
     color: #A4BB44;
   }
-  /* line 311, ../scss/breakpoints/_1030up.scss */
+  /* line 314, ../scss/breakpoints/_1030up.scss */
   #docker h2 span.stopped {
     color: #cb3935;
   }
 
-  /* line 319, ../scss/breakpoints/_1030up.scss */
+  /* line 322, ../scss/breakpoints/_1030up.scss */
   nav.secondary ul.docker_menu li.active i {
     font-size: 19px;
   }
-  /* line 321, ../scss/breakpoints/_1030up.scss */
+  /* line 324, ../scss/breakpoints/_1030up.scss */
   nav.secondary ul.docker_menu li.active i.dockstatus.running {
     color: #abc056 !important;
   }
 
-  /* line 327, ../scss/breakpoints/_1030up.scss */
+  /* line 330, ../scss/breakpoints/_1030up.scss */
   .docker_menu .new_docker {
     background: #CE7F17;
   }
-  /* line 329, ../scss/breakpoints/_1030up.scss */
+  /* line 332, ../scss/breakpoints/_1030up.scss */
   .docker_menu .new_docker a {
     color: white;
   }
-  /* line 334, ../scss/breakpoints/_1030up.scss */
+  /* line 337, ../scss/breakpoints/_1030up.scss */
   .docker_menu .dockstatus {
     font-size: 19px;
     margin-right: 10px;
     display: inline-block;
   }
-  /* line 339, ../scss/breakpoints/_1030up.scss */
+  /* line 342, ../scss/breakpoints/_1030up.scss */
   .docker_menu .dockstatus.running {
     color: #A4BB44;
   }
-  /* line 342, ../scss/breakpoints/_1030up.scss */
+  /* line 345, ../scss/breakpoints/_1030up.scss */
   .docker_menu .name {
     display: inline-block;
     font-size: 15px;
@@ -3518,25 +3718,25 @@ you can add resource intensive styles.
     line-height: 1.2;
     vertical-align: middle;
   }
-  /* line 348, ../scss/breakpoints/_1030up.scss */
+  /* line 351, ../scss/breakpoints/_1030up.scss */
   .docker_menu .name span {
     display: block;
     font-size: 10px;
     text-transform: none;
   }
-  /* line 354, ../scss/breakpoints/_1030up.scss */
+  /* line 357, ../scss/breakpoints/_1030up.scss */
   .docker_menu .dockstatus.stopped {
     color: #cb3935;
   }
 
-  /* line 360, ../scss/breakpoints/_1030up.scss */
+  /* line 363, ../scss/breakpoints/_1030up.scss */
   .docker_list {
     display: inline-block;
     vertical-align: top;
     width: 50%;
     text-align: center;
   }
-  /* line 365, ../scss/breakpoints/_1030up.scss */
+  /* line 368, ../scss/breakpoints/_1030up.scss */
   .docker_list .inner {
     width: 400px;
     display: inline-block;
@@ -3545,28 +3745,28 @@ you can add resource intensive styles.
     vertical-align: middle;
     line-height: 3.2;
   }
-  /* line 372, ../scss/breakpoints/_1030up.scss */
+  /* line 375, ../scss/breakpoints/_1030up.scss */
   .docker_list .inner h4 {
     margin: 0;
   }
-  /* line 376, ../scss/breakpoints/_1030up.scss */
+  /* line 379, ../scss/breakpoints/_1030up.scss */
   .docker_list .more_recommended {
     text-align: right;
   }
-  /* line 378, ../scss/breakpoints/_1030up.scss */
+  /* line 381, ../scss/breakpoints/_1030up.scss */
   .docker_list .more_recommended a {
     color: #CE7F17;
     text-decoration: none;
   }
 
-  /* line 384, ../scss/breakpoints/_1030up.scss */
+  /* line 387, ../scss/breakpoints/_1030up.scss */
   .downloading_image {
     padding: 100px;
     text-align: center;
     position: relative;
   }
 
-  /* line 390, ../scss/breakpoints/_1030up.scss */
+  /* line 393, ../scss/breakpoints/_1030up.scss */
   .dockers {
     width: 400px;
     background: #1B1D1B;
@@ -3576,7 +3776,7 @@ you can add resource intensive styles.
     border: 1px solid #232621;
     position: relative;
   }
-  /* line 398, ../scss/breakpoints/_1030up.scss */
+  /* line 401, ../scss/breakpoints/_1030up.scss */
   .dockers .image_column {
     display: inline-block;
     vertical-align: top;
@@ -3586,29 +3786,29 @@ you can add resource intensive styles.
     background: #232621;
     height: 205px;
   }
-  /* line 406, ../scss/breakpoints/_1030up.scss */
+  /* line 409, ../scss/breakpoints/_1030up.scss */
   .dockers .image_column img {
     width: 70px;
   }
-  /* line 409, ../scss/breakpoints/_1030up.scss */
+  /* line 412, ../scss/breakpoints/_1030up.scss */
   .dockers .image_column i {
     font-size: 45px;
   }
-  /* line 414, ../scss/breakpoints/_1030up.scss */
+  /* line 417, ../scss/breakpoints/_1030up.scss */
   .dockers .dockerinstall {
     position: absolute;
     bottom: 10px;
     right: 10px;
   }
-  /* line 420, ../scss/breakpoints/_1030up.scss */
+  /* line 423, ../scss/breakpoints/_1030up.scss */
   .dockers .author {
     font-size: 10px;
   }
-  /* line 423, ../scss/breakpoints/_1030up.scss */
+  /* line 426, ../scss/breakpoints/_1030up.scss */
   .dockers h4 {
     margin: 0 0 10px;
   }
-  /* line 426, ../scss/breakpoints/_1030up.scss */
+  /* line 429, ../scss/breakpoints/_1030up.scss */
   .dockers .docker_details {
     display: inline-block;
     vertical-align: top;
@@ -3616,14 +3816,14 @@ you can add resource intensive styles.
     text-align: left;
     padding: 15px 30px;
   }
-  /* line 433, ../scss/breakpoints/_1030up.scss */
+  /* line 436, ../scss/breakpoints/_1030up.scss */
   .dockers .text_desc {
     text-transform: none;
     font-size: 13px;
     height: 78px;
     overflow: hidden;
   }
-  /* line 439, ../scss/breakpoints/_1030up.scss */
+  /* line 442, ../scss/breakpoints/_1030up.scss */
   .dockers .supportlink {
     position: absolute;
     bottom: 21px;
@@ -3632,7 +3832,7 @@ you can add resource intensive styles.
     font-size: 12px;
     color: #CE7F17;
   }
-  /* line 447, ../scss/breakpoints/_1030up.scss */
+  /* line 450, ../scss/breakpoints/_1030up.scss */
   .dockers .detailslink {
     position: absolute;
     bottom: 21px;
@@ -3650,23 +3850,23 @@ you can add resource intensive styles.
   /*********************
   SIDEBARS & ASIDES
   *********************/
-  /* line 469, ../scss/breakpoints/_1030up.scss */
+  /* line 472, ../scss/breakpoints/_1030up.scss */
   nav.secondary {
     height: 100%;
   }
-  /* line 473, ../scss/breakpoints/_1030up.scss */
+  /* line 476, ../scss/breakpoints/_1030up.scss */
   nav.secondary ul {
     margin: 0;
     padding: 0px;
   }
-  /* line 476, ../scss/breakpoints/_1030up.scss */
+  /* line 479, ../scss/breakpoints/_1030up.scss */
   nav.secondary ul li {
     line-height: 4.2;
     white-space: nowrap;
     width: 240px;
     overflow: hidden;
   }
-  /* line 481, ../scss/breakpoints/_1030up.scss */
+  /* line 484, ../scss/breakpoints/_1030up.scss */
   nav.secondary ul li h3 {
     font-weight: 600;
     margin: 0;
@@ -3674,7 +3874,7 @@ you can add resource intensive styles.
     padding: 0px 20px;
     line-height: 4;
   }
-  /* line 488, ../scss/breakpoints/_1030up.scss */
+  /* line 491, ../scss/breakpoints/_1030up.scss */
   nav.secondary ul li a {
     text-decoration: none;
     text-transform: none;
@@ -3684,53 +3884,53 @@ you can add resource intensive styles.
     font-size: 13px;
     color: #BCBDB0;
   }
-  /* line 498, ../scss/breakpoints/_1030up.scss */
+  /* line 501, ../scss/breakpoints/_1030up.scss */
   nav.secondary ul li.active > a {
     background: #697539;
     border-top: 1px solid #52554f;
     border-bottom: 1px solid #52554f;
     color: #fafaf7;
   }
-  /* line 504, ../scss/breakpoints/_1030up.scss */
+  /* line 507, ../scss/breakpoints/_1030up.scss */
   nav.secondary ul li.active ul {
     margin: 10px 0;
   }
-  /* line 507, ../scss/breakpoints/_1030up.scss */
+  /* line 510, ../scss/breakpoints/_1030up.scss */
   nav.secondary ul li.active li {
     padding: 0 0 0 10px;
   }
-  /* line 509, ../scss/breakpoints/_1030up.scss */
+  /* line 512, ../scss/breakpoints/_1030up.scss */
   nav.secondary ul li.active li a {
     line-height: 2;
   }
-  /* line 513, ../scss/breakpoints/_1030up.scss */
+  /* line 516, ../scss/breakpoints/_1030up.scss */
   nav.secondary ul li.active .highlight > a {
     color: #abc056;
   }
-  /* line 516, ../scss/breakpoints/_1030up.scss */
+  /* line 519, ../scss/breakpoints/_1030up.scss */
   nav.secondary ul li.active i {
     font-size: 12px;
     margin-right: 10px;
   }
 
-  /* line 527, ../scss/breakpoints/_1030up.scss */
+  /* line 530, ../scss/breakpoints/_1030up.scss */
   .content-with-submenu {
     background: #383A34;
     display: table;
     width: 100%;
   }
-  /* line 531, ../scss/breakpoints/_1030up.scss */
+  /* line 534, ../scss/breakpoints/_1030up.scss */
   .content-with-submenu .submenu {
     display: table-cell;
     vertical-align: top;
     width: 240px;
     border-top: 1px solid #51544C;
   }
-  /* line 536, ../scss/breakpoints/_1030up.scss */
+  /* line 539, ../scss/breakpoints/_1030up.scss */
   .content-with-submenu .submenu .br {
     border-top: 1px solid #fff;
   }
-  /* line 540, ../scss/breakpoints/_1030up.scss */
+  /* line 543, ../scss/breakpoints/_1030up.scss */
   .content-with-submenu .rightcontent {
     display: table-cell;
     vertical-align: top;
@@ -3742,7 +3942,7 @@ you can add resource intensive styles.
   /*********************
   FORM STYLES
   *********************/
-  /* line 555, ../scss/breakpoints/_1030up.scss */
+  /* line 558, ../scss/breakpoints/_1030up.scss */
   fieldset {
     border: 0 none;
     position: relative;
