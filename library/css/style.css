@@ -1948,7 +1948,7 @@ cpu_custom {
 }
 /* line 189, ../scss/breakpoints/_base.scss */
 .formrow .label label {
-  color: rgba(255, 255, 255, 0.8);
+  color: #7a7f75;
 }
 /* line 192, ../scss/breakpoints/_base.scss */
 .formrow .label span {
@@ -2796,12 +2796,35 @@ HEADER STYLES
 /* line 903, ../scss/breakpoints/_base.scss */
 #header #title {
   display: none;
-  background: #1B1D1B;
+  background: #7a7f75;
   padding-left: 40px;
   color: #fafaf7;
 }
 
 /* line 910, ../scss/breakpoints/_base.scss */
+ul.action_buttons {
+  list-style-type: none;
+  padding: 0px;
+  overflow: hidden;
+}
+/* line 914, ../scss/breakpoints/_base.scss */
+ul.action_buttons li {
+  display: inline-block;
+}
+/* line 917, ../scss/breakpoints/_base.scss */
+ul.action_buttons a {
+  color: #7a7f75;
+  background: #1B1D1B;
+  line-height: 1.5;
+  padding: 10px 25px;
+  font-size: 13px;
+  margin-right: 15px;
+  display: inline-block;
+  zoom: 1;
+  text-decoration: none;
+}
+
+/* line 931, ../scss/breakpoints/_base.scss */
 .left {
   display: table-cell;
   vertical-align: top;
@@ -2814,11 +2837,11 @@ HEADER STYLES
 /*********************
 NAVIGATION STYLES
 *********************/
-/* line 923, ../scss/breakpoints/_base.scss */
+/* line 944, ../scss/breakpoints/_base.scss */
 #main-nav ul {
   margin: 0;
 }
-/* line 926, ../scss/breakpoints/_base.scss */
+/* line 947, ../scss/breakpoints/_base.scss */
 #main-nav ul li a {
   text-decoration: none;
   font-size: 18px;
@@ -2830,19 +2853,19 @@ NAVIGATION STYLES
   border-bottom: 1px solid #121314;
   position: relative;
 }
-/* line 936, ../scss/breakpoints/_base.scss */
+/* line 957, ../scss/breakpoints/_base.scss */
 #main-nav ul li a i {
   font-size: 26px;
   padding: 0 34px 0 24px;
   line-height: 64px;
   vertical-align: middle;
 }
-/* line 942, ../scss/breakpoints/_base.scss */
+/* line 963, ../scss/breakpoints/_base.scss */
 #main-nav ul li a i.icon-docker-plain {
   font-size: 38px;
   padding: 0 34px 0 19px;
 }
-/* line 949, ../scss/breakpoints/_base.scss */
+/* line 970, ../scss/breakpoints/_base.scss */
 #main-nav ul li.active a {
   background: #1c2018;
   border-top: 1px solid #121314;
@@ -2850,7 +2873,7 @@ NAVIGATION STYLES
   -moz-box-shadow: inset 0 0 10px 2px rgba(0, 0, 0, 0.4);
   box-shadow: inset 0 0 10px 2px rgba(0, 0, 0, 0.4);
 }
-/* line 953, ../scss/breakpoints/_base.scss */
+/* line 974, ../scss/breakpoints/_base.scss */
 #main-nav ul li.active a::after {
   content: " ";
   position: absolute;
@@ -2861,7 +2884,7 @@ NAVIGATION STYLES
   background: #abc056;
 }
 
-/* line 968, ../scss/breakpoints/_base.scss */
+/* line 989, ../scss/breakpoints/_base.scss */
 #content .left {
   width: 80px;
   -webkit-transition: all 0.2s ease-in-out;
@@ -2869,39 +2892,39 @@ NAVIGATION STYLES
   position: absolute;
   z-index: 11;
 }
-/* line 973, ../scss/breakpoints/_base.scss */
+/* line 994, ../scss/breakpoints/_base.scss */
 #content .left:hover {
   width: 320px;
 }
 
-/* line 981, ../scss/breakpoints/_base.scss */
+/* line 1002, ../scss/breakpoints/_base.scss */
 .tab_container {
   position: relative;
 }
 
-/* line 984, ../scss/breakpoints/_base.scss */
+/* line 1005, ../scss/breakpoints/_base.scss */
 .addontab {
   display: none;
 }
-/* line 986, ../scss/breakpoints/_base.scss */
+/* line 1007, ../scss/breakpoints/_base.scss */
 .addontab.active {
   display: block;
 }
 
-/* line 990, ../scss/breakpoints/_base.scss */
+/* line 1011, ../scss/breakpoints/_base.scss */
 .infotab {
   display: none;
 }
-/* line 992, ../scss/breakpoints/_base.scss */
+/* line 1013, ../scss/breakpoints/_base.scss */
 .infotab.active {
   display: block;
 }
 
-/* line 997, ../scss/breakpoints/_base.scss */
+/* line 1018, ../scss/breakpoints/_base.scss */
 .table-box {
   border-bottom: 1px solid #232621;
 }
-/* line 999, ../scss/breakpoints/_base.scss */
+/* line 1020, ../scss/breakpoints/_base.scss */
 .table-box:last-child {
   border-bottom: none;
 }
@@ -2910,7 +2933,7 @@ NAVIGATION STYLES
 PAGE SPECIFIC STYLES
 *********************/
 /* DASHBOARD */
-/* line 1013, ../scss/breakpoints/_base.scss */
+/* line 1034, ../scss/breakpoints/_base.scss */
 .section1 {
   background: #2c2d29;
   padding: 30px 5px;
@@ -2918,17 +2941,17 @@ PAGE SPECIFIC STYLES
   text-align: left;
 }
 
-/* line 1020, ../scss/breakpoints/_base.scss */
+/* line 1041, ../scss/breakpoints/_base.scss */
 .center {
   text-align: center;
 }
 
-/* line 1026, ../scss/breakpoints/_base.scss */
+/* line 1047, ../scss/breakpoints/_base.scss */
 .array_drives {
   vertical-align: top;
   box-sizing: border-box;
 }
-/* line 1029, ../scss/breakpoints/_base.scss */
+/* line 1050, ../scss/breakpoints/_base.scss */
 .array_drives .drive_list {
   background: -moz-linear-gradient(top, #111310 0%, #131513 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #111310), color-stop(100%, #131513));
@@ -2959,26 +2982,26 @@ PAGE SPECIFIC STYLES
 .array_drives .drive_list > * {
   position: relative;
 }
-/* line 1033, ../scss/breakpoints/_base.scss */
+/* line 1054, ../scss/breakpoints/_base.scss */
 .array_drives .drive_list ul {
   position: relative;
   margin: 0;
 }
-/* line 1037, ../scss/breakpoints/_base.scss */
+/* line 1058, ../scss/breakpoints/_base.scss */
 .array_drives .drive_list li {
   padding: 4px 0;
 }
-/* line 1040, ../scss/breakpoints/_base.scss */
+/* line 1061, ../scss/breakpoints/_base.scss */
 .array_drives .drive_list .alt {
   background: #232621;
 }
 
-/* line 1049, ../scss/breakpoints/_base.scss */
+/* line 1070, ../scss/breakpoints/_base.scss */
 .bevelbox ul.nav {
   margin: 0;
   width: 260px;
 }
-/* line 1053, ../scss/breakpoints/_base.scss */
+/* line 1074, ../scss/breakpoints/_base.scss */
 .bevelbox ul.nav li a {
   padding: 25px;
   background: #31322F;
@@ -2987,17 +3010,17 @@ PAGE SPECIFIC STYLES
   text-decoration: none;
   display: block;
 }
-/* line 1062, ../scss/breakpoints/_base.scss */
+/* line 1083, ../scss/breakpoints/_base.scss */
 .bevelbox ul.nav li.active a {
   background: none;
   color: #abc056;
 }
-/* line 1071, ../scss/breakpoints/_base.scss */
+/* line 1092, ../scss/breakpoints/_base.scss */
 .bevelbox .box-content ul {
   margin: 0;
 }
 
-/* line 1076, ../scss/breakpoints/_base.scss */
+/* line 1097, ../scss/breakpoints/_base.scss */
 .radio {
   text-decoration: none;
 }
@@ -3011,7 +3034,7 @@ SIDEBARS & ASIDES
 /*********************
 FOOTER STYLES
 *********************/
-/* line 1094, ../scss/breakpoints/_base.scss */
+/* line 1115, ../scss/breakpoints/_base.scss */
 footer.main {
   padding: 9px;
   text-align: center;
@@ -3022,25 +3045,25 @@ footer.main {
   right: 0;
   z-index: 99;
 }
-/* line 1103, ../scss/breakpoints/_base.scss */
+/* line 1124, ../scss/breakpoints/_base.scss */
 footer.main i {
   font-size: 24px;
   display: inline-block;
   vertical-align: bottom;
   color: #ccc;
 }
-/* line 1109, ../scss/breakpoints/_base.scss */
+/* line 1130, ../scss/breakpoints/_base.scss */
 footer.main .appname {
   line-height: 24px;
   display: inline-block;
   vertical-align: bottom;
 }
-/* line 1114, ../scss/breakpoints/_base.scss */
+/* line 1135, ../scss/breakpoints/_base.scss */
 footer.main .appversion {
   text-transform: none;
   color: #ccc;
 }
-/* line 1117, ../scss/breakpoints/_base.scss */
+/* line 1138, ../scss/breakpoints/_base.scss */
 footer.main .appversion span {
   color: #7a7f75;
 }
@@ -3048,7 +3071,7 @@ footer.main .appversion span {
 /*********************
 FORM STYLES
 *********************/
-/* line 1129, ../scss/breakpoints/_base.scss */
+/* line 1150, ../scss/breakpoints/_base.scss */
 fieldset legend {
   border: 0;
   position: absolute !important;
@@ -3058,7 +3081,7 @@ fieldset legend {
   left: 25px;
 }
 
-/* line 1140, ../scss/breakpoints/_base.scss */
+/* line 1161, ../scss/breakpoints/_base.scss */
 .ball {
   background-color: transparent;
   border: 5px solid rgba(204, 204, 204, 0.9);
@@ -3073,7 +3096,7 @@ fieldset legend {
   -webkit-animation: spin 2.5s infinite linear;
 }
 
-/* line 1154, ../scss/breakpoints/_base.scss */
+/* line 1175, ../scss/breakpoints/_base.scss */
 .ball1 {
   background-color: transparent;
   border: 5px solid rgba(204, 204, 204, 0.9);
@@ -3090,7 +3113,7 @@ fieldset legend {
   -webkit-animation: spinoff 2.5s infinite linear;
 }
 
-/* line 1169, ../scss/breakpoints/_base.scss */
+/* line 1190, ../scss/breakpoints/_base.scss */
 .download_contain {
   position: absolute;
   top: 114px;

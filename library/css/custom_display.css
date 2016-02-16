@@ -33,24 +33,4 @@ h2.underline {
 }
 
 
-/* Action Buttons */
-ul.action_bottoms {
-	list-style-type: none;
-	padding: 0px;
-	overflow: hidden;
-}
-ul.action_bottoms li {
-	float: left;
-}
 
-ul.action_bottoms li a, a.action_bottom {
-	background: #1B1D1B;
-	line-height: 1.5;
-    padding: 10px 25px;
-    font-size: 13px;
-	margin-right: 15px;
-	display: inline-block;
-	zoom: 1;
-    *display: inline;
-	text-decoration: none;
-}

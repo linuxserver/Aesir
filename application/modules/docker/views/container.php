@@ -9,7 +9,7 @@
         <?php //$this->load->view( 'status', array( 'statustype' => 'mini' ) ); 
 
             $up = ( $container_details[0]['State']['Running'] == '1') ? true : false;
-            $status = ( $up ) ? '<span class="running">'.__('Running').'</span>' : '<span class="stopped">'.__('Stopped').'</span>';
+            $status = ( $up ) ? ' <span class="running">'.__('Running').'</span>' : ' <span class="stopped">'.__('Stopped').'</span>';
 			
 			$id = $container_details[0]['Id'];
 			$image_id = $container_details[0]['Image'];
@@ -42,7 +42,7 @@
                 <h2><?php echo $name.$status;?></h2>    
 
 				
-                <ul class="action_bottoms">
+                <ul class="action_buttons">
                     <?php if( $up ) { ?>
                     <li><a href="<?php echo site_url( 'docker/container/'.$active_menu.'/stop' );?>">Stop</a></li>
                     <li><a href="<?php echo site_url( 'docker/container/'.$active_menu.'/restart' );?>">Restart</a></li>

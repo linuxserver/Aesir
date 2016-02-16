@@ -187,7 +187,7 @@ cpu_custom {
 		padding: 15px 20px;
 		min-height: 92px;
 		label {
-			color: rgba(255,255,255,0.8);
+			color: $text-color;
 		}
 		span {
 			display: block;
@@ -902,11 +902,32 @@ HEADER STYLES
 	}
 	#title {
 		display: none;
-		background: $darker;
+		background: $text-color;
 		padding-left: 40px;
 		color: $white;
 	}
 }
+ul.action_buttons {
+    list-style-type: none;
+    padding: 0px;
+    overflow: hidden;
+    li {
+    	display: inline-block;
+    }
+    a {
+    	color: $text-color;
+    	background: $darker;
+		line-height: 1.5;
+    	padding: 10px 25px;
+    	font-size: 13px;
+		margin-right: 15px;
+		display: inline-block;
+		zoom: 1;
+		text-decoration: none;
+
+    }
+}
+
 .left {
 	display:table-cell;
 	vertical-align: top;
