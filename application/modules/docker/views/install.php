@@ -45,7 +45,7 @@
 
                                         <div class="formrow">
 
-                                            <div class="label"><label><?php _e('Volumes')?> <span><?php _e('Folder/Directory mapping')?></span><span><?php _e('Local file folder: Where the data really exists')?></span><span><?php _e('Container Mount Path: Where the container thinks it exists')?></span></label></div><div class="input">
+                                            <div class="label"><label><?php _e('Volumes')?> <span><?php _e('Folder/Directory mapping')?></span><span><?php _e('Local file folder: Where the data really exists')?></span><span><?php _e('Container Mount Path: Where the container thinks it exists')?></span></label></div><div class="input" style="min-height: 178px;">
 
                                                 <table style="width: 100%">
                                                     <tr><th class="col45"><label><?php _e('Local File/Folder');?></label></th><th class="col45"><label><?php _e('Container path');?></label></th><th class="col10"></th></tr>
